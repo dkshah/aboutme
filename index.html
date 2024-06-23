@@ -10,40 +10,45 @@
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #f0f2f5;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
         .header {
-            background-color: #3b3b98;
+            background-color: #2c3e50;
             color: white;
-            padding: 20px;
+            padding: 40px;
             display: flex;
             align-items: center;
             width: 100%;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
         .profile-img {
             border-radius: 50%;
             margin-right: 20px;
+            border: 5px solid #ecf0f1;
         }
         .header-content {
             display: flex;
             flex-direction: column;
+            align-items: center;
+            text-align: center;
         }
         .header-content h1 {
             margin: 0;
-            font-size: 32px;
+            font-size: 36px;
             font-weight: 700;
         }
         .header-content h2 {
-            margin: 5px 0;
+            margin: 10px 0;
             font-weight: 500;
             font-size: 24px;
         }
         .header-content p {
-            margin: 5px 0;
-            font-size: 16px;
+            margin: 10px 0;
+            font-size: 18px;
         }
         .main-container {
             display: flex;
@@ -54,7 +59,7 @@
             background-color: white;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
         .main-content {
             flex: 3;
@@ -72,6 +77,7 @@
         .section h2 {
             margin-bottom: 10px;
             font-size: 24px;
+            color: #2c3e50;
         }
         .highlights {
             display: flex;
@@ -79,7 +85,8 @@
             flex-wrap: wrap;
         }
         .highlight-item {
-            background-color: #ffdd57;
+            background-color: #3498db;
+            color: white;
             padding: 10px;
             border-radius: 5px;
             text-align: center;
@@ -94,7 +101,7 @@
             gap: 10px;
         }
         .nav-button {
-            background-color: #4b4b9a;
+            background-color: #e74c3c;
             color: white;
             padding: 10px 20px;
             border-radius: 5px;
@@ -112,10 +119,11 @@
             font-size: 16px;
             padding: 10px;
             cursor: pointer;
+            color: #3498db;
         }
         .tab.active {
-            border-bottom: 2px solid #3b3b98;
-            color: #3b3b98;
+            border-bottom: 2px solid #3498db;
+            color: #2c3e50;
         }
         .tab-content {
             display: none;
@@ -138,7 +146,7 @@
         .timeline-dot {
             height: 10px;
             width: 10px;
-            background-color: #3b3b98;
+            background-color: #2c3e50;
             border-radius: 50%;
             display: inline-block;
             margin-right: 10px;
@@ -147,11 +155,12 @@
             padding: 20px;
             background-color: #fff;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
         .recommendations h2 {
             margin-bottom: 10px;
             font-size: 20px;
+            color: #2c3e50;
         }
         .recommendations .received, .recommendations .given {
             display: none;
@@ -170,10 +179,11 @@
             font-size: 16px;
             padding: 10px;
             cursor: pointer;
+            color: #3498db;
         }
         .recommendations .tab.active {
-            border-bottom: 2px solid #3b3b98;
-            color: #3b3b98;
+            border-bottom: 2px solid #3498db;
+            color: #2c3e50;
         }
         .recommendation-item {
             display: flex;
@@ -219,8 +229,8 @@
                 <a href="#" class="nav-button">Contact Information</a>
             </div>
             <div class="badge-container">
-                <img src="https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg?branch=main" alt="AZ-104 Badge" class="badge">
-                <img src="https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-expert-badge.svg?branch=main" alt="AZ-305 Badge" class="badge">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Microsoft_Exam_Badge_AZ-104.png" alt="AZ-104 Badge" class="badge">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Microsoft_Exam_Badge_AZ-305.png" alt="AZ-305 Badge" class="badge">
             </div>
         </div>
     </header>
@@ -229,31 +239,7 @@
             <div class="section">
                 <h2>About Me</h2>
                 <p>
-                    As a seasoned technology professional with over 14 years of expertise in .NET technology, I thrive as a Solution Architect, leading projects and teams to success with a strong focus on product enhancement and precise requirement modeling.
-                </p>
-                <p>
-                    My key responsibilities encompass various aspects of the development lifecycle, including:
-                </p>
-                <p>
-                    Architecture Design and Development: I excel in designing robust and scalable architectures that form the foundation for successful software solutions.
-                </p>
-                <p>
-                    Code Review and Code Analysis: I possess a keen eye for detail and ensure the codebase meets the highest standards through thorough reviews and analysis.
-                </p>
-                <p>
-                    Identifying Gaps and Performance Optimization: I am adept at identifying areas for improvement and optimizing system performance to deliver exceptional results.
-                </p>
-                <p>
-                    Project, Team & Delivery Management: With a proven track record in managing projects and teams, I ensure timely and successful delivery of high-quality software solutions.
-                </p>
-                <p>
-                    Requirement Discussion with Clients and Partners: I am skilled in engaging with clients and partners to gather and understand their requirements, facilitating effective communication throughout the development process.
-                </p>
-                <p>
-                    Resource Allocation and Resource Management: As a leader, I understand the importance of efficient resource allocation and manage teams effectively to maximize productivity.
-                </p>
-                <p>
-                    Conducting Training and Motivating Team Members: I take pride in nurturing talent and motivating team members to reach their full potential through training and mentorship.
+                    Full-Stack .NET Solution Architect and Technical Leader with extensive experience in project management and architecture design. Adept at leading teams, mentoring, and delivering robust, scalable solutions. Proven expertise in data analysis, visualization, and leveraging Azure services.
                 </p>
             </div>
             <div class="section">
@@ -367,18 +353,19 @@
             const tabs = document.querySelectorAll('.tab');
             tabs.forEach(tab => tab.classList.remove('active'));
             event.currentTarget.classList.add('active');
-            
-            const contents = document.querySelectorAll('.tab-content');
-            contents.forEach(content => content.classList.remove('active'));
+
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => content.classList.remove('active'));
             document.getElementById(contentId).classList.add('active');
         }
+
         function showRecommendationTab(event, tabId) {
             const tabs = document.querySelectorAll('.recommendations .tab');
             tabs.forEach(tab => tab.classList.remove('active'));
             event.currentTarget.classList.add('active');
-            
-            const contents = document.querySelectorAll('.recommendations .tab-content');
-            contents.forEach(content => content.classList.remove('active'));
+
+            const tabContents = document.querySelectorAll('.recommendations .tab-content');
+            tabContents.forEach(content => content.classList.remove('active'));
             document.getElementById(tabId).classList.add('active');
         }
     </script>
