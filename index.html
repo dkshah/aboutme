@@ -1,279 +1,417 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"> 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dipen Shah - Full-Stack .NET Solution Architect</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="main.css">
-    <style>
- .journey-container {
-    position: relative;
-    width: 200px;  /* Adjust width as needed */
-    height: 200px; /* Adjust height as needed */
-    margin-top: 20px;
-}
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Dipen Shah - Solution Architect</title>
 
-.journey-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    animation: journeyAnimation 30s infinite;
-}
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
 
-#journey-start {
-    animation-delay: 0s;
-}
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
+	<!-- Theme CSS -->
+	<link id="theme-style" rel="stylesheet" href="theme.css">
 
-#journey-progress {
-    animation-delay: 5s;
-}
+</head> 
 
-#journey-promoted {
-    animation-delay: 10s;
-}
-
-#journey-lead {
-    animation-delay: 15s;
-}
-
-#journey-project-lead {
-    animation-delay: 20s;
-}
-
-#journey-architect {
-    animation-delay: 25s;
-}
-
-@keyframes journeyAnimation {
-    0%, 16.66% {
-        opacity: 1;
-    }
-    16.66%, 100% {
-        opacity: 0;
-    }
-}
-
-
-    </style>
-</head>
 <body>
-    <header class="header">
-        <img src="https://media.licdn.com/dms/image/D4D03AQEgck5kzMEYcg/profile-displayphoto-shrink_100_100/0/1710985928966?e=1723075200&v=beta&t=KJd_AKNfcamtlFzX8IAvHBzQGz8od1vGpo3774gNPLI" alt="Profile Image" class="profile-img">
-        <div class="header-content">
-            <h1>Dipen Shah</h1>
-            <h2>Experienced Full-Stack .NET Technical Lead</h2>
-            <p>Full-Stack .NET Solution Architect | Technical Leader | Project Management & Architecture Expert | Data Analyst & Visualization | Azure Certified | Mentorship Specialist</p>
-            <div class="nav-buttons">
-                <a href="#" class="nav-button">Resume</a>
-                <a href="#" class="nav-button">Contact Information</a>
-            </div>
-            <div class="badge-container">
-                <img src="https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg?branch=main" alt="AZ-104 Badge" class="badge">
-                <img src="https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-expert-badge.svg?branch=main" alt="AZ-305 Badge" class="badge">
-            </div>
-          <div class="journey-container">
-    <img src="start.png" alt="Started as Software Engineer" class="journey-image" id="journey-start">
-    <img src="progress.png" alt="Progressing as Software Engineer" class="journey-image" id="journey-progress">
-    <img src="promoted.png" alt="Promoted to Sr. Software Engineer" class="journey-image" id="journey-promoted">
-    <img src="lead.png" alt="Became Technical Lead" class="journey-image" id="journey-lead">
-    <img src="project-lead.png" alt="Advancing to Project Lead" class="journey-image" id="journey-project-lead">
-    <img src="architect.png" alt="Achieved Solution Architect" class="journey-image" id="journey-architect">
-</div>
 
-        </div>
-    </header>
-    <div class="main-container">
-        <div class="main-content">
-            <div class="section">
-                <h2>About Me</h2>
-                <p>
-                    Full-Stack .NET Solution Architect and Technical Leader with extensive experience in project management and architecture design. Adept at leading teams, mentoring, and delivering robust, scalable solutions. Proven expertise in data analysis, visualization, and leveraging Azure services.
-                </p>
-            </div>
-            <div class="section">
-                <h2>Key Highlights</h2>
-                <div class="highlights">
-                    <div class="highlight-item">
-                        <p>14+</p>
-                        <p>Years Experience</p>
-                    </div>
-                    <div class="highlight-item">
-                        <p>.NET</p>
-                        <p>Technology Expert</p>
-                    </div>
-                    <div class="highlight-item">
-                        <p>Full-Stack</p>
-                        <p>Development</p>
-                    </div>
-                    <div class="highlight-item">
-                        <p>Azure</p>
-                        <p>Certified</p>
-                    </div>
-                    <div class="highlight-item">
-                        <p>Leadership</p>
-                        <p>Mentorship</p>
-                    </div>
-                </div>
-            </div>
-            <div class="section">
-                <h2>Professional Experience</h2>
-  
-<div class="tabs">
-    <div class="tab active" onclick="showTabContent(event, 'experience1')">Confidential</div>
-    <div class="tab" onclick="showTabContent(event, 'experience2')">Azilen Technologies Pvt. Ltd.</div>
-    <div class="tab" onclick="showTabContent(event, 'experience3')">Analytix Business Solutions</div>
-    <div class="tab" onclick="showTabContent(event, 'experience4')">Pragra Infratech Pvt. Ltd.</div>
-    <div class="tab" onclick="showTabContent(event, 'experience5')">Cybersurf India Private Limited</div>
-</div>
-<div id="experience1" class="tab-content active">
-    <div class="timeline">
-        <div class="timeline-item">
-            <span class="timeline-dot"></span>
-            <h3>Solutions Architect</h3>
-            <p>Confidential · Full-time</p>
-            <p>Dec 2022 – Present · 1 yr 7 mos</p>
-            <p>On-site</p>
-            <p>Skills: ASP.NET Core, Amazon Web Services (AWS), Object-Oriented Programming (OOP), Microsoft SQL Server, C#, Kubernetes, ASP.NET, ASP.NET MVC, Agile Methodologies, Docker, .NET Core, .NET Framework, ASP.NET Web API</p>
-        </div>
-    </div>
-</div>
-<div id="experience2" class="tab-content">
-    <div class="timeline">
-        <div class="timeline-item">
-            <span class="timeline-dot"></span>
-            <h3>Project Lead</h3>
-            <p>Azilen Technologies Pvt. Ltd. · Full-time</p>
-            <p>Apr 2021 – Nov 2022 · 1 yr 8 mos</p>
-            <p>Ahmedabad, Gujarat, India</p>
-            <p>As a Project Lead, I was responsible for managing the full lifecycle of software development projects, from initiation to closure. I worked closely with clients to understand their needs and requirements, developed detailed project plans and schedules, monitored progress, and adjusted plans as necessary to ensure the delivery of high-quality software on time and within budget.</p>
-            <p>In addition to project management, I was responsible for several technical aspects of the project. This included making key design decisions for the technology, structure, and configuration of the system. I also conducted systems analysis and development of applications incorporating end-user functionality and interaction modules, as well as static content. I assisted in application and database server maintenance and provided accurate effort estimates for deliverables while recommending technical feasibilities.</p>
-            <p>Furthermore, I developed and monitored team performance and activity, ensuring that we had a high-performing team that delivered quality work. I resolved technical issues escalated by software developers, conducted training for the team, and measured performance. Finally, I assisted in the analysis, evaluation, and recommendation of new applications and technologies appropriate to the company's needs.</p>
-            <p>Skills: Microsoft SQL Server, ASP.NET, AngularJS, C#, Object-Oriented Programming (OOP), Agile Methodologies, Amazon Web Services (AWS), .NET Core, Angular 6</p>
-        </div>
-    </div>
-</div>
-<div id="experience3" class="tab-content">
-    <div class="timeline">
-        <div class="timeline-item">
-            <span class="timeline-dot"></span>
-            <h3>Technical Lead</h3>
-            <p>Analytix Business Solutions · Full-time</p>
-            <p>Jan 2016 – Mar 2021 · 5 yrs 3 mos</p>
-            <p>Ahmedabad · On-site</p>
-            <p>As a Technical Lead, I was responsible for conducting, leading, and coordinating software development activities throughout the project lifecycle. This included making key design decisions for the technology, structure, and configuration of the system. I also developed and monitored team performance and activity, ensuring the delivery of high-quality software that met our clients' needs.</p>
-            <p>Additionally, I served clients by identifying their needs and providing feedback on the success of filling jobs. I analyzed systems and developed applications incorporating end-user functionality and interaction modules, as well as static content. I assisted in application and database server maintenance and provided accurate effort estimates for deliverables while recommending technical feasibilities.</p>
-            <p>In the event of technical issues escalated by software developers, I worked to resolve them quickly. I also conducted training for the team and measured performance, ensuring everyone was up-to-date with the latest technologies and best practices. Furthermore, I assisted in the analysis, evaluation, and recommendation of new applications and technologies appropriate to the company's needs.</p>
-            <p>Skills: Microsoft SQL Server, ASP.NET, AngularJS, C#, Object-Oriented Programming (OOP), Agile Methodologies, Amazon Web Services (AWS), .NET Core, Paychex</p>
-        </div>
-        <div class="timeline-item">
-            <span class="timeline-dot"></span>
-            <h3>Sr. Software Engineer</h3>
-            <p>Jan 2013 – Dec 2015 · 3 yrs</p>
-            <p>Ahmedabad, Gujarat, India</p>
-            <p>As a Senior Software Engineer with expertise in .Net development, I was responsible for designing, developing, and maintaining high-quality software solutions that met the needs of our clients. I worked closely with other members of the development team to ensure that software applications were scalable, reliable, and secure.</p>
-            <p>My responsibilities included:</p>
-            <ul>
-                <li>Designing and developing software applications using .Net technologies, including C#, ASP.Net, Angular, and SQL Server</li>
-                <li>Collaborating with cross-functional teams to develop and implement software solutions that meet business requirements</li>
-                <li>Providing technical guidance and mentoring to junior developers on the team</li>
-                <li>Ensuring that software applications were properly tested, documented, and maintained throughout the development lifecycle</li>
-                <li>Staying up-to-date with emerging technologies and industry trends to continuously improve our software development practices</li>
-            </ul>
-            <p>Skills: Microsoft SQL Server, ASP.NET, AngularJS, C#, Object-Oriented Programming (OOP), .NET Core, Angular 6</p>
-        </div>
-    </div>
-</div>
-<div id="experience4" class="tab-content">
-    <div class="timeline">
-        <div class="timeline-item">
-            <span class="timeline-dot"></span>
-            <h3>Software Engineer</h3>
-            <p>Pragra Infratech Pvt. Ltd. · Full-time</p>
-            <p>Jul 2010 – May 2011 · 11 mos</p>
-            <p>Ahmedabad</p>
-            <p>Developed & managed projects based on Payroll and Production. Main role was to develop and release the product based on requirements. Integrated software with RFID.</p>
-            <p>Skills: Microsoft SQL Server, ASP.NET, C#, Object-Oriented Programming (OOP)</p>
-        </div>
-    </div>
-</div>
-<div id="experience5" class="tab-content">
-    <div class="timeline">
-        <div class="timeline-item">
-            <span class="timeline-dot"></span>
-            <h3>Trainee</h3>
-            <p>Cybersurf India Private Limited · Full-time</p>
-            <p>Jan 2010 – Jun 2010 · 6 mos</p>
-            <p>Ahmedabad, Gujarat, India · On-site</p>
-            <p>Skills: Microsoft SQL Server, ASP.NET, C#, Web Development</p>
-        </div>
-    </div>
-</div>
+	<header class="header text-center">
+		<div class="force-overflow">
+			<h1 class="blog-name pt-lg-4 mb-0"><a class="no-text-decoration" href="index.html">Dipen Shah</a></h1>
 
-            </div>
-            <div class="section">
-                <h2>Skills & Technologies</h2>
-                <ul>
-                    <li>Full-Stack .NET Development</li>
-                    <li>Architecture Design</li>
-                    <li>Code Review and Optimization</li>
-                    <li>Project and Team Management</li>
-                    <li>Azure Cloud Services</li>
-                    <li>Data Analysis and Visualization</li>
-                </ul>
-            </div>
-        </div>
-        <div class="right-panel">
-            <div class="recommendations">
-                <h2>Recommendations</h2>
-                <div class="tabs">
-                    <div class="tab active" onclick="showRecommendationTab(event, 'received')">Received</div>
-                    <div class="tab" onclick="showRecommendationTab(event, 'given')">Given</div>
-                </div>
-                <div id="received" class="tab-content active">
-                    <div class="recommendation-item">
-                        <img src="https://via.placeholder.com/50" alt="Recommender Image">
-                        <div class="content">
-                            <h3>John Doe</h3>
-                            <p>Dipen is a highly skilled and dedicated professional...</p>
-                        </div>
-                    </div>
-                </div>
-                <div id="given" class="tab-content">
-                    <div class="recommendation-item">
-                        <img src="https://via.placeholder.com/50" alt="Recommendee Image">
-                        <div class="content">
-                            <h3>Jane Smith</h3>
-                            <p>I had the pleasure of working with Jane...</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script>
-        function showTabContent(event, contentId) {
-            const tabs = document.querySelectorAll('.tab');
-            tabs.forEach(tab => tab.classList.remove('active'));
-            event.currentTarget.classList.add('active');
+			<nav class="navbar navbar-expand-lg navbar-dark">
 
-            const tabContents = document.querySelectorAll('.tab-content');
-            tabContents.forEach(content => content.classList.remove('active'));
-            document.getElementById(contentId).classList.add('active');
-        }
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
 
-        function showRecommendationTab(event, tabId) {
-            const tabs = document.querySelectorAll('.recommendations .tab');
-            tabs.forEach(tab => tab.classList.remove('active'));
-            event.currentTarget.classList.add('active');
+				<div id="navigation" class="collapse navbar-collapse flex-column">
+					<div class="profile-section pt-3 pt-lg-0">
+						<img class="profile-image mb-3 rounded-circle mx-auto" src="https://media.licdn.com/dms/image/D4D03AQEgck5kzMEYcg/profile-displayphoto-shrink_400_400/0/1710985928966?e=1724889600&v=beta&t=oSkLV2Wq1E24FS3Ul2ksxvvrgFWtW96HbB1RpNgRwks" alt="image">
 
-            const tabContents = document.querySelectorAll('.recommendations .tab-content');
-            tabContents.forEach(content => content.classList.remove('active'));
-            document.getElementById(tabId).classList.add('active');
-        }
-    </script>
+						<div class="bio mb-3">Hello, I'm Dipen Shah, a seasoned Solution Architect. I invite you to explore my personal website!</div><!--//bio-->
+						<ul class="social-list list-inline py-2 mx-auto">
+
+							<li class="list-inline-item"><a href="#"><i class="fab fa-linkedin-in fa-fw"></i></a></li>
+							<li class="list-inline-item"><a href="#"><i class="fab fa-github-alt fa-fw"></i></a></li>
+
+						</ul><!--//social-list-->
+						<hr>
+					</div><!--//profile-section-->
+
+					 
+
+				</div>
+			</nav>
+		</div><!--//force-overflow-->
+	</header>
+
+	<div class="main-wrapper">
+		<section class="about-me-section p-3 p-lg-5 theme-bg-light">
+			<div class="container">
+				<div class="profile-teaser row">
+
+					<div class="col">
+						<h2 class="name font-weight-bold mb-1">Dipen Shah</h2>
+						<div class="tagline mb-3">Solution Architect</div>
+						<div class="bio mb-4">
+							As a seasoned technology professional with over 14 years of expertise in .NET technology, I thrive as a Solution Architect, leading projects and teams to success with a strong focus on product enhancement and precise requirement modeling.
+						</div><!--//bio-->
+						<div class="mb-4">
+							<a class="btn btn-primary me-2 mb-3" href="#"><i class="fas fa-arrow-alt-circle-right me-2"></i><span class="d-none d-md-inline">View</span> Portfolio</a>
+							<a class="btn btn-secondary mb-3" href="#"><i class="fas fa-file-alt me-2"></i><span class="d-none d-md-inline">View</span> Resume</a>
+						</div>
+					</div><!--//col-->
+					<!-- Badge images section -->
+					<div class="col">
+						<div class="d-flex flex-column align-items-end">
+							<img src="https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg?branch=main" alt="AZ-104 Badge" class="img-fluid mb-3" style="width: 150px; height: auto;">
+							<img src="https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-expert-badge.svg" alt="AZ-305 Badge" class="img-fluid" style="width: 150px; height: auto;">
+						</div>
+					</div><!--//col-->
+
+				</div>
+			</div>
+		</section><!--//about-me-section-->
+
+		 
+		<section class="overview-section p-3 p-lg-5">
+			<div class="container">
+				<h2 class="section-title font-weight-bold mb-3">Technical Proficiencies</h2>
+				<div class="section-intro mb-5">My key responsibilities encompass various aspects of the development lifecycle, including:</div>
+				<div class="row">
+					<div class="item col-6 col-lg-3">
+						<div class="item-inner">
+							<div class="item-icon"><i class="fab fa-microsoft"></i></div>
+							<h3 class="item-title">.NET</h3>
+							<div class="item-desc">With extensive experience in .NET, I specialize in designing and developing robust and scalable architectures, ensuring successful software solutions.</div>
+						</div><!--//item-inner-->
+					</div><!--//item-->
+					<div class="item col-6 col-lg-3">
+						<div class="item-inner">
+							<div class="item-icon"><i class="fas fa-database"></i></div>
+							<h3 class="item-title">SQL Server</h3>
+							<div class="item-desc">I have a keen eye for detail in SQL Server, performing thorough code reviews and analyses to maintain the highest standards in database management.</div>
+						</div><!--//item-inner-->
+					</div><!--//item-->
+					<div class="item col-6 col-lg-3">
+						<div class="item-inner">
+							<div class="item-icon"><i class="fab fa-angular"></i></div>
+							<h3 class="item-title">Angular</h3>
+							<div class="item-desc">Proficient in Angular, I excel at identifying gaps and optimizing performance to deliver exceptional front-end solutions.</div>
+						</div><!--//item-inner-->
+					</div><!--//item-->
+					<div class="item col-6 col-lg-3">
+						<div class="item-inner">
+							<div class="item-icon"><i class="fab fa-microsoft"></i></div>
+							<h3 class="item-title">Azure</h3>
+							<div class="item-desc">With a proven track record in Azure, I manage projects and teams effectively, ensuring timely and successful delivery of high-quality software solutions.</div>
+						</div><!--//item-inner-->
+					</div><!--//item-->
+					<div class="item col-6 col-lg-3">
+						<div class="item-inner">
+							<div class="item-icon"><i class="fab fa-aws"></i></div>
+							<h3 class="item-title">AWS</h3>
+							<div class="item-desc">Experienced in AWS, I engage with clients and partners to gather and understand requirements, facilitating effective communication throughout the development process.</div>
+						</div><!--//item-inner-->
+					</div><!--//item-->
+					<div class="item col-6 col-lg-3">
+						<div class="item-inner">
+							<div class="item-icon"><i class="fas fa-brain"></i></div>
+							<h3 class="item-title">Microsoft AI</h3>
+							<div class="item-desc">Specializing in Microsoft AI, I excel in resource allocation and management, maximizing team productivity and delivering innovative AI solutions.</div>
+						</div><!--//item-inner-->
+					</div><!--//item-->
+					<div class="item col-6 col-lg-3">
+						<div class="item-inner">
+							<div class="item-icon"><i class="fas fa-cubes"></i></div>
+							<h3 class="item-title">Microservices</h3>
+							<div class="item-desc">Expert in Microservices architecture, I design and implement scalable, high-performance distributed systems, ensuring seamless integration and deployment.</div>
+						</div><!--//item-inner-->
+					</div><!--//item-->
+					<div class="item col-6 col-lg-3">
+						<div class="item-inner">
+							<div class="item-icon"><i class="fas fa-plug"></i></div>
+							<h3 class="item-title">API Integration</h3>
+							<div class="item-desc">Specializing in seamless API integrations and leveraging No Code/Low Code platforms for efficient solution development and deployment.</div>
+						</div><!--//item-inner-->
+					</div>
+					<div class="item col-6 col-lg-3">
+						<div class="item-inner">
+							<div class="item-icon"><i class="fas fa-database"></i></div>
+							<h3 class="item-title">Document Databases</h3>
+							<div class="item-desc">Experienced in designing and implementing solutions using Document Databases for flexible and scalable data storage and retrieval.</div>
+						</div><!--//item-inner-->
+					</div>
+					<div class="item col-6 col-lg-3">
+						<div class="item-inner">
+							<div class="item-icon"><i class="fas fa-money-check-alt"></i></div>
+							<h3 class="item-title">Payroll System Integration</h3>
+							<div class="item-desc">Skilled in integrating with Payroll Systems like Paychex, Kronos, and ADP for seamless payroll management and compliance.</div>
+						</div><!--//item-inner-->
+					</div>
+					<div class="item col-6 col-lg-3">
+						<div class="item-inner">
+							<div class="item-icon"><i class="fas fa-cash-register"></i></div>
+							<h3 class="item-title">POS System Integration</h3>
+							<div class="item-desc">Proficient in integrating with POS Systems such as Toast, Square, and others to streamline sales and transaction processing.</div>
+						</div><!--//item-inner-->
+					</div>
+
+				</div><!--//row-->
+			</div><!--//container-->
+		</section>
+
+		<div class="container"><hr></div>
+
+		<section class="testimonials-section p-3 p-lg-5">
+			<div class="container">
+				<h2 class="section-title font-weight-bold mb-5">Testimonials</h2>
+				<div class="testiomonial-carousel-container">
+					<div class="testimonial-carousel tiny-slider">
+						<div class="item">
+							<div class="item-inner">
+								<div class="quote-holder">
+									<blockquote class="quote-content">
+										During my career I’ve rarely come across real professionals like Dipen. I had the opportunity of working with Dipen on several projects for three years at Azilen, and I have to say, I’ve never seen anyone handle multiple projects like him...
+									</blockquote>
+									<i class="fas fa-quote-left"></i>
+								</div><!--//quote-holder-->
+								<div class="source-holder">
+									<div class="source-profile">
+										<img src="https://media.licdn.com/dms/image/D4D03AQGSf5D8DUJY7g/profile-displayphoto-shrink_100_100/0/1706591942149?e=1724889600&v=beta&t=DSvrV0H-YgUAiYsLv-3EmjJX6zrhhvX5bvKwCRP1LgE" alt="Ritul Lakhtariya" />
+									</div>
+									<div class="meta">
+										<div class="name">Ritul Lakhtariya</div>
+										<div class="info">Project Consultant</div>
+									</div>
+								</div>
+							</div><!--//item-inner-->
+						</div><!--//item-->
+						<div class="item">
+							<div class="item-inner">
+								<div class="quote-holder">
+									<blockquote class="quote-content">
+										With full confidence, I recommend Dipen Shah to fulfill the position of team lead. It is my pleasure of working alongside Dipen Shah during his employment here at Azilen, and I can honestly say that he is a valued team member and key team player.
+									</blockquote>
+									<i class="fas fa-quote-left"></i>
+								</div><!--//quote-holder-->
+								<div class="source-holder">
+									<div class="source-profile">
+										<img src="https://media.licdn.com/dms/image/C5603AQGDIh8c6McDeg/profile-displayphoto-shrink_100_100/0/1588645030721?e=1724889600&v=beta&t=o_uoFzisCA_TgVKgLWdBX07eIZmMcPcQWpQrtXBdznE" alt="Renish Vekariya" />
+									</div>
+									<div class="meta">
+										<div class="name">Renish Vekariya</div>
+										<div class="info">Senior Software Engineer</div>
+									</div>
+								</div>
+							</div><!--//item-inner-->
+						</div><!--//item-->
+						<div class="item">
+							<div class="item-inner">
+								<div class="quote-holder">
+									<blockquote class="quote-content">
+										There is no better colleague than Dipen. He is one of the most dedicated professionals I’ve worked with and is willing to put in that extra help whenever you need it. His expertise as a Lead is considerable, and it helped our team come up...
+									</blockquote>
+									<i class="fas fa-quote-left"></i>
+								</div><!--//quote-holder-->
+								<div class="source-holder">
+									<div class="source-profile">
+										<img src="https://media.licdn.com/dms/image/D4D03AQH4j59QeTyFoQ/profile-displayphoto-shrink_100_100/0/1664780636044?e=1724889600&v=beta&t=0VVfXHWUtgQfG7gsoF3gwpcihlSnKRPHkjyO_1Wro9o" alt="Rutvik Soni" />
+									</div>
+									<div class="meta">
+										<div class="name">Rutvik Soni</div>
+										<div class="info">Lead Quality Analyst</div>
+									</div>
+								</div>
+							</div><!--//item-inner-->
+						</div><!--//item-->
+
+						<div class="item">
+							<div class="item-inner">
+								<div class="quote-holder">
+									<blockquote class="quote-content">
+										Dipen is a standout operator in his field. I had the pleasure of working with a manager that was both my mentor and friend. Dipen is a brilliant and gifted Project Manager who really understands how to get the best out of people.
+									</blockquote>
+									<i class="fas fa-quote-left"></i>
+								</div><!--//quote-holder-->
+								<div class="source-holder">
+									<div class="source-profile">
+										<img src="https://media.licdn.com/dms/image/C4E03AQFSEW869Db-Dg/profile-displayphoto-shrink_100_100/0/1629091331526?e=1724889600&v=beta&t=MiBgdp21WsWsXoi_vKYQPDkgIKPwQGLylIka6_fsqrc" alt="Janak Thakkar" />
+									</div>
+									<div class="meta">
+										<div class="name">Janak Thakkar</div>
+										<div class="info">Senior Software Engineer</div>
+									</div>
+								</div>
+							</div><!--//item-inner-->
+						</div><!--//item-->
+						<div class="item">
+							<div class="item-inner">
+								<div class="quote-holder">
+									<blockquote class="quote-content">
+										I had the pleasure of working with Dipen for two years at Analytix Business Solutions, collaborating on several project teams.
+									</blockquote>
+									<i class="fas fa-quote-left"></i>
+								</div><!--//quote-holder-->
+								<div class="source-holder">
+									<div class="source-profile">
+										<img src="https://media.licdn.com/dms/image/C5103AQG9ct5FyT5qlQ/profile-displayphoto-shrink_100_100/0/1522070884293?e=1724889600&v=beta&t=ajjm0EcJUIFLPDbhNCdwZ7JELkYY6ANz4YrW0FQ0IfA" alt="Aspak Mansuri" />
+									</div>
+									<div class="meta">
+										<div class="name">Aspak Mansuri</div>
+										<div class="info">Lead Role - MSBI/ETL/SQL/Data Warehouse</div>
+									</div>
+								</div>
+							</div><!--//item-inner-->
+						</div><!--//item-->
+						<div class="item">
+							<div class="item-inner">
+								<div class="quote-holder">
+									<blockquote class="quote-content">
+										Dipen is a technology guy. He is very clear on his way of doing and has a very high confidence level. He is a one-man army and does not hesitate to put in extra time to achieve team goals. He is a team player.
+									</blockquote>
+									<i class="fas fa-quote-left"></i>
+								</div><!--//quote-holder-->
+								<div class="source-holder">
+									<div class="source-profile">
+										<img src="https://media.licdn.com/dms/image/D5603AQGbK5v6UiA0eA/profile-displayphoto-shrink_100_100/0/1684225455595?e=1724889600&v=beta&t=8JfZCG6T9Ebs1aspw0AdXBNxFpV5r5CxgkrQb6tNYzE" alt="Mitul Mistry" />
+									</div>
+									<div class="meta">
+										<div class="name">Mitul Mistry</div>
+										<div class="info">Team Member @ Analytix Solutions, CTS</div>
+									</div>
+								</div>
+							</div><!--//item-inner-->
+						</div><!--//item-->
+						<div class="item">
+							<div class="item-inner">
+								<div class="quote-holder">
+									<blockquote class="quote-content">
+										I have seen his entire journey at Analytix since his first day of joining till today. He is an analytical guy with very in-depth domain knowledge. He is always approachable and available on the floor. He has an eye to identify upcoming problems and deal with them constructively. He is a great guy, and the floor becomes energetic in his presence. Thank you, Dipen, you make a difference with your presence.
+									</blockquote>
+									<i class="fas fa-quote-left"></i>
+								</div><!--//quote-holder-->
+								<div class="source-holder">
+									<div class="source-profile">
+										<img src="https://media.licdn.com/dms/image/D5603AQGbK5v6UiA0eA/profile-displayphoto-shrink_100_100/0/1684225455595?e=1724889600&v=beta&t=8JfZCG6T9Ebs1aspw0AdXBNxFpV5r5CxgkrQb6tNYzE" alt="Mitul Mistry" />
+									</div>
+									<div class="meta">
+										<div class="name">Mitul Mistry</div>
+										<div class="info">Team Member @ Analytix Solutions, CTS</div>
+									</div>
+								</div>
+							</div><!--//item-inner-->
+						</div><!--//item-->
+						<div class="item">
+							<div class="item-inner">
+								<div class="quote-holder">
+									<blockquote class="quote-content">
+										I am working with Dipen for 7 years and I am particularly impressed by his deep technical knowledge and documentation skill. He always keeps everything up-to-date. He is very thorough and dedicated to his work. Dipen would be a great asset to any team!
+									</blockquote>
+									<i class="fas fa-quote-left"></i>
+								</div><!--//quote-holder-->
+								<div class="source-holder">
+									<div class="source-profile">
+										<img src="https://media.licdn.com/dms/image/D4D03AQEZjLLhkGgfnA/profile-displayphoto-shrink_100_100/0/1713424200868?e=1724889600&v=beta&t=wt_zCrDJ0mk6DKmj1CGQk9o6YUaZSdKqc-b-glMC8QE" alt="Hemal Bhatt" />
+									</div>
+									<div class="meta">
+										<div class="name">Hemal Bhatt</div>
+										<div class="info">Product Manager, IBM</div>
+									</div>
+								</div>
+							</div><!--//item-inner-->
+						</div><!--//item-->
+						<div class="item">
+							<div class="item-inner">
+								<div class="quote-holder">
+									<blockquote class="quote-content">
+										Dipen ability to handle multiple projects is unlike any I have seen before and made a dramatic increase in the productivity level for the company.
+										Dipe would be an asset to any company. He is a good human being. He has thorough technical knowledge and understanding related to his area ( we can say a good level of expertise in his work).
+										The addition of his presence in the team surely increase the standard of work and value as a whole. I would surely recommend him as part of any team or company.
+									</blockquote>
+									<i class="fas fa-quote-left"></i>
+								</div><!--//quote-holder-->
+								<div class="source-holder">
+									<div class="source-profile">
+										<img src="https://media.licdn.com/dms/image/D4D03AQG4OHKW8oRQxg/profile-displayphoto-shrink_100_100/0/1708513054543?e=1724889600&v=beta&t=N85K182Wz6YmIAhw2f7wdgixtKFiW8FTkZoyX32LVP4" alt="Naresh Agrawal" />
+									</div>
+									<div class="meta">
+										<div class="name">Naresh Agrawal</div>
+										<div class="info">Product Owner</div>
+									</div>
+								</div>
+							</div><!--//item-inner-->
+						</div><!--//item-->
+						<div class="item">
+							<div class="item-inner">
+								<div class="quote-holder">
+									<blockquote class="quote-content">
+										Very talented, strong technical skills as well as business understanding. Nice colleague.
+									</blockquote>
+									<i class="fas fa-quote-left"></i>
+								</div><!--//quote-holder-->
+								<div class="source-holder">
+									<div class="source-profile">
+										<img src="https://media.licdn.com/dms/image/C5603AQHqFz0KgauHVw/profile-displayphoto-shrink_100_100/0/1590476132305?e=1724889600&v=beta&t=igpeGACUMPaCyWLeC5JH5gvngHJ_i-HAvGv0g1J2gXQ" alt="Aditya Jani" />
+									</div>
+									<div class="meta">
+										<div class="name">Aditya Jani</div>
+										<div class="info">Product Owner</div>
+									</div>
+								</div>
+							</div><!--//item-inner-->
+						</div>
+					</div><!--//testimonial-carousel-->
+				</div><!--//testimonial-carousel-container-->
+			</div><!--//container-->
+		</section><!--//testimonials-section-->
+
+
+
+
+		<footer class="footer text-center py-4">
+			<small class="copyright">2024 - Dipen Shah</small>
+		</footer>
+
+	</div><!--//main-wrapper-->
+	<!-- Javascript -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.js"></script>
+	<script type="text/javascript">
+
+		const slider = tns({
+			container: '.testimonial-carousel',
+			loop: true,
+			items: 3,
+			responsive: {
+				0: {
+					items: 1,
+				},
+				768: {
+					items: 2,
+				},
+				1200: {
+					items: 3,
+				}
+
+			},
+			slideBy: 'page',
+			nav: true,
+			autoplay: true,
+			autoplayButtonOutput: false,
+			mouseDrag: true,
+			lazyload: true,
+			gutter: 30,
+			navPosition: 'bottom',
+			mouseDrag: true,
+			controls: false,
+			speed: 800,
+
+		});
+	</script>
 </body>
-</html>
+</html> 
