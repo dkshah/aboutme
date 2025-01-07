@@ -15086,3 +15086,48 @@ body {
   .linkedin-posts .post a:hover {
     text-decoration: underline;
   }
+#career-advice {
+  background-color: #f9f9f9; /* Light background for contrast */
+  padding: 50px 20px;
+  border-top: 2px solid #ddd; /* Separator from previous section */
+}
+
+#career-advice .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center; /* Center-align text */
+}
+
+#career-advice h2 {
+  font-size: 2.5rem; /* Larger heading */
+  color: #333; /* Dark text for visibility */
+  margin-bottom: 20px;
+}
+
+#career-advice p {
+  font-size: 1.2rem; /* Slightly larger font for readability */
+  line-height: 1.6;
+  color: #555; /* Subtle text color */
+  margin-bottom: 20px;
+}
+
+#career-advice strong {
+  color: #007bff; /* Highlight key phrases with a primary color */
+}
+
+#career-advice a {
+  color: #007bff; /* Match link color with theme */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#career-advice a:hover {
+  text-decoration: underline; /* Add underline on hover for better UX */
+}
+
+#career-advice .container {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a modern look */
+  padding: 30px;
+  background: #ffffff; /* White background inside container */
+  border-radius: 8px; /* Rounded corners */
+}
