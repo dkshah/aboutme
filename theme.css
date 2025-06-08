@@ -8859,12 +8859,12 @@ textarea.form-control-lg {
 
 .text-success {
     --bs-text-opacity: 1;
-    color: rgba(var(--bs-success-rgb), var(--bs-text-opacity)) !important
+    color: #0a66c4
 }
 
 .text-info {
     --bs-text-opacity: 1;
-    color: rgba(var(--bs-info-rgb), var(--bs-text-opacity)) !important
+    color: #0a66c4
 }
 
 .text-warning {
@@ -15112,11 +15112,11 @@ body {
 }
 
 #career-advice strong {
-  color: #007bff; /* Highlight key phrases with a primary color */
+  color: #0a66c4; /* Highlight key phrases with a primary color */
 }
 
 #career-advice a {
-  color: #007bff; /* Match link color with theme */
+  color: #0a66c4; /* Match link color with theme */
   text-decoration: none;
   font-weight: bold;
 }
