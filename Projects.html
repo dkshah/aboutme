@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dipen Shah | Project Navigator</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            background: #f4f4f4;
+        }
+
+        header, footer {
+            text-align: center;
+            padding: 20px;
+            background: #0078D4;
+            color: white;
+        }
+
+        .project-container {
+            max-width: 960px;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+
+        .project-title {
+            font-size: 2em;
+            color: #003366;
+            margin-bottom: 10px;
+        }
+
+        .project-description {
+            font-size: 1.05em;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .tech-used {
+            font-size: 1em;
+            background: #e0f3ff;
+            color: #005fa3;
+            padding: 15px;
+            margin-top: 30px;
+            border-left: 5px solid #0078D4;
+            font-weight: bold;
+            font-family: monospace;
+        }
+
+        .project-tags {
+            margin-top: 15px;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+            .project-tags span {
+                background: #0078D4;
+                color: white;
+                padding: 4px 10px;
+                border-radius: 20px;
+                margin-right: 8px;
+                display: inline-block;
+            }
+
+        .diagram img {
+            max-width: 100%;
+            border: 1px solid #ccc;
+            margin-top: 20px;
+        }
+
+        .project-links {
+            text-align: right;
+            margin-top: 30px;
+        }
+
+            .project-links a {
+                display: inline-block;
+                background: #007acc;
+                color: white;
+                padding: 8px 14px;
+                text-decoration: none;
+                border-radius: 5px;
+                margin-left: 10px;
+                font-size: 0.85em;
+            }
+
+                .project-links a:hover {
+                    background: #005fa3;
+                }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin: 40px auto 60px auto;
+            max-width: 960px;
+        }
+
+            .nav-buttons button {
+                padding: 8px 16px;
+                font-size: 0.85em;
+                background: #0078D4;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+                .nav-buttons button:hover {
+                    background: #005fa3;
+                }
+
+        footer {
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="https://dkshah.github.io/aboutme/" style="color: white; text-decoration: underline; font-size: 0.85em; float: left; margin-left: 20px;">&larr; Back to About Me</a>
+        <h1>Dipen Shah - Project Portfolio</h1>
+        <p>Solution Architect | .NET Core Expert | Technical Leader</p>
+    </header>
+
+    <div class="project-container" id="project-content">
+        <!-- Project content dynamically loaded here -->
+    </div>
+
+    <div class="nav-buttons">
+        <button onclick="navigate(-1)">← Previous</button>
+        <button onclick="navigate(1)">Next →</button>
+    </div>
+
+    <footer>
+        &copy; 2025 Dipen Shah. All rights reserved.
+    </footer>
+
+    <script>
+        const projects = [
+            {
+                title: "InsightPay",
+                description: `
+              <p><strong>InsightPay</strong> is a transformative payroll platform tailored for fast-paced industries like restaurants, retail chains, and franchises. It streamlines manual and error-prone payroll operations by automating end-to-end labor data processing, compliance handling, and paycheck generation.</p>
+
+              <p>The platform ingests raw timeclock data from industry-leading POS systems such as <em>Square</em>, <em>Toast</em>, and <em>Oracle Micros</em>. Using ETL pipelines developed in Azure Data Factory and .NET microservices, we normalize shift punches, correct missing records, and classify job codes based on organizational roles.</p>
+
+              <p>The transformed data lands in a centralized Azure SQL Database, where our custom-built <strong>InsightPay Engine</strong> evaluates it against hundreds of state-level compliance rules — from overtime limits, split shifts, and break penalties to city-wide minimum wage regulations.</p>
+
+              <p>Our frontend, designed in Angular, provides an intuitive dashboard where finance managers can view flagged records, make adjustments, and validate payroll runs. InsightPay also supports real-time integrations with payroll systems like <strong>ADP</strong>, <strong>Paychex</strong>, and <strong>Payright</strong> via secure RESTful APIs and SFTP-based batch exports.</p>
+
+              <p>Advanced audit logging, flexible mappings, and versioned processing rules make InsightPay highly adaptable and fully traceable. What once took businesses 1-2 days per week to finalize payroll can now be completed within minutes with InsightPay’s guided wizard and bulk-edit features.</p>
+
+              <div class='tech-used'>.NET Core Microservices | Angular | Azure Functions | SQL Server | Azure Data Factory | REST APIs | SFTP</div>
+              <div class='project-tags'>
+                <span>Payroll</span>
+                <span>Enterprise SaaS</span>
+                <span>Azure</span>
+                <span>POS Integration</span>
+                <span>Compliance</span>
+              </div>
+              <div class='project-links'>
+                <a href='#'>View Architecture</a>
+                <a href='#'>Download Whitepaper</a>
+              </div>
+            `
+            }
+        ];
+
+        let current = 0;
+        function renderProject(index) {
+            const proj = projects[index];
+            document.getElementById("project-content").innerHTML = `
+            <h2 class="project-title">${proj.title}</h2>
+            <div class="project-description">${proj.description}</div>
+          `;
+        }
+
+        function navigate(dir) {
+            current += dir;
+            if (current < 0) current = projects.length - 1;
+            if (current >= projects.length) current = 0;
+            renderProject(current);
+        }
+
+        renderProject(current);
+    </script>
+</body>
+</html>
