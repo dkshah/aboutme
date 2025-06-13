@@ -247,17 +247,18 @@
             .btn-primary:hover {
                 background: #005ea2;
             }
-            
+
         .back-link {
             text-align: left;
-            
         }
-        .back-link a {
-            color: white;
-            text-decoration: underline;
 
-        }
+            .back-link a {
+                color: white;
+                text-decoration: underline;
+            }
     </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
 </head>
 <body>
 
@@ -275,9 +276,13 @@
             <a href="https://www.linkedin.com/in/dipen-shah/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
             <a href="https://github.com/dkshah" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
         </div>
+        <div style="text-align: center; margin: 20px 0;">
+            <button class="btn-primary" onclick="downloadResume()">Download Resume</button>
+        </div>
     </header>
 
     <main class="container">
+       
 
         <section class="about-me">
             <h2 class="section-title">About Me</h2>
@@ -359,7 +364,7 @@
             <div class="award-item">
                 <h4><i class="fab fa-github"></i> GitHub Foundations</h4>
                 <small>Issued Apr 2025 · Expires Apr 2028 · Credential ID: fc80947f-2359-4a64-b23d-de145b9d1813</small>
-               
+
             </div>
 
             <div class="award-item">
@@ -480,6 +485,19 @@
     <footer>
         &copy; 2025 Dipen Shah. All rights reserved.
     </footer>
+    <script>
+        function downloadResume() {
+            const element = document.querySelector('main');
+            const opt = {
+                margin: 0.3,
+                filename: 'Dipen-Shah-Resume.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+            html2pdf().set(opt).from(element).save();
+        }
+    </script>
 
 </body>
 </html>
