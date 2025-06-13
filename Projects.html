@@ -1,172 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dipen Shah | Project Navigator</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            background: #f4f4f4;
-            display: flex;
-            flex-direction: column;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dipen Shah | Project Navigator</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      background: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
 
-        header, footer {
-            text-align: center;
-            padding: 20px;
-            background: #0078D4;
-            color: white;
-        }
+    header, footer {
+      text-align: center;
+      padding: 20px;
+      background: #0078D4;
+      color: white;
+    }
 
-        .main {
-            display: flex;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+    .main {
+      display: flex;
+      flex-direction: row;
+      flex: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
 
-        .sidebar {
-            width: 250px;
-            background: #e6f2fb;
-            border-right: 1px solid #ccc;
-            padding: 20px;
-        }
+    .sidebar {
+      width: 250px;
+      background: #e6f2fb;
+      border-right: 1px solid #ccc;
+      padding: 20px;
+    }
 
-            .sidebar h3 {
-                margin-top: 0;
-                color: #003366;
-            }
+    .sidebar h3 {
+      margin-top: 0;
+      color: #003366;
+    }
 
-            .sidebar ul {
-                list-style-type: none;
-                padding-left: 0;
-            }
+    .sidebar ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
 
-            .sidebar li {
-                padding: 10px;
-                cursor: pointer;
-                color: #0078D4;
-            }
+    .sidebar li {
+      padding: 10px;
+      cursor: pointer;
+      color: #0078D4;
+    }
 
-                .sidebar li:hover,
-                .sidebar li.active {
-                    background: #0078D4;
-                    color: white;
-                    border-radius: 5px;
-                }
+    .sidebar li:hover,
+    .sidebar li.active {
+      background: #0078D4;
+      color: white;
+      border-radius: 5px;
+    }
 
-        .project-container {
-            flex: 1;
-            padding: 30px;
-            background: white;
-            box-shadow: 0 0 15px rgba(0,0,0,0.1);
-        }
+    .project-container {
+      flex: 1;
+      padding: 30px;
+      background: white;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      overflow: auto;
+    }
 
-        .project-title {
-            font-size: 2em;
-            color: #003366;
-            margin-bottom: 10px;
-        }
+    .project-title {
+      font-size: 2em;
+      color: #003366;
+      margin-bottom: 10px;
+    }
 
-        .project-description {
-            font-size: 1.05em;
-            line-height: 1.8;
-            margin-bottom: 20px;
-        }
+    .project-description {
+      font-size: 1.05em;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
 
-        .tech-used {
-            font-size: 1em;
-            background: #e0f3ff;
-            color: #005fa3;
-            padding: 15px;
-            margin-top: 30px;
-            border-left: 5px solid #0078D4;
-            font-weight: bold;
-            font-family: monospace;
-        }
+    .tech-used {
+      font-size: 1em;
+      background: #e0f3ff;
+      color: #005fa3;
+      padding: 15px;
+      margin-top: 30px;
+      border-left: 5px solid #0078D4;
+      font-weight: bold;
+      font-family: monospace;
+    }
 
-        .project-tags {
-            margin-top: 15px;
-            font-size: 0.9em;
-            color: #666;
-        }
+    .project-tags {
+      margin-top: 15px;
+      font-size: 0.9em;
+      color: #666;
+    }
 
-            .project-tags span {
-                background: #0078D4;
-                color: white;
-                padding: 4px 10px;
-                border-radius: 20px;
-                margin-right: 8px;
-                display: inline-block;
-            }
+    .project-tags span {
+      background: #0078D4;
+      color: white;
+      padding: 4px 10px;
+      border-radius: 20px;
+      margin-right: 8px;
+      display: inline-block;
+    }
 
-        .project-links {
-            text-align: right;
-            margin-top: 30px;
-        }
+    .project-links {
+      text-align: right;
+      margin-top: 30px;
+    }
 
-            .project-links a {
-                display: inline-block;
-                background: #007acc;
-                color: white;
-                padding: 8px 14px;
-                text-decoration: none;
-                border-radius: 5px;
-                margin-left: 10px;
-                font-size: 0.85em;
-            }
+    .project-links a {
+      display: inline-block;
+      background: #007acc;
+      color: white;
+      padding: 8px 14px;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-left: 10px;
+      font-size: 0.85em;
+    }
 
-                .project-links a:hover {
-                    background: #005fa3;
-                }
+    .project-links a:hover {
+      background: #005fa3;
+    }
 
-        footer {
-            font-size: 0.9em;
-        }
+    footer {
+      font-size: 0.9em;
+    }
 
-        .back-link {
-            float: left;
-            font-size: 0.85em;
-            margin-left: 20px;
-        }
+    .back-link {
+      float: left;
+      font-size: 0.85em;
+      margin-left: 20px;
+    }
 
-            .back-link a {
-                color: white;
-                text-decoration: underline;
-            }
-    </style>
+    .back-link a {
+      color: white;
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .main {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #ccc;
+      }
+
+      .project-container {
+        padding: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="back-link">
-            <a href="https://dkshah.github.io/aboutme/">&larr; Back to About Me</a>
-        </div>
-        <h1>Dipen Shah - Project Portfolio</h1>
-        <p>Solution Architect | .NET Core Expert | Technical Leader</p>
-    </header>
-
-    <div class="main">
-        <nav class="sidebar">
-            <h3>Projects</h3>
-            <ul id="project-menu"></ul>
-        </nav>
-
-        <div class="project-container" id="project-content">
-            <!-- Dynamic project content -->
-        </div>
+  <header>
+    <div class="back-link">
+      <a href="https://dkshah.github.io/aboutme/">&larr; Back to About Me</a>
     </div>
+    <h1>Dipen Shah - Project Portfolio</h1>
+    <p>Solution Architect | .NET Core Expert | Technical Leader</p>
+  </header>
 
-    <footer>
-        &copy; 2025 Dipen Shah. All rights reserved.
-    </footer>
+  <div class="main">
+    <nav class="sidebar">
+      <h3>Projects</h3>
+      <ul id="project-menu"></ul>
+    </nav>
 
-    <script>
-        const projects = [
-            {
-                title: "Intelligent Legal Form Builder – Document Automation Platform",
-                description: `
+    <div class="project-container" id="project-content">
+      <!-- Dynamic project content -->
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Dipen Shah. All rights reserved.
+  </footer>
+
+  <script>
+      const projects = [
+          {
+              title: "Intelligent Legal Form Builder – Document Automation Platform",
+              description: `
     <p>As a <strong>Solution Architect</strong>, I led the development of an advanced <strong>Legal Form Builder</strong> designed to simplify and accelerate legal document creation for attorneys and law firms. This cloud-based platform offers a dynamic, rules-driven interface to assemble complex jurisdiction-based forms with minimal manual intervention.</p>
 
     <p>The core of the application is a configurable <strong>form generation engine</strong> that supports:
@@ -210,10 +231,10 @@
       <a href="#">Download Whitepaper</a>
     </div>
   `
-            },
-            {
-                title: "Policy Evaluation Framework – Containerized Asset Compliance Engine",
-                description: `
+          },
+          {
+              title: "Policy Evaluation Framework – Containerized Asset Compliance Engine",
+              description: `
     <p>As the <strong>Solution Architect</strong>, I led the architectural design and implementation of a scalable <strong>Policy Evaluation Framework</strong> used to assess compliance of enterprise assets against defined policy sets. The system is built on a modular, container-driven architecture to support distributed execution, reusability, and rapid evaluation cycles.</p>
 
     <p>The core design centers around the following key components:</p>
@@ -263,10 +284,10 @@
       <a href="#">Download Whitepaper</a>
     </div>
   `
-            },
-            {
-                title: "Complaint Resolution System – Operational Issue Tracking and Response Platform",
-                description: `
+          },
+          {
+              title: "Complaint Resolution System – Operational Issue Tracking and Response Platform",
+              description: `
     <p>As the <strong>Technical Lead</strong>, I led the design and implementation of a centralized <strong>Complaint Resolution System</strong> tailored for high-volume restaurant chains. The platform was developed to automate the intake, categorization, and resolution tracking of customer complaints received through multiple sources including emails, surveys, and raw feedback logs.</p>
 
     <p>The system aggregates complaint data from various structured and unstructured sources, including:
@@ -308,10 +329,10 @@
       <a href="#">Download Whitepaper</a>
     </div>
   `
-            },
-            {
-                title: "Forecasting Platform – AI-Driven Sales, Labor, and Cost Prediction Engine",
-                description: `
+          },
+          {
+              title: "Forecasting Platform – AI-Driven Sales, Labor, and Cost Prediction Engine",
+              description: `
     <p>As the <strong>Technical Lead</strong>, I contributed to the architecture and implementation of a comprehensive <strong>Forecasting Platform</strong> that leveraged <strong>Artificial Intelligence (AI)</strong> and <strong>Machine Learning (ML)</strong> models to accurately predict Sales, Labor needs, and CML (Cost of Managing Labor) metrics. This platform was a critical decision-support tool for operations and workforce planning across retail and restaurant locations.</p>
 
     <p>The system ingested and processed large volumes of historical data including:
@@ -356,10 +377,10 @@
       <a href="#">Download Whitepaper</a>
     </div>
   `
-            },
-            {
-                title: "Employee Scheduling Platform – Intelligent Shift Management System",
-                description: `
+          },
+          {
+              title: "Employee Scheduling Platform – Intelligent Shift Management System",
+              description: `
     <p>As a core contributor and <strong>Technical Lead</strong>, I designed and delivered an enterprise-grade <strong>Employee Scheduling Application</strong> that streamlines shift planning and workforce allocation for hourly and salaried employees. The application provides an intuitive scheduling grid, similar to calendar views, where managers can assign, adjust, and track shifts across days and departments for multiple employees.</p>
 
     <p>Built with a scalable <strong>Microservices Architecture</strong> using <strong>.NET Core APIs</strong> and an interactive frontend in <strong>Angular</strong>, the platform supports both single-store and multi-location scheduling operations. It enables store managers to:
@@ -404,10 +425,10 @@
       <a href="#">Download Whitepaper</a>
     </div>
   `
-            },
-            {
-                title: "Insight Pay – Intelligent Payroll Processing Platform",
-                description: `
+          },
+          {
+              title: "Insight Pay – Intelligent Payroll Processing Platform",
+              description: `
                             <p>As the <strong>Technical Lead</strong> for the <strong>Insight Pay</strong> platform, I was responsible for designing and implementing an enterprise-grade payroll processing solution built using a scalable <strong>Microservices Architecture</strong>. The platform was specifically engineered to serve multi-location retail, franchise, and restaurant businesses, ensuring full compliance with labor laws across various U.S. states and cities.</p>
 
                             <p>The solution features a robust <strong>ETL pipeline</strong> developed with <strong>Azure Data Factory</strong> and .NET Core services to seamlessly extract, normalize, and cleanse raw time and attendance data ingested from diverse <strong>Point-of-Sale (POS) systems</strong> such as <em>Square</em>, <em>Toast</em>, and <em>Oracle Micros</em>. Data transformation included shift reconciliation, job code classification, and time gap resolution.</p>
@@ -439,10 +460,10 @@
                               <a href="#">Download Whitepaper</a>
                             </div>
                           `
-            },
-            {
-                title: "Dunkin Intranet – Enterprise Reporting and Analytics Platform",
-                description: `
+          },
+          {
+              title: "Dunkin Intranet – Enterprise Reporting and Analytics Platform",
+              description: `
             <p>As the <strong>Technical Lead</strong>, I was responsible for architecting and developing a scalable enterprise reporting application for <strong>Dunkin’s intranet ecosystem</strong>. The solution provided advanced analytical capabilities by sourcing operational and strategic data across domains such as <strong>Sales</strong>, <strong>Labor</strong>, <strong>Cost Control</strong>, <strong>Loss Prevention</strong>, and <strong>Guest Satisfaction Surveys</strong>.</p>
 
             <p>The platform was designed to support multilocation reporting for franchise owners, regional leaders, and executive stakeholders. Using dynamic parameters, users could easily compare metrics like <strong>TY (This Year) vs LY (Last Year)</strong>, <strong>TY vs Budget</strong>, and drill down into trends by region, store, or time period. It served as a unified performance visibility tool across the enterprise network.</p>
@@ -472,10 +493,10 @@
               <a href="#">Download Whitepaper</a>
             </div>
           `
-            },
-            {
-                title: "Bonus Application – Automated Incentive Management System",
-                description: `
+          },
+          {
+              title: "Bonus Application – Automated Incentive Management System",
+              description: `
             <p>As the <strong>Technical Lead</strong>, I spearheaded the design and development of the <strong>Bonus Application</strong>, a fully automated system for managing and distributing performance-based incentives for store managers. The platform was built to align bonus payouts with real-time operational performance across sales, cost, and service metrics, ensuring fairness, consistency, and transparency in rewards.</p>
 
             <p>The bonus calculation engine dynamically evaluates eligibility based on a weighted scoring model covering key categories such as:
@@ -513,9 +534,9 @@
               <a href="#">Download Whitepaper</a>
             </div>
           `},
-            {
-                title: "Mindscope ATS – Cloud-Based Applicant Tracking System",
-                description: `
+          {
+              title: "Mindscope ATS – Cloud-Based Applicant Tracking System",
+              description: `
             <p>As the <strong>Project Lead</strong>, I led the design, implementation, and delivery of the <strong>Mindscope ATS</strong> – a cloud-native <strong>Applicant Tracking and Recruitment Management Platform</strong> built to meet the dynamic needs of staffing agencies and enterprise HR teams. The solution was designed to enhance recruiter efficiency, candidate engagement, and client coordination through seamless automation and intelligent workflows.</p>
 
             <p>The platform empowers recruitment teams with capabilities to manage the entire lifecycle of candidate acquisition and placement, including:
@@ -559,10 +580,10 @@
               <a href="#">Download Whitepaper</a>
             </div>
           `
-            },
-            {
-                title: "Inspection Module – Configurable Restaurant Audit Platform",
-                description: `
+          },
+          {
+              title: "Inspection Module – Configurable Restaurant Audit Platform",
+              description: `
     <p>As part of a larger operational excellence initiative, I led the design and delivery of the <strong>Inspection Module</strong>, a configurable restaurant auditing system that enables store managers to perform standardized inspections on a weekly, bi-weekly, or monthly basis. The module was built to support dynamic form configuration, real-time scoring, evidence tracking, and automated compliance reporting.</p>
 
     <p>The solution features a fully dynamic <strong>form builder</strong> that allows administrative users to define <strong>inspection templates</strong> with multiple categories, customizable questions, and flexible input types such as:
@@ -599,10 +620,10 @@
       <a href="#">Download Whitepaper</a>
     </div>
   `
-            },
-            {
-                title: "NNIGroup E-Commerce Platform – Scalable Online Retail Solution",
-                description: `
+          },
+          {
+              title: "NNIGroup E-Commerce Platform – Scalable Online Retail Solution",
+              description: `
     <p>As a <strong>Senior Developer</strong>, I was responsible for end-to-end development of the <strong>NNIGroup E-Commerce Platform</strong> – a scalable online retail application built to serve a wide range of products across multiple categories, targeting both B2C and B2B customers.</p>
 
     <p>The platform was designed to provide a seamless and responsive shopping experience through:
@@ -647,10 +668,10 @@
       <a href="#">Download Whitepaper</a>
     </div>
   `
-            } ,
-           {
-                title: "SportsIX Reporting System – Data Intelligence for Sports Facilities",
-                description: `
+          },
+          {
+              title: "SportsIX Reporting System – Data Intelligence for Sports Facilities",
+              description: `
     <p>As a core contributor to the <strong>SportsIX Reporting System</strong>, I was responsible for developing a comprehensive, data-driven reporting platform designed specifically for sports and recreation facilities. The application empowers facility owners and managers with actionable insights derived from key operational data streams such as revenue, participant engagement, and program performance.</p>
 
     <p>The solution generates a suite of financial and operational reports that help facility stakeholders make informed business decisions. Key report categories include:
@@ -688,35 +709,35 @@
       <a href="#">Download Whitepaper</a>
     </div>
   `
-            }
+          }
 
-                ];
+      ];
 
-        function renderMenu() {
-            const menu = document.getElementById("project-menu");
-            projects.forEach((proj, index) => {
-                const li = document.createElement("li");
-                li.textContent = proj.title;
-                li.onclick = () => {
-                    renderProject(index);
-                    document.querySelectorAll("#project-menu li").forEach(el => el.classList.remove("active"));
-                    li.classList.add("active");
-                };
-                if (index === 0) li.classList.add("active");
-                menu.appendChild(li);
-            });
-        }
+    function renderMenu() {
+      const menu = document.getElementById("project-menu");
+      projects.forEach((proj, index) => {
+        const li = document.createElement("li");
+        li.textContent = proj.title;
+        li.onclick = () => {
+          renderProject(index);
+          document.querySelectorAll("#project-menu li").forEach(el => el.classList.remove("active"));
+          li.classList.add("active");
+        };
+        if (index === 0) li.classList.add("active");
+        menu.appendChild(li);
+      });
+    }
 
-        function renderProject(index) {
-            const proj = projects[index];
-            document.getElementById("project-content").innerHTML = `
-                    <h2 class="project-title">${proj.title}</h2>
-                    <div class="project-description">${proj.description}</div>
-                  `;
-        }
+    function renderProject(index) {
+      const proj = projects[index];
+      document.getElementById("project-content").innerHTML = `
+        <h2 class="project-title">${proj.title}</h2>
+        <div class="project-description">${proj.description}</div>
+      `;
+    }
 
-        renderMenu();
-        renderProject(0);
-    </script>
+    renderMenu();
+    if (projects.length > 0) renderProject(0);
+  </script>
 </body>
 </html>
