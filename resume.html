@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dipen Shah | Solution Architect | .NET Core Expert</title>
+    <meta name="description" content="Dipen Shah - Solution Architect with expertise in .NET Core, Azure, AWS, AI, and Technical Leadership." />
+    <meta name="keywords" content=".NET, Solution Architect, Azure, AWS, AI, Technical Lead, Freelance Consulting" />
+    <meta name="author" content="Dipen Shah" />
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <style>
+        /* Basic Reset & Fonts */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            background: #f8f9fa;
+            color: #333;
+        }
+
+        a {
+            color: #0078D4;
+            text-decoration: none;
+        }
+
+            a:hover {
+                text-decoration: underline;
+            }
+
+        /* Container */
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: #0078D4;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+            header h1 {
+                font-weight: 700;
+                font-size: 2.8rem;
+                margin-bottom: 5px;
+            }
+
+            header p {
+                font-size: 1.2rem;
+                opacity: 0.85;
+            }
+
+        .profile-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 4px solid white;
+            margin: 15px auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* Social Icons */
+        .social-icons {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            font-size: 1.5rem;
+        }
+
+            .social-icons a {
+                color: white;
+                transition: color 0.3s ease;
+            }
+
+                .social-icons a:hover {
+                    color: #ffc107;
+                }
+
+        /* Section Titles */
+        h2.section-title {
+            color: #0078D4;
+            font-weight: 700;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #0078D4;
+            padding-bottom: 6px;
+            letter-spacing: 1.2px;
+        }
+
+        /* About Me */
+        .about-me {
+            background: white;
+            padding: 25px 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 7px rgba(0,0,0,0.07);
+            margin-bottom: 30px;
+        }
+
+            .about-me p {
+                font-size: 1.1rem;
+                margin-bottom: 15px;
+            }
+
+            .about-me ul {
+                list-style: inside disc;
+                margin-left: 20px;
+                color: #444;
+            }
+
+                .about-me ul li {
+                    margin-bottom: 8px;
+                }
+
+        /* Tech Skills Grid */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .tech-item {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 7px rgba(0,0,0,0.07);
+            padding: 20px;
+            text-align: center;
+        }
+
+            .tech-item i {
+                font-size: 2.5rem;
+                color: #0078D4;
+                margin-bottom: 10px;
+            }
+
+            .tech-item h3 {
+                margin-bottom: 10px;
+                font-weight: 600;
+            }
+
+            .tech-item p {
+                font-size: 0.95rem;
+                color: #555;
+            }
+
+        /* Awards Section */
+        .awards {
+            background: white;
+            padding: 25px 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 7px rgba(0,0,0,0.07);
+            margin-bottom: 30px;
+        }
+
+        .award-item {
+            border-left: 4px solid #0078D4;
+            padding-left: 15px;
+            margin-bottom: 20px;
+        }
+
+            .award-item h4 {
+                color: #0078D4;
+                margin-bottom: 5px;
+                font-weight: 700;
+            }
+
+            .award-item small {
+                color: #666;
+            }
+
+        /* Testimonials */
+        .testimonials {
+            background: white;
+            padding: 25px 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 7px rgba(0,0,0,0.07);
+            margin-bottom: 40px;
+        }
+
+        .testimonial {
+            margin-bottom: 20px;
+            font-style: italic;
+            position: relative;
+            padding-left: 30px;
+        }
+
+            .testimonial::before {
+                content: "\f10d"; /* FontAwesome quote icon */
+                font-family: "Font Awesome 6 Free";
+                font-weight: 900;
+                position: absolute;
+                left: 0;
+                top: 0;
+                color: #0078D4;
+                font-size: 1.8rem;
+            }
+
+        .testimonial-footer {
+            font-weight: 700;
+            margin-top: 6px;
+            color: #333;
+        }
+
+        .testimonial-role {
+            font-weight: 400;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #777;
+            margin-top: 40px;
+            padding: 15px 0;
+            border-top: 1px solid #ddd;
+        }
+
+        /* Buttons */
+        .btn-primary {
+            background: #0078D4;
+            color: white;
+            padding: 10px 18px;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            margin-right: 10px;
+            display: inline-block;
+        }
+
+            .btn-primary:hover {
+                background: #005ea2;
+            }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="https://media.licdn.com/dms/image/v2/D4D03AQGk2Ax1Nlz_fg/profile-displayphoto-shrink_800_800/B4DZaEfFiKGwAg-/0/1745979464436?e=1752710400&v=beta&t=DIL2ziqEFniFIJJIv-Ep0sL_YI9uFo1EMwD-QSR8q0M"
+             alt="Dipen Shah"
+             class="profile-img" />
+        <h1>Dipen Shah</h1>
+        <p>Solution Architect | .NET Core Expert | Technical Leader</p>
+
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/dipen-shah/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/dkshah" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section class="about-me">
+            <h2 class="section-title">About Me</h2>
+            <p>
+                With over 15 years of experience in software development, I am a
+                passionate Solution Architect specializing in .NET Core technologies,
+                cloud platforms like Azure and AWS, and AI solutions. I lead teams to
+                build scalable, maintainable, and innovative software products.
+            </p>
+            <p>
+                I focus on architecting end-to-end solutions, optimizing performance,
+                and mentoring technical teams for success.
+            </p>
+            <h3>Key Responsibilities:</h3>
+            <ul>
+                <li>Architecture Design and Development</li>
+                <li>Code Review and Quality Assurance</li>
+                <li>Performance Optimization & Gap Analysis</li>
+                <li>Project and Team Leadership</li>
+                <li>Client Requirement Discussions</li>
+                <li>Resource and Delivery Management</li>
+                <li>Training and Mentorship</li>
+                <li>Problem Solving and Design Patterns Implementation</li>
+            </ul>
+
+        </section>
+        <section class="about-me">
+            <h2 class="section-title">Professional Experience</h2>
+
+            <div class="award-item">
+                <h4>Tata Consultancy Services (TCS)</h4>
+                <small><strong>Solutions Architect</strong> · Dec 2022 - Present · 2 yrs 7 mos · On-site</small>
+                <p>Working on enterprise architecture with focus on OOP, Docker, Azure, AWS, and cloud-native solutions for large-scale systems.</p>
+            </div>
+
+            <div class="award-item">
+                <h4>Azilen Technologies Pvt. Ltd.</h4>
+                <small><strong>Project Lead</strong> · Apr 2021 - Nov 2022 · 1 yr 8 mos · Ahmedabad, India</small>
+                <p>Led full lifecycle development projects, engaged in system analysis, architecture decisions, and team mentoring. Delivered scalable solutions aligned with client goals.</p>
+            </div>
+
+            <div class="award-item">
+                <h4>Analytix Business Solutions</h4>
+                <small><strong>Technical Lead</strong> · Jan 2016 - Mar 2021 · 5 yrs 3 mos · Ahmedabad</small>
+                <p>Oversaw team performance, handled technical escalations, conducted training, and introduced architecture and feasibility solutions for major projects.</p>
+
+                <small><strong>Sr. Software Engineer</strong> · Jan 2013 - Dec 2015 · 3 yrs · Ahmedabad</small>
+                <p>Developed scalable .NET-based systems with C#, ASP.NET, Angular, and SQL Server while mentoring junior engineers and collaborating cross-functionally.</p>
+            </div>
+
+            <div class="award-item">
+                <h4>Software Engineer Roles</h4>
+                <small><strong>Analytix Business Solutions</strong> · May 2011 - Dec 2012 · 1 yr 8 mos</small><br />
+                <small><strong>Pragra Infratech Pvt. Ltd.</strong> · Jul 2010 - May 2011 · 11 mos</small><br />
+                <small><strong>Cybersurf India Pvt. Ltd.</strong> · Jan 2010 - Jun 2010 · 6 mos</small>
+                <p>Worked on payroll, production systems, and RFID integration. Gained hands-on experience with ASP.NET, SQL Server, and OOP concepts.</p>
+            </div>
+        </section>
+        <section class="about-me">
+            <h2 class="section-title">Education</h2>
+
+            <div class="award-item">
+                <h4>Hemchandracharya North Gujarat University</h4>
+                <small><strong>Bachelor of Engineering (BE), Computer Engineering</strong> · 2006 - 2010</small>
+                <p>
+                    Graduated with 78% marks. Active participant in Robotics and Event Management societies.<br />
+                    Completed 4 years of in-depth study in computer engineering, covering software development, networking, and systems design.
+                </p>
+            </div>
+        </section>
+        <section class="about-me">
+            <h2 class="section-title">Licenses & Certifications</h2>
+
+            <div class="award-item">
+                <h4><i class="fab fa-microsoft"></i> Microsoft Certified: Azure AI Fundamentals</h4>
+                <small>Issued May 2025 · Credential ID: 2919F89C7D1CA76C</small>
+            </div>
+
+            <div class="award-item">
+                <h4><i class="fab fa-github"></i> GitHub Foundations</h4>
+                <small>Issued Apr 2025 · Expires Apr 2028 · Credential ID: fc80947f-2359-4a64-b23d-de145b9d1813</small>
+               
+            </div>
+
+            <div class="award-item">
+                <h4><i class="fab fa-microsoft"></i> Microsoft Certified: Azure Solutions Architect Expert</h4>
+                <small>Issued Jun 2024 · Expires Jun 2026 · Credential ID: 66E48271A3FAF2C1</small>
+            </div>
+
+            <div class="award-item">
+                <h4><i class="fab fa-microsoft"></i> Microsoft Certified: Azure Administrator Associate</h4>
+                <small>Issued Mar 2024 · Expires Mar 2026 · Credential ID: 76926B8F1BEB7BE3</small>
+            </div>
+
+            <div class="award-item">
+                <h4><i class="fas fa-certificate"></i> Scrum Master Basic - LearnTube.ai</h4>
+                <small>Issued Dec 2023 · Credential ID: SCR20231275X</small>
+            </div>
+
+            <div class="award-item">
+                <h4><i class="fab fa-aws"></i> AWS Developer Associate - Trainocate India</h4>
+                <small>Issued Oct 2023</small>
+                <p>Skills: Amazon Web Services (AWS)</p>
+            </div>
+
+            <div class="award-item">
+                <h4><i class="fab fa-microsoft"></i> Microsoft Certified: Azure Administrator Associate (Previous Cycle)</h4>
+                <small>Issued Mar 2024 · Expired Mar 2025 · Credential ID: 76926B8F1BEB7BE3</small>
+            </div>
+        </section>
+
+        <section class="tech-skills">
+            <h2 class="section-title">Technical Proficiencies</h2>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <i class="fab fa-microsoft"></i>
+                    <h3>.NET</h3>
+                    <p>Extensive expertise designing robust, scalable backend architectures using .NET Core and related frameworks.</p>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-database"></i>
+                    <h3>SQL Server</h3>
+                    <p>Proficient in database design, query optimization, and managing complex SQL Server environments.</p>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-angular"></i>
+                    <h3>Angular</h3>
+                    <p>Developing dynamic, performant front-end applications with Angular and modern web technologies.</p>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-azure"></i>
+                    <h3>Azure</h3>
+                    <p>Hands-on experience in cloud services, including App Services, Functions, and DevOps on Azure.</p>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-aws"></i>
+                    <h3>AWS</h3>
+                    <p>Skilled in deploying and managing scalable cloud solutions on AWS infrastructure.</p>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-brain"></i>
+                    <h3>Microsoft AI</h3>
+                    <p>Implementing AI-powered applications using Microsoft Cognitive Services and Azure AI tools.</p>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-cubes"></i>
+                    <h3>Microservices</h3>
+                    <p>Designing microservices architectures to build modular and scalable distributed systems.</p>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-plug"></i>
+                    <h3>API Integration</h3>
+                    <p>Seamless integration of RESTful APIs and experience with low-code/no-code platforms.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="awards">
+            <h2 class="section-title">Awards & Recognition</h2>
+            <div class="award-item">
+                <h4><i class="fas fa-trophy"></i> Special Initiative Award</h4>
+                <small>April 2025 & January 2024 - Confidential</small>
+            </div>
+            <div class="award-item">
+                <h4><i class="fas fa-bolt"></i> On the Spot Award</h4>
+                <small>September 2023 & May 2023 - Confidential</small>
+            </div>
+            <div class="award-item">
+                <h4><i class="fas fa-star"></i> Star Awards</h4>
+                <small>Star of the Month: November 2023 - Confidential<br />Rising Star: July 2021 - Azilen Technologies</small>
+            </div>
+            <div class="award-item">
+                <h4><i class="fas fa-lightbulb"></i> Fuel Innovation</h4>
+                <small>January 2022 & Q4 2021 - Azilen Technologies</small>
+            </div>
+            <div class="award-item">
+                <h4><i class="fas fa-users"></i> Best Team Award</h4>
+                <small>August 2023 - Confidential</small>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <h2 class="section-title">Testimonials</h2>
+            <div class="testimonial">
+                <p>“During my career I’ve rarely come across real professionals like Dipen. His ability to handle multiple projects is outstanding.”</p>
+                <div class="testimonial-footer">Ritul Lakhtariya, Project Consultant</div>
+            </div>
+            <div class="testimonial">
+                <p>“Dipen is a valued team member and a key player. I confidently recommend him as a team lead.”</p>
+                <div class="testimonial-footer">Renish Vekariya, Senior Software Engineer</div>
+            </div>
+            <div class="testimonial">
+                <p>“A brilliant Project Manager who understands how to get the best out of people.”</p>
+                <div class="testimonial-footer">Janak Thakkar, Senior Software Engineer</div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        &copy; 2025 Dipen Shah. All rights reserved.
+    </footer>
+
+</body>
+</html>
