@@ -256,6 +256,12 @@
                 color: white;
                 text-decoration: underline;
             }
+        @media print {
+            .page-break {
+                page-break-before: always;
+            }
+        }
+
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
@@ -280,9 +286,17 @@
             <button class="btn-primary" onclick="downloadResume()">Download Resume</button>
         </div>
     </header>
+    <div id="pdf-header" style="display: none; background: white; padding: 20px; border-bottom: 2px solid #0078D4; margin-bottom: 20px;">
+        <h1 style="margin-bottom: 5px; font-size: 1.8rem; color: #0078D4;">Dipen Shah</h1>
+        <p style="margin: 4px 0;">Solution Architect | .NET Core Expert</p>
+        <p style="margin: 4px 0;">
+            📧 <a href="mailto:erdipenshah23@gmail.com">erdipenshah23@gmail.com</a>  
+            <a href="https://www.linkedin.com/in/dipen-shah/" target="_blank">LinkedIn</a>
+        </p>
+    </div>
 
     <main class="container">
-       
+
 
         <section class="about-me">
             <h2 class="section-title">About Me</h2>
@@ -309,176 +323,178 @@
             </ul>
 
         </section>
-        <section class="about-me">
-            <h2 class="section-title">Professional Experience</h2>
+        <div class="page-break">
+            <section class="about-me">
+                <h2 class="section-title">Professional Experience</h2>
 
-            <div class="award-item">
-                <h4>Tata Consultancy Services (TCS)</h4>
-                <small><strong>Solutions Architect</strong> · Dec 2022 - Present · 2 yrs 7 mos · On-site</small>
-                <p>Working on enterprise architecture with focus on OOP, Docker, Azure, AWS, and cloud-native solutions for large-scale systems.</p>
-            </div>
-
-            <div class="award-item">
-                <h4>Azilen Technologies Pvt. Ltd.</h4>
-                <small><strong>Project Lead</strong> · Apr 2021 - Nov 2022 · 1 yr 8 mos · Ahmedabad, India</small>
-                <p>Led full lifecycle development projects, engaged in system analysis, architecture decisions, and team mentoring. Delivered scalable solutions aligned with client goals.</p>
-            </div>
-
-            <div class="award-item">
-                <h4>Analytix Business Solutions</h4>
-                <small><strong>Technical Lead</strong> · Jan 2016 - Mar 2021 · 5 yrs 3 mos · Ahmedabad</small>
-                <p>Oversaw team performance, handled technical escalations, conducted training, and introduced architecture and feasibility solutions for major projects.</p>
-
-                <small><strong>Sr. Software Engineer</strong> · Jan 2013 - Dec 2015 · 3 yrs · Ahmedabad</small>
-                <p>Developed scalable .NET-based systems with C#, ASP.NET, Angular, and SQL Server while mentoring junior engineers and collaborating cross-functionally.</p>
-            </div>
-
-            <div class="award-item">
-                <h4>Software Engineer Roles</h4>
-                <small><strong>Analytix Business Solutions</strong> · May 2011 - Dec 2012 · 1 yr 8 mos</small><br />
-                <small><strong>Pragra Infratech Pvt. Ltd.</strong> · Jul 2010 - May 2011 · 11 mos</small><br />
-                <small><strong>Cybersurf India Pvt. Ltd.</strong> · Jan 2010 - Jun 2010 · 6 mos</small>
-                <p>Worked on payroll, production systems, and RFID integration. Gained hands-on experience with ASP.NET, SQL Server, and OOP concepts.</p>
-            </div>
-        </section>
-        <section class="about-me">
-            <h2 class="section-title">Education</h2>
-
-            <div class="award-item">
-                <h4>Hemchandracharya North Gujarat University</h4>
-                <small><strong>Bachelor of Engineering (BE), Computer Engineering</strong> · 2006 - 2010</small>
-                <p>
-                    Graduated with 78% marks. Active participant in Robotics and Event Management societies.<br />
-                    Completed 4 years of in-depth study in computer engineering, covering software development, networking, and systems design.
-                </p>
-            </div>
-        </section>
-        <section class="about-me">
-            <h2 class="section-title">Licenses & Certifications</h2>
-
-            <div class="award-item">
-                <h4><i class="fab fa-microsoft"></i> Microsoft Certified: Azure AI Fundamentals</h4>
-                <small>Issued May 2025 · Credential ID: 2919F89C7D1CA76C</small>
-            </div>
-
-            <div class="award-item">
-                <h4><i class="fab fa-github"></i> GitHub Foundations</h4>
-                <small>Issued Apr 2025 · Expires Apr 2028 · Credential ID: fc80947f-2359-4a64-b23d-de145b9d1813</small>
-
-            </div>
-
-            <div class="award-item">
-                <h4><i class="fab fa-microsoft"></i> Microsoft Certified: Azure Solutions Architect Expert</h4>
-                <small>Issued Jun 2024 · Expires Jun 2026 · Credential ID: 66E48271A3FAF2C1</small>
-            </div>
-
-            <div class="award-item">
-                <h4><i class="fab fa-microsoft"></i> Microsoft Certified: Azure Administrator Associate</h4>
-                <small>Issued Mar 2024 · Expires Mar 2026 · Credential ID: 76926B8F1BEB7BE3</small>
-            </div>
-
-            <div class="award-item">
-                <h4><i class="fas fa-certificate"></i> Scrum Master Basic - LearnTube.ai</h4>
-                <small>Issued Dec 2023 · Credential ID: SCR20231275X</small>
-            </div>
-
-            <div class="award-item">
-                <h4><i class="fab fa-aws"></i> AWS Developer Associate - Trainocate India</h4>
-                <small>Issued Oct 2023</small>
-                <p>Skills: Amazon Web Services (AWS)</p>
-            </div>
-
-            <div class="award-item">
-                <h4><i class="fab fa-microsoft"></i> Microsoft Certified: Azure Administrator Associate (Previous Cycle)</h4>
-                <small>Issued Mar 2024 · Expired Mar 2025 · Credential ID: 76926B8F1BEB7BE3</small>
-            </div>
-        </section>
-
-        <section class="tech-skills">
-            <h2 class="section-title">Technical Proficiencies</h2>
-            <div class="tech-grid">
-                <div class="tech-item">
-                    <i class="fab fa-microsoft"></i>
-                    <h3>.NET</h3>
-                    <p>Extensive expertise designing robust, scalable backend architectures using .NET Core and related frameworks.</p>
+                <div class="award-item">
+                    <h4>Tata Consultancy Services (TCS)</h4>
+                    <small><strong>Solutions Architect</strong> · Dec 2022 - Present · 2 yrs 7 mos · On-site</small>
+                    <p>Working on enterprise architecture with focus on OOP, Docker, Azure, AWS, and cloud-native solutions for large-scale systems.</p>
                 </div>
-                <div class="tech-item">
-                    <i class="fas fa-database"></i>
-                    <h3>SQL Server</h3>
-                    <p>Proficient in database design, query optimization, and managing complex SQL Server environments.</p>
-                </div>
-                <div class="tech-item">
-                    <i class="fab fa-angular"></i>
-                    <h3>Angular</h3>
-                    <p>Developing dynamic, performant front-end applications with Angular and modern web technologies.</p>
-                </div>
-                <div class="tech-item">
-                    <i class="fab fa-azure"></i>
-                    <h3>Azure</h3>
-                    <p>Hands-on experience in cloud services, including App Services, Functions, and DevOps on Azure.</p>
-                </div>
-                <div class="tech-item">
-                    <i class="fab fa-aws"></i>
-                    <h3>AWS</h3>
-                    <p>Skilled in deploying and managing scalable cloud solutions on AWS infrastructure.</p>
-                </div>
-                <div class="tech-item">
-                    <i class="fas fa-brain"></i>
-                    <h3>Microsoft AI</h3>
-                    <p>Implementing AI-powered applications using Microsoft Cognitive Services and Azure AI tools.</p>
-                </div>
-                <div class="tech-item">
-                    <i class="fas fa-cubes"></i>
-                    <h3>Microservices</h3>
-                    <p>Designing microservices architectures to build modular and scalable distributed systems.</p>
-                </div>
-                <div class="tech-item">
-                    <i class="fas fa-plug"></i>
-                    <h3>API Integration</h3>
-                    <p>Seamless integration of RESTful APIs and experience with low-code/no-code platforms.</p>
-                </div>
-            </div>
-        </section>
 
-        <section class="awards">
-            <h2 class="section-title">Awards & Recognition</h2>
-            <div class="award-item">
-                <h4><i class="fas fa-trophy"></i> Special Initiative Award</h4>
-                <small>April 2025 & January 2024 - Confidential</small>
-            </div>
-            <div class="award-item">
-                <h4><i class="fas fa-bolt"></i> On the Spot Award</h4>
-                <small>September 2023 & May 2023 - Confidential</small>
-            </div>
-            <div class="award-item">
-                <h4><i class="fas fa-star"></i> Star Awards</h4>
-                <small>Star of the Month: November 2023 - Confidential<br />Rising Star: July 2021 - Azilen Technologies</small>
-            </div>
-            <div class="award-item">
-                <h4><i class="fas fa-lightbulb"></i> Fuel Innovation</h4>
-                <small>January 2022 & Q4 2021 - Azilen Technologies</small>
-            </div>
-            <div class="award-item">
-                <h4><i class="fas fa-users"></i> Best Team Award</h4>
-                <small>August 2023 - Confidential</small>
-            </div>
-        </section>
+                <div class="award-item">
+                    <h4>Azilen Technologies Pvt. Ltd.</h4>
+                    <small><strong>Project Lead</strong> · Apr 2021 - Nov 2022 · 1 yr 8 mos · Ahmedabad, India</small>
+                    <p>Led full lifecycle development projects, engaged in system analysis, architecture decisions, and team mentoring. Delivered scalable solutions aligned with client goals.</p>
+                </div>
 
-        <section class="testimonials">
-            <h2 class="section-title">Testimonials</h2>
-            <div class="testimonial">
-                <p>“During my career I’ve rarely come across real professionals like Dipen. His ability to handle multiple projects is outstanding.”</p>
-                <div class="testimonial-footer">Ritul Lakhtariya, Project Consultant</div>
+                <div class="award-item">
+                    <h4>Analytix Business Solutions</h4>
+                    <small><strong>Technical Lead</strong> · Jan 2016 - Mar 2021 · 5 yrs 3 mos · Ahmedabad</small>
+                    <p>Oversaw team performance, handled technical escalations, conducted training, and introduced architecture and feasibility solutions for major projects.</p>
+
+                    <small><strong>Sr. Software Engineer</strong> · Jan 2013 - Dec 2015 · 3 yrs · Ahmedabad</small>
+                    <p>Developed scalable .NET-based systems with C#, ASP.NET, Angular, and SQL Server while mentoring junior engineers and collaborating cross-functionally.</p>
+                </div>
+
+                <div class="award-item">
+                    <h4>Software Engineer Roles</h4>
+                    <small><strong>Analytix Business Solutions</strong> · May 2011 - Dec 2012 · 1 yr 8 mos</small><br />
+                    <small><strong>Pragra Infratech Pvt. Ltd.</strong> · Jul 2010 - May 2011 · 11 mos</small><br />
+                    <small><strong>Cybersurf India Pvt. Ltd.</strong> · Jan 2010 - Jun 2010 · 6 mos</small>
+                    <p>Worked on payroll, production systems, and RFID integration. Gained hands-on experience with ASP.NET, SQL Server, and OOP concepts.</p>
+                </div>
+            </section>
             </div>
-            <div class="testimonial">
-                <p>“Dipen is a valued team member and a key player. I confidently recommend him as a team lead.”</p>
-                <div class="testimonial-footer">Renish Vekariya, Senior Software Engineer</div>
-            </div>
-            <div class="testimonial">
-                <p>“A brilliant Project Manager who understands how to get the best out of people.”</p>
-                <div class="testimonial-footer">Janak Thakkar, Senior Software Engineer</div>
-            </div>
-        </section>
+            <section class="about-me">
+                <h2 class="section-title">Education</h2>
+
+                <div class="award-item">
+                    <h4>Hemchandracharya North Gujarat University</h4>
+                    <small><strong>Bachelor of Engineering (BE), Computer Engineering</strong> · 2006 - 2010</small>
+                    <p>
+                        Graduated with 78% marks. Active participant in Robotics and Event Management societies.<br />
+                        Completed 4 years of in-depth study in computer engineering, covering software development, networking, and systems design.
+                    </p>
+                </div>
+            </section>
+            <section class="about-me">
+                <h2 class="section-title">Licenses & Certifications</h2>
+
+                <div class="award-item">
+                    <h4><i class="fab fa-microsoft"></i> Microsoft Certified: Azure AI Fundamentals</h4>
+                    <small>Issued May 2025 · Credential ID: 2919F89C7D1CA76C</small>
+                </div>
+
+                <div class="award-item">
+                    <h4><i class="fab fa-github"></i> GitHub Foundations</h4>
+                    <small>Issued Apr 2025 · Expires Apr 2028 · Credential ID: fc80947f-2359-4a64-b23d-de145b9d1813</small>
+
+                </div>
+
+                <div class="award-item">
+                    <h4><i class="fab fa-microsoft"></i> Microsoft Certified: Azure Solutions Architect Expert</h4>
+                    <small>Issued Jun 2024 · Expires Jun 2026 · Credential ID: 66E48271A3FAF2C1</small>
+                </div>
+
+                <div class="award-item">
+                    <h4><i class="fab fa-microsoft"></i> Microsoft Certified: Azure Administrator Associate</h4>
+                    <small>Issued Mar 2024 · Expires Mar 2026 · Credential ID: 76926B8F1BEB7BE3</small>
+                </div>
+
+                <div class="award-item">
+                    <h4><i class="fas fa-certificate"></i> Scrum Master Basic - LearnTube.ai</h4>
+                    <small>Issued Dec 2023 · Credential ID: SCR20231275X</small>
+                </div>
+
+                <div class="award-item">
+                    <h4><i class="fab fa-aws"></i> AWS Developer Associate - Trainocate India</h4>
+                    <small>Issued Oct 2023</small>
+                    <p>Skills: Amazon Web Services (AWS)</p>
+                </div>
+
+                <div class="award-item">
+                    <h4><i class="fab fa-microsoft"></i> Microsoft Certified: Azure Administrator Associate (Previous Cycle)</h4>
+                    <small>Issued Mar 2024 · Expired Mar 2025 · Credential ID: 76926B8F1BEB7BE3</small>
+                </div>
+            </section>
+
+            <section class="tech-skills">
+                <h2 class="section-title">Technical Proficiencies</h2>
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <i class="fab fa-microsoft"></i>
+                        <h3>.NET</h3>
+                        <p>Extensive expertise designing robust, scalable backend architectures using .NET Core and related frameworks.</p>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-database"></i>
+                        <h3>SQL Server</h3>
+                        <p>Proficient in database design, query optimization, and managing complex SQL Server environments.</p>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-angular"></i>
+                        <h3>Angular</h3>
+                        <p>Developing dynamic, performant front-end applications with Angular and modern web technologies.</p>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-azure"></i>
+                        <h3>Azure</h3>
+                        <p>Hands-on experience in cloud services, including App Services, Functions, and DevOps on Azure.</p>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-aws"></i>
+                        <h3>AWS</h3>
+                        <p>Skilled in deploying and managing scalable cloud solutions on AWS infrastructure.</p>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-brain"></i>
+                        <h3>Microsoft AI</h3>
+                        <p>Implementing AI-powered applications using Microsoft Cognitive Services and Azure AI tools.</p>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-cubes"></i>
+                        <h3>Microservices</h3>
+                        <p>Designing microservices architectures to build modular and scalable distributed systems.</p>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-plug"></i>
+                        <h3>API Integration</h3>
+                        <p>Seamless integration of RESTful APIs and experience with low-code/no-code platforms.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="awards">
+                <h2 class="section-title">Awards & Recognition</h2>
+                <div class="award-item">
+                    <h4><i class="fas fa-trophy"></i> Special Initiative Award</h4>
+                    <small>April 2025 & January 2024 - Confidential</small>
+                </div>
+                <div class="award-item">
+                    <h4><i class="fas fa-bolt"></i> On the Spot Award</h4>
+                    <small>September 2023 & May 2023 - Confidential</small>
+                </div>
+                <div class="award-item">
+                    <h4><i class="fas fa-star"></i> Star Awards</h4>
+                    <small>Star of the Month: November 2023 - Confidential<br />Rising Star: July 2021 - Azilen Technologies</small>
+                </div>
+                <div class="award-item">
+                    <h4><i class="fas fa-lightbulb"></i> Fuel Innovation</h4>
+                    <small>January 2022 & Q4 2021 - Azilen Technologies</small>
+                </div>
+                <div class="award-item">
+                    <h4><i class="fas fa-users"></i> Best Team Award</h4>
+                    <small>August 2023 - Confidential</small>
+                </div>
+            </section>
+
+            <section class="testimonials">
+                <h2 class="section-title">Testimonials</h2>
+                <div class="testimonial">
+                    <p>“During my career I’ve rarely come across real professionals like Dipen. His ability to handle multiple projects is outstanding.”</p>
+                    <div class="testimonial-footer">Ritul Lakhtariya, Project Consultant</div>
+                </div>
+                <div class="testimonial">
+                    <p>“Dipen is a valued team member and a key player. I confidently recommend him as a team lead.”</p>
+                    <div class="testimonial-footer">Renish Vekariya, Senior Software Engineer</div>
+                </div>
+                <div class="testimonial">
+                    <p>“A brilliant Project Manager who understands how to get the best out of people.”</p>
+                    <div class="testimonial-footer">Janak Thakkar, Senior Software Engineer</div>
+                </div>
+            </section>
 
     </main>
 
@@ -487,7 +503,17 @@
     </footer>
     <script>
         function downloadResume() {
+            const header = document.getElementById('pdf-header');
+            header.style.display = 'block'; // show header for PDF
+
             const element = document.querySelector('main');
+            const clone = element.cloneNode(true);
+
+            // Create container to include header + resume content
+            const printable = document.createElement('div');
+            printable.appendChild(header.cloneNode(true));
+            printable.appendChild(clone);
+
             const opt = {
                 margin: 0.3,
                 filename: 'Dipen-Shah-Resume.pdf',
@@ -495,9 +521,13 @@
                 html2canvas: { scale: 2 },
                 jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
             };
-            html2pdf().set(opt).from(element).save();
+
+            html2pdf().set(opt).from(printable).save().then(() => {
+                header.style.display = 'none'; // hide again after saving
+            });
         }
     </script>
+
 
 </body>
 </html>
