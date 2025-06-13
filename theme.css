@@ -13507,7 +13507,7 @@ textarea.form-control {
 }
 
 .header .nav-item .nav-link:hover {
-    color: rgba(0,0,0,0.6)
+    color: rgb(249 249 249)
 }
 
 .header .nav-item .nav-link[aria-expanded="true"] {
