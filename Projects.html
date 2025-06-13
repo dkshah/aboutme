@@ -10,6 +10,8 @@
             font-family: 'Roboto', sans-serif;
             margin: 0;
             background: #f4f4f4;
+            display: flex;
+            flex-direction: column;
         }
 
         header, footer {
@@ -19,11 +21,46 @@
             color: white;
         }
 
+        .main {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .sidebar {
+            width: 250px;
+            background: #e6f2fb;
+            border-right: 1px solid #ccc;
+            padding: 20px;
+        }
+
+            .sidebar h3 {
+                margin-top: 0;
+                color: #003366;
+            }
+
+            .sidebar ul {
+                list-style-type: none;
+                padding-left: 0;
+            }
+
+            .sidebar li {
+                padding: 10px;
+                cursor: pointer;
+                color: #0078D4;
+            }
+
+                .sidebar li:hover,
+                .sidebar li.active {
+                    background: #0078D4;
+                    color: white;
+                    border-radius: 5px;
+                }
+
         .project-container {
-            max-width: 960px;
-            margin: 40px auto;
-            background: white;
+            flex: 1;
             padding: 30px;
+            background: white;
             box-shadow: 0 0 15px rgba(0,0,0,0.1);
         }
 
@@ -65,12 +102,6 @@
                 display: inline-block;
             }
 
-        .diagram img {
-            max-width: 100%;
-            border: 1px solid #ccc;
-            margin-top: 20px;
-        }
-
         .project-links {
             text-align: right;
             margin-top: 30px;
@@ -91,46 +122,40 @@
                     background: #005fa3;
                 }
 
-        .nav-buttons {
-            display: flex;
-            justify-content: space-between;
-            margin: 40px auto 60px auto;
-            max-width: 960px;
-        }
-
-            .nav-buttons button {
-                padding: 8px 16px;
-                font-size: 0.85em;
-                background: #0078D4;
-                color: white;
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-            }
-
-                .nav-buttons button:hover {
-                    background: #005fa3;
-                }
-
         footer {
             font-size: 0.9em;
         }
+
+        .back-link {
+            float: left;
+            font-size: 0.85em;
+            margin-left: 20px;
+        }
+
+            .back-link a {
+                color: white;
+                text-decoration: underline;
+            }
     </style>
 </head>
 <body>
     <header>
-        <a href="https://dkshah.github.io/aboutme/" style="color: white; text-decoration: underline; font-size: 0.85em; float: left; margin-left: 20px;">&larr; Back to About Me</a>
+        <div class="back-link">
+            <a href="https://dkshah.github.io/aboutme/">&larr; Back to About Me</a>
+        </div>
         <h1>Dipen Shah - Project Portfolio</h1>
         <p>Solution Architect | .NET Core Expert | Technical Leader</p>
     </header>
 
-    <div class="project-container" id="project-content">
-        <!-- Project content dynamically loaded here -->
-    </div>
+    <div class="main">
+        <nav class="sidebar">
+            <h3>Projects</h3>
+            <ul id="project-menu"></ul>
+        </nav>
 
-    <div class="nav-buttons">
-        <button onclick="navigate(-1)">← Previous</button>
-        <button onclick="navigate(1)">Next →</button>
+        <div class="project-container" id="project-content">
+            <!-- Dynamic project content -->
+        </div>
     </div>
 
     <footer>
@@ -140,51 +165,558 @@
     <script>
         const projects = [
             {
-                title: "InsightPay",
+                title: "Intelligent Legal Form Builder – Document Automation Platform",
                 description: `
-              <p><strong>InsightPay</strong> is a transformative payroll platform tailored for fast-paced industries like restaurants, retail chains, and franchises. It streamlines manual and error-prone payroll operations by automating end-to-end labor data processing, compliance handling, and paycheck generation.</p>
+    <p>As a <strong>Solution Architect</strong>, I led the development of an advanced <strong>Legal Form Builder</strong> designed to simplify and accelerate legal document creation for attorneys and law firms. This cloud-based platform offers a dynamic, rules-driven interface to assemble complex jurisdiction-based forms with minimal manual intervention.</p>
 
-              <p>The platform ingests raw timeclock data from industry-leading POS systems such as <em>Square</em>, <em>Toast</em>, and <em>Oracle Micros</em>. Using ETL pipelines developed in Azure Data Factory and .NET microservices, we normalize shift punches, correct missing records, and classify job codes based on organizational roles.</p>
+    <p>The core of the application is a configurable <strong>form generation engine</strong> that supports:
+    <ul>
+      <li>Dynamic field population based on jurisdiction and legal context</li>
+      <li>Conditional logic for clause insertion, dependencies, and formatting</li>
+      <li>Reusable templates and pre-approved language blocks</li>
+      <li>Data import from prior cases or client information repositories</li>
+    </ul>
+    </p>
 
-              <p>The transformed data lands in a centralized Azure SQL Database, where our custom-built <strong>InsightPay Engine</strong> evaluates it against hundreds of state-level compliance rules — from overtime limits, split shifts, and break penalties to city-wide minimum wage regulations.</p>
+    <p>Built using a modular architecture with <strong>.NET Core APIs</strong> and a responsive frontend in <strong>Angular</strong>, the platform supports:
+    <ul>
+      <li>Form field controls: text fields, dropdowns, checkboxes, multi-sections</li>
+      <li>Auto-saving drafts and versioning of form states</li>
+      <li>Collaborative form filling between attorneys and clients</li>
+      <li>PDF and Word document generation with jurisdiction-specific branding</li>
+    </ul>
+    </p>
 
-              <p>Our frontend, designed in Angular, provides an intuitive dashboard where finance managers can view flagged records, make adjustments, and validate payroll runs. InsightPay also supports real-time integrations with payroll systems like <strong>ADP</strong>, <strong>Paychex</strong>, and <strong>Payright</strong> via secure RESTful APIs and SFTP-based batch exports.</p>
+    <p>The solution integrates with existing client portals, enabling:
+    <ul>
+      <li>Secure document sharing</li>
+      <li>Client intake via smart questionnaires</li>
+      <li>Commenting, redlining, and e-signature readiness</li>
+    </ul>
+    Advanced user role management ensures that attorneys, paralegals, and clients interact with appropriate permissions and audit trails.</p>
 
-              <p>Advanced audit logging, flexible mappings, and versioned processing rules make InsightPay highly adaptable and fully traceable. What once took businesses 1-2 days per week to finalize payroll can now be completed within minutes with InsightPay’s guided wizard and bulk-edit features.</p>
+    <p>Intelligence is layered using configurable metadata and logic rules, enabling form output to adapt based on input patterns. This reduces drafting errors, increases compliance with legal standards, and significantly shortens turnaround time for document preparation.</p>
 
-              <div class='tech-used'>.NET Core Microservices | Angular | Azure Functions | SQL Server | Azure Data Factory | REST APIs | SFTP</div>
-              <div class='project-tags'>
-                <span>Payroll</span>
-                <span>Enterprise SaaS</span>
-                <span>Azure</span>
-                <span>POS Integration</span>
-                <span>Compliance</span>
-              </div>
-              <div class='project-links'>
-                <a href='#'>View Architecture</a>
-                <a href='#'>Download Whitepaper</a>
-              </div>
-            `
+    <div class='tech-used'>.NET Core | Angular | Dynamic Form Engine | Legal Automation | PDF/Word Output | Client Portal Integration</div>
+    <div class='project-tags'>
+      <span>Legal Tech</span>
+      <span>Document Automation</span>
+      <span>Forms</span>
+      <span>Jurisdiction-Aware</span>
+      <span>Dynamic UI</span>
+    </div>
+    <div class='project-links'>
+      <a href="#">View Architecture</a>
+      <a href="#">Download Whitepaper</a>
+    </div>
+  `
+            },
+            {
+                title: "Policy Evaluation Framework – Containerized Asset Compliance Engine",
+                description: `
+    <p>As the <strong>Solution Architect</strong>, I led the architectural design and implementation of a scalable <strong>Policy Evaluation Framework</strong> used to assess compliance of enterprise assets against defined policy sets. The system is built on a modular, container-driven architecture to support distributed execution, reusability, and rapid evaluation cycles.</p>
+
+    <p>The core design centers around the following key components:</p>
+
+    <h4>1. Policy Evaluator (Orchestrator Container)</h4>
+    <p>This acts as the primary entry point for clients or external systems. It is responsible for:
+    <ul>
+      <li>Validating incoming evaluation requests</li>
+      <li>Triggering asynchronous events for processing</li>
+      <li>Calling RESTful APIs exposed by individual policy containers</li>
+      <li>Coordinating multi-policy evaluations across various asset types</li>
+    </ul>
+    </p>
+
+    <h4>2. Processor Service</h4>
+    <p>The processor is a long-running microservice that:
+    <ul>
+      <li>Listens to incoming evaluation events</li>
+      <li>Invokes appropriate policy containers for logic execution</li>
+      <li>Persists evaluation results, audit logs, and error handling data into the database</li>
+      <li>Manages execution retries and timeout strategies</li>
+    </ul>
+    </p>
+
+    <h4>3. Policy Containers</h4>
+    <p>Each policy is isolated in a dedicated, <strong>language-agnostic container</strong> that can be scaled independently. These containers:
+    <ul>
+      <li>Expose a REST API endpoint to receive evaluation data</li>
+      <li>Execute the policy logic securely and return verdicts</li>
+      <li>Can be spun up dynamically based on orchestration needs</li>
+    </ul>
+    This design ensures extensibility, allowing different teams to write policy logic in the most appropriate language or runtime.</p>
+
+    <p>The architecture enables true horizontal scalability and clean separation of concerns between orchestration, policy logic, and event processing. With containerized policy evaluation, the system supports rapid onboarding of new compliance rules, minimizes resource coupling, and ensures robust observability.</p>
+
+    <div class='tech-used'>.NET Core | REST APIs | Microservices | Container Orchestration | Event-Driven Architecture | Language-Agnostic Execution</div>
+    <div class='project-tags'>
+      <span>Policy Engine</span>
+      <span>Microservices</span>
+      <span>Containers</span>
+      <span>Compliance</span>
+      <span>Orchestration</span>
+      <span>Event-Driven</span>
+    </div>
+    <div class='project-links'>
+      <a href="#">View Architecture</a>
+      <a href="#">Download Whitepaper</a>
+    </div>
+  `
+            },
+            {
+                title: "Complaint Resolution System – Operational Issue Tracking and Response Platform",
+                description: `
+    <p>As the <strong>Technical Lead</strong>, I led the design and implementation of a centralized <strong>Complaint Resolution System</strong> tailored for high-volume restaurant chains. The platform was developed to automate the intake, categorization, and resolution tracking of customer complaints received through multiple sources including emails, surveys, and raw feedback logs.</p>
+
+    <p>The system aggregates complaint data from various structured and unstructured sources, including:
+    <ul>
+      <li>Email inbox parsing and keyword tagging</li>
+      <li>Raw customer feedback files and call center exports</li>
+      <li>POS-linked transactional references for root cause analysis</li>
+    </ul>
+    </p>
+
+    <p>Using a combination of rule-based classification and data enrichment, each complaint is:
+    <ul>
+      <li>Assigned to the appropriate team or location for follow-up</li>
+      <li>Tracked through a resolution workflow with timestamps and SLA enforcement</li>
+      <li>Linked to related root causes such as employee behavior, product quality, service delays, or operational gaps</li>
+    </ul>
+    </p>
+
+    <p>Managers and field leaders can interact with a dashboard built in <strong>Angular</strong> to:
+    <ul>
+      <li>View complaint volumes by type, store, or date</li>
+      <li>Track open/closed status and time to resolution</li>
+      <li>Generate KPIs on resolution trends and recurring issues</li>
+    </ul>
+    </p>
+
+    <p>The platform is powered by a <strong>.NET Core API layer</strong> and backed by a secure and searchable data store, enabling rapid response and continuous quality improvement. Email triggers and escalation workflows notify the right stakeholders when issues remain unresolved or breach expected thresholds.</p>
+
+    <div class='tech-used'>.NET Core | Angular | Email Parsing | Workflow Engine | Root Cause Tracking | Complaint Analytics</div>
+    <div class='project-tags'>
+      <span>Complaint Resolution</span>
+      <span>Customer Experience</span>
+      <span>Workflow Automation</span>
+      <span>Operational Quality</span>
+      <span>Error Tracking</span>
+    </div>
+    <div class='project-links'>
+      <a href="#">View Architecture</a>
+      <a href="#">Download Whitepaper</a>
+    </div>
+  `
+            },
+            {
+                title: "Forecasting Platform – AI-Driven Sales, Labor, and Cost Prediction Engine",
+                description: `
+    <p>As the <strong>Technical Lead</strong>, I contributed to the architecture and implementation of a comprehensive <strong>Forecasting Platform</strong> that leveraged <strong>Artificial Intelligence (AI)</strong> and <strong>Machine Learning (ML)</strong> models to accurately predict Sales, Labor needs, and CML (Cost of Managing Labor) metrics. This platform was a critical decision-support tool for operations and workforce planning across retail and restaurant locations.</p>
+
+    <p>The system ingested and processed large volumes of historical data including:
+    <ul>
+      <li>Multi-year sales and transaction trends</li>
+      <li>Labor usage and shift performance patterns</li>
+      <li>Weather data and seasonality impacts</li>
+      <li>Cost and wage changes over time</li>
+    </ul>
+    These data streams were normalized and used to train pre-built and custom machine learning models capable of generating forecasts down to the hour and location level.</p>
+
+    <p>The platform delivered predictive insights such as:
+    <ul>
+      <li><strong>Sales Forecasting</strong> – projecting revenue for planning and goal-setting</li>
+      <li><strong>Labor Forecasting</strong> – determining required staffing levels for optimal service</li>
+      <li><strong>Cost Forecasting</strong> – estimating labor expenses and budgeting projections</li>
+    </ul>
+    These forecasts directly informed labor scheduling modules and helped reduce under/over staffing and operational inefficiencies.</p>
+
+    <p>The solution was built with a service-oriented architecture using <strong>.NET APIs</strong> for business logic orchestration and <strong>Angular</strong> for intuitive dashboarding. AI/ML models were developed and hosted as part of the backend services, exposing prediction APIs consumed by the front-end.</p>
+
+    <p>Core capabilities include:
+    <ul>
+      <li>Time-series modeling for daily and intra-day predictions</li>
+      <li>Scenario simulations based on weather, holidays, and promotions</li>
+      <li>Role-based forecast visualizations for operators, managers, and finance teams</li>
+      <li>Integration with labor scheduling systems for automatic recommendations</li>
+    </ul>
+    </p>
+
+    <div class='tech-used'>.NET APIs | Angular | Machine Learning | AI Models | Forecasting | Time-Series Analysis | Predictive Analytics</div>
+    <div class='project-tags'>
+      <span>AI</span>
+      <span>Machine Learning</span>
+      <span>Forecasting</span>
+      <span>Labor Planning</span>
+      <span>Sales Analytics</span>
+      <span>Scheduling</span>
+    </div>
+    <div class='project-links'>
+      <a href="#">View Architecture</a>
+      <a href="#">Download Whitepaper</a>
+    </div>
+  `
+            },
+            {
+                title: "Employee Scheduling Platform – Intelligent Shift Management System",
+                description: `
+    <p>As a core contributor and <strong>Technical Lead</strong>, I designed and delivered an enterprise-grade <strong>Employee Scheduling Application</strong> that streamlines shift planning and workforce allocation for hourly and salaried employees. The application provides an intuitive scheduling grid, similar to calendar views, where managers can assign, adjust, and track shifts across days and departments for multiple employees.</p>
+
+    <p>Built with a scalable <strong>Microservices Architecture</strong> using <strong>.NET Core APIs</strong> and an interactive frontend in <strong>Angular</strong>, the platform supports both single-store and multi-location scheduling operations. It enables store managers to:
+    <ul>
+      <li>Create recurring or ad-hoc schedules by role or department</li>
+      <li>Manage availability and conflicts through real-time validations</li>
+      <li>View labor coverage vs forecast in a visual grid interface</li>
+      <li>Compare labor spend against budgeted hours and costs</li>
+    </ul>
+    </p>
+
+    <p>The scheduling grid provides a holistic weekly view that includes:
+    <ul>
+      <li>Shift assignments with start and end times</li>
+      <li>Employee groupings (e.g., General Manager, Shift Leader, Crew)</li>
+      <li>Daily and weekly labor hour summaries and cost calculations</li>
+      <li>Color-coded alerts for overages, gaps, or violations</li>
+    </ul>
+    </p>
+
+    <p>Key platform capabilities include:
+    <ul>
+      <li>Dynamic shift templates for consistent scheduling patterns</li>
+      <li>Auto-suggestion engine based on employee availability and compliance rules</li>
+      <li>Forecast integration to align labor with predicted sales and traffic</li>
+      <li>Email and in-app notifications for published or changed schedules</li>
+    </ul>
+    </p>
+
+    <p>In addition to labor planning, the application ties into payroll systems for accurate time tracking and cost reconciliation. Data is persisted securely in a centralized database with support for audit logs, schedule history, and role-based access control.</p>
+
+    <div class='tech-used'>.NET Core APIs | Angular | Microservices | Role-Based Scheduling | Forecast Integration | Calendar UI</div>
+    <div class='project-tags'>
+      <span>Scheduling</span>
+      <span>Labor Planning</span>
+      <span>Microservices</span>
+      <span>Forecast-Driven</span>
+      <span>Workforce Management</span>
+    </div>
+    <div class='project-links'>
+      <a href="#">View Architecture</a>
+      <a href="#">Download Whitepaper</a>
+    </div>
+  `
+            },
+            {
+                title: "Insight Pay – Intelligent Payroll Processing Platform",
+                description: `
+                            <p>As the <strong>Technical Lead</strong> for the <strong>Insight Pay</strong> platform, I was responsible for designing and implementing an enterprise-grade payroll processing solution built using a scalable <strong>Microservices Architecture</strong>. The platform was specifically engineered to serve multi-location retail, franchise, and restaurant businesses, ensuring full compliance with labor laws across various U.S. states and cities.</p>
+
+                            <p>The solution features a robust <strong>ETL pipeline</strong> developed with <strong>Azure Data Factory</strong> and .NET Core services to seamlessly extract, normalize, and cleanse raw time and attendance data ingested from diverse <strong>Point-of-Sale (POS) systems</strong> such as <em>Square</em>, <em>Toast</em>, and <em>Oracle Micros</em>. Data transformation included shift reconciliation, job code classification, and time gap resolution.</p>
+
+                            <p>Using a centralized, configuration-driven rule engine, I implemented dynamic <strong>state-specific compliance logic</strong> covering wage thresholds, overtime calculations, break penalties, and scheduling rules. These configurations were externalized in an <strong>Azure SQL</strong> schema to allow business users to adapt rules without redeployment.</p>
+
+                            <p>The solution also supports a modular <strong>Pay Flow Management System</strong>, allowing finance and HR teams to review, edit, and approve payroll runs via a streamlined UI built in <strong>Angular</strong>. The final output integrates with industry-standard <strong>payroll systems</strong> such as <strong>ADP</strong>, <strong>Paychex</strong>, and <strong>Paylocity</strong> through secured <strong>REST APIs</strong> and <strong>SFTP-based batch exports</strong>.</p>
+
+                            <p>As part of the design, I ensured:
+                            <ul>
+                              <li>Multi-tenant microservice architecture for scalability and isolation</li>
+                              <li>Role-based access and audit trails for compliance</li>
+                              <li>CI/CD setup for DevOps and environment-based deployments</li>
+                              <li>Observability using Application Insights and centralized logging</li>
+                            </ul>
+                            </p>
+
+                            <div class='tech-used'>.NET Core | .NET APIs | Microservices | Azure Functions | Azure Data Factory | Angular | Azure SQL | REST/SFTP Integrations</div>
+                            <div class='project-tags'>
+                              <span>Payroll</span>
+                              <span>ETL</span>
+                              <span>Microservices</span>
+                              <span>POS Integration</span>
+                              <span>Compliance Automation</span>
+                              <span>Azure</span>
+                            </div>
+                            <div class='project-links'>
+                              <a href="#">View Architecture</a>
+                              <a href="#">Download Whitepaper</a>
+                            </div>
+                          `
+            },
+            {
+                title: "Dunkin Intranet – Enterprise Reporting and Analytics Platform",
+                description: `
+            <p>As the <strong>Technical Lead</strong>, I was responsible for architecting and developing a scalable enterprise reporting application for <strong>Dunkin’s intranet ecosystem</strong>. The solution provided advanced analytical capabilities by sourcing operational and strategic data across domains such as <strong>Sales</strong>, <strong>Labor</strong>, <strong>Cost Control</strong>, <strong>Loss Prevention</strong>, and <strong>Guest Satisfaction Surveys</strong>.</p>
+
+            <p>The platform was designed to support multilocation reporting for franchise owners, regional leaders, and executive stakeholders. Using dynamic parameters, users could easily compare metrics like <strong>TY (This Year) vs LY (Last Year)</strong>, <strong>TY vs Budget</strong>, and drill down into trends by region, store, or time period. It served as a unified performance visibility tool across the enterprise network.</p>
+
+            <p>I led the development of several key modules including:
+            <ul>
+              <li><strong>Executive Dashboards</strong> – summarizing key KPIs and YOY comparisons</li>
+              <li><strong>Network Reports</strong> – cross-store metrics aligned to ownership and management views</li>
+              <li><strong>Alert & Notification Engine</strong> – automatic email triggers based on performance thresholds or anomalies</li>
+            </ul>
+            </p>
+
+            <p>The backend leveraged <strong>.NET Framework</strong> and <strong>SQL Server</strong>, with a service layer to integrate ETL outputs and pre-aggregated metrics into the application layer. Reporting pipelines were powered by <strong>ETL frameworks</strong> for data staging, transformation, and aggregation. The frontend was implemented using <strong>Angular</strong> and <strong>JavaScript</strong>, enabling interactive charts and table visualizations tailored to each role.</p>
+
+            <p>This platform was critical in replacing fragmented reporting sources, delivering a single source of truth across Dunkin's operational ecosystem. I also ensured secure role-based access, performance optimization for high-volume data reads, and data accuracy for executive insights.</p>
+
+            <div class='tech-used'>.NET Framework | SQL Server | Angular | JavaScript | ETL Pipelines | Role-Based Dashboards | Alerting System</div>
+            <div class='project-tags'>
+              <span>Reporting</span>
+              <span>Analytics</span>
+              <span>Franchise Network</span>
+              <span>Executive Dashboards</span>
+              <span>ETL</span>
+            </div>
+            <div class='project-links'>
+              <a href="#">View Architecture</a>
+              <a href="#">Download Whitepaper</a>
+            </div>
+          `
+            },
+            {
+                title: "Bonus Application – Automated Incentive Management System",
+                description: `
+            <p>As the <strong>Technical Lead</strong>, I spearheaded the design and development of the <strong>Bonus Application</strong>, a fully automated system for managing and distributing performance-based incentives for store managers. The platform was built to align bonus payouts with real-time operational performance across sales, cost, and service metrics, ensuring fairness, consistency, and transparency in rewards.</p>
+
+            <p>The bonus calculation engine dynamically evaluates eligibility based on a weighted scoring model covering key categories such as:
+            <ul>
+              <li><strong>Sales Goals</strong> vs Budget</li>
+              <li><strong>Cost Control & Payroll Management</strong></li>
+              <li><strong>Guest Satisfaction Scores (GSS)</strong></li>
+              <li><strong>Drive-Through Efficiency</strong></li>
+            </ul>
+            These KPIs are tied to preconfigured thresholds and targets which vary by region or role.</p>
+
+            <p>The final bonus amount is computed as a percentage of the employee's weekly salary and is prorated for the month. All metrics are sourced and processed through integrated <strong>Microservice APIs</strong> that aggregate data from POS, labor, customer feedback, and financial systems.</p>
+
+            <p>The entire lifecycle — from data ingestion and rule evaluation to bonus approval and payroll export — is automated through a workflow built using <strong>.NET Core APIs</strong> and a frontend in <strong>Angular</strong>. Once approved, bonus records are directly submitted to the payroll system for processing.</p>
+
+            <p>Notable design elements include:
+            <ul>
+              <li>Dynamic bonus configuration engine by store type and performance model</li>
+              <li>Role-based UI for regional managers, payroll admins, and executives</li>
+              <li>Automated email alerts and submission validations</li>
+              <li>Integration with payroll platforms for final payout disbursement</li>
+            </ul>
+            </p>
+
+            <div class='tech-used'>.NET Core | Angular | Microservices | REST APIs | Payroll Integration | Data Aggregation Engine</div>
+            <div class='project-tags'>
+              <span>Incentive Management</span>
+              <span>Payroll</span>
+              <span>Performance Analytics</span>
+              <span>Microservices</span>
+              <span>Automation</span>
+            </div>
+            <div class='project-links'>
+              <a href="#">View Architecture</a>
+              <a href="#">Download Whitepaper</a>
+            </div>
+          `},
+            {
+                title: "Mindscope ATS – Cloud-Based Applicant Tracking System",
+                description: `
+            <p>As the <strong>Project Lead</strong>, I led the design, implementation, and delivery of the <strong>Mindscope ATS</strong> – a cloud-native <strong>Applicant Tracking and Recruitment Management Platform</strong> built to meet the dynamic needs of staffing agencies and enterprise HR teams. The solution was designed to enhance recruiter efficiency, candidate engagement, and client coordination through seamless automation and intelligent workflows.</p>
+
+            <p>The platform empowers recruitment teams with capabilities to manage the entire lifecycle of candidate acquisition and placement, including:
+            <ul>
+              <li>Job requisition and publishing across job boards</li>
+              <li>Automated resume parsing and candidate profiling</li>
+              <li>Pipeline tracking, interview scheduling, and offer workflows</li>
+              <li>Client relationship and placement history management</li>
+            </ul>
+            </p>
+
+            <p>As part of the solution architecture, we deployed the system on <strong>AWS Cloud Infrastructure</strong>, using containerized <strong>.NET Core APIs</strong> and an interactive UI built with <strong>Angular</strong>. The backend leverages <strong>SQL Server</strong> for transactional storage and integrates with third-party services including:
+            <ul>
+              <li><strong>Resume Parsing Engines</strong> for structured candidate extraction</li>
+              <li><strong>Microsoft 365 APIs</strong> to auto-extract and associate applicant emails, resumes, and meeting invites from recruiter inboxes</li>
+            </ul>
+            </p>
+
+            <p>I introduced automation modules to reduce manual tasks through workflow triggers, alerts, and intelligent suggestions for candidate-to-job matching based on skills, experience, and recruiter feedback. The solution supports multi-tenant environments, secure role-based access, and provides extensive filtering, tagging, and reporting options for recruiters and managers.</p>
+
+            <p>Key innovations delivered under my leadership:
+            <ul>
+              <li>Integration of resume parsing and automatic candidate profiling</li>
+              <li>Calendar and email extraction using MS 365 APIs for seamless recruiter workflows</li>
+              <li>Dynamic job-to-candidate matching with ranking logic</li>
+              <li>Responsive, mobile-friendly recruiter dashboards and candidate tracking views</li>
+            </ul>
+            </p>
+
+            <div class='tech-used'>.NET Core | Angular | AWS Cloud | SQL Server | Resume Parsing APIs | Microsoft 365 API | RESTful Services</div>
+            <div class='project-tags'>
+              <span>ATS</span>
+              <span>Recruitment</span>
+              <span>Cloud</span>
+              <span>Automation</span>
+              <span>Resume Parsing</span>
+              <span>MS 365</span>
+            </div>
+            <div class='project-links'>
+              <a href="#">View Architecture</a>
+              <a href="#">Download Whitepaper</a>
+            </div>
+          `
+            },
+            {
+                title: "Inspection Module – Configurable Restaurant Audit Platform",
+                description: `
+    <p>As part of a larger operational excellence initiative, I led the design and delivery of the <strong>Inspection Module</strong>, a configurable restaurant auditing system that enables store managers to perform standardized inspections on a weekly, bi-weekly, or monthly basis. The module was built to support dynamic form configuration, real-time scoring, evidence tracking, and automated compliance reporting.</p>
+
+    <p>The solution features a fully dynamic <strong>form builder</strong> that allows administrative users to define <strong>inspection templates</strong> with multiple categories, customizable questions, and flexible input types such as:
+    <ul>
+      <li>Radio buttons for binary choices (e.g., Yes/No)</li>
+      <li>Checkboxes for multi-select criteria</li>
+      <li>Text fields for qualitative observations</li>
+      <li>Image uploads to provide visual proof</li>
+    </ul>
+    </p>
+
+    <p>Store managers use this interface to complete inspections via web or mobile devices. The application dynamically tracks scores, calculates KPI metrics, and generates <strong>trend-based reports</strong> accessible by regional leaders and compliance teams. Images are uploaded securely to <strong>AWS S3</strong>, while inspection metadata and response structures are stored in a relational backend for audit and reporting.</p>
+
+    <p>Under the hood, the application is powered by a modern <strong>Microservices Architecture</strong> with <strong>.NET Core APIs</strong>, a responsive frontend in <strong>Angular</strong>, and AWS services for cloud storage. Key platform capabilities include:
+    <ul>
+      <li>Configurable scheduling (weekly/monthly) for form assignments</li>
+      <li>Real-time scoring with threshold-based alerts</li>
+      <li>Automated email notifications for missed or failed inspections</li>
+      <li>Exportable reports and dashboards for KPIs and compliance tracking</li>
+    </ul>
+    </p>
+
+    <div class='tech-used'>.NET Core | Angular | Microservices | AWS S3 | Dynamic Form Engine | Inspection KPIs | Email Notifications</div>
+    <div class='project-tags'>
+      <span>Inspections</span>
+      <span>Forms</span>
+      <span>Cloud</span>
+      <span>Reporting</span>
+      <span>Microservices</span>
+      <span>Dynamic UI</span>
+    </div>
+    <div class='project-links'>
+      <a href="#">View Architecture</a>
+      <a href="#">Download Whitepaper</a>
+    </div>
+  `
+            },
+            {
+                title: "NNIGroup E-Commerce Platform – Scalable Online Retail Solution",
+                description: `
+    <p>As a <strong>Senior Developer</strong>, I was responsible for end-to-end development of the <strong>NNIGroup E-Commerce Platform</strong> – a scalable online retail application built to serve a wide range of products across multiple categories, targeting both B2C and B2B customers.</p>
+
+    <p>The platform was designed to provide a seamless and responsive shopping experience through:
+    <ul>
+      <li>Category-based product browsing and advanced filtering</li>
+      <li>Dynamic pricing, promotions, and discount rules</li>
+      <li>Robust shopping cart and checkout workflows</li>
+      <li>Order tracking and email/SMS notifications</li>
+    </ul>
+    </p>
+
+    <p>My responsibilities included:
+    <ul>
+      <li>Designing and developing reusable UI components using <strong>Angular</strong></li>
+      <li>Building and integrating backend services using <strong>.NET Core APIs</strong></li>
+      <li>Implementing secure authentication and role-based authorization</li>
+      <li>Creating admin dashboards for product, inventory, and order management</li>
+      <li>Optimizing SQL queries and database structures for performance</li>
+    </ul>
+    </p>
+
+    <p>I also integrated key third-party services such as:
+    <ul>
+      <li>Payment gateways for online transactions</li>
+      <li>Shipping APIs for real-time delivery tracking</li>
+      <li>Marketing and email services for promotions and alerts</li>
+    </ul>
+    </p>
+
+    <p>Throughout the project, I played a central role in development planning, sprint execution, code reviews, and DevOps support, ensuring high-quality releases and a smooth deployment pipeline.</p>
+
+    <div class='tech-used'>.NET Core | Angular | SQL Server | REST APIs | Payment Gateway Integration | Responsive UI</div>
+    <div class='project-tags'>
+      <span>E-Commerce</span>
+      <span>Retail</span>
+      <span>Full-Stack Development</span>
+      <span>Responsive UI</span>
+      <span>Order Management</span>
+    </div>
+    <div class='project-links'>
+      <a href="#">View Architecture</a>
+      <a href="#">Download Whitepaper</a>
+    </div>
+  `
+            } ,
+           {
+                title: "SportsIX Reporting System – Data Intelligence for Sports Facilities",
+                description: `
+    <p>As a core contributor to the <strong>SportsIX Reporting System</strong>, I was responsible for developing a comprehensive, data-driven reporting platform designed specifically for sports and recreation facilities. The application empowers facility owners and managers with actionable insights derived from key operational data streams such as revenue, participant engagement, and program performance.</p>
+
+    <p>The solution generates a suite of financial and operational reports that help facility stakeholders make informed business decisions. Key report categories include:
+    <ul>
+      <li><strong>Deferred Revenue Reports</strong> – tracking income recognition based on service delivery timelines</li>
+      <li><strong>League Sales Reports</strong> – detailed revenue breakdowns by season, sport, and league</li>
+      <li><strong>Retention Reports</strong> – measuring participant re-engagement over time</li>
+      <li><strong>Cash vs. Accrual Reports</strong> – supporting financial transparency across accounting methods</li>
+      <li><strong>Trend Analyses</strong> – including attendance patterns, peak activity periods, and churn risks</li>
+      <li><strong>Participant Analysis</strong> – evaluating demographic and behavioral data to optimize program offerings</li>
+    </ul>
+    </p>
+
+    <p>The reporting engine is built with a flexible architecture that supports:
+    <ul>
+      <li>Dynamic date range filtering and multi-facility comparisons</li>
+      <li>Export options to Excel and PDF formats</li>
+      <li>Configurable KPIs and thresholds for benchmarking</li>
+      <li>Interactive visualizations for trend exploration</li>
+    </ul>
+    </p>
+
+    <p>The application is integrated with the facility management platform backend and designed for extensibility to support new reporting formats and user-defined metrics. This enabled management teams to track performance across leagues, programs, and customer segments efficiently.</p>
+
+    <div class='tech-used'>.NET Core | SQL Server | Angular | Reporting Engine | Data Analytics | Excel/PDF Export</div>
+    <div class='project-tags'>
+      <span>Reporting</span>
+      <span>Sports & Recreation</span>
+      <span>Analytics</span>
+      <span>Financial Intelligence</span>
+      <span>Participant Insights</span>
+    </div>
+    <div class='project-links'>
+      <a href="#">View Architecture</a>
+      <a href="#">Download Whitepaper</a>
+    </div>
+  `
             }
-        ];
 
-        let current = 0;
+                ];
+
+        function renderMenu() {
+            const menu = document.getElementById("project-menu");
+            projects.forEach((proj, index) => {
+                const li = document.createElement("li");
+                li.textContent = proj.title;
+                li.onclick = () => {
+                    renderProject(index);
+                    document.querySelectorAll("#project-menu li").forEach(el => el.classList.remove("active"));
+                    li.classList.add("active");
+                };
+                if (index === 0) li.classList.add("active");
+                menu.appendChild(li);
+            });
+        }
+
         function renderProject(index) {
             const proj = projects[index];
             document.getElementById("project-content").innerHTML = `
-            <h2 class="project-title">${proj.title}</h2>
-            <div class="project-description">${proj.description}</div>
-          `;
+                    <h2 class="project-title">${proj.title}</h2>
+                    <div class="project-description">${proj.description}</div>
+                  `;
         }
 
-        function navigate(dir) {
-            current += dir;
-            if (current < 0) current = projects.length - 1;
-            if (current >= projects.length) current = 0;
-            renderProject(current);
-        }
-
-        renderProject(current);
+        renderMenu();
+        renderProject(0);
     </script>
 </body>
 </html>
