@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dipen Shah | Project Navigator</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      background: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header, footer {
+      text-align: center;
+      padding: 20px;
+      background: #0078D4;
+      color: white;
+    }
+
+    .main {
+      display: flex;
+      flex-direction: row;
+      flex: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .sidebar {
+      width: 250px;
+      background: #e6f2fb;
+      border-right: 1px solid #ccc;
+      padding: 20px;
+    }
+
+    .sidebar h3 {
+      margin-top: 0;
+      color: #003366;
+    }
+
+    .sidebar ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .sidebar li {
+      padding: 10px;
+      cursor: pointer;
+      color: #0078D4;
+    }
+
+    .sidebar li:hover,
+    .sidebar li.active {
+      background: #0078D4;
+      color: white;
+      border-radius: 5px;
+    }
+
+    .project-container {
+      flex: 1;
+      padding: 30px;
+      background: white;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      overflow: auto;
+    }
+
+    .project-title {
+      font-size: 2em;
+      color: #003366;
+      margin-bottom: 10px;
+    }
+
+    .project-description {
+      font-size: 1.05em;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .tech-used {
+      font-size: 1em;
+      background: #e0f3ff;
+      color: #005fa3;
+      padding: 15px;
+      margin-top: 30px;
+      border-left: 5px solid #0078D4;
+      font-weight: bold;
+      font-family: monospace;
+    }
+
+    .project-tags {
+      margin-top: 15px;
+      font-size: 0.9em;
+      color: #666;
+    }
+
+    .project-tags span {
+      background: #0078D4;
+      color: white;
+      padding: 4px 10px;
+      border-radius: 20px;
+      margin-right: 8px;
+      display: inline-block;
+    }
+
+    .project-links {
+      text-align: right;
+      margin-top: 30px;
+    }
+
+    .project-links a {
+      display: inline-block;
+      background: #007acc;
+      color: white;
+      padding: 8px 14px;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-left: 10px;
+      font-size: 0.85em;
+    }
+
+    .project-links a:hover {
+      background: #005fa3;
+    }
+
+    footer {
+      font-size: 0.9em;
+    }
+
+    .back-link {
+      float: left;
+      font-size: 0.85em;
+      margin-left: 20px;
+    }
+
+    .back-link a {
+      color: white;
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .main {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #ccc;
+      }
+
+      .project-container {
+        padding: 20px;
+      }
+    }
+      .project-description table {
+          width: 100%;
+          border-collapse: collapse;
+          margin-top: 20px;
+          font-size: 0.95em;
+      }
+
+      .project-description th,
+      .project-description td {
+          border: 1px solid #ddd;
+          padding: 10px 15px;
+          text-align: left;
+      }
+
+      .project-description th {
+          background-color: #e6f2fb;
+          font-weight: 600;
+          color: #003366;
+      }
+
+      .project-description tr:nth-child(even) {
+          background-color: #f9f9f9;
+      }
+
+      .project-description tr:hover {
+          background-color: #f1f7fd;
+      }
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="back-link">
+      <a href="https://dkshah.github.io/aboutme/">&larr; Back to About Me</a>
+    </div>
+    <h1>Dipen Shah - Blogs</h1>
+    <p>Solution Architect | .NET Core Expert | Technical Leader</p>
+  </header>
+
+  <div class="main">
+    <nav class="sidebar">
+      <h3>Blogs</h3>
+      <ul id="project-menu"></ul>
+    </nav>
+
+    <div class="project-container" id="project-content">
+      <!-- Dynamic project content -->
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Dipen Shah. All rights reserved.
+  </footer>
+
+  <script>
+      const projects = [
+          {
+              title: "Microsoft Login Integration – React 18 + MSAL Redirect",
+              description: `
+    <p>This guide walks you through the step-by-step process of implementing Microsoft (Azure AD) login using the redirect method in a React 18 app. We use <strong>@azure/msal-browser</strong> and <strong>@azure/msal-react</strong> libraries provided by Microsoft.</p>
+
+    <h4>1. Register Your App in Azure Portal</h4>
+    <ul>
+      <li>Go to <a href="https://portal.azure.com">Azure Portal</a></li>
+      <li>Navigate to: Azure Active Directory → App registrations → New registration</li>
+      <li>Set a name, supported account type, and redirect URI: <code>http://localhost:3000</code></li>
+      <li>Copy the <strong>Client ID</strong> and <strong>Tenant ID</strong></li>
+    </ul>
+
+    <h4>2. Create React App (React 18)</h4>
+    <pre><code>npx create-react-app my-app
+cd my-app</code></pre>
+
+    <h4>3. Install Microsoft Authentication Library</h4>
+    <pre><code>npm install @azure/msal-browser @azure/msal-react</code></pre>
+
+    <h4>4. Configure MSAL Instance (authConfig.js)</h4>
+    <pre><code>
+export const msalConfig = {
+  auth: {
+    clientId: "YOUR_CLIENT_ID",
+    authority: "https://login.microsoftonline.com/YOUR_TENANT_ID",
+    redirectUri: "http://localhost:3000",
+  },
+};
+    </code></pre>
+
+    <h4>5. Initialize MSAL in index.js</h4>
+    <pre><code>
+import { PublicClientApplication } from "@azure/msal-browser";
+import { MsalProvider } from "@azure/msal-react";
+import { msalConfig } from "./authConfig";
+
+const msalInstance = new PublicClientApplication(msalConfig);
+msalInstance.handleRedirectPromise().then(response => {
+  if (response) {
+    msalInstance.setActiveAccount(response.account);
+  }
+});
+
+root.render(
+  &lt;MsalProvider instance={msalInstance}&gt;
+    &lt;App /&gt;
+  &lt;/MsalProvider&gt;
+);
+    </code></pre>
+
+    <h4>6. Add Login Logic in App.js</h4>
+    <pre><code>
+const { instance, accounts } = useMsal();
+useEffect(() => {
+  if (!instance.getActiveAccount() && accounts.length > 0) {
+    instance.setActiveAccount(accounts[0]);
+  }
+}, [accounts]);
+
+if (accounts.length === 0) {
+  instance.loginRedirect();
+  return null;
+}
+    </code></pre>
+
+    <h4>7. Add Microsoft-Style Header</h4>
+    <p>Create a <code>Header.js</code> with the user name on the right and a logout menu.</p>
+
+    <h4>8. Add Logout</h4>
+    <pre><code>
+const handleLogout = () => {
+  instance.logoutRedirect();
+};
+    </code></pre>
+
+    <div class='tech-used'>React 18 | Azure AD | MSAL Redirect | Secure Auth | Microsoft UI Style</div>
+    <div class='project-tags'>
+      <span>React</span>
+      <span>MSAL</span>
+      <span>Azure AD</span>
+      <span>Authentication</span>
+    </div>
+    <div class='project-links'>
+      <a href="#">View Code Sample</a>
+      <a href="#">Azure Docs</a>
+    </div>
+  `
+          },
+          {
+              title: "Why We Chose Azure Service Bus for the Policy Evaluator Project",
+              description: `
+  <p>The <strong>Policy Evaluator</strong> is an Azure-native compliance assessment system that processes data from various enterprise asset sources, applies compliance rules, and delivers reports. In such a distributed and asynchronous system, choosing the right communication mechanism is critical. After careful consideration, we chose <strong>Azure Service Bus</strong> as the messaging backbone.</p>
+
+  <h4>🔍 Why Azure Service Bus?</h4>
+  <ul>
+    <li><strong>Decoupled Architecture</strong>: Producers and consumers don’t need to know about each other. This allowed us to scale and maintain them independently.</li>
+    <li><strong>Reliable Messaging</strong>: Built-in retries, message locking, and dead-lettering ensured fault tolerance and reliable delivery.</li>
+    <li><strong>FIFO Support</strong>: Service Bus sessions helped preserve the order of policy evaluations per asset.</li>
+    <li><strong>Security</strong>: RBAC and Managed Identities made secure access straightforward and compliant with enterprise standards.</li>
+  </ul>
+
+  <h4>🏗️ System Flow</h4>
+  <ol>
+    <li>Asset ingestion services send metadata to a Service Bus <strong>Topic</strong>.</li>
+    <li>Compliance evaluation components (Azure Functions) subscribe and process messages asynchronously.</li>
+    <li>Evaluation results are published to a <strong>Queue</strong> for storage, alerting, or reporting.</li>
+    <li>Failures are redirected to a <strong>Dead Letter Queue</strong> for inspection.</li>
+  </ol>
+
+  <h4>🚀 Key Benefits</h4>
+  <ul>
+    <li><strong>Scalability</strong>: Easily handled spikes in message volume without reengineering.</li>
+    <li><strong>Resilience</strong>: Downtime in evaluation services didn’t result in data loss.</li>
+    <li><strong>Flexibility</strong>: Added new policy types by simply plugging in new subscribers.</li>
+    <li><strong>Operational Insight</strong>: Azure Monitor + Application Insights helped track message flows and issues.</li>
+  </ul>
+
+  <div class='tech-used'>Azure Service Bus | Azure Functions | Topics & Queues | DLQ | Scalable Microservices</div>
+  <div class='project-tags'>
+    <span>Azure</span>
+    <span>Service Bus</span>
+    <span>Microservices</span>
+    <span>Architecture</span>
+    <span>Compliance</span>
+  </div>
+  <div class='project-links'>
+    <a href="#">Service Bus Documentation</a>
+    <a href="#">Architecting Resilient Systems</a>
+  </div>
+  `
+          },
+          {
+              title: "Angular vs React – A Strategic Comparison Guide",
+              description: `
+<p>This blog provides a structured analysis to help developers, architects, and decision-makers choose between Angular and React based on technical and strategic factors.</p>
+
+<h4>📊 Comparison Table</h4>
+<table>
+  <tr><th>Feature</th><th>Angular</th><th>React</th></tr>
+  <tr><td>Type</td><td>Full Framework</td><td>UI Library</td></tr>
+  <tr><td>Language</td><td>TypeScript</td><td>JavaScript / TypeScript</td></tr>
+  <tr><td>DOM Handling</td><td>Real DOM</td><td>Virtual DOM</td></tr>
+  <tr><td>Data Binding</td><td>Two-way</td><td>One-way</td></tr>
+  <tr><td>Architecture</td><td>MVC</td><td>Component-based</td></tr>
+</table>
+
+<h4>✅ Decision Checklist</h4>
+<ul>
+  <li>Need out-of-the-box features? → Angular</li>
+  <li>Prefer high flexibility & customization? → React</li>
+  <li>Team fluent in TypeScript and RxJS? → Angular</li>
+  <li>Planning React Native mobile app? → React</li>
+</ul>
+
+<h4>📌 Use Angular if:</h4>
+<ul>
+  <li>You're building large enterprise-scale apps</li>
+  <li>You prefer structure, DI, and built-in services</li>
+  <li>Your team is already comfortable with Angular</li>
+</ul>
+
+<h4>📌 Use React if:</h4>
+<ul>
+  <li>You need quick development & freedom of libraries</li>
+  <li>You’re building high-performance UI-rich apps</li>
+  <li>You want to integrate with React Native</li>
+</ul>
+
+<h4>🎯 Decision Matrix</h4>
+<p>Score each based on your needs (1–5):</p>
+<table>
+  <tr><th>Criteria</th><th>Angular</th><th>React</th></tr>
+  <tr><td>Team Expertise</td><td>4</td><td>5</td></tr>
+  <tr><td>Performance</td><td>4</td><td>4</td></tr>
+  <tr><td>Time to Market</td><td>3</td><td>5</td></tr>
+  <tr><td>Flexibility</td><td>3</td><td>5</td></tr>
+  <tr><td>Total Score</td><td><strong>4.0</strong></td><td><strong>4.6</strong></td></tr>
+</table>
+
+<h4>📁 Resources</h4>
+<ul>
+  <li><a href="https://angular.io/docs" target="_blank">Angular Official Docs</a></li>
+  <li><a href="https://react.dev" target="_blank">React Official Docs</a></li>
+</ul>
+
+<div class='tech-used'>Angular | React | Frontend Strategy | Decision Matrix | Comparison Guide</div>
+<div class='project-tags'>
+  <span>Angular</span>
+  <span>React</span>
+  <span>Frontend</span>
+  <span>Architecture</span>
+  <span>Decision Making</span>
+</div>
+<div class='project-links'>
+  <a href="#">Contact for Consultation</a>
+</div>
+`
+          }
+
+
+
+             
+
+      ];
+
+    function renderMenu() {
+      const menu = document.getElementById("project-menu");
+      projects.forEach((proj, index) => {
+        const li = document.createElement("li");
+        li.textContent = proj.title;
+        li.onclick = () => {
+          renderProject(index);
+          document.querySelectorAll("#project-menu li").forEach(el => el.classList.remove("active"));
+          li.classList.add("active");
+        };
+        if (index === 0) li.classList.add("active");
+        menu.appendChild(li);
+      });
+    }
+
+    function renderProject(index) {
+      const proj = projects[index];
+      document.getElementById("project-content").innerHTML = `
+        <h2 class="project-title">${proj.title}</h2>
+        <div class="project-description">${proj.description}</div>
+      `;
+    }
+
+    renderMenu();
+    if (projects.length > 0) renderProject(0);
+  </script>
+</body>
+</html>
