@@ -7,17 +7,20 @@
     <meta name="description" content="Professional Resume for Dipen Shah, a Solution Architect with expertise in .NET Core, Azure, and AWS." />
     <meta name="author" content="Dipen Shah" />
 
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
     <style>
         :root {
-            --primary-color: #0a66c4; /* LinkedIn blue */
-            --secondary-color: #F0F4F8; /* A light, clean background */
+            --primary-color: #2c3e50; /* A professional dark blue/slate */
+            --secondary-color: #3498db; /* A vibrant blue for accents */
+            --light-gray: #f4f4f4;
             --text-color: #333;
-            --header-font: 'Montserrat', sans-serif;
-            --body-font: 'Lato', sans-serif;
+            --sidebar-bg: #2c3e50;
+            --sidebar-text: #ecf0f1;
+            --header-font: 'Open Sans', sans-serif;
+            --body-font: 'Roboto', sans-serif;
         }
 
         * {
@@ -49,7 +52,7 @@
         }
 
         .btn {
-            background: var(--primary-color);
+            background: var(--secondary-color);
             color: white;
             padding: 12px 25px;
             border: none;
@@ -58,12 +61,10 @@
             font-family: var(--header-font);
             cursor: pointer;
             transition: background 0.3s ease, transform 0.2s ease;
-            text-decoration: none;
-            display: inline-block;
         }
 
         .btn:hover {
-            background: #004171;
+            background: #2980b9;
             transform: translateY(-2px);
         }
 
@@ -71,138 +72,134 @@
 
         .resume-container {
             width: 100%;
-            max-width: 8.5in; /* Standard Letter size width */
+            max-width: 8.5in;
             background: white;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            display: flex;
+        }
+        
+        /* --- Two-Column Layout --- */
+        .sidebar {
+            width: 35%;
+            background: var(--sidebar-bg);
+            color: var(--sidebar-text);
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
         }
 
-        /* --- Custom Header Section --- */
-        .page-header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 30px 0;
-            text-align: center;
-            position: relative;
+        .main-content {
+            width: 65%;
+            padding: 30px;
         }
-
+        
+        /* --- Sidebar Styling --- */
         .profile-pic {
-            width: 120px;
-            height: 120px;
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid white;
-            margin-bottom: 15px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            border: 4px solid var(--secondary-color);
+            margin: 0 auto 20px auto;
+            display: block;
+        }
+        
+        .sidebar-header {
+            text-align: center;
+            margin-bottom: 30px;
         }
 
-        .page-header h1 {
+        .sidebar-header h1 {
             font-family: var(--header-font);
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: 700;
-            letter-spacing: 1.5px;
+            color: white;
             margin-bottom: 5px;
         }
 
-        .page-header .subtitle {
+        .sidebar-header p {
             font-size: 1.1rem;
-            font-weight: 400;
-            margin-bottom: 20px;
-            opacity: 0.9;
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+        
+        .sidebar-section {
+            margin-bottom: 25px;
         }
 
-        .header-contact-info {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px 25px;
-            font-size: 0.95rem;
-            margin-bottom: 20px;
-        }
-
-        .header-contact-info a {
-            color: white;
-            text-decoration: none;
-            font-weight: 400;
-            transition: color 0.3s ease;
-            display: flex;
-            align-items: center;
-        }
-
-        .header-contact-info a:hover {
-            color: #d1e7ff; /* Lighter shade on hover */
-        }
-        .header-contact-info i {
-            margin-right: 8px;
-            font-size: 1rem;
-        }
-
-        .social-icons {
-            margin-top: 15px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            font-size: 1.4rem;
-        }
-
-        .social-icons a {
-            color: white;
-            transition: color 0.3s ease;
-        }
-
-        .social-icons a:hover {
-            color: #d1e7ff;
-        }
-
-
-        .resume-content {
-             padding: 0.5in 0.75in;
-             padding-top: 25px; /* Adjust top padding as header now handles top spacing */
-        }
-
-        /* --- Section Styling --- */
-        .section { margin-bottom: 25px; }
-        .section-title {
+        .sidebar-title {
             font-family: var(--header-font);
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             font-weight: 700;
-            color: var(--primary-color);
+            color: white;
             border-bottom: 2px solid var(--secondary-color);
             padding-bottom: 8px;
             margin-bottom: 15px;
+            text-transform: uppercase;
         }
-        .section-title i { margin-right: 12px; }
+
+        .contact-info a, .contact-info span {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            color: var(--sidebar-text);
+            text-decoration: none;
+            font-size: 0.9rem;
+            word-break: break-all;
+        }
+
+        .contact-info a:hover {
+            color: var(--secondary-color);
+        }
+
+        .contact-info i {
+            width: 25px;
+            margin-right: 10px;
+            color: var(--secondary-color);
+            text-align: center;
+        }
         
-        /* --- Summary Section --- */
-        .summary p {
+        .skills-list p {
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 4px;
+            padding: 5px 10px;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .cert-item h4 {
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+        }
+        .cert-item small {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+
+        /* --- Main Content Styling --- */
+        .main-title {
+            font-family: var(--header-font);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .main-content .summary p {
             font-size: 1.05rem;
             text-align: justify;
+            margin-bottom: 25px;
         }
 
-        /* --- Skills Section --- */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-        }
-        .skill-category {
-            padding: 15px;
-            background: var(--secondary-color);
-            border-radius: 6px;
-        }
-        .skill-category h4 {
-            font-family: var(--header-font);
-            margin-bottom: 10px;
-            font-weight: 700;
-            color: #444;
-        }
-        .skill-category p {
-            font-size: 0.95rem;
-            line-height: 1.7;
-        }
-
-        /* --- Experience Section --- */
-        .job { margin-bottom: 20px; }
+        .job { margin-bottom: 25px; }
         .job:last-child { margin-bottom: 0; }
+        
         .job-header {
             display: flex;
             justify-content: space-between;
@@ -211,17 +208,20 @@
             margin-bottom: 8px;
         }
         .job-title {
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             font-weight: 700;
+            color: var(--secondary-color);
         }
         .job-company {
+            font-size: 1.1rem;
             font-weight: 600;
-            color: #555;
+            color: var(--primary-color);
         }
         .job-date {
             font-style: italic;
             color: #666;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
+            margin-top: 4px;
         }
         .job ul {
             list-style-position: outside;
@@ -231,36 +231,14 @@
             margin-bottom: 8px;
             text-align: justify;
         }
-
-        /* --- Certifications & Education --- */
-        .grid-2-col {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
-        .cert-item, .edu-item { margin-bottom: 15px; }
-        .cert-item h4, .edu-item h4 {
-            font-weight: 700;
-            font-size: 1rem;
-        }
-        .cert-item small, .edu-item small {
-            color: #666;
-            font-size: 0.9rem;
-            display: block;
-        }
-        .cert-item i { color: var(--primary-color); margin-right: 8px; }
-
-        /* --- Page Break for PDF Export --- */
+        
         .pdf-page-break {
             page-break-before: always;
         }
-        
-        @media (max-width: 768px) {
-            .resume-content { padding: 0.5in 0.5in; }
-            .page-header h1 { font-size: 2.2rem; }
-            .job-header { flex-direction: column; align-items: flex-start; }
-            .job-date { margin-top: 4px; }
-            .grid-2-col { grid-template-columns: 1fr; }
+
+        @media (max-width: 768px), print {
+            .resume-container { flex-direction: column; }
+            .sidebar, .main-content { width: 100%; }
         }
     </style>
 </head>
@@ -273,202 +251,149 @@
     </div>
 
     <div class="resume-container" id="resume-to-export">
-        <div class="page-header">
-            <img src="https://media.licdn.com/dms/image/v2/D4D03AQGk2Ax1Nlz_fg/profile-displayphoto-shrink_400_400/B4DZaEfFiKGwAk-/0/1745979464436?e=1758153600&v=beta&t=J0an_OoSCX56RDSopXHkyGp6GiJ8MLRw2Y71vk"
-                 alt="Dipen Shah"
-                 class="profile-pic" />
-            <h1>DIPEN SHAH</h1>
-            <p class="subtitle">Solution Architect | .NET Expert | Cloud Specialist</p>
-            <div class="header-contact-info">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="https://media.licdn.com/dms/image/v2/D4D03AQGk2Ax1Nlz_fg/profile-displayphoto-shrink_400_400/B4DZaEfFiKGwAk-/0/1745979464436?e=1758153600&v=beta&t=J0an_OoSCX56RDSopXHkyGp6GiJ8MLRw2Y71vk" alt="Dipen Shah" class="profile-pic" />
+                <h1>DIPEN SHAH</h1>
+                <p>Solution Architect</p>
+            </div>
+
+            <section class="sidebar-section contact-info">
+                <h3 class="sidebar-title">Contact</h3>
                 <a href="mailto:erdipenshah23@gmail.com"><i class="fas fa-envelope"></i> erdipenshah23@gmail.com</a>
                 <span><i class="fas fa-map-marker-alt"></i> Ahmedabad, India</span>
-                <a href="https://www.linkedin.com/in/dipen-shah/" target="_blank"><i class="fab fa-linkedin"></i> linkedin.com/in/dipen-shah</a>
-                <a href="https://github.com/dkshah" target="_blank"><i class="fab fa-github"></i> github.com/dkshah</a>
-            </div>
-        </div>
+                <a href="https://www.linkedin.com/in/dipen-shah/" target="_blank"><i class="fab fa-linkedin"></i> /in/dipen-shah</a>
+                <a href="https://github.com/dkshah" target="_blank"><i class="fab fa-github"></i> /dkshah</a>
+            </section>
 
-        <div class="resume-content">
-            <main>
-                <section class="section summary">
-                    <h2 class="section-title"><i class="fas fa-user-tie"></i> Professional Summary</h2>
-                    <p>
-                        Accomplished Solution Architect with over 15 years of experience leading the design and implementation of mission-critical, enterprise-level applications. Proven expertise in defining the technical roadmap and vision for complex software ecosystems on .NET, Azure, and AWS. A strategic leader adept at managing the end-to-end application experience, ensuring scalability, security, and performance while aligning technology with overarching business goals. Passionate about guiding large-scale engineering teams, driving DevOps culture, and leveraging AI to foster innovation and deliver measurable impact.
-                    </p>
-                </section>
+            <section class="sidebar-section skills-list">
+                <h3 class="sidebar-title">Key Skills</h3>
+                <p><strong>Cloud:</strong> Azure, AWS</p>
+                <p><strong>Backend:</strong> .NET Core, C#, Microservices</p>
+                <p><strong>Databases:</strong> SQL Server, Cosmos DB</p>
+                <p><strong>Frontend:</strong> Angular, TypeScript</p>
+                <p><strong>DevOps:</strong> Docker, Kubernetes, CI/CD</p>
+                <p><strong>Architecture:</strong> Design Patterns, DDD</p>
+            </section>
 
-                <section class="section">
-                    <h2 class="section-title"><i class="fas fa-cogs"></i> Technical Proficiencies</h2>
-                    <div class="skills-grid">
-                        <div class="skill-category">
-                            <h4><i class="fas fa-cloud"></i> Cloud Platforms</h4>
-                            <p>Azure (App Services, Functions, Cosmos DB, DevOps, AI), AWS (EC2, S3, Lambda, RDS)</p>
-                        </div>
-                        <div class="skill-category">
-                            <h4><i class="fas fa-code"></i> Backend & Frameworks</h4>
-                            <p>.NET Core, ASP.NET MVC, C#, Microservices, Web API, Entity Framework</p>
-                        </div>
-                        <div class="skill-category">
-                            <h4><i class="fas fa-database"></i> Databases</h4>
-                            <p>MS SQL Server, Azure SQL, Cosmos DB, Elasticsearch, T-SQL Optimization</p>
-                        </div>
-                         <div class="skill-category">
-                            <h4><i class="fab fa-angular"></i> Frontend Technologies</h4>
-                            <p>Angular, HTML5, CSS3, JavaScript, TypeScript</p>
-                        </div>
-                        <div class="skill-category">
-                            <h4><i class="fas fa-tools"></i> DevOps & Tools</h4>
-                            <p>Docker, Kubernetes, Git, GitHub Actions, Azure DevOps (CI/CD Pipelines), Terraform</p>
-                        </div>
-                        <div class="skill-category">
-                            <h4><i class="fas fa-sitemap"></i> Architecture & Methodologies</h4>
-                            <p>Enterprise Architecture, Design Patterns, Agile/Scrum, Domain-Driven Design (DDD)</p>
-                        </div>
-                    </div>
-                </section>
-                
-                <section class="section">
-                    <h2 class="section-title"><i class="fas fa-briefcase"></i> Professional Experience</h2>
-                    
-                    <div class="job">
-                        <div class="job-header">
-                            <div>
-                                <div class="job-title">Solutions Architect</div>
-                                <div class="job-company">Tata Consultancy Services (TCS)</div>
-                            </div>
-                            <div class="job-date">December 2022 - Present</div>
-                        </div>
-                        <ul>
-                            <li>Architected and led the development of cloud-native enterprise solutions on Azure and AWS, resulting in a <strong>30% improvement</strong> in application scalability and performance.</li>
-                            <li>Oversaw the complete lifecycle and user experience for a suite of mission-critical enterprise applications, ensuring high availability, performance, and alignment with business goals.</li>
-                            <li>Implemented a secure, multi-tenant microservices architecture using .NET Core and Docker, decoupling monolithic systems and <strong>reducing deployment times by 40%</strong>.</li>
-                            <li>Directed **5-6 cross-functional teams comprising over 30 members**, providing technical mentorship on cloud architecture, design patterns, and secure coding standards to enhance project success.</li>
-                        </ul>
-                    </div>
-
-                    <div class="job">
-                        <div class="job-header">
-                             <div>
-                                <div class="job-title">Project Lead</div>
-                                <div class="job-company">Azilen Technologies Pvt. Ltd.</div>
-                            </div>
-                            <div class="job-date">April 2021 - November 2022</div>
-                        </div>
-                        <ul>
-                            <li>Managed the end-to-end software development lifecycle for key client projects, ensuring on-time delivery of high-quality, scalable solutions that met and exceeded business requirements.</li>
-                            <li>Led system analysis and architecture design sessions, making critical technology decisions that improved system reliability and reduced long-term maintenance costs.</li>
-                            <li>Recognized with multiple "Fuel Innovation" and "Rising Star" awards for successfully pioneering new technologies and processes within the team.</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="job">
-                        <div class="job-header">
-                             <div>
-                                <div class="job-title">Technical Lead / Sr. Software Engineer</div>
-                                <div class="job-company">Analytix Business Solutions</div>
-                            </div>
-                            <div class="job-date">January 2013 - March 2021</div>
-                        </div>
-                        <ul>
-                            <li>Led development teams through the entire project lifecycle, making key architectural decisions on technology, structure, and system configuration.</li>
-                            <li>Designed and developed scalable .NET applications using C#, ASP.NET, and Angular, while mentoring junior developers on object-oriented programming and best practices.</li>
-                            <li>Engineered and optimized complex database schemas and queries in SQL Server, leading to a <strong>25% reduction in data retrieval times</strong> for critical application features.</li>
-                             <li>Served as the primary point of contact for technical escalations, providing expert-level troubleshooting and ensuring rapid issue resolution to maintain project momentum.</li>
-                        </ul>
-                    </div>
-
-                    <div class="job">
-                        <div class="job-header">
-                             <div>
-                                <div class="job-title">Early Career & Foundational Roles</div>
-                                <div class="job-company">Analytix, Pragra Infratech, Cybersurf India</div>
-                            </div>
-                            <div class="job-date">January 2010 - December 2012</div>
-                        </div>
-                        <ul>
-                            <li>Developed and managed projects in payroll and production systems, including software integration with RFID technology, while building a strong foundation in ASP.NET, C#, and Microsoft SQL Server.</li>
-                        </ul>
-                    </div>
-                </section>
-
-                <div class="pdf-page-break"></div>
-                
-                <div class="grid-2-col">
-                    <section class="section">
-                        <h2 class="section-title"><i class="fas fa-certificate"></i> Key Certifications</h2>
-                        <div class="cert-item">
-                            <h4><i class="fab fa-microsoft"></i> Microsoft Certified: Azure Solutions Architect Expert</h4>
-                            <small>Valid through June 2026</small>
-                        </div>
-                         <div class="cert-item">
-                            <h4><i class="fab fa-microsoft"></i> Microsoft Certified: Azure Cosmos DB Developer</h4>
-                            <small>Valid through August 2026</small>
-                        </div>
-                        <div class="cert-item">
-                            <h4><i class="fab fa-microsoft"></i> Microsoft Certified: Azure AI Fundamentals</h4>
-                            <small>Issued May 2025</small>
-                        </div>
-                         <div class="cert-item">
-                            <h4><i class="fab fa-aws"></i> AWS Developer Associate</h4>
-                            <small>Issued October 2023</small>
-                        </div>
-                        <div class="cert-item">
-                            <h4><i class="fab fa-github"></i> GitHub Foundations Certified</h4>
-                             <small>Valid through April 2028</small>
-                        </div>
-                        <div class="cert-item">
-                            <h4><i class="fas fa-award"></i> Holder of 25+ additional professional certifications</h4>
-                            <small>Covering topics in Informatica, DevOps, and Agile methodologies.</small>
-                        </div>
-                    </section>
-    
-                    <section class="section">
-                         <h2 class="section-title"><i class="fas fa-trophy"></i> Awards & Recognition</h2>
-                         <div class="cert-item">
-                              <h4><i class="fas fa-brain"></i> TCS AI Spark Award</h4>
-                              <small>August 2025</small>
-                         </div>
-                         <div class="cert-item">
-                              <h4><i class="fas fa-trophy"></i> TCS Hackathon - Rank 3</h4>
-                              <small>2025</small>
-                         </div>
-                         <div class="cert-item">
-                              <h4><i class="fas fa-medal"></i> Gold Certified Mentor</h4>
-                              <small>Awarded at the Golden Guru Gala, TCS</small>
-                         </div>
-                         <div class="cert-item">
-                              <h4><i class="fas fa-star"></i> Star of the Month & Rising Star</h4>
-                              <small>Received at multiple organizations</small>
-                         </div>
-                         <div class="cert-item">
-                              <h4><i class="fas fa-lightbulb"></i> Fuel Innovation Award</h4>
-                              <small>Received Twice (2022, 2021)</small>
-                         </div>
-
-                        <h2 class="section-title" style="margin-top: 25px;"><i class="fas fa-user-graduate"></i> Education</h2>
-                        <div class="edu-item">
-                            <h4>Bachelor of Engineering, Computer Engineering</h4>
-                            <small>Hemchandracharya North Gujarat University</small>
-                            <small>2006 - 2010</small>
-                        </div>
-                    </section>
+            <section class="sidebar-section">
+                <h3 class="sidebar-title">Certifications</h3>
+                 <div class="cert-item">
+                    <h4>Azure Solutions Architect Expert</h4>
+                    <small>Microsoft Certified</small>
                 </div>
-            </main>
-        </div>
+                <div class="cert-item">
+                    <h4>Azure Cosmos DB Developer</h4>
+                    <small>Microsoft Certified</small>
+                </div>
+                <div class="cert-item">
+                    <h4>AWS Developer Associate</h4>
+                    <small>AWS Certified</small>
+                </div>
+            </section>
+            
+            <section class="sidebar-section">
+                 <h3 class="sidebar-title">Awards</h3>
+                 <div class="cert-item">
+                     <h4>Gold Certified Mentor</h4>
+                     <small>Golden Guru Gala, TCS</small>
+                 </div>
+                 <div class="cert-item">
+                     <h4>TCS AI Spark Award</h4>
+                     <small>Tata Consultancy Services</small>
+                 </div>
+            </section>
+
+            <section class="sidebar-section">
+                 <h3 class="sidebar-title">Education</h3>
+                 <div class="cert-item">
+                     <h4>BE, Computer Engineering</h4>
+                     <small>HNGU (2006 - 2010)</small>
+                 </div>
+            </section>
+        </aside>
+        
+        <main class="main-content">
+            <section class="summary">
+                <h2 class="main-title"><i class="fas fa-user-tie"></i> Professional Summary</h2>
+                <p>
+                    Accomplished Solution Architect with over 15 years of experience leading the design and implementation of mission-critical, enterprise-level applications. Proven expertise in defining the technical roadmap and vision for complex software ecosystems on .NET, Azure, and AWS. A strategic leader adept at managing the end-to-end application experience, ensuring scalability, security, and performance while aligning technology with overarching business goals. Passionate about guiding large-scale engineering teams, driving DevOps culture, and leveraging AI to foster innovation and deliver measurable impact.
+                </p>
+            </section>
+            
+            <section>
+                 <h2 class="main-title"><i class="fas fa-briefcase"></i> Professional Experience</h2>
+                 
+                 <div class="job">
+                     <div class="job-header">
+                         <div>
+                             <div class="job-title">Solutions Architect</div>
+                             <div class="job-company">Tata Consultancy Services (TCS)</div>
+                         </div>
+                         <div class="job-date">Dec 2022 - Present</div>
+                     </div>
+                     <ul>
+                         <li>Architected cloud-native enterprise solutions on Azure/AWS, improving application scalability and performance by <strong>30%</strong>.</li>
+                         <li>Directed <strong>5-6 cross-functional teams (30+ members)</strong>, providing technical mentorship on cloud architecture, design patterns, and secure coding standards.</li>
+                         <li>Implemented a secure, multi-tenant microservices architecture using .NET Core and Docker, decoupling systems and <strong>reducing deployment times by 40%</strong>.</li>
+                     </ul>
+                 </div>
+
+                 <div class="job">
+                     <div class="job-header">
+                          <div>
+                             <div class="job-title">Project Lead</div>
+                             <div class="job-company">Azilen Technologies Pvt. Ltd.</div>
+                         </div>
+                         <div class="job-date">Apr 2021 - Nov 2022</div>
+                     </div>
+                     <ul>
+                         <li>Managed the end-to-end SDLC for key client projects, ensuring on-time delivery of high-quality, scalable solutions that met business requirements.</li>
+                         <li>Led system analysis and architecture design, making critical technology decisions that improved system reliability and reduced long-term maintenance costs.</li>
+                     </ul>
+                 </div>
+                 
+                 <div class="job">
+                     <div class="job-header">
+                          <div>
+                             <div class="job-title">Technical Lead / Sr. Engineer</div>
+                             <div class="job-company">Analytix Business Solutions</div>
+                         </div>
+                         <div class="job-date">Jan 2013 - Mar 2021</div>
+                     </div>
+                     <ul>
+                         <li>Led development teams through the project lifecycle, making key architectural decisions for technology, structure, and system configuration.</li>
+                         <li>Engineered and optimized complex SQL Server database schemas, leading to a <strong>25% reduction in data retrieval times</strong> for critical features.</li>
+                         <li>Served as the primary contact for technical escalations, providing expert-level troubleshooting and ensuring rapid issue resolution.</li>
+                     </ul>
+                 </div>
+
+                 <div class="job">
+                     <div class="job-header">
+                          <div>
+                             <div class="job-title">Early Career Roles</div>
+                             <div class="job-company">Analytix, Pragra Infratech, Cybersurf</div>
+                         </div>
+                         <div class="job-date">Jan 2010 - Dec 2012</div>
+                     </div>
+                     <ul>
+                         <li>Developed projects in payroll and production systems, integrating with RFID technology, while building foundational skills in ASP.NET, C#, and SQL Server.</li>
+                     </ul>
+                 </div>
+            </section>
+        </main>
     </div>
 
     <script>
         function downloadResume() {
             const element = document.getElementById('resume-to-export');
-            
             const opt = {
-                margin:       [0.5, 0, 0.5, 0], // top, left, bottom, right in inches
+                margin:       0,
                 filename:     'Dipen-Shah-Solution-Architect-Resume.pdf',
                 image:        { type: 'jpeg', quality: 0.98 },
                 html2canvas:  { scale: 2, useCORS: true },
                 jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
             };
-
-            // New Promise-based usage:
             html2pdf().set(opt).from(element).save();
         }
     </script>
