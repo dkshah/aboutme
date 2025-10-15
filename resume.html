@@ -10,6 +10,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    
+    <!-- Common Components -->
+    <script src="common-nav.js"></script>
 
     <style>
         :root {
@@ -19,8 +22,8 @@
             --text-color: #333;
             --sidebar-bg: #2c3e50;
             --sidebar-text: #ecf0f1;
-            --header-font: 'Open Sans', sans-serif;
-            --body-font: 'Roboto', sans-serif;
+            --header-font: 'Open Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            --body-font: 'Roboto', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
         }
 
         * {
@@ -38,6 +41,50 @@
             flex-direction: column;
             align-items: center;
             padding: 20px 10px;
+            padding-top: 20px;
+        }
+        
+        /* Add padding only if navigation is visible */
+        body:not(.resume-page) {
+            padding-top: 100px;
+        }
+        
+        /* Ensure navigation doesn't interfere with resume content */
+        .navbar-modern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            height: 70px;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        /* Hide navigation on resume page if needed */
+        .resume-page .navbar-modern {
+            display: none;
+        }
+        
+        /* Hide navigation when printing/exporting PDF */
+        @media print {
+            .navbar-modern,
+            .toolbar {
+                display: none !important;
+            }
+            
+            body {
+                padding-top: 0 !important;
+                background: white !important;
+            }
+            
+            .resume-container {
+                box-shadow: none !important;
+                margin: 0 !important;
+            }
         }
 
         .toolbar {
@@ -49,6 +96,20 @@
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .toolbar a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .toolbar a:hover {
+            color: var(--secondary-color);
         }
 
         .btn {
@@ -63,14 +124,14 @@
             transition: background 0.3s ease, transform 0.2s ease;
         }
 
-            .btn:hover {
-                background: #2980b9;
-                transform: translateY(-2px);
-            }
+        .btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
 
-            .btn i {
-                margin-right: 8px;
-            }
+        .btn i {
+            margin-right: 8px;
+        }
 
         .resume-container {
             width: 100%;
@@ -78,6 +139,7 @@
             background: white;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             display: flex;
+            margin-bottom: 40px;
         }
 
         .sidebar {
@@ -92,6 +154,8 @@
         .main-content {
             width: 65%;
             padding: 30px;
+            background: white;
+            color: #333;
         }
 
         .profile-pic {
@@ -107,21 +171,25 @@
         .sidebar-header {
             text-align: center;
             margin-bottom: 30px;
+            padding-top: 10px;
         }
 
-            .sidebar-header h1 {
-                font-family: var(--header-font);
-                font-size: 2rem;
-                font-weight: 700;
-                color: white;
-                margin-bottom: 5px;
-            }
+        .sidebar-header h1 {
+            font-family: var(--header-font);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+            line-height: 1.2;
+        }
 
-            .sidebar-header p {
-                font-size: 1.1rem;
-                color: var(--secondary-color);
-                font-weight: 600;
-            }
+        .sidebar-header p {
+            font-size: 1rem;
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 0;
+        }
 
         .sidebar-section {
             margin-bottom: 25px;
@@ -148,9 +216,9 @@
             word-break: break-all;
         }
 
-            .contact-info a:hover {
-                color: var(--secondary-color);
-            }
+        .contact-info a:hover {
+            color: var(--secondary-color);
+        }
 
         .contact-info i {
             width: 25px;
@@ -180,7 +248,6 @@
             margin-bottom: 12px;
         }
 
-
         .main-title {
             font-family: var(--header-font);
             font-size: 1.5rem;
@@ -195,15 +262,16 @@
             font-size: 1.05rem;
             text-align: justify;
             margin-bottom: 25px;
+            line-height: 1.6;
         }
 
         .job {
             margin-bottom: 25px;
         }
 
-            .job:last-child {
-                margin-bottom: 0;
-            }
+        .job:last-child {
+            margin-bottom: 0;
+        }
 
         .job-header {
             display: flex;
@@ -240,6 +308,7 @@
         .job li {
             margin-bottom: 8px;
             text-align: justify;
+            line-height: 1.5;
         }
 
         .tech-list {
@@ -250,36 +319,51 @@
             color: #555;
         }
 
-            .tech-list li {
-                display: inline-block;
-                background-color: var(--light-gray);
-                padding: 3px 8px;
-                border-radius: 4px;
-                margin: 0 5px 5-px 0;
-                font-weight: 500;
-                color: var(--primary-color);
-            }
-
-        .pdf-page-break {
-            page-break-before: always;
+        .tech-list li {
+            display: inline-block;
+            background-color: var(--light-gray);
+            padding: 3px 8px;
+            border-radius: 4px;
+            margin: 0 5px 5px 0;
+            font-weight: 500;
+            color: var(--primary-color);
         }
 
-        @media (max-width: 768px), print {
+        @media (max-width: 768px) {
             .resume-container {
                 flex-direction: column;
+                max-width: 100%;
             }
 
             .sidebar, .main-content {
                 width: 100%;
             }
+            
+            .main-content {
+                padding: 20px;
+            }
+            
+            .sidebar {
+                padding: 20px 15px;
+            }
+            
+            .job-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .job-date {
+                margin-top: 5px;
+            }
         }
     </style>
 </head>
-<body>
+<body class="resume-page">
+    <!-- Navigation will be inserted by common-nav.js -->
 
     <div class="toolbar">
         <div style="text-align:left">
-            <a href="https://dkshah.github.io/aboutme/">&larr; Back to About Me</a>
+            <a href="index.html">&larr; Back to About Me</a>
         </div>
         <button class="btn" onclick="downloadResume()">
             <i class="fas fa-file-pdf"></i>Download as PDF
@@ -339,7 +423,7 @@
                         </ul>
                     </small>
                 </div>
-                  <div class="cert-item">
+                <div class="cert-item">
                     <h4>Databricks Academy</h4>
                     <small>
                         <ul style="list-style-type: disc; padding-left: 20px;">
@@ -391,20 +475,6 @@
                             <li>Best Team & Applause Award</li>
                             <li>Learning Achievement Award</li>
                             <li>Star of the Month Award</li>
-                        </ul>
-                    </small>
-                </div>
-            </section>
-
-            <section class="sidebar-section">
-                <h3 class="sidebar-title">Mentoring & Leadership</h3>
-                <div class="cert-item">
-                    <h4>TCS</h4>
-                    <small>
-                        <ul style="list-style-type: disc; padding-left: 20px;">
-                            <li>Contextual Master Award</li>
-                            <li>Gold Certificate for Mentoring</li>
-                            <li>Silver Certificate on Mentoring</li>
                         </ul>
                     </small>
                 </div>
@@ -565,20 +635,41 @@
 
     <script>
         function downloadResume() {
+            // Hide navigation and toolbar during PDF generation
+            const navbar = document.querySelector('.navbar-modern');
+            const toolbar = document.querySelector('.toolbar');
+            
+            // Store original display values
+            const navbarDisplay = navbar ? navbar.style.display : '';
+            const toolbarDisplay = toolbar ? toolbar.style.display : '';
+            
+            // Hide elements
+            if (navbar) navbar.style.display = 'none';
+            if (toolbar) toolbar.style.display = 'none';
+            
             const element = document.getElementById('resume-to-export');
             const opt = {
                 margin: 0,
                 filename: 'Dipen-Shah-Solution-Architect-Resume.pdf',
                 image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2, useCORS: true },
+                html2canvas: { 
+                    scale: 2, 
+                    useCORS: true,
+                    allowTaint: true,
+                    ignoreElements: function(element) {
+                        return element.classList.contains('navbar-modern') || 
+                               element.classList.contains('toolbar');
+                    }
+                },
                 jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
             };
-            html2pdf().set(opt).from(element).save();
+            
+            html2pdf().set(opt).from(element).save().then(() => {
+                // Restore original display values after PDF generation
+                if (navbar) navbar.style.display = navbarDisplay;
+                if (toolbar) toolbar.style.display = toolbarDisplay;
+            });
         }
     </script>
 </body>
 </html>
-
-
-
-

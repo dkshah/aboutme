@@ -1,252 +1,503 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dipen Shah | Project Navigator</title>
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
-  <style>
-    body {
-      font-family: 'Roboto', sans-serif;
-      margin: 0;
-      background: #f4f4f4;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-
-    header, footer {
-      text-align: center;
-      padding: 20px;
-      background: #0078D4;
-      color: white;
-    }
-
-    .main {
-      display: flex;
-      flex-direction: row;
-      flex: 1;
-      max-width: 1200px;
-      margin: 0 auto;
-      width: 100%;
-    }
-
-    .sidebar {
-      width: 250px;
-      background: #e6f2fb;
-      border-right: 1px solid #ccc;
-      padding: 20px;
-    }
-
-    .sidebar h3 {
-      margin-top: 0;
-      color: #003366;
-    }
-
-    .sidebar ul {
-      list-style-type: none;
-      padding-left: 0;
-    }
-
-    .sidebar li {
-      padding: 10px;
-      cursor: pointer;
-      color: #0078D4;
-    }
-
-    .sidebar li:hover,
-    .sidebar li.active {
-      background: #0078D4;
-      color: white;
-      border-radius: 5px;
-    }
-
-    .project-container {
-      flex: 1;
-      padding: 30px;
-      background: white;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
-      overflow: auto;
-    }
-
-    .project-title {
-      font-size: 2em;
-      color: #003366;
-      margin-bottom: 10px;
-    }
-
-    .project-description {
-      font-size: 1.05em;
-      line-height: 1.8;
-      margin-bottom: 20px;
-    }
-
-    .tech-used {
-      font-size: 1em;
-      background: #e0f3ff;
-      color: #005fa3;
-      padding: 15px;
-      margin-top: 30px;
-      border-left: 5px solid #0078D4;
-      font-weight: bold;
-      font-family: monospace;
-    }
-
-    .project-tags {
-      margin-top: 15px;
-      font-size: 0.9em;
-      color: #666;
-    }
-
-    .project-tags span {
-      background: #0078D4;
-      color: white;
-      padding: 4px 10px;
-      border-radius: 20px;
-      margin-right: 8px;
-      display: inline-block;
-    }
-
-    .project-links {
-      text-align: right;
-      margin-top: 30px;
-    }
-
-    .project-links a {
-      display: inline-block;
-      background: #007acc;
-      color: white;
-      padding: 8px 14px;
-      text-decoration: none;
-      border-radius: 5px;
-      margin-left: 10px;
-      font-size: 0.85em;
-    }
-
-    .project-links a:hover {
-      background: #005fa3;
-    }
-
-    footer {
-      font-size: 0.9em;
-    }
-
-    .back-link {
-      float: left;
-      font-size: 0.85em;
-      margin-left: 20px;
-    }
-
-    .back-link a {
-      color: white;
-      text-decoration: underline;
-    }
-
-    @media (max-width: 768px) {
-      .main {
-        flex-direction: column;
-      }
-
-      .sidebar {
-        width: 100%;
-        border-right: none;
-        border-bottom: 1px solid #ccc;
-      }
-
-      .project-container {
-        padding: 20px;
-      }
-    }
-      .project-description table {
-          width: 100%;
-          border-collapse: collapse;
-          margin-top: 20px;
-          font-size: 0.95em;
-      }
-
-      .project-description th,
-      .project-description td {
-          border: 1px solid #ddd;
-          padding: 10px 15px;
-          text-align: left;
-      }
-
-      .project-description th {
-          background-color: #e6f2fb;
-          font-weight: 600;
-          color: #003366;
-      }
-
-      .project-description tr:nth-child(even) {
-          background-color: #f9f9f9;
-      }
-
-      .project-description tr:hover {
-          background-color: #f1f7fd;
-      }
-
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dipen Shah - Technical Blogs on .NET Core, Azure, Architecture, and Software Development Best Practices.">
+    <meta name="keywords" content="Dipen Shah, Technical Blogs, .NET Core, Azure, Software Architecture, Development">
+    <meta name="author" content="Dipen Shah">
+    
+    <title>Dipen Shah | Technical Blogs | Solution Architect</title>
+    
+    <!-- Professional Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons and Libraries -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Theme CSS -->
+    <link id="theme-style" rel="stylesheet" href="theme.css">
+    
+    <!-- Common Components -->
+    <script src="common-nav.js"></script>
+    <script src="common-footer.js"></script>
+    
+    <!-- Additional Styles for Blogs Page -->
+    <style>
+        .blogs-layout {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .blogs-sidebar {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 1.5rem;
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+        
+        .sidebar-card {
+            margin-bottom: 2rem;
+        }
+        
+        .sidebar-card:last-child {
+            margin-bottom: 0;
+        }
+        
+        .sidebar-card h3 {
+            color: #2c3e50;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .blog-categories {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .blog-categories li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .category-link {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: #495057;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            border-left: 3px solid transparent;
+        }
+        
+        .category-link:hover {
+            background: #e9ecef;
+            color: #0066cc;
+            border-left-color: #0066cc;
+        }
+        
+        .category-link.active {
+            background: #0066cc;
+            color: white;
+            border-left-color: #004499;
+        }
+        
+        .category-link i {
+            margin-right: 0.5rem;
+            width: 16px;
+        }
+        
+        .blog-content {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            min-height: 600px;
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .blog-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid #e9ecef;
+            height: fit-content;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            border-color: #0066cc;
+        }
+        
+        .blog-card-header h3 {
+            color: #2c3e50;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+        
+        .blog-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .blog-date, .blog-time {
+            font-size: 0.85rem;
+            color: #6c757d;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        
+        .blog-category {
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        
+        .blog-card-content p {
+            color: #6c757d;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .blog-card-footer {
+            border-top: 1px solid #e9ecef;
+            padding-top: 1rem;
+            text-align: right;
+        }
+        
+        .read-more {
+            color: #0066cc;
+            font-weight: 500;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .article-navigation {
+            margin-bottom: 2rem;
+        }
+        
+        .back-btn {
+            background: #6c757d;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            background: #5a6268;
+            transform: translateX(-3px);
+        }
+        
+        .article-header h1 {
+            color: #2c3e50;
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+        
+        .article-meta {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #e9ecef;
+        }
+        
+        .article-date, .article-time, .article-category {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+        
+        .article-category {
+            background: #f3e5f5;
+            color: #7b1fa2;
+            padding: 0.4rem 0.8rem;
+            border-radius: 15px;
+            font-weight: 500;
+        }
+        
+        .article-content {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: #495057;
+        }
+        
+        .article-content .lead-text {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-left: 4px solid #0066cc;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .article-content h3 {
+            color: #2c3e50;
+            font-size: 1.4rem;
+            margin: 2rem 0 1rem 0;
+            font-weight: 600;
+        }
+        
+        .article-content ul {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        .article-content li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+        
+        .article-content pre {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+        
+        .article-content code {
+            background: #f1f3f4;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            color: #d63384;
+        }
+        
+        .article-content pre code {
+            background: none;
+            padding: 0;
+            color: inherit;
+        }
+        
+        .comparison-table {
+            margin: 1.5rem 0;
+            overflow-x: auto;
+        }
+        
+        .comparison-table table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .comparison-table th {
+            background: #0066cc;
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .comparison-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .comparison-table tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .tech-stack-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+        }
+        
+        .tech-stack-card h4 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .tech-tag {
+            background: rgba(255,255,255,0.2);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            backdrop-filter: blur(10px);
+        }
+        
+        @media (max-width: 768px) {
+            .blogs-layout {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .blogs-sidebar {
+                position: static;
+            }
+            
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .article-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .article-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
 </head>
-<body>
-  <header>
-    <div class="back-link">
-      <a href="https://dkshah.github.io/aboutme/">&larr; Back to About Me</a>
-    </div>
-    <h1>Dipen Shah - Blogs</h1>
-    <p>Solution Architect | .NET Core Expert | Technical Leader</p>
-  </header>
 
-  <div class="main">
-    <nav class="sidebar">
-      <h3>Blogs</h3>
-      <ul id="project-menu"></ul>
+<body>
+    <!-- Navigation Header -->
+    <nav class="navbar-modern">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1 class="brand-name">Dipen Shah</h1>
+                <span class="brand-title">Solution Architect</span>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index_new.html" class="nav-link">Home</a>
+                <a href="Projects.html" class="nav-link">Projects</a>
+                <a href="blogs.html" class="nav-link active">Blogs</a>
+                <a href="carreradvice.html" class="nav-link">Career Advice</a>
+                <a href="resume.html" class="nav-link nav-cta">Resume</a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
     </nav>
 
-    <div class="project-container" id="project-content">
-      <!-- Dynamic project content -->
-    </div>
-  </div>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="hero-greeting">Technical</span>
+                        <span class="hero-name">Blogs</span>
+                    </h1>
+                    <h2 class="hero-subtitle">Insights on Architecture, Development & Technology</h2>
+                    <p class="hero-description">
+                        Sharing knowledge and experiences from 15+ years in enterprise software development, cloud architecture, and technical leadership.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <footer>
-    &copy; 2025 Dipen Shah. All rights reserved.
-  </footer>
+    <!-- Blogs Section -->
+    <section class="blogs-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Latest Articles</h2>
+                <p class="section-subtitle">Deep dives into technology, architecture patterns, and development best practices</p>
+            </div>
+            
+            <div class="blogs-layout">
+                <div class="blogs-sidebar">
+                    <div class="sidebar-card">
+                        <h3>Categories</h3>
+                        <ul id="blog-menu" class="blog-categories"></ul>
+                    </div>
+                </div>
+                
+                <div class="blog-content">
+                    <div id="blog-article" class="article-container">
+                        <!-- Dynamic blog content will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <script>
-      const projects = [
-          {
-              title: "Microsoft Login Integration – React 18 + MSAL Redirect",
-              description: `
-    <p>This guide walks you through the step-by-step process of implementing Microsoft (Azure AD) login using the redirect method in a React 18 app. We use <strong>@azure/msal-browser</strong> and <strong>@azure/msal-react</strong> libraries provided by Microsoft.</p>
+    <!-- Footer will be inserted by common-footer.js -->
 
-    <h4>1. Register Your App in Azure Portal</h4>
-    <ul>
-      <li>Go to <a href="https://portal.azure.com">Azure Portal</a></li>
-      <li>Navigate to: Azure Active Directory → App registrations → New registration</li>
-      <li>Set a name, supported account type, and redirect URI: <code>http://localhost:3000</code></li>
-      <li>Copy the <strong>Client ID</strong> and <strong>Tenant ID</strong></li>
-    </ul>
+    <!-- JavaScript -->
+    <script>
+        // Navigation functionality is handled by common-nav.js
 
-    <h4>2. Create React App (React 18)</h4>
-    <pre><code>npx create-react-app my-app
+        // Blog data
+        const blogs = [
+            {
+                title: "Microsoft Login Integration – React 18 + MSAL Redirect",
+                category: "React & Authentication",
+                date: "January 2025",
+                readTime: "8 min read",
+                content: `
+                <div class="article-header">
+                    <h1>Microsoft Login Integration – React 18 + MSAL Redirect</h1>
+                    <div class="article-meta">
+                        <span class="article-date"><i class="fas fa-calendar"></i> January 2025</span>
+                        <span class="article-time"><i class="fas fa-clock"></i> 8 min read</span>
+                        <span class="article-category"><i class="fas fa-tag"></i> React & Authentication</span>
+                    </div>
+                </div>
+                
+                <div class="article-content">
+                    <p class="lead-text">This guide walks you through the step-by-step process of implementing Microsoft (Azure AD) login using the redirect method in a React 18 app. We use <strong>@azure/msal-browser</strong> and <strong>@azure/msal-react</strong> libraries provided by Microsoft.</p>
+
+                    <h3>1. Register Your App in Azure Portal</h3>
+                    <ul>
+                        <li>Go to <a href="https://portal.azure.com" target="_blank">Azure Portal</a></li>
+                        <li>Navigate to: Azure Active Directory → App registrations → New registration</li>
+                        <li>Set a name, supported account type, and redirect URI: <code>http://localhost:3000</code></li>
+                        <li>Copy the <strong>Client ID</strong> and <strong>Tenant ID</strong></li>
+                    </ul>
+
+                    <h3>2. Create React App (React 18)</h3>
+                    <pre><code>npx create-react-app my-app
 cd my-app</code></pre>
 
-    <h4>3. Install Microsoft Authentication Library</h4>
-    <pre><code>npm install @azure/msal-browser @azure/msal-react</code></pre>
+                    <h3>3. Install Microsoft Authentication Library</h3>
+                    <pre><code>npm install @azure/msal-browser @azure/msal-react</code></pre>
 
-    <h4>4. Configure MSAL Instance (authConfig.js)</h4>
-    <pre><code>
-export const msalConfig = {
+                    <h3>4. Configure MSAL Instance (authConfig.js)</h3>
+                    <pre><code>export const msalConfig = {
   auth: {
     clientId: "YOUR_CLIENT_ID",
     authority: "https://login.microsoftonline.com/YOUR_TENANT_ID",
     redirectUri: "http://localhost:3000",
   },
-};
-    </code></pre>
+};</code></pre>
 
-    <h4>5. Initialize MSAL in index.js</h4>
-    <pre><code>
-import { PublicClientApplication } from "@azure/msal-browser";
+                    <h3>5. Initialize MSAL in index.js</h3>
+                    <pre><code>import { PublicClientApplication } from "@azure/msal-browser";
 import { MsalProvider } from "@azure/msal-react";
 import { msalConfig } from "./authConfig";
 
@@ -261,189 +512,202 @@ root.render(
   &lt;MsalProvider instance={msalInstance}&gt;
     &lt;App /&gt;
   &lt;/MsalProvider&gt;
-);
-    </code></pre>
+);</code></pre>
 
-    <h4>6. Add Login Logic in App.js</h4>
-    <pre><code>
-const { instance, accounts } = useMsal();
-useEffect(() => {
-  if (!instance.getActiveAccount() && accounts.length > 0) {
-    instance.setActiveAccount(accounts[0]);
-  }
-}, [accounts]);
+                    <div class="tech-stack-card">
+                        <h4><i class="fas fa-tools"></i> Technology Stack</h4>
+                        <div class="tech-tags">
+                            <span class="tech-tag">React 18</span>
+                            <span class="tech-tag">Azure AD</span>
+                            <span class="tech-tag">MSAL</span>
+                            <span class="tech-tag">Authentication</span>
+                        </div>
+                    </div>
+                </div>
+                `
+            },
+            {
+                title: "Why We Chose Azure Service Bus for the Policy Evaluator Project",
+                category: "Azure & Architecture",
+                date: "December 2024",
+                readTime: "6 min read",
+                content: `
+                <div class="article-header">
+                    <h1>Why We Chose Azure Service Bus for the Policy Evaluator Project</h1>
+                    <div class="article-meta">
+                        <span class="article-date"><i class="fas fa-calendar"></i> December 2024</span>
+                        <span class="article-time"><i class="fas fa-clock"></i> 6 min read</span>
+                        <span class="article-category"><i class="fas fa-tag"></i> Azure & Architecture</span>
+                    </div>
+                </div>
+                
+                <div class="article-content">
+                    <p class="lead-text">The <strong>Policy Evaluator</strong> is an Azure-native compliance assessment system that processes data from various enterprise asset sources, applies compliance rules, and delivers reports. In such a distributed and asynchronous system, choosing the right communication mechanism is critical.</p>
 
-if (accounts.length === 0) {
-  instance.loginRedirect();
-  return null;
-}
-    </code></pre>
+                    <h3>🔍 Why Azure Service Bus?</h3>
+                    <ul>
+                        <li><strong>Decoupled Architecture</strong>: Producers and consumers don't need to know about each other. This allowed us to scale and maintain them independently.</li>
+                        <li><strong>Reliable Messaging</strong>: Built-in retries, message locking, and dead-lettering ensured fault tolerance and reliable delivery.</li>
+                        <li><strong>FIFO Support</strong>: Service Bus sessions helped preserve the order of policy evaluations per asset.</li>
+                        <li><strong>Security</strong>: RBAC and Managed Identities made secure access straightforward and compliant with enterprise standards.</li>
+                    </ul>
 
-    <h4>7. Add Microsoft-Style Header</h4>
-    <p>Create a <code>Header.js</code> with the user name on the right and a logout menu.</p>
+                    <h3>🏗️ System Flow</h3>
+                    <ol>
+                        <li>Asset ingestion services send metadata to a Service Bus <strong>Topic</strong>.</li>
+                        <li>Compliance evaluation components (Azure Functions) subscribe and process messages asynchronously.</li>
+                        <li>Evaluation results are published to a <strong>Queue</strong> for storage, alerting, or reporting.</li>
+                        <li>Failures are redirected to a <strong>Dead Letter Queue</strong> for inspection.</li>
+                    </ol>
 
-    <h4>8. Add Logout</h4>
-    <pre><code>
-const handleLogout = () => {
-  instance.logoutRedirect();
-};
-    </code></pre>
+                    <div class="tech-stack-card">
+                        <h4><i class="fas fa-tools"></i> Technology Stack</h4>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Azure Service Bus</span>
+                            <span class="tech-tag">Azure Functions</span>
+                            <span class="tech-tag">Microservices</span>
+                            <span class="tech-tag">Architecture</span>
+                        </div>
+                    </div>
+                </div>
+                `
+            },
+            {
+                title: "Angular vs React – A Strategic Comparison Guide",
+                category: "Frontend Development",
+                date: "November 2024",
+                readTime: "10 min read",
+                content: `
+                <div class="article-header">
+                    <h1>Angular vs React – A Strategic Comparison Guide</h1>
+                    <div class="article-meta">
+                        <span class="article-date"><i class="fas fa-calendar"></i> November 2024</span>
+                        <span class="article-time"><i class="fas fa-clock"></i> 10 min read</span>
+                        <span class="article-category"><i class="fas fa-tag"></i> Frontend Development</span>
+                    </div>
+                </div>
+                
+                <div class="article-content">
+                    <p class="lead-text">This blog provides a structured analysis to help developers, architects, and decision-makers choose between Angular and React based on technical and strategic factors.</p>
 
-    <div class='tech-used'>React 18 | Azure AD | MSAL Redirect | Secure Auth | Microsoft UI Style</div>
-    <div class='project-tags'>
-      <span>React</span>
-      <span>MSAL</span>
-      <span>Azure AD</span>
-      <span>Authentication</span>
-    </div>
-    <div class='project-links'>
-      <a href="#">View Code Sample</a>
-      <a href="#">Azure Docs</a>
-    </div>
-  `
-          },
-          {
-              title: "Why We Chose Azure Service Bus for the Policy Evaluator Project",
-              description: `
-  <p>The <strong>Policy Evaluator</strong> is an Azure-native compliance assessment system that processes data from various enterprise asset sources, applies compliance rules, and delivers reports. In such a distributed and asynchronous system, choosing the right communication mechanism is critical. After careful consideration, we chose <strong>Azure Service Bus</strong> as the messaging backbone.</p>
+                    <h3>📊 Comparison Table</h3>
+                    <div class="comparison-table">
+                        <table>
+                            <tr><th>Feature</th><th>Angular</th><th>React</th></tr>
+                            <tr><td>Type</td><td>Full Framework</td><td>UI Library</td></tr>
+                            <tr><td>Language</td><td>TypeScript</td><td>JavaScript / TypeScript</td></tr>
+                            <tr><td>DOM Handling</td><td>Real DOM</td><td>Virtual DOM</td></tr>
+                            <tr><td>Data Binding</td><td>Two-way</td><td>One-way</td></tr>
+                            <tr><td>Architecture</td><td>MVC</td><td>Component-based</td></tr>
+                        </table>
+                    </div>
 
-  <h4>🔍 Why Azure Service Bus?</h4>
-  <ul>
-    <li><strong>Decoupled Architecture</strong>: Producers and consumers don’t need to know about each other. This allowed us to scale and maintain them independently.</li>
-    <li><strong>Reliable Messaging</strong>: Built-in retries, message locking, and dead-lettering ensured fault tolerance and reliable delivery.</li>
-    <li><strong>FIFO Support</strong>: Service Bus sessions helped preserve the order of policy evaluations per asset.</li>
-    <li><strong>Security</strong>: RBAC and Managed Identities made secure access straightforward and compliant with enterprise standards.</li>
-  </ul>
+                    <h3>✅ Decision Checklist</h3>
+                    <ul>
+                        <li>Need out-of-the-box features? → Angular</li>
+                        <li>Prefer high flexibility & customization? → React</li>
+                        <li>Team fluent in TypeScript and RxJS? → Angular</li>
+                        <li>Planning React Native mobile app? → React</li>
+                    </ul>
 
-  <h4>🏗️ System Flow</h4>
-  <ol>
-    <li>Asset ingestion services send metadata to a Service Bus <strong>Topic</strong>.</li>
-    <li>Compliance evaluation components (Azure Functions) subscribe and process messages asynchronously.</li>
-    <li>Evaluation results are published to a <strong>Queue</strong> for storage, alerting, or reporting.</li>
-    <li>Failures are redirected to a <strong>Dead Letter Queue</strong> for inspection.</li>
-  </ol>
+                    <div class="tech-stack-card">
+                        <h4><i class="fas fa-tools"></i> Technology Stack</h4>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Angular</span>
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Frontend</span>
+                            <span class="tech-tag">Architecture</span>
+                        </div>
+                    </div>
+                </div>
+                `
+            }
+        ];
 
-  <h4>🚀 Key Benefits</h4>
-  <ul>
-    <li><strong>Scalability</strong>: Easily handled spikes in message volume without reengineering.</li>
-    <li><strong>Resilience</strong>: Downtime in evaluation services didn’t result in data loss.</li>
-    <li><strong>Flexibility</strong>: Added new policy types by simply plugging in new subscribers.</li>
-    <li><strong>Operational Insight</strong>: Azure Monitor + Application Insights helped track message flows and issues.</li>
-  </ul>
+        // Render blog menu
+        function renderBlogMenu() {
+            const menu = document.getElementById("blog-menu");
+            const categories = [...new Set(blogs.map(blog => blog.category))];
+            
+            // Add "All Articles" option
+            const allLi = document.createElement("li");
+            allLi.innerHTML = '<a href="#" class="category-link active" data-category="all"><i class="fas fa-list"></i> All Articles</a>';
+            menu.appendChild(allLi);
+            
+            categories.forEach(category => {
+                const li = document.createElement("li");
+                li.innerHTML = `<a href="#" class="category-link" data-category="${category}"><i class="fas fa-folder"></i> ${category}</a>`;
+                menu.appendChild(li);
+            });
 
-  <div class='tech-used'>Azure Service Bus | Azure Functions | Topics & Queues | DLQ | Scalable Microservices</div>
-  <div class='project-tags'>
-    <span>Azure</span>
-    <span>Service Bus</span>
-    <span>Microservices</span>
-    <span>Architecture</span>
-    <span>Compliance</span>
-  </div>
-  <div class='project-links'>
-    <a href="#">Service Bus Documentation</a>
-    <a href="#">Architecting Resilient Systems</a>
-  </div>
-  `
-          },
-          {
-              title: "Angular vs React – A Strategic Comparison Guide",
-              description: `
-<p>This blog provides a structured analysis to help developers, architects, and decision-makers choose between Angular and React based on technical and strategic factors.</p>
+            // Add click handlers
+            document.querySelectorAll('.category-link').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const category = e.target.getAttribute('data-category');
+                    
+                    // Update active state
+                    document.querySelectorAll('.category-link').forEach(l => l.classList.remove('active'));
+                    e.target.classList.add('active');
+                    
+                    if (category === 'all') {
+                        renderBlogList();
+                    } else {
+                        renderBlogList(category);
+                    }
+                });
+            });
+        }
 
-<h4>📊 Comparison Table</h4>
-<table>
-  <tr><th>Feature</th><th>Angular</th><th>React</th></tr>
-  <tr><td>Type</td><td>Full Framework</td><td>UI Library</td></tr>
-  <tr><td>Language</td><td>TypeScript</td><td>JavaScript / TypeScript</td></tr>
-  <tr><td>DOM Handling</td><td>Real DOM</td><td>Virtual DOM</td></tr>
-  <tr><td>Data Binding</td><td>Two-way</td><td>One-way</td></tr>
-  <tr><td>Architecture</td><td>MVC</td><td>Component-based</td></tr>
-</table>
+        // Render blog list or single article
+        function renderBlogList(filterCategory = null) {
+            const container = document.getElementById("blog-article");
+            const filteredBlogs = filterCategory ? blogs.filter(blog => blog.category === filterCategory) : blogs;
+            
+            let html = '<div class="blog-grid">';
+            filteredBlogs.forEach((blog, index) => {
+                html += `
+                    <article class="blog-card" onclick="renderBlogArticle(${blogs.indexOf(blog)})">
+                        <div class="blog-card-header">
+                            <h3>${blog.title}</h3>
+                            <div class="blog-meta">
+                                <span class="blog-date"><i class="fas fa-calendar"></i> ${blog.date}</span>
+                                <span class="blog-time"><i class="fas fa-clock"></i> ${blog.readTime}</span>
+                            </div>
+                        </div>
+                        <div class="blog-card-content">
+                            <span class="blog-category"><i class="fas fa-tag"></i> ${blog.category}</span>
+                            <p>Click to read the full article...</p>
+                        </div>
+                        <div class="blog-card-footer">
+                            <span class="read-more">Read More <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </article>
+                `;
+            });
+            html += '</div>';
+            
+            container.innerHTML = html;
+        }
 
-<h4>✅ Decision Checklist</h4>
-<ul>
-  <li>Need out-of-the-box features? → Angular</li>
-  <li>Prefer high flexibility & customization? → React</li>
-  <li>Team fluent in TypeScript and RxJS? → Angular</li>
-  <li>Planning React Native mobile app? → React</li>
-</ul>
+        // Render single blog article
+        function renderBlogArticle(index) {
+            const blog = blogs[index];
+            const container = document.getElementById("blog-article");
+            
+            container.innerHTML = `
+                <div class="article-navigation">
+                    <button onclick="renderBlogList()" class="back-btn">
+                        <i class="fas fa-arrow-left"></i> Back to Articles
+                    </button>
+                </div>
+                ${blog.content}
+            `;
+        }
 
-<h4>📌 Use Angular if:</h4>
-<ul>
-  <li>You're building large enterprise-scale apps</li>
-  <li>You prefer structure, DI, and built-in services</li>
-  <li>Your team is already comfortable with Angular</li>
-</ul>
-
-<h4>📌 Use React if:</h4>
-<ul>
-  <li>You need quick development & freedom of libraries</li>
-  <li>You’re building high-performance UI-rich apps</li>
-  <li>You want to integrate with React Native</li>
-</ul>
-
-<h4>🎯 Decision Matrix</h4>
-<p>Score each based on your needs (1–5):</p>
-<table>
-  <tr><th>Criteria</th><th>Angular</th><th>React</th></tr>
-  <tr><td>Team Expertise</td><td>4</td><td>5</td></tr>
-  <tr><td>Performance</td><td>4</td><td>4</td></tr>
-  <tr><td>Time to Market</td><td>3</td><td>5</td></tr>
-  <tr><td>Flexibility</td><td>3</td><td>5</td></tr>
-  <tr><td>Total Score</td><td><strong>4.0</strong></td><td><strong>4.6</strong></td></tr>
-</table>
-
-<h4>📁 Resources</h4>
-<ul>
-  <li><a href="https://angular.io/docs" target="_blank">Angular Official Docs</a></li>
-  <li><a href="https://react.dev" target="_blank">React Official Docs</a></li>
-</ul>
-
-<div class='tech-used'>Angular | React | Frontend Strategy | Decision Matrix | Comparison Guide</div>
-<div class='project-tags'>
-  <span>Angular</span>
-  <span>React</span>
-  <span>Frontend</span>
-  <span>Architecture</span>
-  <span>Decision Making</span>
-</div>
-<div class='project-links'>
-  <a href="#">Contact for Consultation</a>
-</div>
-`
-          }
-
-
-
-             
-
-      ];
-
-    function renderMenu() {
-      const menu = document.getElementById("project-menu");
-      projects.forEach((proj, index) => {
-        const li = document.createElement("li");
-        li.textContent = proj.title;
-        li.onclick = () => {
-          renderProject(index);
-          document.querySelectorAll("#project-menu li").forEach(el => el.classList.remove("active"));
-          li.classList.add("active");
-        };
-        if (index === 0) li.classList.add("active");
-        menu.appendChild(li);
-      });
-    }
-
-    function renderProject(index) {
-      const proj = projects[index];
-      document.getElementById("project-content").innerHTML = `
-        <h2 class="project-title">${proj.title}</h2>
-        <div class="project-description">${proj.description}</div>
-      `;
-    }
-
-    renderMenu();
-    if (projects.length > 0) renderProject(0);
-  </script>
+        // Initialize
+        renderBlogMenu();
+        renderBlogList();
+    </script>
 </body>
 </html>
