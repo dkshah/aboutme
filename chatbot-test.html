@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Test</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="theme.css">
+</head>
+<body>
+    <div style="padding: 20px;">
+        <h1>AI Chatbot Test</h1>
+        <p>Click the chatbot button in the bottom right corner to test the AI assistant.</p>
+        <p>Try asking questions like:</p>
+        <ul>
+            <li>"What are Dipen's technical skills?"</li>
+            <li>"Tell me about his work experience"</li>
+            <li>"What certifications does he have?"</li>
+            <li>"What awards has he received?"</li>
+        </ul>
+    </div>
+
+    <!-- AI Chatbot -->
+    <div id="chatbot-container" class="chatbot-container">
+        <div class="chatbot-header">
+            <div class="chatbot-avatar">
+                <i class="fas fa-robot"></i>
+            </div>
+            <div class="chatbot-title">
+                <h4>AI Assistant</h4>
+                <p>Ask me about Dipen's experience</p>
+            </div>
+            <button id="chatbot-close" class="chatbot-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="chatbot-messages" id="chatbot-messages">
+            <div class="message bot-message">
+                <div class="message-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="message-content">
+                    <p>Hello! I'm here to help you learn about Dipen Shah's professional background. You can ask me about:</p>
+                    <ul class="quick-questions">
+                        <li>• Technical expertise and skills</li>
+                        <li>• Work experience and projects</li>
+                        <li>• Certifications and achievements</li>
+                        <li>• Leadership and management experience</li>
+                    </ul>
+                    <p>What would you like to know?</p>
+                </div>
+            </div>
+        </div>
+        <div class="chatbot-input-container">
+            <div class="quick-actions">
+                <button class="quick-action-btn" data-question="What is Dipen's technical expertise?">
+                    <i class="fas fa-code"></i> Technical Skills
+                </button>
+                <button class="quick-action-btn" data-question="Tell me about Dipen's work experience">
+                    <i class="fas fa-briefcase"></i> Experience
+                </button>
+                <button class="quick-action-btn" data-question="What certifications does Dipen have?">
+                    <i class="fas fa-certificate"></i> Certifications
+                </button>
+            </div>
+            <div class="chatbot-input-wrapper">
+                <input type="text" id="chatbot-input" placeholder="Ask me anything about Dipen..." maxlength="200">
+                <button id="chatbot-send">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chatbot Toggle Button -->
+    <button id="chatbot-toggle" class="chatbot-toggle">
+        <i class="fas fa-comments"></i>
+        <span class="chatbot-badge">AI</span>
+    </button>
+
+    <script>
+        // AI Chatbot functionality
+        class AIRecruiterChatbot {
+            constructor() {
+                this.isOpen = false;
+                this.knowledgeBase = {
+                    // Technical Skills
+                    'technical skills': 'Dipen has extensive technical expertise including .NET Core, C#, Angular, TypeScript, Azure Cloud Platform, SQL Server, Cosmos DB, Power BI, and Azure Synapse. He also has experience with AI technologies like Microsoft AI, Azure Cognitive Services, Machine Learning, and Bot Framework.',
+                    'programming languages': 'Dipen is proficient in C#, TypeScript, JavaScript, and has experience with various .NET technologies. He specializes in enterprise-level application development.',
+                    'cloud platforms': 'Dipen is an expert in Microsoft Azure with certifications including Azure Administrator Associate (AZ-104) and Azure Solutions Architect Expert (AZ-305). He also has experience with AWS and Azure DevOps.',
+                    'databases': 'Dipen works with SQL Server, Azure Cosmos DB, and has experience with Azure Synapse for data analytics. He has the Azure Cosmos DB Developer Specialty certification (DP-420).',
+                    
+                    // Experience
+                    'work experience': 'Dipen is a Senior Solution Architect with 15+ years of experience in the .NET ecosystem. He has delivered 50+ projects and specializes in enterprise architecture, cloud integrations, and digital transformation initiatives.',
+                    'leadership experience': 'Dipen has extensive leadership experience, leading cross-functional teams in delivering end-to-end enterprise applications. He has received multiple awards including Special Initiative Awards in 2024 and 2025, and was recognized as Star of the Month.',
+                    'projects': 'Dipen has successfully led modernization projects, migrated legacy systems to Azure, implemented microservices architectures, and contributed to digital transformation initiatives across various industries including Financial Services, Healthcare, E-commerce, and Manufacturing.',
+                    
+                    // Certifications
+                    'certifications': 'Dipen holds 15+ professional certifications including Microsoft Azure certifications (AZ-104, AZ-305, DP-420, AI-900), Informatica certifications (MDM SaaS, CDGC, iPaaS), ServiceNow micro-certifications, Databricks Academy certifications, and GitHub Foundation certification.',
+                    'microsoft certifications': 'Dipen has Azure Administrator Associate (AZ-104), Azure Solutions Architect Expert (AZ-305), Azure Cosmos DB Developer Specialty (DP-420), and Azure AI Fundamentals (AI-900) certifications.',
+                    
+                    // Achievements
+                    'achievements': 'Dipen has received multiple awards including Special Initiative Awards (2024, 2025), Star of the Month (November 2023), Best Team Award (August 2023), I3C Hackathon Winner (2022), and Rising Star Award (2021). His work has resulted in 40% reduction in system downtime, $2M+ cost optimization, and 60% faster deployment cycles.',
+                    'awards': 'Recent awards include Special Initiative Award (April 2025), Special Initiative Award (January 2024), Star of the Month (November 2023), Best Team Award (August 2023), and multiple On the Spot Awards.',
+                    
+                    // Architecture & Patterns
+                    'architecture': 'Dipen specializes in Microservices, Event-Driven architecture, CQRS, and Domain-Driven Design. He has expertise in designing scalable, high-performance solutions that drive business value.',
+                    'microservices': 'Dipen has extensive experience implementing microservices architectures and has successfully migrated legacy systems to modern microservices-based solutions on Azure.',
+                    
+                    // Industries
+                    'industry experience': 'Dipen has domain expertise across Financial Services, Healthcare, E-commerce, and Manufacturing industries, bringing deep understanding of business requirements in these sectors.',
+                    
+                    // Contact & Availability
+                    'contact': 'You can reach Dipen at erdipenshah23@gmail.com or connect with him on LinkedIn at linkedin.com/in/dipen-shah. He is based in Ahmedabad, Gujarat, India.',
+                    'location': 'Dipen is located in Ahmedabad, Gujarat, India.',
+                    'availability': 'For current availability and project discussions, please contact Dipen directly at erdipenshah23@gmail.com.',
+                    
+                    // General
+                    'about': 'Dipen Shah is a Senior Solution Architect with 15+ years of experience specializing in .NET ecosystem, Azure cloud platforms, and digital transformation. He leads cross-functional teams and has a proven track record of delivering enterprise-scale solutions.',
+                    'summary': 'Dipen is an experienced Solution Architect with expertise in .NET Core, Azure, microservices, and enterprise architecture. He has 15+ certifications, has delivered 50+ projects, and received multiple awards for his technical leadership and innovation.'
+                };
+                
+                this.init();
+            }
+
+            init() {
+                this.bindEvents();
+            }
+
+            bindEvents() {
+                const toggleBtn = document.getElementById('chatbot-toggle');
+                const closeBtn = document.getElementById('chatbot-close');
+                const sendBtn = document.getElementById('chatbot-send');
+                const input = document.getElementById('chatbot-input');
+                const quickActionBtns = document.querySelectorAll('.quick-action-btn');
+
+                toggleBtn?.addEventListener('click', () => this.toggleChat());
+                closeBtn?.addEventListener('click', () => this.closeChat());
+                sendBtn?.addEventListener('click', () => this.sendMessage());
+                input?.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') this.sendMessage();
+                });
+
+                quickActionBtns.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const question = btn.getAttribute('data-question');
+                        this.sendUserMessage(question);
+                    });
+                });
+            }
+
+            toggleChat() {
+                const container = document.getElementById('chatbot-container');
+                if (this.isOpen) {
+                    this.closeChat();
+                } else {
+                    container.classList.add('active');
+                    this.isOpen = true;
+                }
+            }
+
+            closeChat() {
+                const container = document.getElementById('chatbot-container');
+                container.classList.remove('active');
+                this.isOpen = false;
+            }
+
+            sendMessage() {
+                const input = document.getElementById('chatbot-input');
+                const message = input.value.trim();
+                
+                if (message) {
+                    this.sendUserMessage(message);
+                    input.value = '';
+                }
+            }
+
+            sendUserMessage(message) {
+                this.addMessage(message, 'user');
+                
+                // Show typing indicator
+                this.showTypingIndicator();
+                
+                // Simulate AI processing delay
+                setTimeout(() => {
+                    this.hideTypingIndicator();
+                    const response = this.generateResponse(message);
+                    this.addMessage(response, 'bot');
+                }, 1000 + Math.random() * 1000);
+            }
+
+            addMessage(content, sender) {
+                const messagesContainer = document.getElementById('chatbot-messages');
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `message ${sender}-message`;
+                
+                const avatarDiv = document.createElement('div');
+                avatarDiv.className = 'message-avatar';
+                avatarDiv.innerHTML = sender === 'bot' ? '<i class="fas fa-robot"></i>' : '<i class="fas fa-user"></i>';
+                
+                const contentDiv = document.createElement('div');
+                contentDiv.className = 'message-content';
+                contentDiv.innerHTML = `<p>${content}</p>`;
+                
+                messageDiv.appendChild(avatarDiv);
+                messageDiv.appendChild(contentDiv);
+                messagesContainer.appendChild(messageDiv);
+                
+                // Scroll to bottom
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            }
+
+            showTypingIndicator() {
+                const messagesContainer = document.getElementById('chatbot-messages');
+                const typingDiv = document.createElement('div');
+                typingDiv.className = 'message bot-message typing-message';
+                typingDiv.innerHTML = `
+                    <div class="message-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="message-content">
+                        <div class="typing-indicator">
+                            <div class="typing-dot"></div>
+                            <div class="typing-dot"></div>
+                            <div class="typing-dot"></div>
+                        </div>
+                    </div>
+                `;
+                messagesContainer.appendChild(typingDiv);
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            }
+
+            hideTypingIndicator() {
+                const typingMessage = document.querySelector('.typing-message');
+                if (typingMessage) {
+                    typingMessage.remove();
+                }
+            }
+
+            generateResponse(userMessage) {
+                const message = userMessage.toLowerCase();
+                
+                // Find the best matching response
+                let bestMatch = '';
+                let bestScore = 0;
+                
+                for (const [key, value] of Object.entries(this.knowledgeBase)) {
+                    const score = this.calculateSimilarity(message, key);
+                    if (score > bestScore && score > 0.3) {
+                        bestScore = score;
+                        bestMatch = value;
+                    }
+                }
+                
+                if (bestMatch) {
+                    return bestMatch;
+                }
+                
+                // Fallback responses for common queries
+                if (message.includes('hello') || message.includes('hi') || message.includes('hey')) {
+                    return "Hello! I'm here to help you learn about Dipen Shah's professional background. What would you like to know about his experience, skills, or achievements?";
+                }
+                
+                if (message.includes('thank') || message.includes('thanks')) {
+                    return "You're welcome! Is there anything else you'd like to know about Dipen's qualifications or experience?";
+                }
+                
+                if (message.includes('salary') || message.includes('compensation') || message.includes('rate')) {
+                    return "For discussions about compensation and salary expectations, please contact Dipen directly at erdipenshah23@gmail.com.";
+                }
+                
+                // Default response
+                return "I'd be happy to help you learn more about Dipen Shah! You can ask me about his technical skills, work experience, certifications, achievements, or any specific aspect of his professional background. For detailed discussions, feel free to contact him directly at erdipenshah23@gmail.com.";
+            }
+
+            calculateSimilarity(text1, text2) {
+                const words1 = text1.split(' ');
+                const words2 = text2.split(' ');
+                let matches = 0;
+                
+                words1.forEach(word1 => {
+                    words2.forEach(word2 => {
+                        if (word1.includes(word2) || word2.includes(word1)) {
+                            matches++;
+                        }
+                    });
+                });
+                
+                return matches / Math.max(words1.length, words2.length);
+            }
+        }
+
+        // Initialize chatbot when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            new AIRecruiterChatbot();
+        });
+    </script>
+</body>
+</html>
