@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dipen Shah | Professional Resume</title>
-    <meta name="description" content="Professional Resume for Dipen Shah, a Solution Architect with expertise in .NET Core, Azure, and AWS." />
+    <meta name="description"
+        content="Professional Resume for Dipen Shah, a Solution Architect with expertise in .NET Core, Azure, and AWS." />
     <meta name="author" content="Dipen Shah" />
 
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Open+Sans:wght@400;600;700&display=swap"
+        rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-    
+
     <!-- Common Components -->
     <script src="common-nav.js"></script>
 
@@ -43,12 +47,12 @@
             padding: 20px 10px;
             padding-top: 20px;
         }
-        
+
         /* Add padding only if navigation is visible */
         body:not(.resume-page) {
             padding-top: 100px;
         }
-        
+
         /* Ensure navigation doesn't interfere with resume content */
         .navbar-modern {
             position: fixed;
@@ -63,24 +67,25 @@
             align-items: center;
             padding: 0 20px;
         }
-        
+
         /* Hide navigation on resume page if needed */
         .resume-page .navbar-modern {
             display: none;
         }
-        
+
         /* Hide navigation when printing/exporting PDF */
         @media print {
+
             .navbar-modern,
             .toolbar {
                 display: none !important;
             }
-            
+
             body {
                 padding-top: 0 !important;
                 background: white !important;
             }
-            
+
             .resume-container {
                 box-shadow: none !important;
                 margin: 0 !important;
@@ -94,20 +99,20 @@
             padding: 15px 30px;
             margin-bottom: 20px;
             border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             text-align: center;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .toolbar a {
             color: var(--primary-color);
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s ease;
         }
-        
+
         .toolbar a:hover {
             color: var(--secondary-color);
         }
@@ -137,7 +142,7 @@
             width: 100%;
             max-width: 8.5in;
             background: white;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             display: flex;
             margin-bottom: 40px;
         }
@@ -206,7 +211,8 @@
             text-transform: uppercase;
         }
 
-        .contact-info a, .contact-info span {
+        .contact-info a,
+        .contact-info span {
             display: flex;
             align-items: center;
             margin-bottom: 12px;
@@ -228,7 +234,7 @@
         }
 
         .skills-list p {
-            background-color: rgba(255,255,255,0.1);
+            background-color: rgba(255, 255, 255, 0.1);
             border-radius: 4px;
             padding: 5px 10px;
             margin-bottom: 8px;
@@ -335,29 +341,31 @@
                 max-width: 100%;
             }
 
-            .sidebar, .main-content {
+            .sidebar,
+            .main-content {
                 width: 100%;
             }
-            
+
             .main-content {
                 padding: 20px;
             }
-            
+
             .sidebar {
                 padding: 20px 15px;
             }
-            
+
             .job-header {
                 flex-direction: column;
                 align-items: flex-start;
             }
-            
+
             .job-date {
                 margin-top: 5px;
             }
         }
     </style>
 </head>
+
 <body class="resume-page">
     <!-- Navigation will be inserted by common-nav.js -->
 
@@ -373,7 +381,8 @@
     <div class="resume-container" id="resume-to-export">
         <aside class="sidebar">
             <div class="sidebar-header">
-                <img src="https://media.licdn.com/dms/image/v2/D4D03AQGk2Ax1Nlz_fg/profile-displayphoto-shrink_400_400/B4DZaEfFiKGwAk-/0/1745979464436?e=1763596800&v=beta&t=MO2vlhXeJ_GvC2wKmvqRyuhrZf4kO2YjMtOEnKAR5XQ" alt="Dipen Shah" class="profile-pic" />
+                <img src="https://media.licdn.com/dms/image/v2/D4D03AQGk2Ax1Nlz_fg/profile-displayphoto-shrink_400_400/B4DZaEfFiKGwAk-/0/1745979464436?e=1766016000&v=beta&t=CsanhCnkqTI0Mt3rLHK2gZTge1Nh0b-0uK0QPrykAOQ"
+                    alt="Dipen Shah" class="profile-pic" />
                 <h1>DIPEN SHAH</h1>
                 <p>Solution Architect</p>
             </div>
@@ -384,16 +393,20 @@
                 <p><strong>Backend Development:</strong> ASP.NET, .NET Core, .NET 8+, C#, Microservices Architecture</p>
                 <p><strong>Databases:</strong> SQL Server, Cosmos DB, MongoDB</p>
                 <p><strong>Frontend Development:</strong> Angular, React, TypeScript, JavaScript, jQuery</p>
-                <p><strong>DevOps & Containerization:</strong> Docker, Kubernetes, CI/CD (Azure DevOps, GitHub Actions, Jenkins)</p>
-                <p><strong>Architecture & Design:</strong> Domain-Driven Design (DDD), Design Patterns, Event-Driven Architecture, Microservices Best Practices</p>
-                <p><strong>AI & Cloud Services:</strong> Microsoft AI (Cognitive Services, Azure OpenAI, ML integration)</p>
+                <p><strong>DevOps & Containerization:</strong> Docker, Kubernetes, CI/CD (Azure DevOps, GitHub Actions,
+                    Jenkins)</p>
+                <p><strong>Architecture & Design:</strong> Domain-Driven Design (DDD), Design Patterns, Event-Driven
+                    Architecture, Microservices Best Practices</p>
+                <p><strong>AI & Cloud Services:</strong> Microsoft AI (Cognitive Services, Azure OpenAI, ML integration)
+                </p>
             </section>
 
             <section class="sidebar-section contact-info">
                 <h3 class="sidebar-title">Contact</h3>
                 <a href="mailto:erdipenshah23@gmail.com"><i class="fas fa-envelope"></i> erdipenshah23@gmail.com</a>
                 <span><i class="fas fa-map-marker-alt"></i> Ahmedabad, India</span>
-                <a href="https://www.linkedin.com/in/dipen-shah/" target="_blank"><i class="fab fa-linkedin"></i> /in/dipen-shah</a>
+                <a href="https://www.linkedin.com/in/dipen-shah/" target="_blank"><i class="fab fa-linkedin"></i>
+                    /in/dipen-shah</a>
                 <a href="https://github.com/dkshah" target="_blank"><i class="fab fa-github"></i> /dkshah</a>
             </section>
 
@@ -516,7 +529,13 @@
             <section class="summary">
                 <h2 class="main-title"><i class="fas fa-user-tie"></i> Professional Summary</h2>
                 <p>
-                    A strategic and highly accomplished Solution Architect with over 15 years of experience leading the design and implementation of large-scale, enterprise-level applications. Proven expertise in defining technical vision, roadmaps, and architectural strategy for complex software ecosystems on .NET, Azure, and AWS. Adept at leading and mentoring cross-functional teams of 30+ engineers, fostering a culture of innovation and high performance. My focus is on delivering secure, scalable, and resilient solutions that align with core business objectives and leverage cloud-native services and modern architectural patterns.
+                    A strategic and highly accomplished Solution Architect with over 15 years of experience leading the
+                    design and implementation of large-scale, enterprise-level applications. Proven expertise in
+                    defining technical vision, roadmaps, and architectural strategy for complex software ecosystems on
+                    .NET, Azure, and AWS. Adept at leading and mentoring cross-functional teams of 30+ engineers,
+                    fostering a culture of innovation and high performance. My focus is on delivering secure, scalable,
+                    and resilient solutions that align with core business objectives and leverage cloud-native services
+                    and modern architectural patterns.
                 </p>
             </section>
 
@@ -532,14 +551,24 @@
                         <div class="job-date">Dec 2022 - Present</div>
                     </div>
                     <ul>
-                        <li>Architected and designed cloud-native enterprise solutions on Azure/AWS, improving application scalability and performance by over 30% by migrating monolithic services to a microservices architecture.</li>
-                        <li>Directed and provided technical leadership to 5-6 cross-functional teams (30+ members), guiding them on cloud architecture, security best practices, and secure coding standards.</li>
-                        <li>Pioneered the implementation of a secure, multi-tenant microservices platform using .NET Core and Docker, which reduced deployment times by 40% and enhanced system resilience.</li>
-                        <li>Actively participated in talent acquisition by conducting internal and external interviews to build high-performing teams.</li>
-                        <li>Enforced code quality and consistency through regular code reviews, static analysis with SonarQube, and code formatting with Lint.</li>
-                        <li>Implemented comprehensive cloud and application monitoring using tools like Datadog and Serilog to ensure system health and proactive issue resolution.</li>
-                        <li>Ensured solutions met strict regulatory requirements by guiding teams to achieve compliance with standards such as GDPR and Section 508.</li>
-                        <li>Applied deep domain expertise in the Legal, Communication, and Media sectors to deliver business-aligned solutions.</li>
+                        <li>Architected and designed cloud-native enterprise solutions on Azure/AWS, improving
+                            application scalability and performance by over 30% by migrating monolithic services to a
+                            microservices architecture.</li>
+                        <li>Directed and provided technical leadership to 5-6 cross-functional teams (30+ members),
+                            guiding them on cloud architecture, security best practices, and secure coding standards.
+                        </li>
+                        <li>Pioneered the implementation of a secure, multi-tenant microservices platform using .NET
+                            Core and Docker, which reduced deployment times by 40% and enhanced system resilience.</li>
+                        <li>Actively participated in talent acquisition by conducting internal and external interviews
+                            to build high-performing teams.</li>
+                        <li>Enforced code quality and consistency through regular code reviews, static analysis with
+                            SonarQube, and code formatting with Lint.</li>
+                        <li>Implemented comprehensive cloud and application monitoring using tools like Datadog and
+                            Serilog to ensure system health and proactive issue resolution.</li>
+                        <li>Ensured solutions met strict regulatory requirements by guiding teams to achieve compliance
+                            with standards such as GDPR and Section 508.</li>
+                        <li>Applied deep domain expertise in the Legal, Communication, and Media sectors to deliver
+                            business-aligned solutions.</li>
                     </ul>
                     <ul class="tech-list">
                         <li>Azure</li>
@@ -568,11 +597,17 @@
                         <div class="job-date">Apr 2021 - Nov 2022</div>
                     </div>
                     <ul>
-                        <li>Managed the end-to-end SDLC for key client projects, ensuring on-time delivery of high-quality, scalable solutions that met stringent business requirements.</li>
-                        <li>Led system analysis and architecture design for multiple projects, making critical technology decisions that improved system reliability and reduced long-term maintenance costs by 20%.</li>
-                        <li>Specialized in seamless API integrations and leveraged No Code/Low Code platforms for efficient solution development and deployment.</li>
-                        <li>Provided technical guidance and mentorship to junior developers, elevating team capabilities and fostering a culture of continuous learning.</li>
-                        <li>Oversaw code reviews and implemented best practices to maintain a high standard of code quality across all projects.</li>
+                        <li>Managed the end-to-end SDLC for key client projects, ensuring on-time delivery of
+                            high-quality, scalable solutions that met stringent business requirements.</li>
+                        <li>Led system analysis and architecture design for multiple projects, making critical
+                            technology decisions that improved system reliability and reduced long-term maintenance
+                            costs by 20%.</li>
+                        <li>Specialized in seamless API integrations and leveraged No Code/Low Code platforms for
+                            efficient solution development and deployment.</li>
+                        <li>Provided technical guidance and mentorship to junior developers, elevating team capabilities
+                            and fostering a culture of continuous learning.</li>
+                        <li>Oversaw code reviews and implemented best practices to maintain a high standard of code
+                            quality across all projects.</li>
                     </ul>
                     <ul class="tech-list">
                         <li>Azure</li>
@@ -597,11 +632,17 @@
                         <div class="job-date">Jan 2013 - Mar 2021</div>
                     </div>
                     <ul>
-                        <li>Led development teams through the project lifecycle, making key architectural decisions for technology, structure, and system configuration.</li>
-                        <li>Engineered and optimized complex SQL Server database schemas, leading to a 25% reduction in data retrieval times for critical features and a significant improvement in application responsiveness.</li>
-                        <li>Served as the primary technical contact for client escalations, providing expert-level troubleshooting and ensuring rapid issue resolution for high-priority incidents.</li>
-                        <li>Provided leadership in daily stand-ups and sprint planning, helping to unblock technical challenges and ensure project milestones were met.</li>
-                        <li>Proficient in integrating with Payroll Systems (Paychex, Kronos, ADP) and POS Systems (Toast, Square) to streamline business operations and ensure compliance.</li>
+                        <li>Led development teams through the project lifecycle, making key architectural decisions for
+                            technology, structure, and system configuration.</li>
+                        <li>Engineered and optimized complex SQL Server database schemas, leading to a 25% reduction in
+                            data retrieval times for critical features and a significant improvement in application
+                            responsiveness.</li>
+                        <li>Served as the primary technical contact for client escalations, providing expert-level
+                            troubleshooting and ensuring rapid issue resolution for high-priority incidents.</li>
+                        <li>Provided leadership in daily stand-ups and sprint planning, helping to unblock technical
+                            challenges and ensure project milestones were met.</li>
+                        <li>Proficient in integrating with Payroll Systems (Paychex, Kronos, ADP) and POS Systems
+                            (Toast, Square) to streamline business operations and ensure compliance.</li>
                     </ul>
                     <ul class="tech-list">
                         <li>Azure</li>
@@ -628,8 +669,10 @@
                         <div class="job-date">Jan 2010 - Dec 2012</div>
                     </div>
                     <ul>
-                        <li>Developed code using the .NET Framework and SQL to deliver projects in diverse domains including RFID, e-commerce, and Sports.</li>
-                        <li>Created and maintained reporting solutions using tools like Crystal Reports and RDLC Reporting to provide crucial business insights.</li>
+                        <li>Developed code using the .NET Framework and SQL to deliver projects in diverse domains
+                            including RFID, e-commerce, and Sports.</li>
+                        <li>Created and maintained reporting solutions using tools like Crystal Reports and RDLC
+                            Reporting to provide crucial business insights.</li>
                     </ul>
                 </div>
             </section>
@@ -641,32 +684,32 @@
             // Hide navigation and toolbar during PDF generation
             const navbar = document.querySelector('.navbar-modern');
             const toolbar = document.querySelector('.toolbar');
-            
+
             // Store original display values
             const navbarDisplay = navbar ? navbar.style.display : '';
             const toolbarDisplay = toolbar ? toolbar.style.display : '';
-            
+
             // Hide elements
             if (navbar) navbar.style.display = 'none';
             if (toolbar) toolbar.style.display = 'none';
-            
+
             const element = document.getElementById('resume-to-export');
             const opt = {
                 margin: 0,
                 filename: 'Dipen-Shah-Solution-Architect-Resume.pdf',
                 image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { 
-                    scale: 2, 
+                html2canvas: {
+                    scale: 2,
                     useCORS: true,
                     allowTaint: true,
-                    ignoreElements: function(element) {
-                        return element.classList.contains('navbar-modern') || 
-                               element.classList.contains('toolbar');
+                    ignoreElements: function (element) {
+                        return element.classList.contains('navbar-modern') ||
+                            element.classList.contains('toolbar');
                     }
                 },
                 jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
             };
-            
+
             html2pdf().set(opt).from(element).save().then(() => {
                 // Restore original display values after PDF generation
                 if (navbar) navbar.style.display = navbarDisplay;
@@ -675,4 +718,5 @@
         }
     </script>
 </body>
+
 </html>

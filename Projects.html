@@ -1,27 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Dipen Shah - Project Portfolio showcasing enterprise solutions, microservices architecture, and digital transformation projects.">
-    <meta name="keywords" content="Dipen Shah, Project Portfolio, Enterprise Solutions, Microservices, Digital Transformation">
+    <meta name="description"
+        content="Dipen Shah - Project Portfolio showcasing enterprise solutions, microservices architecture, and digital transformation projects.">
+    <meta name="keywords"
+        content="Dipen Shah, Project Portfolio, Enterprise Solutions, Microservices, Digital Transformation">
     <meta name="author" content="Dipen Shah">
-    
+
     <title>Dipen Shah | Project Portfolio | Solution Architect</title>
-    
+
     <!-- Professional Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Lora:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
     <!-- Icons and Libraries -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
+
     <!-- Theme CSS -->
     <link id="theme-style" rel="stylesheet" href="theme.css">
-    
+
     <!-- Common Components -->
     <script src="common-nav.js"></script>
     <script src="common-footer.js"></script>
-    
+
     <!-- Additional Styles for Projects Page -->
     <style>
         .projects-layout {
@@ -30,7 +35,7 @@
             gap: 2rem;
             margin-top: 2rem;
         }
-        
+
         .projects-sidebar {
             background: #f8f9fa;
             border-radius: 12px;
@@ -39,32 +44,32 @@
             position: sticky;
             top: 100px;
         }
-        
+
         .sidebar-card {
             margin-bottom: 2rem;
         }
-        
+
         .sidebar-card:last-child {
             margin-bottom: 0;
         }
-        
+
         .sidebar-card h3 {
             color: #2c3e50;
             font-size: 1.1rem;
             margin-bottom: 1rem;
             font-weight: 600;
         }
-        
+
         .project-categories {
             list-style: none;
             padding: 0;
             margin: 0;
         }
-        
+
         .project-categories li {
             margin-bottom: 0.5rem;
         }
-        
+
         .project-link {
             display: block;
             padding: 0.75rem 1rem;
@@ -75,30 +80,30 @@
             font-size: 0.9rem;
             border-left: 3px solid transparent;
         }
-        
+
         .project-link:hover {
             background: #e9ecef;
             color: #0066cc;
             border-left-color: #0066cc;
         }
-        
+
         .project-link.active {
             background: #0066cc;
             color: white;
             border-left-color: #004499;
         }
-        
+
         .project-link i {
             margin-right: 0.5rem;
             width: 16px;
         }
-        
+
         .tech-filter {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
         }
-        
+
         .filter-tag {
             padding: 0.4rem 0.8rem;
             background: #e9ecef;
@@ -108,133 +113,143 @@
             transition: all 0.3s ease;
             border: 1px solid #dee2e6;
         }
-        
+
         .filter-tag:hover {
             background: #0066cc;
             color: white;
         }
-        
+
         .filter-tag.active {
             background: #0066cc;
             color: white;
         }
-        
+
         .project-container {
             background: white;
             border-radius: 12px;
             padding: 2rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             min-height: 600px;
         }
-        
+
         .project-header h1 {
             color: #2c3e50;
             font-size: 2rem;
             margin-bottom: 1rem;
             font-weight: 700;
         }
-        
+
         .project-meta {
             display: flex;
             gap: 1rem;
             margin-bottom: 2rem;
             flex-wrap: wrap;
         }
-        
+
         .project-meta span {
             padding: 0.4rem 0.8rem;
             border-radius: 20px;
             font-size: 0.85rem;
             font-weight: 500;
         }
-        
+
         .project-role {
             background: #e3f2fd;
             color: #1976d2;
         }
-        
+
         .project-category {
             background: #f3e5f5;
             color: #7b1fa2;
         }
-        
+
         .project-status {
             background: #e8f5e8;
             color: #388e3c;
         }
-        
+
         .project-overview .lead-text {
             font-size: 1.1rem;
             line-height: 1.7;
             color: #495057;
             margin-bottom: 2rem;
         }
-        
+
         .project-details h3 {
             color: #2c3e50;
             font-size: 1.3rem;
             margin: 2rem 0 1rem 0;
             font-weight: 600;
         }
-        
+
         .feature-list {
             list-style: none;
             padding: 0;
         }
-        
+
         .feature-list li {
             padding: 0.5rem 0;
             display: flex;
             align-items: flex-start;
             gap: 0.75rem;
         }
-        
+
         .feature-list i {
             color: #28a745;
             margin-top: 0.2rem;
             flex-shrink: 0;
         }
-        
-        .architecture-grid, .component-grid, .integration-grid {
+
+        .architecture-grid,
+        .component-grid,
+        .integration-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1.5rem;
             margin: 1.5rem 0;
         }
-        
-        .arch-item, .component-card, .integration-item {
+
+        .arch-item,
+        .component-card,
+        .integration-item {
             background: #f8f9fa;
             padding: 1.5rem;
             border-radius: 10px;
             text-align: center;
             border: 1px solid #e9ecef;
         }
-        
-        .arch-item i, .component-icon i, .integration-item i {
+
+        .arch-item i,
+        .component-icon i,
+        .integration-item i {
             font-size: 2rem;
             color: #0066cc;
             margin-bottom: 1rem;
         }
-        
-        .arch-item h4, .component-card h4, .integration-item h4 {
+
+        .arch-item h4,
+        .component-card h4,
+        .integration-item h4 {
             color: #2c3e50;
             margin-bottom: 0.5rem;
             font-size: 1.1rem;
         }
-        
-        .arch-item p, .component-card p, .integration-item p {
+
+        .arch-item p,
+        .component-card p,
+        .integration-item p {
             color: #6c757d;
             font-size: 0.9rem;
             margin: 0;
         }
-        
+
         .data-sources {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1rem;
             margin: 1.5rem 0;
         }
-        
+
         .source-item {
             display: flex;
             align-items: center;
@@ -244,12 +259,12 @@
             border-radius: 8px;
             border-left: 4px solid #0066cc;
         }
-        
+
         .source-item i {
             color: #0066cc;
             font-size: 1.2rem;
         }
-        
+
         .tech-stack-card {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -257,42 +272,44 @@
             border-radius: 12px;
             margin-top: 2rem;
         }
-        
+
         .tech-stack-card h4 {
             margin-bottom: 1rem;
             font-size: 1.2rem;
         }
-        
+
         .tech-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
         }
-        
+
         .tech-tag {
-            background: rgba(255,255,255,0.2);
+            background: rgba(255, 255, 255, 0.2);
             padding: 0.4rem 0.8rem;
             border-radius: 20px;
             font-size: 0.85rem;
             backdrop-filter: blur(10px);
         }
-        
+
         @media (max-width: 768px) {
             .projects-layout {
                 grid-template-columns: 1fr;
                 gap: 1rem;
             }
-            
+
             .projects-sidebar {
                 position: static;
             }
-            
+
             .project-meta {
                 flex-direction: column;
                 gap: 0.5rem;
             }
-            
-            .architecture-grid, .component-grid, .integration-grid {
+
+            .architecture-grid,
+            .component-grid,
+            .integration-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -313,7 +330,8 @@
                     </h1>
                     <h2 class="hero-subtitle">Enterprise Solutions & Digital Transformation</h2>
                     <p class="hero-description">
-                        Showcasing 15+ years of architecting and delivering scalable enterprise solutions, from microservices platforms to AI-driven systems.
+                        Showcasing 15+ years of architecting and delivering scalable enterprise solutions, from
+                        microservices platforms to AI-driven systems.
                     </p>
                     <div class="hero-stats">
                         <div class="stat-item">
@@ -332,9 +350,8 @@
                 </div>
                 <div class="hero-image">
                     <div class="image-container">
-                        <img src="https://media.licdn.com/dms/image/v2/D4D03AQGk2Ax1Nlz_fg/profile-displayphoto-shrink_400_400/B4DZaEfFiKGwAk-/0/1745979464436?e=1763596800&v=beta&t=MO2vlhXeJ_GvC2wKmvqRyuhrZf4kO2YjMtOEnKAR5XQ" 
-                             alt="Dipen Shah - Solution Architect" 
-                             class="profile-image">
+                        <img src="https://media.licdn.com/dms/image/v2/D4D03AQGk2Ax1Nlz_fg/profile-displayphoto-shrink_400_400/B4DZaEfFiKGwAk-/0/1745979464436?e=1766016000&v=beta&t=CsanhCnkqTI0Mt3rLHK2gZTge1Nh0b-0uK0QPrykAOQ"
+                            alt="Dipen Shah - Solution Architect" class="profile-image">
                         <div class="image-decoration"></div>
                     </div>
                 </div>
@@ -349,7 +366,7 @@
                 <h2 class="section-title">Featured Projects</h2>
                 <p class="section-subtitle">Comprehensive solutions across various domains and technologies</p>
             </div>
-            
+
             <div class="projects-layout">
                 <div class="projects-sidebar">
                     <div class="sidebar-card">
@@ -367,7 +384,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="project-content">
                     <div id="project-detail" class="project-container">
                         <!-- Dynamic project content will be loaded here -->
@@ -712,11 +729,11 @@
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
                     const index = parseInt(e.target.getAttribute('data-index'));
-                    
+
                     // Update active state
                     document.querySelectorAll('.project-link').forEach(l => l.classList.remove('active'));
                     e.target.classList.add('active');
-                    
+
                     renderProject(index);
                 });
             });
@@ -726,7 +743,7 @@
         function renderProject(index) {
             const project = projects[index];
             const container = document.getElementById("project-detail");
-            
+
             container.innerHTML = project.description;
         }
 
@@ -734,11 +751,11 @@
         document.querySelectorAll('.filter-tag').forEach(tag => {
             tag.addEventListener('click', (e) => {
                 const tech = e.target.getAttribute('data-tech');
-                
+
                 // Update active state
                 document.querySelectorAll('.filter-tag').forEach(t => t.classList.remove('active'));
                 e.target.classList.add('active');
-                
+
                 // Filter projects (simplified - in real implementation, would filter the project list)
                 console.log('Filtering by:', tech);
             });
@@ -749,4 +766,5 @@
         renderProject(0);
     </script>
 </body>
+
 </html>
