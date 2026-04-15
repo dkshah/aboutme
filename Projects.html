@@ -350,7 +350,7 @@
                 </div>
                 <div class="hero-image">
                     <div class="image-container">
-                        <img src="images/dipen.jpg" alt="Dipen Shah - Solution Architect" class="profile-image">
+                        <img src="images/dipen.jpg" alt="Dipen Shah, a Solution Architect with experience in enterprise solutions" class="profile-image">
                         <div class="image-decoration"></div>
                     </div>
                 </div>
@@ -403,7 +403,7 @@
         const projects = [
             {
                 title: "Intelligent Legal Form Builder – Document Automation Platform",
-                category: "Legal Tech",
+category: "Legal Tech",
                 technologies: [".NET Core", "Angular", "Document Generation"],
                 description: `
                 <div class="project-header">
@@ -603,8 +603,7 @@
                 <div class="project-overview">
                     <p class="lead-text">Designed and implemented an enterprise-grade payroll processing solution built using a scalable Microservices Architecture. The platform serves multi-location retail, franchise, and restaurant businesses, ensuring full compliance with labor laws across various U.S. states and cities.</p>
                 </div>
-
-                <div class="project-details">
+<div class="project-details">
                     <h3>Key Components</h3>
                     <div class="component-grid">
                         <div class="component-card">
@@ -649,13 +648,6 @@
                         <span class="tech-tag">Azure SQL</span>
                     </div>
                 </div>
-                `
-            },
-            {
-                title: "Mindscope ATS – Cloud-Based Applicant Tracking System",
-                category: "HR Tech",
-                technologies: [".NET Core", "Angular", "AWS", "Resume Parsing"],
-                description: `
                 <div class="project-header">
                     <h1>Mindscope ATS</h1>
                     <div class="project-meta">
@@ -708,62 +700,4 @@
                         <span class="tech-tag">MS 365 API</span>
                     </div>
                 </div>
-                `
-            }
-        ];
-
-        // Render project menu
-        function renderProjectMenu() {
-            const menu = document.getElementById("project-menu");
-            projects.forEach((project, index) => {
-                const li = document.createElement("li");
-                li.innerHTML = `<a href="#" class="project-link ${index === 0 ? 'active' : ''}" data-index="${index}">
-                    <i class="fas fa-project-diagram"></i> ${project.title}
-                </a>`;
-                menu.appendChild(li);
-            });
-
-            // Add click handlers
-            document.querySelectorAll('.project-link').forEach(link => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const index = parseInt(e.target.getAttribute('data-index'));
-
-                    // Update active state
-                    document.querySelectorAll('.project-link').forEach(l => l.classList.remove('active'));
-                    e.target.classList.add('active');
-
-                    renderProject(index);
-                });
-            });
-        }
-
-        // Render single project
-        function renderProject(index) {
-            const project = projects[index];
-            const container = document.getElementById("project-detail");
-
-            container.innerHTML = project.description;
-        }
-
-        // Technology filter functionality
-        document.querySelectorAll('.filter-tag').forEach(tag => {
-            tag.addEventListener('click', (e) => {
-                const tech = e.target.getAttribute('data-tech');
-
-                // Update active state
-                document.querySelectorAll('.filter-tag').forEach(t => t.classList.remove('active'));
-                e.target.classList.add('active');
-
-                // Filter projects (simplified - in real implementation, would filter the project list)
-                console.log('Filtering by:', tech);
-            });
-        });
-
-        // Initialize
-        renderProjectMenu();
-        renderProject(0);
-    </script>
-</body>
-
-</html>
+                <img src="dipen_shah.jpg" alt="Dipen Shah, a Solution Architect with experience in enterprise solutions" />
