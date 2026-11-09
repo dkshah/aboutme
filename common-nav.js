@@ -93,6 +93,7 @@ class CommonNavigation {
                 const isOpen = navMenu.classList.toggle('show');
                 navToggle.classList.toggle('active');
                 navToggle.setAttribute('aria-expanded', isOpen);
+                document.body.style.overflow = isOpen ? 'hidden' : '';
             });
 
             navMenu.querySelectorAll('a').forEach(link => {
@@ -100,7 +101,18 @@ class CommonNavigation {
                     navMenu.classList.remove('show');
                     navToggle.classList.remove('active');
                     navToggle.setAttribute('aria-expanded', 'false');
+                    document.body.style.overflow = '';
                 });
+            });
+
+            // Close on outside tap
+            document.addEventListener('click', (e) => {
+                if (navMenu.classList.contains('show') && !navMenu.contains(e.target) && !navToggle.contains(e.target)) {
+                    navMenu.classList.remove('show');
+                    navToggle.classList.remove('active');
+                    navToggle.setAttribute('aria-expanded', 'false');
+                    document.body.style.overflow = '';
+                }
             });
         }
     }
