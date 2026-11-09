@@ -1,0 +1,1955 @@
+/* ==========================================================================
+   EXECUTIVE LIGHT MODE ARCHITECT DESIGN SYSTEM
+   Theme: Clean Off-White (#F8FAFC), Deep Charcoal Navy (#0F172A),
+          Enterprise Cobalt Blue (#2563EB) & Soft Azure (#E0F2FE)
+   Target: CTOs, Enterprise Recruiters, Executive Tech Leadership
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+:root {
+    /* Executive Light Mode Surfaces */
+    --bg-canvas: #F8FAFC;          /* Clean Off-White / Light Gray primary background */
+    --bg-surface: #FFFFFF;         /* Pure crisp white for elevated cards & modules */
+    --bg-subtle: #F1F5F9;          /* Slate-100 subtle secondary surface */
+    --bg-glass: rgba(255, 255, 255, 0.90);
+
+    /* Enterprise Cobalt Blue & Soft Azure Accents */
+    --accent-cobalt: #2563EB;      /* Enterprise Cobalt Blue for primary CTAs & highlights */
+    --accent-cobalt-hover: #1D4ED8;/* Deep Cobalt hover state */
+    --accent-cobalt-subtle: rgba(37, 99, 235, 0.08);
+    --accent-soft-azure: #E0F2FE;  /* Soft Azure for cloud & technical tag backgrounds */
+    --accent-azure-border: #BAE6FD;/* Crisp Sky-200 border for Soft Azure tags */
+    --accent-azure-text: #0369A1;  /* High-contrast Sky-700 text inside Soft Azure tags */
+    --accent-emerald: #059669;     /* Verified production status */
+    --accent-emerald-bg: #ECFDF5;
+
+    /* Deep Charcoal Navy Typography Hierarchy */
+    --text-navy: #0F172A;          /* Deep Charcoal Navy for strong contrast titles & primary text */
+    --text-body: #1E293B;          /* Slate-800 for high-legibility body copy */
+    --text-muted: #475569;         /* Slate-600 for secondary descriptions */
+    --text-dim: #64748B;           /* Slate-500 for metadata & coordinates */
+
+    /* Architectural Guidelines & Borders */
+    --grid-line: rgba(15, 23, 42, 0.045);        /* Subtle architectural CAD grid lines */
+    --border-guideline: #CBD5E1;                 /* Clean architectural section & card borders */
+    --border-subtle: #E2E8F0;                    /* Thin internal hairline dividers */
+    --border-navy: #0F172A;                      /* High-contrast Charcoal Navy accent border */
+    --border-cobalt: rgba(37, 99, 235, 0.45);
+
+    /* Typography Stacks */
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+    --font-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+
+    /* Precision Elevations & Transitions */
+    --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.04), 0 1px 2px rgba(15, 23, 42, 0.02);
+    --shadow-card: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
+    --shadow-hover: 0 14px 30px -4px rgba(15, 23, 42, 0.09), 0 4px 12px -2px rgba(37, 99, 235, 0.08);
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-fast: all 0.22s var(--ease-out-expo);
+    --transition-smooth: all 0.35s var(--ease-out-expo);
+}
+
+/* ==========================================================================
+   1. GLOBAL RESET & ARCHITECTURAL LIGHT GRID CANVAS
+   ========================================================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+    scroll-behavior: smooth;
+    background-color: var(--bg-canvas);
+    color: var(--text-navy);
+    font-family: var(--font-sans);
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-sans) !important;
+    background-color: var(--bg-canvas) !important;
+    color: var(--text-body) !important;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    line-height: 1.65;
+    /* Thin, clean architectural CAD grid guidelines on #F8FAFC */
+    background-image: 
+        linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px) !important;
+    background-size: 48px 48px !important;
+    background-attachment: fixed;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: var(--font-sans) !important;
+    color: var(--text-navy) !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.025em !important;
+    line-height: 1.2 !important;
+    margin-top: 0;
+}
+
+p, li, span, a, label, input, textarea, button {
+    font-family: var(--font-sans);
+}
+
+/* Dedicated Monospace Classes for Metrics, Badges & Tech Tags */
+.mono,
+.stat-number,
+.cert-code,
+.cert-level,
+.tech-item,
+.tech-tag,
+.filter-tag,
+.sys-badge,
+.arch-coord,
+.timeline-year-badge,
+.award-date,
+.project-meta span,
+.brand-title,
+.section-subtitle,
+.hero-pretitle,
+.tab-btn {
+    font-family: var(--font-mono) !important;
+}
+
+.container {
+    max-width: 1280px !important;
+    margin: 0 auto !important;
+    padding: 0 2rem !important;
+    position: relative;
+}
+
+/* ==========================================================================
+   2. STICKY EXECUTIVE LIGHT NAVIGATION BAR
+   ========================================================================== */
+.navbar-modern {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(248, 250, 252, 0.90) !important;
+    backdrop-filter: blur(14px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(14px) saturate(180%) !important;
+    border-bottom: 1px solid var(--border-guideline) !important;
+    padding: 0.9rem 0 !important;
+    transition: var(--transition-smooth);
+}
+
+.navbar-modern.scrolled {
+    padding: 0.65rem 0 !important;
+    background: rgba(255, 255, 255, 0.96) !important;
+    border-bottom-color: var(--border-guideline) !important;
+    box-shadow: 0 4px 20px -4px rgba(15, 23, 42, 0.08) !important;
+}
+
+.nav-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-brand {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    position: relative;
+    padding-left: 0.85rem;
+    border-left: 3px solid var(--accent-cobalt);
+}
+
+.brand-name {
+    color: var(--text-navy) !important;
+    font-size: 1.2rem !important;
+    font-weight: 800 !important;
+    margin: 0 !important;
+    letter-spacing: -0.03em !important;
+    line-height: 1.1 !important;
+}
+
+.brand-title {
+    color: var(--accent-cobalt) !important;
+    font-size: 0.68rem !important;
+    text-transform: uppercase;
+    letter-spacing: 0.14em !important;
+    font-weight: 600 !important;
+    margin-top: 3px;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.nav-link {
+    color: var(--text-muted) !important;
+    font-weight: 600 !important;
+    font-size: 0.86rem !important;
+    text-decoration: none !important;
+    transition: var(--transition-fast) !important;
+    position: relative;
+    padding: 0.4rem 0.25rem !important;
+    letter-spacing: -0.01em;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--text-navy) !important;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-cobalt);
+    transition: var(--transition-fast);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.nav-cta {
+    font-family: var(--font-mono) !important;
+    background: var(--accent-cobalt) !important;
+    color: #FFFFFF !important;
+    border: 1px solid var(--accent-cobalt) !important;
+    padding: 0.5rem 1.15rem !important;
+    border-radius: 6px !important;
+    font-size: 0.8rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.03em !important;
+    transition: var(--transition-fast) !important;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.22) !important;
+}
+
+.nav-cta:hover {
+    background: var(--accent-cobalt-hover) !important;
+    color: #FFFFFF !important;
+    border-color: var(--accent-cobalt-hover) !important;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35) !important;
+    transform: translateY(-1px);
+}
+
+.nav-cta::after {
+    display: none !important;
+}
+
+/* Mobile Hamburger */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 6px;
+}
+
+.nav-toggle .bar {
+    width: 22px;
+    height: 2px;
+    background-color: var(--text-navy);
+    transition: var(--transition-fast);
+}
+
+.nav-toggle.active .bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+    background-color: var(--accent-cobalt);
+}
+
+.nav-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.active .bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+    background-color: var(--accent-cobalt);
+}
+
+/* ==========================================================================
+   3. ARCHITECTURAL SECTION HEADERS & THIN GUIDELINES
+   ========================================================================== */
+section {
+    position: relative;
+    border-bottom: 1px solid var(--border-guideline);
+}
+
+/* Architectural crosshair node marker at section boundaries */
+section::after {
+    content: '+';
+    position: absolute;
+    bottom: -9px;
+    left: 2rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-dim);
+    background: var(--bg-canvas);
+    padding: 0 6px;
+    line-height: 1;
+    pointer-events: none;
+}
+
+.section-header {
+    margin-bottom: 3.25rem !important;
+    text-align: left !important;
+    position: relative;
+    padding: 0.25rem 0 0.25rem 1.25rem !important;
+    border-left: 3px solid var(--text-navy) !important;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.section-header::before {
+    content: 'SYS // ARCH.SPEC';
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: var(--accent-cobalt);
+    letter-spacing: 0.15em;
+}
+
+.section-title {
+    font-size: clamp(1.75rem, 3vw, 2.35rem) !important;
+    color: var(--text-navy) !important;
+    font-weight: 800 !important;
+    margin: 0 !important;
+    letter-spacing: -0.03em !important;
+}
+
+.section-subtitle {
+    font-size: 0.8rem !important;
+    color: var(--text-muted) !important;
+    text-transform: uppercase;
+    letter-spacing: 0.08em !important;
+    font-weight: 600 !important;
+    margin: 0 !important;
+}
+
+/* ==========================================================================
+   4. HERO SECTION - EXECUTIVE SYSTEM COMMAND CENTER
+   ========================================================================== */
+.hero-section {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    padding: 130px 0 80px 0 !important;
+    position: relative;
+    background: 
+        radial-gradient(circle at 12% 18%, rgba(224, 242, 254, 0.75) 0%, transparent 45%),
+        radial-gradient(circle at 88% 75%, rgba(37, 99, 235, 0.05) 0%, transparent 50%),
+        transparent !important;
+    overflow: hidden;
+}
+
+.hero-container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 10;
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1.18fr 0.82fr;
+    gap: 3.5rem;
+    align-items: center;
+}
+
+.hero-pretitle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.75rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.1em !important;
+    color: var(--accent-azure-text) !important;
+    background: var(--accent-soft-azure);
+    border: 1px solid var(--accent-azure-border);
+    padding: 0.42rem 0.95rem;
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+}
+
+.hero-pretitle::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--accent-cobalt);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+.hero-title {
+    font-size: clamp(2.35rem, 4.2vw, 3.5rem) !important;
+    line-height: 1.1 !important;
+    font-weight: 800 !important;
+    color: var(--text-navy) !important;
+    margin-bottom: 1.35rem !important;
+    letter-spacing: -0.035em !important;
+}
+
+.hero-title span {
+    display: block;
+}
+
+.hero-title .name-highlight,
+.hero-title .hero-name {
+    color: var(--text-navy) !important;
+    background: none !important;
+    -webkit-text-fill-color: var(--text-navy) !important;
+    margin-bottom: 0.25rem;
+}
+
+.hero-title .role-highlight {
+    font-size: clamp(1.45rem, 2.5vw, 2.1rem) !important;
+    font-weight: 700 !important;
+    color: var(--accent-cobalt) !important;
+    background: none !important;
+    -webkit-text-fill-color: var(--accent-cobalt) !important;
+    line-height: 1.25 !important;
+}
+
+.hero-greeting {
+    font-family: var(--font-mono) !important;
+    font-size: 0.85rem !important;
+    text-transform: uppercase;
+    letter-spacing: 0.15em !important;
+    color: var(--accent-cobalt) !important;
+    margin-bottom: 0.4rem;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem !important;
+    color: var(--accent-cobalt) !important;
+    font-weight: 600 !important;
+    margin-bottom: 1rem !important;
+}
+
+.hero-description {
+    font-size: 1.05rem !important;
+    color: var(--text-body) !important;
+    line-height: 1.7 !important;
+    margin-bottom: 2rem !important;
+    max-width: 620px;
+}
+
+.hero-description strong {
+    color: var(--text-navy);
+    font-weight: 700;
+}
+
+/* Executive Telemetry Stats Bar */
+.hero-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2.25rem;
+    max-width: 640px;
+}
+
+.stat-item {
+    background: var(--bg-surface) !important;
+    border: 1px solid var(--border-guideline) !important;
+    border-top: 3px solid var(--text-navy) !important;
+    padding: 1.1rem 1.25rem !important;
+    border-radius: 6px !important;
+    position: relative;
+    transition: var(--transition-fast);
+    box-shadow: var(--shadow-sm) !important;
+}
+
+.stat-item::before {
+    display: none !important;
+}
+
+.stat-item:hover {
+    transform: translateY(-3px);
+    border-top-color: var(--accent-cobalt) !important;
+    box-shadow: var(--shadow-hover) !important;
+}
+
+.stat-number {
+    font-size: 1.85rem !important;
+    font-weight: 800 !important;
+    color: var(--text-navy) !important;
+    line-height: 1.1 !important;
+    margin-bottom: 0.35rem !important;
+    display: block;
+    letter-spacing: -0.03em !important;
+}
+
+.stat-label {
+    font-size: 0.72rem !important;
+    color: var(--text-muted) !important;
+    font-weight: 600 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.08em !important;
+    display: block;
+}
+
+/* Hero Action Buttons */
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+}
+
+.btn-premium-primary,
+.btn-primary {
+    background: var(--accent-cobalt) !important;
+    color: #FFFFFF !important;
+    padding: 0.85rem 1.65rem !important;
+    border-radius: 6px !important;
+    font-weight: 600 !important;
+    font-size: 0.9rem !important;
+    text-decoration: none !important;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    transition: var(--transition-fast) !important;
+    border: 1px solid var(--accent-cobalt) !important;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25) !important;
+    cursor: pointer;
+}
+
+.btn-premium-primary:hover,
+.btn-primary:hover {
+    background: var(--accent-cobalt-hover) !important;
+    border-color: var(--accent-cobalt-hover) !important;
+    color: #FFFFFF !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35) !important;
+}
+
+.btn-premium-secondary,
+.btn-secondary {
+    background: var(--bg-surface) !important;
+    color: var(--text-navy) !important;
+    padding: 0.85rem 1.65rem !important;
+    border-radius: 6px !important;
+    font-weight: 600 !important;
+    font-size: 0.9rem !important;
+    text-decoration: none !important;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    border: 1px solid var(--border-guideline) !important;
+    box-shadow: var(--shadow-sm) !important;
+    transition: var(--transition-fast) !important;
+    cursor: pointer;
+}
+
+.btn-premium-secondary:hover,
+.btn-secondary:hover {
+    background: var(--accent-soft-azure) !important;
+    border-color: var(--accent-cobalt) !important;
+    color: var(--accent-cobalt) !important;
+    transform: translateY(-2px);
+}
+
+/* Right Column: Architectural Blueprint Schematic Frame
+   Kept in high-contrast Deep Charcoal Navy (#0F172A) so the glowing 3D isometric diagram pops */
+.hero-image {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.blueprint-wrapper,
+.image-container {
+    position: relative;
+    width: 100%;
+    max-width: 470px;
+    border-radius: 10px;
+    background: var(--text-navy);
+    border: 2px solid var(--text-navy);
+    box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.22);
+    overflow: hidden;
+    padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+    transition: var(--transition-smooth);
+}
+
+.blueprint-wrapper::before {
+    content: 'BLUEPRINT // MULTI-CLOUD TOPOLOGY [AZURE + AWS + .NET]';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 34px;
+    background: #1E293B;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: var(--accent-soft-azure);
+    letter-spacing: 0.08em;
+}
+
+.blueprint-wrapper:hover {
+    border-color: var(--accent-cobalt);
+    transform: translateY(-4px);
+    box-shadow: 0 25px 50px -12px rgba(37, 99, 235, 0.25);
+}
+
+.blueprint-img,
+.profile-image {
+    width: 100%;
+    height: auto;
+    max-height: 390px;
+    object-fit: contain;
+    border-radius: 6px;
+    display: block;
+}
+
+/* ==========================================================================
+   5. EXECUTIVE SUMMARY (ABOUT SECTION)
+   ========================================================================== */
+.about-section {
+    padding: 96px 0 !important;
+    background-color: var(--bg-canvas) !important;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr;
+    gap: 3.5rem;
+    align-items: start;
+}
+
+.lead-text {
+    font-size: 1.02rem !important;
+    line-height: 1.75 !important;
+    color: var(--text-body) !important;
+    margin-bottom: 1.25rem !important;
+}
+
+.lead-text strong {
+    color: var(--text-navy);
+    font-weight: 700;
+}
+
+.detail-grid {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem !important;
+}
+
+.detail-item {
+    background: var(--bg-surface) !important;
+    border: 1px solid var(--border-guideline) !important;
+    border-left: 3px solid var(--accent-cobalt) !important;
+    padding: 1.25rem 1.5rem !important;
+    border-radius: 6px !important;
+    display: flex;
+    gap: 1.15rem;
+    align-items: flex-start;
+    box-shadow: var(--shadow-sm) !important;
+    transition: var(--transition-fast) !important;
+}
+
+.detail-item:hover {
+    border-color: var(--accent-cobalt) !important;
+    box-shadow: var(--shadow-hover) !important;
+    transform: translateX(4px) !important;
+}
+
+.detail-icon {
+    width: 42px !important;
+    height: 42px !important;
+    background: var(--accent-soft-azure) !important;
+    border: 1px solid var(--accent-azure-border) !important;
+    border-radius: 6px !important;
+    color: var(--accent-cobalt) !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.05rem !important;
+    flex-shrink: 0;
+}
+
+.detail-content h4 {
+    color: var(--text-navy) !important;
+    font-size: 1.02rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 0.3rem !important;
+}
+
+.detail-content p {
+    color: var(--text-muted) !important;
+    font-size: 0.9rem !important;
+    margin: 0 !important;
+    line-height: 1.55 !important;
+}
+
+/* Right Column Executive Telemetry Cards */
+.about-highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem !important;
+}
+
+.highlight-card {
+    background: var(--bg-surface) !important;
+    border: 1px solid var(--border-guideline) !important;
+    border-top: 3px solid var(--text-navy) !important;
+    border-radius: 8px !important;
+    padding: 1.75rem !important;
+    box-shadow: var(--shadow-card) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.highlight-card h4 {
+    font-family: var(--font-mono) !important;
+    color: var(--text-navy) !important;
+    font-size: 0.9rem !important;
+    text-transform: uppercase;
+    letter-spacing: 0.08em !important;
+    font-weight: 700 !important;
+    margin-bottom: 1.25rem !important;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.highlight-card h4 i {
+    color: var(--accent-cobalt);
+    margin-right: 0.4rem;
+}
+
+.expertise-list,
+.impact-list {
+    list-style: none;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.expertise-list li,
+.impact-list li {
+    color: var(--text-body) !important;
+    font-size: 0.9rem !important;
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 0.75rem !important;
+    margin-bottom: 0.75rem !important;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+.expertise-list i,
+.impact-list i {
+    color: var(--accent-cobalt) !important;
+    margin-top: 4px !important;
+    font-size: 0.85rem !important;
+    min-width: 16px;
+}
+
+.impact-list .mono {
+    color: var(--accent-cobalt);
+    font-weight: 700;
+    background: var(--accent-soft-azure);
+    padding: 0.05rem 0.35rem;
+    border-radius: 3px;
+}
+
+/* ==========================================================================
+   6. ARCHITECTURE CASE STUDIES (PROJECTS MATRIX)
+   ========================================================================== */
+.case-studies-section {
+    padding: 96px 0 !important;
+    background-color: transparent !important;
+}
+
+.case-studies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 1.5rem;
+}
+
+.case-card {
+    background: var(--bg-surface) !important;
+    border: 1px solid var(--border-guideline) !important;
+    border-radius: 8px;
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: var(--transition-fast);
+    position: relative;
+    box-shadow: var(--shadow-card);
+}
+
+.case-card:hover {
+    border-color: var(--accent-cobalt) !important;
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+}
+
+.case-card-cta {
+    justify-content: center;
+    align-items: flex-start;
+    background: linear-gradient(145deg, var(--accent-soft-azure) 0%, #FFFFFF 100%) !important;
+    border: 1px solid var(--accent-cobalt) !important;
+}
+
+.case-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px dashed var(--border-guideline);
+}
+
+.case-id {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--accent-cobalt);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    background: var(--accent-soft-azure);
+    padding: 0.25rem 0.65rem;
+    border-radius: 4px;
+    border: 1px solid var(--accent-azure-border);
+}
+
+.case-domain {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.case-card h3 {
+    font-size: 1.2rem !important;
+    color: var(--text-navy) !important;
+    margin-bottom: 0.65rem !important;
+    font-weight: 700 !important;
+}
+
+.case-summary {
+    color: var(--text-body);
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+}
+
+.case-arch-specs {
+    background: var(--bg-canvas);
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    padding: 0.9rem 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.case-arch-specs h5 {
+    font-family: var(--font-mono) !important;
+    font-size: 0.7rem !important;
+    text-transform: uppercase;
+    letter-spacing: 0.1em !important;
+    color: var(--text-navy) !important;
+    font-weight: 700 !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.case-arch-specs ul {
+    list-style: none;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.case-arch-specs li {
+    font-size: 0.83rem;
+    color: var(--text-muted);
+    margin-bottom: 0.3rem !important;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.case-arch-specs li::before {
+    content: '▹';
+    color: var(--accent-cobalt);
+    font-family: var(--font-mono);
+    font-weight: 700;
+}
+
+.case-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-top: auto;
+}
+
+/* ==========================================================================
+   7. TECHNICAL STACK MATRIX (EXPERTISE SECTION)
+   ========================================================================== */
+.expertise-section {
+    background-color: var(--bg-canvas) !important;
+    padding: 96px 0 !important;
+}
+
+.expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)) !important;
+    gap: 1.5rem !important;
+}
+
+.expertise-category {
+    background: var(--bg-surface) !important;
+    border: 1px solid var(--border-guideline) !important;
+    border-radius: 8px !important;
+    padding: 1.65rem !important;
+    box-shadow: var(--shadow-card) !important;
+    transition: var(--transition-fast) !important;
+    position: relative;
+}
+
+.expertise-category:hover {
+    transform: translateY(-3px) !important;
+    border-color: var(--accent-cobalt) !important;
+    box-shadow: var(--shadow-hover) !important;
+}
+
+.category-header {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.category-icon {
+    width: 38px !important;
+    height: 38px !important;
+    background: var(--accent-soft-azure) !important;
+    border: 1px solid var(--accent-azure-border) !important;
+    border-radius: 6px !important;
+    color: var(--accent-cobalt) !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem !important;
+}
+
+.category-header h3 {
+    font-size: 1.05rem !important;
+    color: var(--text-navy) !important;
+    font-weight: 700 !important;
+    margin: 0 !important;
+}
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+/* Soft Azure (#E0F2FE) Cloud & Technical Tag Backgrounds */
+.tech-item,
+.tech-tag {
+    background: var(--accent-soft-azure) !important;
+    border: 1px solid var(--accent-azure-border) !important;
+    color: var(--text-navy) !important;
+    font-size: 0.76rem !important;
+    padding: 0.35rem 0.72rem !important;
+    border-radius: 4px !important;
+    transition: var(--transition-fast) !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.01em !important;
+}
+
+.tech-item:hover,
+.tech-tag:hover {
+    background: var(--accent-cobalt) !important;
+    border-color: var(--accent-cobalt) !important;
+    color: #FFFFFF !important;
+    transform: translateY(-1px) !important;
+}
+
+.service-details p {
+    color: var(--text-body) !important;
+    font-size: 0.92rem;
+    margin-bottom: 1rem;
+}
+
+.service-list {
+    list-style: none;
+    padding: 0 !important;
+}
+
+.service-list li {
+    color: var(--text-muted) !important;
+    font-size: 0.88rem;
+    padding: 0.3rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.service-list li::before {
+    content: '→';
+    font-family: var(--font-mono);
+    color: var(--accent-cobalt);
+    font-weight: 700;
+}
+
+/* ==========================================================================
+   8. CERTIFIED CREDENTIALS WALL (CERTIFICATIONS SECTION)
+   ========================================================================== */
+.certifications-section {
+    padding: 96px 0 !important;
+    background-color: transparent !important;
+}
+
+.tab-navigation {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: flex-start;
+    margin-bottom: 2.25rem;
+    border-bottom: 1px solid var(--border-guideline);
+    padding-bottom: 1rem;
+}
+
+.tab-btn {
+    background: var(--bg-surface) !important;
+    border: 1px solid var(--border-guideline) !important;
+    color: var(--text-muted) !important;
+    font-weight: 600 !important;
+    font-size: 0.78rem !important;
+    padding: 0.5rem 1rem !important;
+    border-radius: 4px !important;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.05em !important;
+    transition: var(--transition-fast) !important;
+}
+
+.tab-btn:hover {
+    color: var(--accent-cobalt) !important;
+    border-color: var(--accent-cobalt) !important;
+    background: var(--accent-soft-azure) !important;
+}
+
+.tab-btn.active {
+    background: var(--accent-cobalt) !important;
+    color: #FFFFFF !important;
+    border-color: var(--accent-cobalt) !important;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25) !important;
+}
+
+.tab-panel {
+    display: none;
+}
+
+.tab-panel.active {
+    display: block;
+    animation: fadeInPanel 0.3s ease-out;
+}
+
+@keyframes fadeInPanel {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(265px, 1fr)) !important;
+    gap: 1.25rem !important;
+}
+
+.cert-card {
+    background: var(--bg-surface) !important;
+    border: 1px solid var(--border-guideline) !important;
+    border-radius: 8px !important;
+    padding: 1.5rem 1.25rem !important;
+    box-shadow: var(--shadow-card) !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: var(--transition-fast) !important;
+    position: relative;
+}
+
+.cert-card:hover {
+    transform: translateY(-4px) !important;
+    border-color: var(--accent-cobalt) !important;
+    box-shadow: var(--shadow-hover) !important;
+}
+
+.cert-badge {
+    width: 64px !important;
+    height: 64px !important;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px !important;
+    background: var(--bg-canvas) !important;
+    border: 1px solid var(--border-subtle) !important;
+    padding: 8px;
+}
+
+.cert-badge img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.cert-info h4 {
+    font-size: 0.95rem !important;
+    color: var(--text-navy) !important;
+    font-weight: 700 !important;
+    margin-bottom: 0.35rem !important;
+    line-height: 1.35 !important;
+}
+
+.cert-code {
+    font-size: 0.74rem !important;
+    color: var(--text-muted) !important;
+    margin-bottom: 0.65rem !important;
+}
+
+.cert-level {
+    display: inline-block;
+    font-size: 0.68rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.06em !important;
+    padding: 0.2rem 0.6rem;
+    background: var(--bg-subtle);
+    color: var(--text-navy);
+    border: 1px solid var(--border-guideline);
+    border-radius: 4px;
+}
+
+.cert-level.expert {
+    background: var(--accent-soft-azure);
+    color: var(--accent-cobalt);
+    border-color: var(--accent-azure-border);
+}
+
+.cert-level.specialty {
+    background: var(--accent-emerald-bg);
+    color: var(--accent-emerald);
+    border-color: #A7F3D0;
+}
+
+/* ==========================================================================
+   9. INTERACTIVE EXECUTIVE RESUME VIEWER & DOWNLOAD SECTION
+   ========================================================================== */
+.resume-preview-section {
+    padding: 96px 0 !important;
+    background-color: var(--bg-canvas) !important;
+}
+
+.resume-command-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    background: var(--text-navy);
+    border: 1px solid var(--text-navy);
+    border-radius: 8px 8px 0 0;
+    padding: 1rem 1.5rem;
+}
+
+.resume-doc-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.resume-doc-status {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #34D399;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid rgba(52, 211, 153, 0.35);
+    padding: 0.25rem 0.65rem;
+    border-radius: 4px;
+}
+
+.resume-doc-title {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: #F8FAFC;
+    font-weight: 500;
+}
+
+.resume-actions-bar {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.resume-dossier-shell {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-guideline);
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    padding: 2.5rem;
+    box-shadow: var(--shadow-card);
+}
+
+.dossier-grid {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 2.5rem;
+}
+
+.dossier-sidebar {
+    border-right: 1px solid var(--border-guideline);
+    padding-right: 2rem;
+}
+
+.dossier-block {
+    margin-bottom: 1.75rem;
+}
+
+.dossier-block h4 {
+    font-family: var(--font-mono) !important;
+    font-size: 0.75rem !important;
+    text-transform: uppercase;
+    letter-spacing: 0.12em !important;
+    color: var(--accent-cobalt) !important;
+    font-weight: 700 !important;
+    margin-bottom: 0.85rem !important;
+    padding-bottom: 0.4rem;
+    border-bottom: 2px solid var(--text-navy);
+}
+
+.dossier-skill-group {
+    margin-bottom: 0.75rem;
+}
+
+.dossier-skill-group strong {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-navy);
+    font-weight: 700;
+    margin-bottom: 0.15rem;
+}
+
+.dossier-skill-group span {
+    font-size: 0.83rem;
+    color: var(--text-muted);
+}
+
+.dossier-role {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 2rem;
+    border-left: 2px solid var(--border-guideline);
+}
+
+.dossier-role:last-child {
+    margin-bottom: 0;
+}
+
+.dossier-role::before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 4px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent-cobalt);
+    border: 2px solid var(--bg-surface);
+    box-shadow: 0 0 0 2px var(--accent-cobalt);
+}
+
+.dossier-role-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.65rem;
+}
+
+.dossier-role-title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--text-navy);
+}
+
+.dossier-role-company {
+    color: var(--accent-cobalt);
+    font-weight: 700;
+    font-size: 0.92rem;
+}
+
+.dossier-role-date {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-navy);
+    background: var(--accent-soft-azure);
+    padding: 0.2rem 0.65rem;
+    border-radius: 4px;
+    border: 1px solid var(--accent-azure-border);
+}
+
+.dossier-role ul {
+    list-style: none;
+    padding: 0 !important;
+    margin: 0 0 0.85rem 0 !important;
+}
+
+.dossier-role ul li {
+    font-size: 0.9rem;
+    color: var(--text-body);
+    margin-bottom: 0.45rem !important;
+    position: relative;
+    padding-left: 1rem;
+}
+
+.dossier-role ul li strong {
+    color: var(--text-navy);
+}
+
+.dossier-role ul li::before {
+    content: '•';
+    color: var(--accent-cobalt);
+    font-weight: 700;
+    position: absolute;
+    left: 0;
+}
+
+/* ==========================================================================
+   10. AWARDS TIMELINE & TESTIMONIALS
+   ========================================================================== */
+.awards-section {
+    background-color: transparent !important;
+    padding: 96px 0 !important;
+}
+
+.awards-timeline-modern {
+    max-width: 860px;
+    margin: 0 auto;
+    position: relative;
+    padding-left: 2.5rem;
+}
+
+.awards-timeline-modern::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 10px;
+    width: 2px;
+    height: calc(100% - 20px);
+    background: var(--border-guideline);
+}
+
+.timeline-item-modern {
+    position: relative;
+    margin-bottom: 1.75rem;
+}
+
+.timeline-item-modern::before {
+    content: '';
+    position: absolute;
+    left: -38px;
+    top: 18px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--bg-surface);
+    border: 3px solid var(--accent-cobalt);
+    z-index: 5;
+}
+
+.timeline-year-badge {
+    display: inline-block;
+    font-size: 0.74rem !important;
+    font-weight: 700 !important;
+    color: var(--accent-cobalt) !important;
+    background: var(--accent-soft-azure) !important;
+    border: 1px solid var(--accent-azure-border) !important;
+    padding: 0.15rem 0.6rem !important;
+    border-radius: 4px !important;
+    margin-bottom: 0.5rem;
+    position: static !important;
+}
+
+.award-content-modern {
+    background: var(--bg-surface) !important;
+    border: 1px solid var(--border-guideline) !important;
+    border-radius: 8px !important;
+    padding: 1.35rem 1.5rem !important;
+    box-shadow: var(--shadow-card) !important;
+    display: flex;
+    gap: 1.15rem;
+    transition: var(--transition-fast) !important;
+}
+
+.award-content-modern:hover {
+    border-color: var(--accent-cobalt) !important;
+    box-shadow: var(--shadow-hover) !important;
+    transform: translateX(4px) !important;
+}
+
+.award-icon-modern {
+    font-size: 1.05rem !important;
+    color: var(--accent-cobalt) !important;
+    background: var(--accent-soft-azure) !important;
+    border: 1px solid var(--accent-azure-border) !important;
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 6px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.award-icon-modern i {
+    color: var(--accent-cobalt) !important;
+    -webkit-text-fill-color: var(--accent-cobalt) !important;
+}
+
+.award-details-modern h4 {
+    font-size: 1.05rem !important;
+    color: var(--text-navy) !important;
+    margin-bottom: 0.35rem !important;
+}
+
+.award-details-modern p {
+    font-size: 0.9rem !important;
+    color: var(--text-body) !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.award-meta-modern {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.award-org {
+    color: var(--accent-cobalt) !important;
+    font-family: var(--font-mono);
+}
+
+.award-item-small {
+    font-size: 0.88rem;
+    color: var(--text-body);
+    border-left: 2px solid var(--accent-cobalt);
+    padding-left: 0.65rem;
+    margin-bottom: 0.35rem;
+}
+
+/* Testimonials */
+.testimonials-section-modern {
+    padding: 96px 0 !important;
+    background-color: var(--bg-canvas) !important;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)) !important;
+    gap: 1.5rem !important;
+}
+
+.testimonial-card {
+    background: var(--bg-surface) !important;
+    border: 1px solid var(--border-guideline) !important;
+    border-radius: 8px !important;
+    padding: 1.75rem !important;
+    box-shadow: var(--shadow-card) !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: var(--transition-fast) !important;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-3px) !important;
+    border-color: var(--accent-cobalt) !important;
+    box-shadow: var(--shadow-hover) !important;
+}
+
+.quote-icon {
+    font-size: 1.25rem;
+    color: var(--accent-cobalt);
+    opacity: 0.35;
+    margin-bottom: 0.75rem;
+}
+
+.testimonial-text {
+    font-size: 0.92rem !important;
+    color: var(--text-body) !important;
+    line-height: 1.65 !important;
+    font-style: normal !important;
+    margin-bottom: 1.25rem;
+}
+
+.testimonial-author {
+    border-top: 1px solid var(--border-subtle);
+    padding-top: 0.85rem;
+}
+
+.author-info h5 {
+    font-size: 0.95rem !important;
+    color: var(--text-navy) !important;
+    margin: 0 0 2px 0 !important;
+}
+
+.author-info p {
+    font-family: var(--font-mono) !important;
+    font-size: 0.75rem !important;
+    color: var(--accent-cobalt) !important;
+    font-weight: 600;
+    margin: 0 !important;
+}
+
+/* ==========================================================================
+   11. CONTACT SECTION & FOOTER
+   ========================================================================== */
+.contact-section {
+    background-color: var(--bg-canvas) !important;
+    padding: 96px 0 !important;
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: 3rem;
+    align-items: stretch;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-item {
+    background: var(--bg-surface) !important;
+    border: 1px solid var(--border-guideline) !important;
+    border-radius: 8px !important;
+    padding: 1.25rem 1.5rem !important;
+    display: flex;
+    gap: 1.1rem;
+    align-items: center;
+    box-shadow: var(--shadow-sm) !important;
+    transition: var(--transition-fast) !important;
+}
+
+.contact-item:hover {
+    border-color: var(--accent-cobalt) !important;
+    box-shadow: var(--shadow-hover) !important;
+    transform: translateX(4px) !important;
+}
+
+.contact-icon {
+    width: 42px !important;
+    height: 42px !important;
+    background: var(--accent-soft-azure) !important;
+    border: 1px solid var(--accent-azure-border) !important;
+    border-radius: 6px !important;
+    color: var(--accent-cobalt) !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.05rem !important;
+}
+
+.contact-icon i {
+    color: var(--accent-cobalt) !important;
+    -webkit-text-fill-color: var(--accent-cobalt) !important;
+}
+
+.contact-details h4 {
+    font-size: 0.95rem !important;
+    color: var(--text-navy) !important;
+    margin-bottom: 2px !important;
+}
+
+.contact-details p,
+.contact-link {
+    font-family: var(--font-mono) !important;
+    font-size: 0.82rem !important;
+    color: var(--text-body) !important;
+    text-decoration: none;
+    margin: 0;
+}
+
+.contact-link:hover {
+    color: var(--accent-cobalt) !important;
+}
+
+.contact-cta {
+    background: var(--bg-surface) !important;
+    border: 1px solid var(--border-guideline) !important;
+    border-top: 4px solid var(--accent-cobalt) !important;
+    border-radius: 8px !important;
+    padding: 2.5rem !important;
+    box-shadow: var(--shadow-card) !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact-cta h3 {
+    font-size: 1.6rem !important;
+    color: var(--text-navy) !important;
+    margin-bottom: 0.75rem !important;
+}
+
+.contact-cta p {
+    font-size: 0.98rem !important;
+    color: var(--text-body) !important;
+    line-height: 1.65 !important;
+    margin-bottom: 1.75rem !important;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Footer - High-contrast Deep Charcoal Navy anchor */
+.footer-modern {
+    background: var(--text-navy) !important;
+    border-top: 1px solid var(--text-navy) !important;
+    padding: 3.5rem 0 2rem 0 !important;
+    color: #CBD5E1 !important;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.footer-brand h3 {
+    color: #FFFFFF !important;
+    font-size: 1.2rem !important;
+    margin-bottom: 0.25rem !important;
+}
+
+.footer-brand p {
+    font-family: var(--font-mono) !important;
+    color: #38BDF8 !important;
+    font-size: 0.75rem !important;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 0;
+}
+
+.footer-links {
+    display: flex;
+    gap: 1.75rem;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: #E2E8F0 !important;
+    text-decoration: none !important;
+    font-size: 0.88rem;
+    transition: var(--transition-fast);
+}
+
+.footer-links a:hover {
+    color: #38BDF8 !important;
+}
+
+.footer-social {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.social-link {
+    width: 38px;
+    height: 38px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    color: #FFFFFF !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+.social-link:hover {
+    background: var(--accent-cobalt) !important;
+    border-color: var(--accent-cobalt) !important;
+    color: #FFFFFF !important;
+    transform: translateY(-2px);
+}
+
+.footer-bottom {
+    padding-top: 1.5rem;
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: #94A3B8;
+}
+
+/* ==========================================================================
+   12. SUBPAGES SUPPORT (PROJECTS.HTML & BLOGS.HTML EXECUTIVE LIGHT OVERRIDES)
+   ========================================================================== */
+.projects-section,
+.blogs-section {
+    padding: 80px 0 !important;
+    background: transparent !important;
+}
+
+.projects-sidebar,
+.project-container,
+.blog-card,
+.article-container {
+    background: var(--bg-surface) !important;
+    border: 1px solid var(--border-guideline) !important;
+    color: var(--text-body) !important;
+    box-shadow: var(--shadow-card) !important;
+}
+
+.sidebar-card h3,
+.project-header h1,
+.project-details h3,
+.arch-item h4,
+.component-card h4,
+.integration-item h4,
+.blog-card-header h3,
+.article-header h1,
+.article-content h3 {
+    color: var(--text-navy) !important;
+}
+
+.project-link {
+    color: var(--text-body) !important;
+    border-left: 3px solid transparent !important;
+}
+
+.project-link:hover {
+    background: var(--accent-soft-azure) !important;
+    color: var(--accent-cobalt) !important;
+    border-left-color: var(--accent-cobalt) !important;
+}
+
+.project-link.active {
+    background: var(--accent-cobalt) !important;
+    color: #FFFFFF !important;
+    border-left-color: var(--text-navy) !important;
+}
+
+.filter-tag,
+.category-filter-btn {
+    background: var(--accent-soft-azure) !important;
+    color: var(--text-navy) !important;
+    border: 1px solid var(--accent-azure-border) !important;
+}
+
+.filter-tag:hover,
+.filter-tag.active,
+.category-filter-btn:hover,
+.category-filter-btn.active {
+    background: var(--accent-cobalt) !important;
+    color: #FFFFFF !important;
+    border-color: var(--accent-cobalt) !important;
+}
+
+.arch-item,
+.component-card,
+.integration-item,
+.source-item {
+    background: var(--bg-canvas) !important;
+    border: 1px solid var(--border-guideline) !important;
+    color: var(--text-body) !important;
+}
+
+.arch-item i,
+.component-icon i,
+.integration-item i,
+.source-item i {
+    color: var(--accent-cobalt) !important;
+}
+
+.arch-item p,
+.component-card p,
+.integration-item p,
+.blog-card-content p {
+    color: var(--text-muted) !important;
+}
+
+.tech-stack-card {
+    background: var(--bg-canvas) !important;
+    border: 1px solid var(--border-guideline) !important;
+    color: var(--text-navy) !important;
+}
+
+.tech-stack-card h4 {
+    color: var(--text-navy) !important;
+}
+
+.blog-card-footer {
+    background: var(--bg-canvas) !important;
+    border-top: 1px solid var(--border-subtle) !important;
+}
+
+.read-more {
+    color: var(--accent-cobalt) !important;
+    font-family: var(--font-mono) !important;
+    font-size: 0.82rem !important;
+}
+
+/* ==========================================================================
+   13. AI ARCHITECT ASSISTANT CHATBOT OVERRIDES
+   ========================================================================== */
+.chatbot-toggle {
+    background: var(--accent-cobalt) !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.35) !important;
+    border: none !important;
+}
+
+.chatbot-toggle:hover {
+    background: var(--accent-cobalt-hover) !important;
+}
+
+.chatbot-badge {
+    font-family: var(--font-mono) !important;
+    background: var(--text-navy) !important;
+    color: #FFFFFF !important;
+}
+
+.chatbot-container {
+    background: var(--bg-surface) !important;
+    border: 1px solid var(--border-guideline) !important;
+    border-radius: 10px !important;
+    box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.2) !important;
+}
+
+.chatbot-header {
+    background: var(--text-navy) !important;
+    color: #FFFFFF !important;
+    border-bottom: 1px solid var(--border-guideline) !important;
+}
+
+.chatbot-messages {
+    background: var(--bg-canvas) !important;
+}
+
+.bot-message .message-content {
+    background: var(--bg-surface) !important;
+    color: var(--text-body) !important;
+    border: 1px solid var(--border-guideline) !important;
+}
+
+.chatbot-input-container {
+    background: var(--bg-surface) !important;
+    border-top: 1px solid var(--border-guideline) !important;
+}
+
+#chatbot-input {
+    background: var(--bg-canvas) !important;
+    color: var(--text-navy) !important;
+    border: 1px solid var(--border-guideline) !important;
+}
+
+/* ==========================================================================
+   14. RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .hero-content,
+    .about-content,
+    .contact-content,
+    .dossier-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .dossier-sidebar {
+        border-right: none;
+        border-bottom: 1px solid var(--border-guideline);
+        padding-right: 0;
+        padding-bottom: 2rem;
+    }
+}
+
+@media (max-width: 991px) {
+    .nav-toggle {
+        display: flex;
+    }
+
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #FFFFFF;
+        padding: 1.5rem 2rem;
+        border-bottom: 1px solid var(--border-guideline);
+        box-shadow: var(--shadow-card);
+        gap: 1rem;
+    }
+
+    .nav-menu.show {
+        display: flex;
+    }
+
+    .hero-section {
+        padding: 110px 0 60px 0 !important;
+    }
+
+    .case-studies-grid,
+    .expertise-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .resume-dossier-shell {
+        padding: 1.5rem;
+    }
+}

@@ -5,765 +5,613 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Dipen Shah - Project Portfolio showcasing enterprise solutions, microservices architecture, and digital transformation projects.">
+        content="Dipen Shah - Enterprise Architecture Portfolio. Explore deep dives into cloud-native platforms, enterprise-scale migrations, legacy modernization, and FinOps governance.">
     <meta name="keywords"
-        content="Dipen Shah, Project Portfolio, Enterprise Solutions, Microservices, Digital Transformation">
+        content="Enterprise Architecture Portfolio, Solution Architect Projects, Cloud Native, Azure, AWS, .NET 8, Microservices, Kubernetes">
     <meta name="author" content="Dipen Shah">
 
-    <title>Dipen Shah | Project Portfolio | Solution Architect</title>
+    <title>Enterprise Architecture Portfolio | Dipen Shah</title>
 
-    <!-- Professional Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Lora:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
+    <!-- Typography: Inter + JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Icons and Libraries -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Theme CSS -->
-    <link id="theme-style" rel="stylesheet" href="theme.css">
+    <!-- Unified Design System -->
+    <link rel="stylesheet" href="architecture-portfolio.css">
 
-    <!-- Common Components -->
-    <script src="common-nav.js"></script>
-    <script src="common-footer.js"></script>
-
-    <!-- Additional Styles for Projects Page -->
-    <style>
-        .projects-layout {
-            display: grid;
-            grid-template-columns: 300px 1fr;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .projects-sidebar {
-            background: #f8f9fa;
-            border-radius: 12px;
-            padding: 1.5rem;
-            height: fit-content;
-            position: sticky;
-            top: 100px;
-        }
-
-        .sidebar-card {
-            margin-bottom: 2rem;
-        }
-
-        .sidebar-card:last-child {
-            margin-bottom: 0;
-        }
-
-        .sidebar-card h3 {
-            color: #2c3e50;
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .project-categories {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .project-categories li {
-            margin-bottom: 0.5rem;
-        }
-
-        .project-link {
-            display: block;
-            padding: 0.75rem 1rem;
-            color: #495057;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-            border-left: 3px solid transparent;
-        }
-
-        .project-link:hover {
-            background: #e9ecef;
-            color: #0066cc;
-            border-left-color: #0066cc;
-        }
-
-        .project-link.active {
-            background: #0066cc;
-            color: white;
-            border-left-color: #004499;
-        }
-
-        .project-link i {
-            margin-right: 0.5rem;
-            width: 16px;
-        }
-
-        .tech-filter {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .filter-tag {
-            padding: 0.4rem 0.8rem;
-            background: #e9ecef;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 1px solid #dee2e6;
-        }
-
-        .filter-tag:hover {
-            background: #0066cc;
-            color: white;
-        }
-
-        .filter-tag.active {
-            background: #0066cc;
-            color: white;
-        }
-
-        .project-container {
-            background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            min-height: 600px;
-        }
-
-        .project-header h1 {
-            color: #2c3e50;
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .project-meta {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .project-meta span {
-            padding: 0.4rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-
-        .project-role {
-            background: #e3f2fd;
-            color: #1976d2;
-        }
-
-        .project-category {
-            background: #f3e5f5;
-            color: #7b1fa2;
-        }
-
-        .project-status {
-            background: #e8f5e8;
-            color: #388e3c;
-        }
-
-        .project-overview .lead-text {
-            font-size: 1.1rem;
-            line-height: 1.7;
-            color: #495057;
-            margin-bottom: 2rem;
-        }
-
-        .project-details h3 {
-            color: #2c3e50;
-            font-size: 1.3rem;
-            margin: 2rem 0 1rem 0;
-            font-weight: 600;
-        }
-
-        .feature-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .feature-list li {
-            padding: 0.5rem 0;
-            display: flex;
-            align-items: flex-start;
-            gap: 0.75rem;
-        }
-
-        .feature-list i {
-            color: #28a745;
-            margin-top: 0.2rem;
-            flex-shrink: 0;
-        }
-
-        .architecture-grid,
-        .component-grid,
-        .integration-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin: 1.5rem 0;
-        }
-
-        .arch-item,
-        .component-card,
-        .integration-item {
-            background: #f8f9fa;
-            padding: 1.5rem;
-            border-radius: 10px;
-            text-align: center;
-            border: 1px solid #e9ecef;
-        }
-
-        .arch-item i,
-        .component-icon i,
-        .integration-item i {
-            font-size: 2rem;
-            color: #0066cc;
-            margin-bottom: 1rem;
-        }
-
-        .arch-item h4,
-        .component-card h4,
-        .integration-item h4 {
-            color: #2c3e50;
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-        }
-
-        .arch-item p,
-        .component-card p,
-        .integration-item p {
-            color: #6c757d;
-            font-size: 0.9rem;
-            margin: 0;
-        }
-
-        .data-sources {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin: 1.5rem 0;
-        }
-
-        .source-item {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 1rem;
-            background: #f8f9fa;
-            border-radius: 8px;
-            border-left: 4px solid #0066cc;
-        }
-
-        .source-item i {
-            color: #0066cc;
-            font-size: 1.2rem;
-        }
-
-        .tech-stack-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 1.5rem;
-            border-radius: 12px;
-            margin-top: 2rem;
-        }
-
-        .tech-stack-card h4 {
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-
-        .tech-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .tech-tag {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 0.4rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            backdrop-filter: blur(10px);
-        }
-
-        @media (max-width: 768px) {
-            .projects-layout {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-
-            .projects-sidebar {
-                position: static;
-            }
-
-            .project-meta {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-
-            .architecture-grid,
-            .component-grid,
-            .integration-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <!-- Common Navigation and Footer Components -->
+    <script src="common-nav.js" defer></script>
+    <script src="common-footer.js" defer></script>
 </head>
 
 <body>
-    <!-- Navigation will be inserted by common-nav.js -->
 
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="hero-container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1 class="hero-title">
-                        <span class="hero-greeting">Project</span>
-                        <span class="hero-name">Portfolio</span>
-                    </h1>
-                    <h2 class="hero-subtitle">Enterprise Solutions & Digital Transformation</h2>
-                    <p class="hero-description">
-                        Showcasing 15+ years of architecting and delivering scalable enterprise solutions, from
-                        microservices platforms to AI-driven systems.
-                    </p>
-                    <div class="hero-stats">
-                        <div class="stat-item">
-                            <span class="stat-number">50+</span>
-                            <span class="stat-label">Projects Delivered</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">10+</span>
-                            <span class="stat-label">Enterprise Clients</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">100%</span>
-                            <span class="stat-label">Success Rate</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="hero-image">
-                    <div class="image-container">
-                        <img src="images/dipen.jpg" alt="Dipen Shah - Solution Architect" class="profile-image">
-                        <div class="image-decoration"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section class="projects-section">
+    <!-- =====================================================================
+         PROJECTS HERO SECTION
+         ===================================================================== -->
+    <section class="section" style="padding-top: 3.5rem; padding-bottom: 2.5rem;">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Featured Projects</h2>
-                <p class="section-subtitle">Comprehensive solutions across various domains and technologies</p>
+                <span class="section-eyebrow">
+                    <i class="fas fa-layer-group"></i> Architecture Portfolio
+                </span>
+                <h1 class="section-title">Enterprise Systems &amp; Deployments</h1>
+                <p class="section-subtitle">
+                    Proven multi-region solutions architected for Fortune 500 enterprises, regulated financial institutions, and high-velocity digital leaders. Filter by architectural domain below.
+                </p>
             </div>
 
-            <div class="projects-layout">
-                <div class="projects-sidebar">
-                    <div class="sidebar-card">
-                        <h3>Project Categories</h3>
-                        <ul id="project-menu" class="project-categories"></ul>
-                    </div>
-                    <div class="sidebar-card">
-                        <h3>Technologies</h3>
-                        <div class="tech-filter">
-                            <span class="filter-tag active" data-tech="all">All</span>
-                            <span class="filter-tag" data-tech=".NET Core">.NET Core</span>
-                            <span class="filter-tag" data-tech="Angular">Angular</span>
-                            <span class="filter-tag" data-tech="Azure">Azure</span>
-                            <span class="filter-tag" data-tech="Microservices">Microservices</span>
-                        </div>
-                    </div>
-                </div>
+            <!-- Dynamic Filter Bar -->
+            <div class="filter-bar" role="tablist" aria-label="Project Categories">
+                <button class="filter-btn active" data-filter="all">All Projects (8)</button>
+                <button class="filter-btn" data-filter="cloud-native">Cloud Native (3)</button>
+                <button class="filter-btn" data-filter="enterprise-scale">Enterprise Scale (3)</button>
+                <button class="filter-btn" data-filter="legacy-modernization">Legacy Modernization (2)</button>
+                <button class="filter-btn" data-filter="finops-governance">FinOps &amp; Governance (2)</button>
+            </div>
 
-                <div class="project-content">
-                    <div id="project-detail" class="project-container">
-                        <!-- Dynamic project content will be loaded here -->
+            <!-- Filterable Project Grid -->
+            <div class="projects-grid" id="projects-grid-container">
+
+                <!-- Project 1 -->
+                <article class="project-card" data-category="enterprise-scale">
+                    <span class="project-category-badge">Enterprise Scale</span>
+                    <div class="project-header">
+                        <h2 class="project-title">Global Core Banking Transaction Modernization</h2>
+                        <div class="project-metric"><i class="fas fa-bolt"></i> 45,000 TPS &bull; Sub-18ms P99 Latency</div>
                     </div>
-                </div>
+                    <p class="project-summary">
+                        <strong>Problem:</strong> Monolithic mainframe core struggled with peak transaction spikes, resulting in processing lags and high licensing overhead. <br>
+                        <strong>Solution:</strong> Architected an asynchronous event-driven microservices platform on Azure Kubernetes Service (AKS) with Apache Kafka streaming and distributed CQRS caching.
+                    </p>
+                    <div class="project-tech-stack">
+                        <span class="tag tag-blue">.NET 8</span>
+                        <span class="tag tag-blue">Azure AKS</span>
+                        <span class="tag tag-teal">Apache Kafka</span>
+                        <span class="tag tag-teal">Cosmos DB</span>
+                        <span class="tag">Redis Cache</span>
+                        <span class="tag">Terraform</span>
+                    </div>
+                    <div class="project-actions">
+                        <span class="mono" style="font-size: 0.8rem; color: var(--teal-light);">ROI: 42% Cost Cut</span>
+                        <button class="btn btn-primary btn-sm btn-deep-dive" data-project-id="p1">
+                            <i class="fas fa-search-plus"></i> Read Deep Dive
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Project 2 -->
+                <article class="project-card" data-category="cloud-native">
+                    <span class="project-category-badge">Cloud Native</span>
+                    <div class="project-header">
+                        <h2 class="project-title">Healthcare Multi-Cloud Patient Telemetry Platform</h2>
+                        <div class="project-metric"><i class="fas fa-shield-alt"></i> 100% HIPAA Compliant &bull; 99.999% SLA</div>
+                    </div>
+                    <p class="project-summary">
+                        <strong>Problem:</strong> Fragmented patient data ingestion across siloed hospitals risked patient care delays and failed federal HIPAA audit standards.<br>
+                        <strong>Solution:</strong> Deployed an event-driven telemetry pipeline on AWS Lambda and Azure Event Hubs ingesting 120M IoT signals daily with zero-trust envelope encryption.
+                    </p>
+                    <div class="project-tech-stack">
+                        <span class="tag tag-blue">AWS Lambda</span>
+                        <span class="tag tag-blue">Azure Event Hubs</span>
+                        <span class="tag tag-teal">Kinesis</span>
+                        <span class="tag tag-teal">Docker</span>
+                        <span class="tag">GraphQL</span>
+                        <span class="tag">PostgreSQL</span>
+                    </div>
+                    <div class="project-actions">
+                        <span class="mono" style="font-size: 0.8rem; color: var(--teal-light);">120M Events/Day</span>
+                        <button class="btn btn-primary btn-sm btn-deep-dive" data-project-id="p2">
+                            <i class="fas fa-search-plus"></i> Read Deep Dive
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Project 3 -->
+                <article class="project-card" data-category="legacy-modernization">
+                    <span class="project-category-badge">Legacy Modernization</span>
+                    <div class="project-header">
+                        <h2 class="project-title">Supply Chain Logistics Monolith Deconstruction</h2>
+                        <div class="project-metric"><i class="fas fa-sync-alt"></i> Zero-Downtime Strangler Cutover</div>
+                    </div>
+                    <p class="project-summary">
+                        <strong>Problem:</strong> A 14-year-old monolithic WCF/ASP.NET application suffered 6-hour release freeze cycles and frequent single-point database deadlocks.<br>
+                        <strong>Solution:</strong> Executed an incremental Strangler Fig pattern, decomposing into 18 bounded-context domain services containerized on Azure App Service with Azure Service Bus.
+                    </p>
+                    <div class="project-tech-stack">
+                        <span class="tag tag-blue">C# .NET 8</span>
+                        <span class="tag tag-blue">Azure Service Bus</span>
+                        <span class="tag tag-teal">Docker</span>
+                        <span class="tag tag-teal">SQL Server</span>
+                        <span class="tag">Bicep</span>
+                        <span class="tag">GitHub Actions</span>
+                    </div>
+                    <div class="project-actions">
+                        <span class="mono" style="font-size: 0.8rem; color: var(--teal-light);">Deployment: Daily</span>
+                        <button class="btn btn-primary btn-sm btn-deep-dive" data-project-id="p3">
+                            <i class="fas fa-search-plus"></i> Read Deep Dive
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Project 4 -->
+                <article class="project-card" data-category="finops-governance">
+                    <span class="project-category-badge">FinOps &amp; Governance</span>
+                    <div class="project-header">
+                        <h2 class="project-title">Enterprise FinOps &amp; Cloud Governance Platform</h2>
+                        <div class="project-metric"><i class="fas fa-chart-line"></i> $3.8M Annual AWS/Azure Savings</div>
+                    </div>
+                    <p class="project-summary">
+                        <strong>Problem:</strong> Unmonitored multi-cloud provisioning across 280 corporate subscriptions resulted in uncontrollable bill spikes and untracked orphan resources.<br>
+                        <strong>Solution:</strong> Built automated policy enforcement and serverless rightsizing agents that automatically detect overprovisioned clusters, rightsizing instances with zero disruption.
+                    </p>
+                    <div class="project-tech-stack">
+                        <span class="tag tag-blue">FinOps</span>
+                        <span class="tag tag-blue">Azure Policy</span>
+                        <span class="tag tag-teal">AWS Cost Explorer</span>
+                        <span class="tag tag-teal">Python</span>
+                        <span class="tag">Power BI</span>
+                        <span class="tag">Terraform</span>
+                    </div>
+                    <div class="project-actions">
+                        <span class="mono" style="font-size: 0.8rem; color: var(--teal-light);">35% Net Run-Rate Cut</span>
+                        <button class="btn btn-primary btn-sm btn-deep-dive" data-project-id="p4">
+                            <i class="fas fa-search-plus"></i> Read Deep Dive
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Project 5 -->
+                <article class="project-card" data-category="cloud-native">
+                    <span class="project-category-badge">Cloud Native</span>
+                    <div class="project-header">
+                        <h2 class="project-title">High-Velocity Omnichannel Retail Order Engine</h2>
+                        <div class="project-metric"><i class="fas fa-shopping-bag"></i> 250K Black Friday Orders/Hr</div>
+                    </div>
+                    <p class="project-summary">
+                        <strong>Problem:</strong> Flash-sale traffic surges crashed legacy inventory reservation locks, resulting in overselling and customer cart abandonments.<br>
+                        <strong>Solution:</strong> Replaced synchronous SQL locks with an in-memory distributed Redis state machine and Outbox Pattern, guaranteeing idempotent transactions at peak scale.
+                    </p>
+                    <div class="project-tech-stack">
+                        <span class="tag tag-blue">.NET 8 WebAPI</span>
+                        <span class="tag tag-blue">Redis Enterprise</span>
+                        <span class="tag tag-teal">RabbitMQ</span>
+                        <span class="tag tag-teal">Azure Kubernetes</span>
+                        <span class="tag">MongoDB</span>
+                    </div>
+                    <div class="project-actions">
+                        <span class="mono" style="font-size: 0.8rem; color: var(--teal-light);">Zero Order Dropped</span>
+                        <button class="btn btn-primary btn-sm btn-deep-dive" data-project-id="p5">
+                            <i class="fas fa-search-plus"></i> Read Deep Dive
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Project 6 -->
+                <article class="project-card" data-category="enterprise-scale">
+                    <span class="project-category-badge">Enterprise Scale</span>
+                    <div class="project-header">
+                        <h2 class="project-title">InsurTech Underwriting Rules Engine &amp; API Portal</h2>
+                        <div class="project-metric"><i class="fas fa-file-contract"></i> Sub-Second Quote Generation</div>
+                    </div>
+                    <p class="project-summary">
+                        <strong>Problem:</strong> Manual underwriting workflows required 48 to 72 hours per commercial liability policy, causing broker attrition.<br>
+                        <strong>Solution:</strong> Formulated an automated rules engine executing 400+ actuarial validation algorithms in parallel via containerized microservices and secure partner APIs.
+                    </p>
+                    <div class="project-tech-stack">
+                        <span class="tag tag-blue">Azure API Management</span>
+                        <span class="tag tag-blue">.NET 8</span>
+                        <span class="tag tag-teal">Drools / Rules Engine</span>
+                        <span class="tag tag-teal">Azure Cosmos DB</span>
+                        <span class="tag">OAuth2 / OIDC</span>
+                    </div>
+                    <div class="project-actions">
+                        <span class="mono" style="font-size: 0.8rem; color: var(--teal-light);">72h to 4s Turnaround</span>
+                        <button class="btn btn-primary btn-sm btn-deep-dive" data-project-id="p6">
+                            <i class="fas fa-search-plus"></i> Read Deep Dive
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Project 7 -->
+                <article class="project-card" data-category="legacy-modernization">
+                    <span class="project-category-badge">Legacy Modernization</span>
+                    <div class="project-header">
+                        <h2 class="project-title">Automotive Telematics &amp; Fleet Management Migration</h2>
+                        <div class="project-metric"><i class="fas fa-truck"></i> 500K Connected Commercial Vehicles</div>
+                    </div>
+                    <p class="project-summary">
+                        <strong>Problem:</strong> On-premises telemetry servers choked under continuous real-time GPS and engine diagnostic streams from 500,000 fleets.<br>
+                        <strong>Solution:</strong> Architected AWS IoT Core ingestion with serverless streaming to Amazon Timestream and OpenSearch for real-time geospatial geofencing and analytics.
+                    </p>
+                    <div class="project-tech-stack">
+                        <span class="tag tag-blue">AWS IoT Core</span>
+                        <span class="tag tag-blue">Amazon Timestream</span>
+                        <span class="tag tag-teal">OpenSearch</span>
+                        <span class="tag tag-teal">Fargate</span>
+                        <span class="tag">AWS CDK</span>
+                    </div>
+                    <div class="project-actions">
+                        <span class="mono" style="font-size: 0.8rem; color: var(--teal-light);">P99 Latency &lt; 25ms</span>
+                        <button class="btn btn-primary btn-sm btn-deep-dive" data-project-id="p7">
+                            <i class="fas fa-search-plus"></i> Read Deep Dive
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Project 8 -->
+                <article class="project-card" data-category="cloud-native finops-governance">
+                    <span class="project-category-badge">Cloud Native</span>
+                    <div class="project-header">
+                        <h2 class="project-title">Zero-Trust Identity &amp; DevSecOps Governance Pipeline</h2>
+                        <div class="project-metric"><i class="fas fa-lock"></i> SOC 2 &bull; ISO 27001 Certified</div>
+                    </div>
+                    <p class="project-summary">
+                        <strong>Problem:</strong> Distributed engineering teams deployed insecure container configurations with hardcoded secrets and unpatched CVE vulnerabilities.<br>
+                        <strong>Solution:</strong> Instituted GitOps-driven CI/CD with HashiCorp Vault secrets rotation, automated Trivy container image scanning, and Open Policy Agent (OPA) admission controls.
+                    </p>
+                    <div class="project-tech-stack">
+                        <span class="tag tag-blue">HashiCorp Vault</span>
+                        <span class="tag tag-blue">OPA Gatekeeper</span>
+                        <span class="tag tag-teal">GitHub Actions</span>
+                        <span class="tag tag-teal">Trivy</span>
+                        <span class="tag">SonarQube</span>
+                    </div>
+                    <div class="project-actions">
+                        <span class="mono" style="font-size: 0.8rem; color: var(--teal-light);">0 Critical Vulnerabilities</span>
+                        <button class="btn btn-primary btn-sm btn-deep-dive" data-project-id="p8">
+                            <i class="fas fa-search-plus"></i> Read Deep Dive
+                        </button>
+                    </div>
+                </article>
+
             </div>
         </div>
     </section>
 
-    <!-- Footer will be inserted by common-footer.js -->
+    <!-- =====================================================================
+         INTERACTIVE ARCHITECTURAL DEEP DIVE MODAL
+         ===================================================================== -->
+    <div class="modal-overlay" id="deep-dive-modal" aria-hidden="true" role="dialog">
+        <div class="modal-container">
+            <button class="modal-close" id="modal-close-btn" aria-label="Close Project Deep Dive">&times;</button>
+            <div id="modal-content-body">
+                <!-- Dynamically populated by JS -->
+            </div>
+        </div>
+    </div>
 
-    <!-- JavaScript -->
+    <!-- Script for Dynamic Filter & Deep Dive Data -->
     <script>
-        // Navigation functionality is handled by common-nav.js
-
-        // Project data
-        const projects = [
-            {
-                title: "Intelligent Legal Form Builder – Document Automation Platform",
-                category: "Legal Tech",
-                technologies: [".NET Core", "Angular", "Document Generation"],
-                description: `
-                <div class="project-header">
-                    <h1>Intelligent Legal Form Builder</h1>
-                    <div class="project-meta">
-                        <span class="project-role"><i class="fas fa-user-tie"></i> Solution Architect</span>
-                        <span class="project-category"><i class="fas fa-tag"></i> Legal Tech</span>
-                        <span class="project-status"><i class="fas fa-check-circle"></i> Completed</span>
-                    </div>
-                </div>
-                
-                <div class="project-overview">
-                    <p class="lead-text">Led the development of an advanced Legal Form Builder designed to simplify and accelerate legal document creation for attorneys and law firms. This cloud-based platform offers a dynamic, rules-driven interface to assemble complex jurisdiction-based forms with minimal manual intervention.</p>
-                </div>
-
-                <div class="project-details">
-                    <h3>Key Features</h3>
-                    <ul class="feature-list">
-                        <li><i class="fas fa-check"></i> Dynamic field population based on jurisdiction and legal context</li>
-                        <li><i class="fas fa-check"></i> Conditional logic for clause insertion, dependencies, and formatting</li>
-                        <li><i class="fas fa-check"></i> Reusable templates and pre-approved language blocks</li>
-                        <li><i class="fas fa-check"></i> Data import from prior cases or client information repositories</li>
-                        <li><i class="fas fa-check"></i> PDF and Word document generation with jurisdiction-specific branding</li>
-                    </ul>
-
-                    <h3>Architecture Highlights</h3>
-                    <div class="architecture-grid">
-                        <div class="arch-item">
-                            <i class="fas fa-layer-group"></i>
-                            <h4>Modular Architecture</h4>
-                            <p>.NET Core APIs with Angular frontend</p>
-                        </div>
-                        <div class="arch-item">
-                            <i class="fas fa-cogs"></i>
-                            <h4>Form Engine</h4>
-                            <p>Configurable metadata and logic rules</p>
-                        </div>
-                        <div class="arch-item">
-                            <i class="fas fa-users"></i>
-                            <h4>Role Management</h4>
-                            <p>Attorney, paralegal, and client permissions</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="tech-stack-card">
-                    <h4><i class="fas fa-tools"></i> Technology Stack</h4>
-                    <div class="tech-tags">
-                        <span class="tech-tag">.NET Core</span>
-                        <span class="tech-tag">Angular</span>
-                        <span class="tech-tag">Dynamic Forms</span>
-                        <span class="tech-tag">Document Generation</span>
-                        <span class="tech-tag">Legal Automation</span>
-                    </div>
-                </div>
-                `
+        const projectDeepDives = {
+            p1: {
+                title: "Global Core Banking Transaction Modernization",
+                badge: "Enterprise Scale",
+                metrics: "45,000 TPS | Sub-18ms P99 Latency | 99.999% SLA",
+                clientContext: "Tier-1 multinational retail and investment banking institution serving 18M cardholders.",
+                problem: "The legacy core running on on-premises mainframe hardware suffered severe bottlenecks during month-end payroll and holiday transaction surges. Batch settlement took 7+ hours, violating modern real-time cross-border compliance mandates, while server maintenance costs escalated 22% year-over-year.",
+                solution: "Designed and led the delivery of a multi-region distributed microservices topology on Azure Kubernetes Service (AKS). Decoupled the monolithic database using Domain-Driven Design (DDD) into autonomous account, ledger, and authorization services. Implemented Apache Kafka as the immutable transaction log with the Outbox Pattern ensuring zero dual-write anomalies.",
+                diagram: `[Ingress: Azure Front Door / WAF]
+         │ (Mutual TLS 1.3)
+         ▼
+[API Gateway: Envoy on AKS]
+   ┌─────┴─────────────────────┐
+   ▼                           ▼
+[Auth Service]          [Ledger Service]
+   │                           │
+   └──────────┬────────────────┘
+              ▼
+    [Kafka Event Stream Hub] (Topic: Transactions.v1)
+              │
+    ┌─────────┴─────────┐
+    ▼                   ▼
+[Cosmos DB Hot Store]  [Event Sourcing Cold Lake]
+(<5ms P99 Read)        (Azure ADLS Gen2)`,
+                outcomes: [
+                    "Scaled throughput seamlessly to 45,000 Transactions Per Second during peak peak loads.",
+                    "Slashed end-of-day reconciliation latency from 7 hours down to 4 minutes in real time.",
+                    "Reduced operational infrastructure expenditure by 42% via automated AKS node autoscaling.",
+                    "Zero downtime migration achieved across 18 million active accounts using the Strangler pattern."
+                ],
+                tech: [".NET 8", "Azure AKS", "Apache Kafka", "Cosmos DB", "Redis Enterprise", "Terraform", "OpenTelemetry"]
             },
-            {
-                title: "Policy Evaluation Framework – Containerized Asset Compliance Engine",
-                category: "Enterprise Architecture",
-                technologies: [".NET Core", "Microservices", "Containers"],
-                description: `
-                <div class="project-header">
-                    <h1>Policy Evaluation Framework</h1>
-                    <div class="project-meta">
-                        <span class="project-role"><i class="fas fa-user-tie"></i> Solution Architect</span>
-                        <span class="project-category"><i class="fas fa-tag"></i> Enterprise Architecture</span>
-                        <span class="project-status"><i class="fas fa-check-circle"></i> Completed</span>
-                    </div>
-                </div>
-                
-                <div class="project-overview">
-                    <p class="lead-text">Led the architectural design and implementation of a scalable Policy Evaluation Framework used to assess compliance of enterprise assets against defined policy sets. The system is built on a modular, container-driven architecture to support distributed execution, reusability, and rapid evaluation cycles.</p>
-                </div>
-
-                <div class="project-details">
-                    <h3>System Components</h3>
-                    <div class="component-grid">
-                        <div class="component-card">
-                            <div class="component-icon">
-                                <i class="fas fa-server"></i>
-                            </div>
-                            <h4>Policy Evaluator</h4>
-                            <p>Orchestrator container handling validation, events, and API coordination</p>
-                        </div>
-                        <div class="component-card">
-                            <div class="component-icon">
-                                <i class="fas fa-cogs"></i>
-                            </div>
-                            <h4>Processor Service</h4>
-                            <p>Long-running microservice managing evaluation events and results</p>
-                        </div>
-                        <div class="component-card">
-                            <div class="component-icon">
-                                <i class="fas fa-cube"></i>
-                            </div>
-                            <h4>Policy Containers</h4>
-                            <p>Language-agnostic containers with isolated policy logic</p>
-                        </div>
-                    </div>
-
-                    <h3>Key Benefits</h3>
-                    <ul class="feature-list">
-                        <li><i class="fas fa-check"></i> Horizontal scalability with clean separation of concerns</li>
-                        <li><i class="fas fa-check"></i> Language-agnostic policy development</li>
-                        <li><i class="fas fa-check"></i> Rapid onboarding of new compliance rules</li>
-                        <li><i class="fas fa-check"></i> Robust observability and monitoring</li>
-                    </ul>
-                </div>
-
-                <div class="tech-stack-card">
-                    <h4><i class="fas fa-tools"></i> Technology Stack</h4>
-                    <div class="tech-tags">
-                        <span class="tech-tag">.NET Core</span>
-                        <span class="tech-tag">Microservices</span>
-                        <span class="tech-tag">Containers</span>
-                        <span class="tech-tag">Event-Driven</span>
-                        <span class="tech-tag">Compliance</span>
-                    </div>
-                </div>
-                `
+            p2: {
+                title: "Healthcare Multi-Cloud Patient Telemetry Platform",
+                badge: "Cloud Native",
+                metrics: "120M Daily IoT Packets | 100% HIPAA Compliance | Multi-Cloud Resilience",
+                clientContext: "National healthcare consortium operating 45 hospitals and 300+ ambulatory care centers.",
+                problem: "Critical patient vitals from bedside monitors and wearable telemetry devices were siloed in localized hospital data rooms. Clinicians lacked real-time alerting for acute cardiac and respiratory deteriorations, and cross-facility disaster recovery took over 12 hours.",
+                solution: "Engineered an active-active multi-cloud telemetry ingestion pipeline leveraging AWS IoT Core, AWS Lambda, and Azure Event Hubs. Employed envelope encryption with HSM-backed customer managed keys ensuring strict HIPAA and HITECH compliance. Integrated streaming anomaly detection models alerting medical teams in under 2 seconds.",
+                diagram: `[Bedside / Wearable Monitors] 
+       │ (MQTT / TLS 1.3)
+       ▼
+[AWS IoT Core Ingress] ──► [Azure Event Hubs Secondary]
+       │                              │
+[Lambda Stream Processor] ────► [AKS Real-Time ML Scoring]
+       │                              │
+       ▼                              ▼
+[Amazon Timestream DB]      [Fast Healthcare (FHIR) API]
+       │                              │
+       └──────────────┬───────────────┘
+                      ▼
+        [Clinical Alerting Dashboard]`,
+                outcomes: [
+                    "Reduced mean time to clinical response for acute events from 14 minutes to 90 seconds.",
+                    "Achieved flawless zero-trust HIPAA security certification with zero audit discrepancies.",
+                    "Guaranteed continuous sub-minute telemetry failover between AWS and Azure regions."
+                ],
+                tech: ["AWS Lambda", "Azure Event Hubs", "Amazon Timestream", "Docker", "GraphQL", "Kinesis", "PostgreSQL"]
             },
-            {
-                title: "Forecasting Platform – AI-Driven Sales, Labor, and Cost Prediction Engine",
-                category: "AI & Analytics",
-                technologies: [".NET Core", "Angular", "Machine Learning", "AI"],
-                description: `
-                <div class="project-header">
-                    <h1>AI-Driven Forecasting Platform</h1>
-                    <div class="project-meta">
-                        <span class="project-role"><i class="fas fa-user-tie"></i> Technical Lead</span>
-                        <span class="project-category"><i class="fas fa-tag"></i> AI & Analytics</span>
-                        <span class="project-status"><i class="fas fa-check-circle"></i> Completed</span>
-                    </div>
-                </div>
-                
-                <div class="project-overview">
-                    <p class="lead-text">Contributed to the architecture and implementation of a comprehensive Forecasting Platform that leveraged Artificial Intelligence (AI) and Machine Learning (ML) models to accurately predict Sales, Labor needs, and CML (Cost of Managing Labor) metrics.</p>
-                </div>
-
-                <div class="project-details">
-                    <h3>Data Sources</h3>
-                    <div class="data-sources">
-                        <div class="source-item">
-                            <i class="fas fa-chart-line"></i>
-                            <span>Multi-year sales and transaction trends</span>
-                        </div>
-                        <div class="source-item">
-                            <i class="fas fa-users"></i>
-                            <span>Labor usage and shift performance patterns</span>
-                        </div>
-                        <div class="source-item">
-                            <i class="fas fa-cloud-sun"></i>
-                            <span>Weather data and seasonality impacts</span>
-                        </div>
-                        <div class="source-item">
-                            <i class="fas fa-dollar-sign"></i>
-                            <span>Cost and wage changes over time</span>
-                        </div>
-                    </div>
-
-                    <h3>Prediction Capabilities</h3>
-                    <ul class="feature-list">
-                        <li><i class="fas fa-check"></i> <strong>Sales Forecasting</strong> – Revenue projections for planning and goal-setting</li>
-                        <li><i class="fas fa-check"></i> <strong>Labor Forecasting</strong> – Optimal staffing levels for service quality</li>
-                        <li><i class="fas fa-check"></i> <strong>Cost Forecasting</strong> – Labor expense and budget projections</li>
-                        <li><i class="fas fa-check"></i> <strong>Scenario Simulations</strong> – Weather, holidays, and promotion impacts</li>
-                    </ul>
-                </div>
-
-                <div class="tech-stack-card">
-                    <h4><i class="fas fa-tools"></i> Technology Stack</h4>
-                    <div class="tech-tags">
-                        <span class="tech-tag">.NET Core</span>
-                        <span class="tech-tag">Angular</span>
-                        <span class="tech-tag">Machine Learning</span>
-                        <span class="tech-tag">AI Models</span>
-                        <span class="tech-tag">Predictive Analytics</span>
-                    </div>
-                </div>
-                `
+            p3: {
+                title: "Supply Chain Logistics Monolith Deconstruction",
+                badge: "Legacy Modernization",
+                metrics: "Zero Downtime Cutover | 18 Bounded Context Services | Daily Release Cadence",
+                clientContext: "Global freight logistics aggregator managing 4,000 cross-border shipping containers daily.",
+                problem: "A 14-year-old monolithic ASP.NET / SQL Server application managed customs, warehouse tracking, and freight billing in a single codebase. Releases required scheduled Sunday 6-hour production downtimes, and database deadlocks frequently brought freight dispatching to a complete standstill.",
+                solution: "Spearheaded an enterprise Strangler Fig migration over 14 months. Established clear bounded contexts (Manifest, Customs, Inventory, Fleet Tracking). Deployed autonomous .NET 8 containerized services on Azure with Azure Service Bus mediating asynchronous communication. Replaced hard database locks with optimistic concurrency and Redis distributed locks.",
+                diagram: `[Old Monolith (ASP.NET 4.5)] <── [Strangler Facade / Reverse Proxy]
+                                                │
+                 ┌──────────────────────────────┴──────────────────────────────┐
+                 ▼                                                             ▼
+       [Customs Service (.NET 8)]                                   [Freight Billing (.NET 8)]
+                 │                                                             │
+                 ▼                                                             ▼
+     [Azure Service Bus Queue]                                     [Azure Service Bus Queue]
+                 │                                                             │
+                 └──────────────────────────────┬──────────────────────────────┘
+                                                ▼
+                                   [Azure SQL Elastic Pool]`,
+                outcomes: [
+                    "Transitioned release frequency from 1 bi-monthly freeze cycle to automated daily zero-downtime deployments.",
+                    "Completely eliminated database deadlock outages, restoring 99.99% system availability.",
+                    "Reduced developer onboarding lead time from 6 weeks to 3 business days through modular bounded contexts."
+                ],
+                tech: [".NET 8", "Azure Service Bus", "Docker", "Azure SQL", "Redis", "Bicep IaC", "GitHub Actions"]
             },
-            {
-                title: "Insight Pay – Intelligent Payroll Processing Platform",
-                category: "FinTech",
-                technologies: [".NET Core", "Azure", "Microservices", "ETL"],
-                description: `
-                <div class="project-header">
-                    <h1>Insight Pay - Payroll Platform</h1>
-                    <div class="project-meta">
-                        <span class="project-role"><i class="fas fa-user-tie"></i> Technical Lead</span>
-                        <span class="project-category"><i class="fas fa-tag"></i> FinTech</span>
-                        <span class="project-status"><i class="fas fa-check-circle"></i> Completed</span>
-                    </div>
-                </div>
-                
-                <div class="project-overview">
-                    <p class="lead-text">Designed and implemented an enterprise-grade payroll processing solution built using a scalable Microservices Architecture. The platform serves multi-location retail, franchise, and restaurant businesses, ensuring full compliance with labor laws across various U.S. states and cities.</p>
-                </div>
-
-                <div class="project-details">
-                    <h3>Key Components</h3>
-                    <div class="component-grid">
-                        <div class="component-card">
-                            <div class="component-icon">
-                                <i class="fas fa-exchange-alt"></i>
-                            </div>
-                            <h4>ETL Pipeline</h4>
-                            <p>Azure Data Factory for POS data extraction and normalization</p>
-                        </div>
-                        <div class="component-card">
-                            <div class="component-icon">
-                                <i class="fas fa-gavel"></i>
-                            </div>
-                            <h4>Compliance Engine</h4>
-                            <p>State-specific wage and overtime calculation rules</p>
-                        </div>
-                        <div class="component-card">
-                            <div class="component-icon">
-                                <i class="fas fa-flow-chart"></i>
-                            </div>
-                            <h4>Pay Flow Management</h4>
-                            <p>Review, edit, and approval workflows for payroll runs</p>
-                        </div>
-                    </div>
-
-                    <h3>Integration Capabilities</h3>
-                    <ul class="feature-list">
-                        <li><i class="fas fa-check"></i> POS Systems: Square, Toast, Oracle Micros</li>
-                        <li><i class="fas fa-check"></i> Payroll Providers: ADP, Paychex, Paylocity</li>
-                        <li><i class="fas fa-check"></i> REST APIs and SFTP-based batch exports</li>
-                        <li><i class="fas fa-check"></i> Multi-tenant architecture for scalability</li>
-                    </ul>
-                </div>
-
-                <div class="tech-stack-card">
-                    <h4><i class="fas fa-tools"></i> Technology Stack</h4>
-                    <div class="tech-tags">
-                        <span class="tech-tag">.NET Core</span>
-                        <span class="tech-tag">Azure Data Factory</span>
-                        <span class="tech-tag">Angular</span>
-                        <span class="tech-tag">Microservices</span>
-                        <span class="tech-tag">Azure SQL</span>
-                    </div>
-                </div>
-                `
+            p4: {
+                title: "Enterprise FinOps & Cloud Governance Platform",
+                badge: "FinOps & Governance",
+                metrics: "$3.8M Direct Annual Cost Reduction | 280 Subscriptions Governed",
+                clientContext: "Global enterprise SaaS provider with 280+ distributed cloud subscriptions across Azure and AWS.",
+                problem: "Uncontrolled developer provisioning led to hundreds of idle test environments, overprovisioned premium SSD storage volumes, and non-reserved computing clusters, driving up monthly cloud bills by 45% with zero departmental accountability.",
+                solution: "Architected a real-time FinOps platform integrating Azure Cost Management APIs, AWS Cost Explorer, and automated rightsizing agents. Implemented mandatory resource tagging policies with automated quarantine for untagged assets. Built automated ephemeral lifecycle shutdowns for non-production environments.",
+                diagram: `[Azure / AWS Subscriptions (280+)]
+                 │
+                 ▼
+     [FinOps Data Collector Agent]
+                 │
+                 ▼
+     [Serverless Heuristic Engine]
+    (Rightsizing, Orphan Disk Detection, Spot Instance Conversion)
+                 │
+      ┌──────────┴──────────┐
+      ▼                     ▼
+[Power BI Executive Views] [Auto-Remediation Bots]`,
+                outcomes: [
+                    "Delivered verified $3.8M in annualized cloud cost savings within the first 6 months.",
+                    "Achieved 98% resource tagging compliance across all corporate business units.",
+                    "Received executive board commendation for converting cloud operations from a cost center into a transparent unit-cost model."
+                ],
+                tech: ["FinOps Framework", "Azure Policy", "AWS Cost Explorer", "Python", "Power BI", "Terraform"]
             },
-            {
-                title: "Mindscope ATS – Cloud-Based Applicant Tracking System",
-                category: "HR Tech",
-                technologies: [".NET Core", "Angular", "AWS", "Resume Parsing"],
-                description: `
-                <div class="project-header">
-                    <h1>Mindscope ATS</h1>
-                    <div class="project-meta">
-                        <span class="project-role"><i class="fas fa-user-tie"></i> Project Lead</span>
-                        <span class="project-category"><i class="fas fa-tag"></i> HR Tech</span>
-                        <span class="project-status"><i class="fas fa-check-circle"></i> Completed</span>
-                    </div>
-                </div>
-                
-                <div class="project-overview">
-                    <p class="lead-text">Led the design, implementation, and delivery of a cloud-native Applicant Tracking and Recruitment Management Platform built to meet the dynamic needs of staffing agencies and enterprise HR teams.</p>
-                </div>
-
-                <div class="project-details">
-                    <h3>Core Features</h3>
-                    <ul class="feature-list">
-                        <li><i class="fas fa-check"></i> Job requisition and publishing across job boards</li>
-                        <li><i class="fas fa-check"></i> Automated resume parsing and candidate profiling</li>
-                        <li><i class="fas fa-check"></i> Pipeline tracking, interview scheduling, and offer workflows</li>
-                        <li><i class="fas fa-check"></i> Client relationship and placement history management</li>
-                    </ul>
-
-                    <h3>Advanced Integrations</h3>
-                    <div class="integration-grid">
-                        <div class="integration-item">
-                            <i class="fas fa-file-alt"></i>
-                            <h4>Resume Parsing</h4>
-                            <p>Structured candidate data extraction</p>
-                        </div>
-                        <div class="integration-item">
-                            <i class="fab fa-microsoft"></i>
-                            <h4>Microsoft 365</h4>
-                            <p>Email and calendar integration</p>
-                        </div>
-                        <div class="integration-item">
-                            <i class="fas fa-brain"></i>
-                            <h4>AI Matching</h4>
-                            <p>Intelligent candidate-to-job matching</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="tech-stack-card">
-                    <h4><i class="fas fa-tools"></i> Technology Stack</h4>
-                    <div class="tech-tags">
-                        <span class="tech-tag">.NET Core</span>
-                        <span class="tech-tag">Angular</span>
-                        <span class="tech-tag">AWS Cloud</span>
-                        <span class="tech-tag">Resume Parsing</span>
-                        <span class="tech-tag">MS 365 API</span>
-                    </div>
-                </div>
-                `
+            p5: {
+                title: "High-Velocity Omnichannel Retail Order Engine",
+                badge: "Cloud Native",
+                metrics: "250K Orders/Hour | 0 Lost Carts | Sub-5ms Inventory Checks",
+                clientContext: "Premier retail brand with 650 physical outlets and a high-traffic international digital storefront.",
+                problem: "Flash-sale events like Black Friday repeatedly triggered database lock contention on inventory tables, leading to double-allocation of stock and extensive cart drop-offs.",
+                solution: "Engineered an in-memory distributed reservation pipeline with Redis Enterprise and .NET 8 minimal APIs. Designed an idempotent Outbox pattern with RabbitMQ, decoupling front-end payment processing from back-end warehouse dispatch.",
+                diagram: `[User Checkouts] ──► [Cloudflare Ingress] ──► [.NET 8 Order API]
+                                                      │
+                                                      ▼
+                                           [Redis Atomic Reservation]
+                                           (Sub-5ms Memory Lock)
+                                                      │
+                                                      ▼
+                                           [RabbitMQ Outbox Bus]
+                                                      │
+                                    ┌─────────────────┴─────────────────┐
+                                    ▼                                   ▼
+                           [Payment Processor]                [Warehouse Dispatch]`,
+                outcomes: [
+                    "Processed 250,000 peak orders per hour with 0 inventory race conditions.",
+                    "P99 checkout latency plummeted from 3.4 seconds to under 220 milliseconds.",
+                    "Saved $1.2M in potential lost revenue during high-demand promotional sales."
+                ],
+                tech: [".NET 8", "Redis Enterprise", "RabbitMQ", "Azure AKS", "MongoDB", "Grafana"]
+            },
+            p6: {
+                title: "InsurTech Underwriting Rules Engine & API Portal",
+                badge: "Enterprise Scale",
+                metrics: "48hr to 4s Quote Generation | 400+ Actuarial Algorithms",
+                clientContext: "Commercial property and casualty insurance provider underwriting enterprise portfolios.",
+                problem: "Actuaries manually reviewed spreadsheets and PDF risk assessments, taking up to 72 hours to respond to commercial brokers, leading to significant broker drop-off.",
+                solution: "Designed a microservices-based automated underwriting engine. Containerized rules algorithms evaluating business credit, regional catastrophic climate data, and claim history concurrently. Exposed a developer-friendly API portal with Azure API Management.",
+                diagram: `[Broker Portal / Partner APIs]
+                 │ (OAuth 2.0 / JWT)
+                 ▼
+     [Azure API Management (APIM)]
+                 │
+                 ▼
+    [Underwriting Orchestrator]
+    ┌────────────┼────────────┐
+    ▼            ▼            ▼
+[Credit API] [Climate API] [Risk Rules Engine]
+    │            │            │
+    └────────────┼────────────┘
+                 ▼
+   [Instant Binder PDF Generator]`,
+                outcomes: [
+                    "Decreased average commercial insurance quote turnaround from 48 hours to 4 seconds.",
+                    "Expanded broker network by 65% due to immediate API accessibility and real-time bind capability.",
+                    "Eliminated underwriting calculation errors, improving loss ratio accuracy by 14%."
+                ],
+                tech: ["Azure APIM", ".NET 8", "Cosmos DB", "OpenID Connect", "Docker", "Swagger / OpenAPI"]
+            },
+            p7: {
+                title: "Automotive Telematics & Fleet Management Migration",
+                badge: "Legacy Modernization",
+                metrics: "500,000 Connected Trucks | Real-Time Geospatial Alerts",
+                clientContext: "Commercial vehicle telematics leader operating nationwide logistics tracking.",
+                problem: "On-premises socket servers struggled to handle incoming GPS telemetry from half a million vehicles, dropping 8% of location packets during peak evening rush hours.",
+                solution: "Migrated infrastructure to AWS IoT Core with distributed ingestion into Amazon Timestream. Leveraged AWS Fargate microservices for geo-fence boundary computation with sub-25ms response times.",
+                diagram: `[500,000 Vehicle Fleet]
+          │ (Cellular MQTT / Protobuf)
+          ▼
+   [AWS IoT Core Ingress]
+          │
+          ▼
+   [Amazon Kinesis Firehose]
+    ┌─────┴────────────────┐
+    ▼                      ▼
+[Timestream Time-Series] [Fargate Geofence Engine]
+    │                      │
+    ▼                      ▼
+[OpenSearch Visuals]   [SMS / Push Alert Router]`,
+                outcomes: [
+                    "Achieved 100% packet ingestion reliability with zero lost telematics frames.",
+                    "Reduced cloud hosting costs by 28% compared to the legacy dedicated servers.",
+                    "Enabled real-time fuel efficiency analytics, saving fleet operators an average of 9% in diesel expenses."
+                ],
+                tech: ["AWS IoT Core", "Amazon Timestream", "OpenSearch", "AWS Fargate", "AWS CDK", "Protobuf"]
+            },
+            p8: {
+                title: "Zero-Trust Identity & DevSecOps Governance Pipeline",
+                badge: "Cloud Native",
+                metrics: "SOC 2 Type II Certified | 0 High CVEs in Production",
+                clientContext: "Regulated FinTech platform managing $4B in digital payments.",
+                problem: "Fast-growing development teams lacked standardized container security practices, leading to static credentials checked into Git and delays during external compliance audits.",
+                solution: "Implemented automated GitOps pipelines with HashiCorp Vault dynamic secret injection. Integrated automated container vulnerability scanning with Trivy and Open Policy Agent (OPA) admission webhooks preventing non-compliant Kubernetes deployments.",
+                diagram: `[Developer Git Commit]
+          │
+          ▼
+[GitHub Actions CI Pipeline]
+ ├─► [SonarQube Static Analysis]
+ ├─► [Trivy Container CVE Scan]
+ └─► [HashiCorp Vault Secret Minting]
+          │
+          ▼
+[Kubernetes Cluster Ingress]
+          │
+     [OPA Gatekeeper Admission Webhook]
+          │ (Enforce Security Policy)
+          ▼
+[Production Deployment Verified]`,
+                outcomes: [
+                    "Achieved SOC 2 Type II and ISO 27001 certifications on the initial audit review.",
+                    "Reduced critical vulnerability remediation times from 3 weeks to under 4 hours.",
+                    "Automated 100% of credential rotation, eliminating static production credentials entirely."
+                ],
+                tech: ["HashiCorp Vault", "OPA Gatekeeper", "GitHub Actions", "Trivy", "Kubernetes", "SonarQube"]
             }
-        ];
+        };
 
-        // Render project menu
-        function renderProjectMenu() {
-            const menu = document.getElementById("project-menu");
-            projects.forEach((project, index) => {
-                const li = document.createElement("li");
-                li.innerHTML = `<a href="#" class="project-link ${index === 0 ? 'active' : ''}" data-index="${index}">
-                    <i class="fas fa-project-diagram"></i> ${project.title}
-                </a>`;
-                menu.appendChild(li);
-            });
+        // Filter Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const projectCards = document.querySelectorAll('.project-card');
 
-            // Add click handlers
-            document.querySelectorAll('.project-link').forEach(link => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const index = parseInt(e.target.getAttribute('data-index'));
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
 
-                    // Update active state
-                    document.querySelectorAll('.project-link').forEach(l => l.classList.remove('active'));
-                    e.target.classList.add('active');
+                    const filterValue = btn.getAttribute('data-filter');
 
-                    renderProject(index);
+                    projectCards.forEach(card => {
+                        const category = card.getAttribute('data-category') || '';
+                        if (filterValue === 'all' || category.includes(filterValue)) {
+                            card.style.display = 'flex';
+                            card.style.animation = 'fadeIn 0.3s ease forwards';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
                 });
             });
-        }
 
-        // Render single project
-        function renderProject(index) {
-            const project = projects[index];
-            const container = document.getElementById("project-detail");
+            // Modal Logic
+            const modal = document.getElementById('deep-dive-modal');
+            const modalBody = document.getElementById('modal-content-body');
+            const closeBtn = document.getElementById('modal-close-btn');
 
-            container.innerHTML = project.description;
-        }
+            document.querySelectorAll('.btn-deep-dive').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const id = btn.getAttribute('data-project-id');
+                    const data = projectDeepDives[id];
+                    if (!data) return;
 
-        // Technology filter functionality
-        document.querySelectorAll('.filter-tag').forEach(tag => {
-            tag.addEventListener('click', (e) => {
-                const tech = e.target.getAttribute('data-tech');
+                    const techBadges = data.tech.map(t => `<span class="tag tag-blue">${t}</span>`).join(' ');
+                    const outcomesList = data.outcomes.map(o => `<li><i class="fas fa-check-circle" style="color: var(--teal-light); margin-right: 0.5rem;"></i>${o}</li>`).join('');
 
-                // Update active state
-                document.querySelectorAll('.filter-tag').forEach(t => t.classList.remove('active'));
-                e.target.classList.add('active');
+                    modalBody.innerHTML = `
+                        <div style="margin-bottom: 1.5rem;">
+                            <span class="badge tag-teal" style="margin-bottom: 0.75rem;">${data.badge}</span>
+                            <h2 style="font-size: 1.8rem; color: #FFFFFF; margin-bottom: 0.5rem;">${data.title}</h2>
+                            <div class="mono" style="color: var(--blue-accent); font-size: 0.9rem;">${data.metrics}</div>
+                        </div>
 
-                // Filter projects (simplified - in real implementation, would filter the project list)
-                console.log('Filtering by:', tech);
+                        <div style="margin-bottom: 1.5rem;">
+                            <h4 style="color: var(--teal-light); font-size: 0.95rem; text-transform: uppercase; margin-bottom: 0.4rem; font-family: var(--font-mono);">Client Context</h4>
+                            <p style="font-size: 0.95rem; color: var(--text-secondary);">${data.clientContext}</p>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+                            <div style="background: rgba(11, 17, 32, 0.7); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-hairline);">
+                                <h4 style="color: #EF4444; font-size: 0.9rem; text-transform: uppercase; margin-bottom: 0.5rem; font-family: var(--font-mono);"><i class="fas fa-exclamation-triangle"></i> Business Challenge</h4>
+                                <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;">${data.problem}</p>
+                            </div>
+                            <div style="background: rgba(11, 17, 32, 0.7); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-hairline);">
+                                <h4 style="color: var(--teal-light); font-size: 0.9rem; text-transform: uppercase; margin-bottom: 0.5rem; font-family: var(--font-mono);"><i class="fas fa-microchip"></i> Architectural Blueprint</h4>
+                                <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;">${data.solution}</p>
+                            </div>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem;">
+                            <h4 style="color: var(--blue-accent); font-size: 0.95rem; text-transform: uppercase; margin-bottom: 0.6rem; font-family: var(--font-mono);"><i class="fas fa-sitemap"></i> Architecture Topology Blueprint</h4>
+                            <pre class="mono" style="background: #070D19; border: 1px solid var(--border-hairline); border-radius: var(--radius-md); padding: 1rem; color: #38BDF8; font-size: 0.8rem; overflow-x: auto; line-height: 1.45;">${data.diagram}</pre>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem;">
+                            <h4 style="color: #FFFFFF; font-size: 0.95rem; text-transform: uppercase; margin-bottom: 0.6rem; font-family: var(--font-mono);">Quantifiable Business Outcomes</h4>
+                            <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.9rem; color: var(--text-secondary);">
+                                ${outcomesList}
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 style="color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase; margin-bottom: 0.5rem; font-family: var(--font-mono);">Technology Ecosystem</h4>
+                            <div style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
+                                ${techBadges}
+                            </div>
+                        </div>
+                    `;
+
+                    modal.classList.add('open');
+                    modal.setAttribute('aria-hidden', 'false');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            const closeModal = () => {
+                modal.classList.remove('open');
+                modal.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+            };
+
+            closeBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeModal();
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
             });
         });
-
-        // Initialize
-        renderProjectMenu();
-        renderProject(0);
     </script>
-</body>
 
+</body>
 </html>

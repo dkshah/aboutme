@@ -5,570 +5,504 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Dipen Shah - Technical Blogs on .NET Core, Azure, Architecture, and Software Development Best Practices.">
-    <meta name="keywords" content="Dipen Shah, Technical Blogs, .NET Core, Azure, Software Architecture, Development">
+        content="Technical Architecture Thought Leadership &amp; Insights by Dipen Shah. Deep architectural analyses on .NET 8, Azure, AWS, Distributed Systems, Microservices, and FinOps.">
+    <meta name="keywords"
+        content="Technical Blogs, Software Architecture, Solution Architect, .NET 8, Azure, AWS, Microservices, Cloud Architecture, FinOps, Tech Leadership">
     <meta name="author" content="Dipen Shah">
 
-    <title>Dipen Shah | Technical Blogs | Solution Architect</title>
+    <title>Technical Insights &amp; Thought Leadership | Dipen Shah</title>
 
-    <!-- Professional Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Lora:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
+    <!-- Typography: Inter + JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Icons and Libraries -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Theme CSS -->
-    <link id="theme-style" rel="stylesheet" href="theme.css">
+    <!-- Unified Design System -->
+    <link rel="stylesheet" href="architecture-portfolio.css">
 
-    <!-- Common Components -->
-    <script src="common-nav.js"></script>
-    <script src="common-footer.js"></script>
-
-    <!-- Additional Styles for Blogs Page -->
-    <style>
-        /* Compact Hero Section for Blog Page */
-        .hero-section {
-            min-height: auto !important;
-            padding: 6rem 0 2rem 0 !important;
-        }
-
-        /* Smaller Header Text Overrides */
-        .hero-greeting {
-            font-size: 1rem !important;
-            display: block;
-            margin-bottom: 0.2rem;
-            color: #6c757d;
-        }
-
-        .hero-name {
-            font-size: 2.8rem !important;
-            line-height: 1.1;
-        }
-
-        .hero-subtitle {
-            font-size: 1.3rem !important;
-            margin-top: 0.5rem !important;
-            margin-bottom: 0.8rem !important;
-            color: #667eea;
-        }
-
-        .hero-description {
-            margin-bottom: 0 !important;
-            font-size: 0.95rem !important;
-            color: #6c757d;
-            max-width: 650px;
-            line-height: 1.6;
-        }
-
-        .blogs-section {
-            padding: 2rem 0 4rem 0;
-        }
-
-        /* Category Filter Bar */
-        /* Category Filter Bar */
-        .category-filter-bar {
-            background: transparent;
-            padding: 0;
-            margin-bottom: 3rem;
-            border-radius: 0;
-            box-shadow: none;
-        }
-
-        .category-filters {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .category-filter-btn {
-            background: #fff;
-            color: #555;
-            border: 1px solid #e1e4e8;
-            padding: 0.4rem 0.9rem;
-            border-radius: 50px;
-            cursor: pointer;
-            font-size: 0.8rem;
-            font-weight: 600;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
-        }
-
-        .category-filter-btn:hover {
-            border-color: #667eea;
-            color: #667eea;
-            background: white;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
-        }
-
-        .category-filter-btn.active {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-color: transparent;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-        }
-
-        .category-filter-btn i {
-            font-size: 0.8rem;
-        }
-
-        /* Blog Grid */
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        /* Blog Card */
-        .blog-card {
-            background: white;
-            border-radius: 16px;
-            overflow: hidden;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 1px solid #e9ecef;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            position: relative;
-        }
-
-        .blog-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .blog-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .blog-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 40px rgba(102, 126, 234, 0.25);
-            border-color: #667eea;
-        }
-
-        .blog-card-header {
-            padding: 2rem 2rem 1rem 2rem;
-        }
-
-        .blog-card-header h3 {
-            color: #2c3e50;
-            font-size: 1.35rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-            line-height: 1.4;
-            transition: color 0.3s ease;
-        }
-
-        .blog-card:hover .blog-card-header h3 {
-            color: #667eea;
-        }
-
-        .blog-meta {
-            display: flex;
-            gap: 1.25rem;
-            margin-bottom: 1.25rem;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-
-        .blog-date,
-        .blog-time {
-            font-size: 0.875rem;
-            color: #6c757d;
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-            font-weight: 500;
-        }
-
-        .blog-date i,
-        .blog-time i {
-            color: #667eea;
-        }
-
-        .blog-category {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 0.4rem 1rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
-        }
-
-        .blog-card-content {
-            padding: 0 2rem 1.5rem 2rem;
-        }
-
-        .blog-card-content p {
-            color: #6c757d;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-
-        .blog-card-footer {
-            padding: 1.25rem 2rem;
-            background: #f8f9fa;
-            border-top: 1px solid #e9ecef;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .read-more {
-            color: #667eea;
-            font-weight: 600;
-            font-size: 0.95rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .read-more:hover {
-            gap: 0.75rem;
-        }
-
-        .read-more i {
-            transition: transform 0.3s ease;
-        }
-
-        .blog-card:hover .read-more i {
-            transform: translateX(4px);
-        }
-
-        /* Article View */
-        .article-container {
-            background: white;
-            border-radius: 16px;
-            padding: 3rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        }
-
-        .article-navigation {
-            margin-bottom: 2.5rem;
-        }
-
-        .back-btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            padding: 0.875rem 1.75rem;
-            border-radius: 50px;
-            cursor: pointer;
-            font-size: 0.95rem;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
-        }
-
-        .back-btn:hover {
-            transform: translateX(-4px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
-        }
-
-        .article-header h1 {
-            color: #2c3e50;
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            font-weight: 800;
-            line-height: 1.3;
-        }
-
-        .article-meta {
-            display: flex;
-            gap: 2rem;
-            margin-bottom: 2.5rem;
-            flex-wrap: wrap;
-            padding-bottom: 1.5rem;
-            border-bottom: 2px solid #e9ecef;
-        }
-
-        .article-date,
-        .article-time,
-        .article-category {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.95rem;
-            color: #6c757d;
-            font-weight: 500;
-        }
-
-        .article-category {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-weight: 600;
-        }
-
-        .article-content {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            color: #495057;
-        }
-
-        .article-content .lead-text {
-            font-size: 1.2rem;
-            font-weight: 500;
-            color: #2c3e50;
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
-            border-left: 4px solid #667eea;
-            border-radius: 0 12px 12px 0;
-        }
-
-        .article-content h3 {
-            color: #2c3e50;
-            font-size: 1.5rem;
-            margin: 2.5rem 0 1.25rem 0;
-            font-weight: 700;
-        }
-
-        .article-content ul {
-            margin: 1.5rem 0;
-            padding-left: 1.5rem;
-        }
-
-        .article-content li {
-            margin-bottom: 0.75rem;
-            line-height: 1.7;
-        }
-
-        .article-content pre {
-            background: #2d3748;
-            color: #e2e8f0;
-            padding: 1.5rem;
-            border-radius: 12px;
-            overflow-x: auto;
-            margin: 2rem 0;
-            font-size: 0.9rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        .article-content code {
-            background: #f1f3f4;
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            font-size: 0.9rem;
-            color: #d63384;
-        }
-
-        .article-content pre code {
-            background: none;
-            padding: 0;
-            color: inherit;
-        }
-
-        .comparison-table {
-            margin: 2rem 0;
-            overflow-x: auto;
-        }
-
-        .comparison-table table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-        }
-
-        .comparison-table th {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 1.25rem;
-            text-align: left;
-            font-weight: 600;
-        }
-
-        .comparison-table td {
-            padding: 1.25rem;
-            border-bottom: 1px solid #e9ecef;
-        }
-
-        .comparison-table tr:hover {
-            background: #f8f9fa;
-        }
-
-        .tech-stack-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 2rem;
-            border-radius: 16px;
-            margin-top: 2.5rem;
-            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
-        }
-
-        .tech-stack-card h4 {
-            margin-bottom: 1.25rem;
-            font-size: 1.3rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-weight: 700;
-        }
-
-        .tech-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-        }
-
-        .tech-tag {
-            background: rgba(255, 255, 255, 0.25);
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            font-weight: 500;
-        }
-
-        /* Empty State */
-        .empty-state {
-            text-align: center;
-            padding: 4rem 2rem;
-        }
-
-        .empty-state i {
-            font-size: 4rem;
-            color: #e9ecef;
-            margin-bottom: 1.5rem;
-        }
-
-        .empty-state h3 {
-            color: #6c757d;
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .empty-state p {
-            color: #adb5bd;
-        }
-
-        @media (max-width: 768px) {
-            .blog-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .category-filters {
-                gap: 0.5rem;
-            }
-
-            .category-filter-btn {
-                padding: 0.6rem 1.2rem;
-                font-size: 0.85rem;
-            }
-
-            .article-container {
-                padding: 2rem 1.5rem;
-            }
-
-            .article-header h1 {
-                font-size: 2rem;
-            }
-
-            .article-meta {
-                flex-direction: column;
-                gap: 0.75rem;
-            }
-        }
-    </style>
+    <!-- Common Navigation and Footer Components -->
+    <script src="common-nav.js" defer></script>
+    <script src="common-footer.js" defer></script>
 </head>
 
 <body>
-    <!-- Navigation Header -->
-    <nav class="navbar-modern">
-        <div class="nav-container">
-            <div class="nav-brand">
-                <h1 class="brand-name">Dipen Shah</h1>
-                <span class="brand-title">Solution Architect</span>
-            </div>
-            <div class="nav-menu" id="nav-menu">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="Projects.html" class="nav-link">Projects</a>
-                <a href="blogs.html" class="nav-link active">Blogs</a>
-                <a href="carreradvice.html" class="nav-link">Career Advice</a>
-                <a href="resume.html" class="nav-link nav-cta">Resume</a>
-            </div>
-            <div class="nav-toggle" id="nav-toggle">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="hero-container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1 class="hero-title">
-                        <span class="hero-greeting">Technical</span>
-                        <span class="hero-name">Blogs</span>
-                    </h1>
-                    <h2 class="hero-subtitle">Insights on Architecture, Development & Technology</h2>
-                    <p class="hero-description">
-                        Sharing knowledge and experiences from 15+ years in enterprise software development, cloud
-                        architecture, and technical leadership.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Blogs Section -->
-    <section class="blogs-section">
+    <!-- =====================================================================
+         BLOGS HERO SECTION
+         ===================================================================== -->
+    <section class="section" style="padding-top: 3.5rem; padding-bottom: 2.5rem;">
         <div class="container">
-            <!-- Category Filter Bar -->
-            <div class="category-filter-bar">
-                <div class="category-filters" id="category-filters">
-                    <!-- Category filters will be dynamically inserted here -->
-                </div>
+            <div class="section-header">
+                <span class="section-eyebrow">
+                    <i class="fas fa-feather-alt"></i> Systems Architecture Publications
+                </span>
+                <h1 class="section-title">Technical Thought Leadership</h1>
+                <p class="section-subtitle">
+                    Pragmatic frameworks, real-world case breakdowns, and hard-earned engineering lessons on multi-cloud resilience, distributed consensus, and technical leadership.
+                </p>
             </div>
 
-            <!-- Blog Articles Container -->
-            <div id="blog-article">
-                <!-- Dynamic blog content will be loaded here -->
+            <!-- Dynamic Category Filter Bar -->
+            <div class="filter-bar" role="tablist" aria-label="Blog Categories">
+                <button class="filter-btn active" data-filter="all">All Insights (6)</button>
+                <button class="filter-btn" data-filter="cloud">#CloudArchitecture (3)</button>
+                <button class="filter-btn" data-filter="leadership">#TechLeadership (2)</button>
+                <button class="filter-btn" data-filter="distributed">#DistributedSystems (3)</button>
+                <button class="filter-btn" data-filter="finops">#FinOps (2)</button>
             </div>
+
+            <!-- Magazine-Style Content Grid -->
+            <div class="blogs-grid" id="blogs-grid-container">
+
+                <!-- Article 1 -->
+                <article class="blog-card" data-category="cloud distributed">
+                    <div class="blog-image-wrap" style="background: radial-gradient(circle at center, #102A54 0%, #070D19 100%);">
+                        <i class="fas fa-cubes blog-graphic-icon"></i>
+                        <span class="tag tag-teal" style="position: absolute; bottom: 1rem; left: 1rem;">Architectural Pattern</span>
+                    </div>
+                    <div class="blog-body">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar-alt"></i> October 24, 2025</span>
+                            <span>&bull;</span>
+                            <span><i class="far fa-clock"></i> 8 min read</span>
+                        </div>
+                        <h2 class="blog-title">Deconstructing Monoliths: A Practical Guide to Event-Driven Strangler Pattern</h2>
+                        <p class="blog-excerpt">
+                            Carving domain boundaries out of multi-gigabyte monoliths without business outage or dual-write anomalies. Covers outbox pattern, Kafka event pipelines, and zero-downtime cutover strategies.
+                        </p>
+                        <div class="blog-tags">
+                            <span class="tag tag-teal">#CloudArchitecture</span>
+                            <span class="tag tag-blue">#Microservices</span>
+                            <span class="tag">#Kafka</span>
+                        </div>
+                        <button class="btn btn-secondary btn-sm btn-read-article" data-article-id="art1" style="margin-top: auto;">
+                            Read Full Article <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Article 2 -->
+                <article class="blog-card" data-category="cloud finops">
+                    <div class="blog-image-wrap" style="background: radial-gradient(circle at center, #0B2545 0%, #070D19 100%);">
+                        <i class="fas fa-chart-line blog-graphic-icon"></i>
+                        <span class="tag tag-teal" style="position: absolute; bottom: 1rem; left: 1rem;">Cloud Economics</span>
+                    </div>
+                    <div class="blog-body">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar-alt"></i> September 18, 2025</span>
+                            <span>&bull;</span>
+                            <span><i class="far fa-clock"></i> 6 min read</span>
+                        </div>
+                        <h2 class="blog-title">FinOps for Cloud Architects: Driving 35% Cloud Optimization on Azure &amp; AWS</h2>
+                        <p class="blog-excerpt">
+                            Moving beyond simple reserved instances: why architectural topology, inter-region egress minimization, and serverless cold-start management dictate actual unit economics.
+                        </p>
+                        <div class="blog-tags">
+                            <span class="tag tag-teal">#FinOps</span>
+                            <span class="tag tag-blue">#CloudArchitecture</span>
+                            <span class="tag">#AzureAWS</span>
+                        </div>
+                        <button class="btn btn-secondary btn-sm btn-read-article" data-article-id="art2" style="margin-top: auto;">
+                            Read Full Article <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Article 3 -->
+                <article class="blog-card" data-category="leadership">
+                    <div class="blog-image-wrap" style="background: radial-gradient(circle at center, #132E59 0%, #070D19 100%);">
+                        <i class="fas fa-chess-queen blog-graphic-icon"></i>
+                        <span class="tag tag-teal" style="position: absolute; bottom: 1rem; left: 1rem;">Career Strategy</span>
+                    </div>
+                    <div class="blog-body">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar-alt"></i> August 12, 2025</span>
+                            <span>&bull;</span>
+                            <span><i class="far fa-clock"></i> 9 min read</span>
+                        </div>
+                        <h2 class="blog-title">The Staff+ Architect Roadmap: Transitioning from Senior Developer to Enterprise Leader</h2>
+                        <p class="blog-excerpt">
+                            Strategic influence without formal authority: mastering Architectural Decision Records (ADRs), stakeholder empathy, and translating board-level objectives into technical mandates.
+                        </p>
+                        <div class="blog-tags">
+                            <span class="tag tag-teal">#TechLeadership</span>
+                            <span class="tag tag-blue">#StaffPlus</span>
+                            <span class="tag">#Mentorship</span>
+                        </div>
+                        <button class="btn btn-secondary btn-sm btn-read-article" data-article-id="art3" style="margin-top: auto;">
+                            Read Full Article <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Article 4 -->
+                <article class="blog-card" data-category="distributed cloud">
+                    <div class="blog-image-wrap" style="background: radial-gradient(circle at center, #0F284E 0%, #070D19 100%);">
+                        <i class="fas fa-network-wired blog-graphic-icon"></i>
+                        <span class="tag tag-teal" style="position: absolute; bottom: 1rem; left: 1rem;">Distributed Data</span>
+                    </div>
+                    <div class="blog-body">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar-alt"></i> July 05, 2025</span>
+                            <span>&bull;</span>
+                            <span><i class="far fa-clock"></i> 10 min read</span>
+                        </div>
+                        <h2 class="blog-title">Event Sourcing &amp; CQRS in Production: The Hard Lessons You Only Learn at Scale</h2>
+                        <p class="blog-excerpt">
+                            Why eventual consistency challenges developers, how to handle schema evolution in immutable event streams, and strategies for snapshot compaction in high-throughput clusters.
+                        </p>
+                        <div class="blog-tags">
+                            <span class="tag tag-teal">#DistributedSystems</span>
+                            <span class="tag tag-blue">#CQRS</span>
+                            <span class="tag">#EventSourcing</span>
+                        </div>
+                        <button class="btn btn-secondary btn-sm btn-read-article" data-article-id="art4" style="margin-top: auto;">
+                            Read Full Article <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Article 5 -->
+                <article class="blog-card" data-category="cloud distributed">
+                    <div class="blog-image-wrap" style="background: radial-gradient(circle at center, #091D3E 0%, #070D19 100%);">
+                        <i class="fas fa-shield-virus blog-graphic-icon"></i>
+                        <span class="tag tag-teal" style="position: absolute; bottom: 1rem; left: 1rem;">Enterprise Security</span>
+                    </div>
+                    <div class="blog-body">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar-alt"></i> May 29, 2025</span>
+                            <span>&bull;</span>
+                            <span><i class="far fa-clock"></i> 7 min read</span>
+                        </div>
+                        <h2 class="blog-title">Zero-Trust Cloud Architecture: Identity-Centric Security Across Azure &amp; AWS</h2>
+                        <p class="blog-excerpt">
+                            Perimeter-less architectures in modern hybrid clouds: implementing mutual TLS (mTLS), SPIFFE/SPIRE workload identities, and dynamic ephemeral secrets with HashiCorp Vault.
+                        </p>
+                        <div class="blog-tags">
+                            <span class="tag tag-teal">#CloudArchitecture</span>
+                            <span class="tag tag-blue">#ZeroTrust</span>
+                            <span class="tag">#DevSecOps</span>
+                        </div>
+                        <button class="btn btn-secondary btn-sm btn-read-article" data-article-id="art5" style="margin-top: auto;">
+                            Read Full Article <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Article 6 -->
+                <article class="blog-card" data-category="leadership finops">
+                    <div class="blog-image-wrap" style="background: radial-gradient(circle at center, #102A54 0%, #070D19 100%);">
+                        <i class="fas fa-balance-scale blog-graphic-icon"></i>
+                        <span class="tag tag-teal" style="position: absolute; bottom: 1rem; left: 1rem;">Governance</span>
+                    </div>
+                    <div class="blog-body">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar-alt"></i> April 14, 2025</span>
+                            <span>&bull;</span>
+                            <span><i class="far fa-clock"></i> 8 min read</span>
+                        </div>
+                        <h2 class="blog-title">Running an Architecture Review Board (ARB) That Engineers Actually Respect</h2>
+                        <p class="blog-excerpt">
+                            Eliminating bureaucratic gatekeeping: how to structure RFC templates, asynchronous peer reviews, and automated compliance linters that accelerate release velocity.
+                        </p>
+                        <div class="blog-tags">
+                            <span class="tag tag-teal">#TechLeadership</span>
+                            <span class="tag tag-blue">#EngineeringGovernance</span>
+                            <span class="tag">#ARB</span>
+                        </div>
+                        <button class="btn btn-secondary btn-sm btn-read-article" data-article-id="art6" style="margin-top: auto;">
+                            Read Full Article <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- =====================================================================
+                 PROMINENT "SUBSCRIBE TO INSIGHTS" NEWSLETTER MODULE
+                 ===================================================================== -->
+            <div class="newsletter-card" id="newsletter-module">
+                <div>
+                    <span class="section-eyebrow" style="margin-bottom: 0.75rem;">
+                        <i class="fas fa-envelope-open-text"></i> Executive Dispatch
+                    </span>
+                    <h3 style="font-size: 2rem; color: #FFFFFF; font-weight: 800; margin-bottom: 0.75rem;">
+                        Subscribe to Architecture Insights
+                    </h3>
+                    <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.6; max-width: 540px;">
+                        Join 4,500+ CTOs, Principal Engineers, and Enterprise Architects receiving a curated monthly breakdown of cloud architecture blueprints, FinOps strategies, and Staff+ career frameworks. Zero spam, ever.
+                    </p>
+                    <div style="display: flex; gap: 1.25rem; margin-top: 1.25rem; font-size: 0.85rem; color: var(--teal-light); font-family: var(--font-mono);">
+                        <span><i class="fas fa-check"></i> Monthly Dispatch</span>
+                        <span><i class="fas fa-check"></i> Deep System Blueprints</span>
+                        <span><i class="fas fa-check"></i> 1-Click Unsubscribe</span>
+                    </div>
+                </div>
+
+                <form class="newsletter-form" id="newsletter-form-element" onsubmit="handleSubscribe(event)">
+                    <div class="input-group">
+                        <input type="email" id="subscriber-email" class="input-field" placeholder="Enter your corporate email..." required aria-label="Corporate Email">
+                        <button type="submit" class="btn btn-primary" style="white-space: nowrap;">
+                            <i class="fas fa-paper-plane"></i> Join Dispatch
+                        </button>
+                    </div>
+                    <div style="font-size: 0.78rem; color: var(--text-muted);">
+                        Select topics of interest:
+                        <label style="margin-left: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="checkbox" checked style="accent-color: var(--blue-accent);"> Cloud Architecture</label>
+                        <label style="margin-left: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="checkbox" checked style="accent-color: var(--blue-accent);"> FinOps</label>
+                        <label style="margin-left: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="checkbox" checked style="accent-color: var(--blue-accent);"> Tech Leadership</label>
+                    </div>
+                    <div id="subscription-success" style="display: none; padding: 0.85rem; background: rgba(16, 185, 129, 0.2); border: 1px solid #10B981; border-radius: var(--radius-md); color: #A7F3D0; font-size: 0.9rem;">
+                        <i class="fas fa-check-circle"></i> <strong>Welcome aboard!</strong> You have successfully joined the Architecture Insights dispatch.
+                    </div>
+                </form>
+            </div>
+
         </div>
     </section>
 
-    <!-- Footer will be inserted by common-footer.js -->
+    <!-- =====================================================================
+         INTERACTIVE ARTICLE READER MODAL
+         ===================================================================== -->
+    <div class="modal-overlay" id="article-reader-modal" aria-hidden="true" role="dialog">
+        <div class="modal-container">
+            <button class="modal-close" id="article-modal-close-btn" aria-label="Close Article">&times;</button>
+            <div id="article-content-body">
+                <!-- Dynamically populated by JS -->
+            </div>
+        </div>
+    </div>
 
-    <!-- Blog Data (External File) -->
-    <script src="blog-data.js"></script>
+    <!-- Article Content Repository & Dynamic Interactions -->
+    <script>
+        const articleDatabase = {
+            art1: {
+                title: "Deconstructing Monoliths: A Practical Guide to Event-Driven Strangler Pattern",
+                meta: "Published October 24, 2025 | 8 min read | by Dipen Shah",
+                badge: "#CloudArchitecture",
+                content: `
+                    <p style="font-size: 1.1rem; color: var(--text-primary); font-weight: 500; margin-bottom: 1.5rem;">
+                        Rewriting an enterprise monolith from scratch is notorious for exceeding deadlines, burning millions in budget, and failing at the finish line. The Strangler Fig application pattern remains the premier architectural mechanism for systematically transforming large codebases with zero downtime.
+                    </p>
+                    
+                    <h3 style="color: var(--teal-light); margin: 1.5rem 0 0.8rem 0;">1. Identifying Autonomous Domain Boundaries</h3>
+                    <p>
+                        The fatal mistake many engineering teams commit is slicing services horizontally by technical layers (e.g., API layer, Business layer, DB layer) rather than vertically by Domain-Driven Design (DDD) bounded contexts. Before writing code, map event flows and isolate independent aggregates that exhibit loose coupling and high cohesion.
+                    </p>
 
-    <!-- Blog Rendering Logic (External File) -->
-    <script src="blog-render.js"></script>
+                    <h3 style="color: var(--teal-light); margin: 1.5rem 0 0.8rem 0;">2. The Transactional Outbox Pattern</h3>
+                    <p>
+                        When emitting events from the old monolith to Apache Kafka or Azure Service Bus, never update the database and write to the message broker in two separate uncoordinated steps. Network partitions will cause dual-write anomalies. Always write the event to an outbox table within the same ACID database transaction, then rely on a lightweight log-tailing relay (like Debezium) or polling worker to dispatch the message.
+                    </p>
+
+                    <pre class="mono" style="background: #070D19; border: 1px solid var(--border-hairline); border-radius: var(--radius-md); padding: 1.25rem; color: #38BDF8; font-size: 0.85rem; margin: 1.25rem 0;">
+// C# .NET 8 Outbox Pattern Handler Example
+await using var transaction = await _dbContext.Database.BeginTransactionAsync();
+try {
+    _dbContext.Orders.Add(order);
+    _dbContext.OutboxMessages.Add(new OutboxMessage {
+        Id = Guid.NewGuid(),
+        Type = "OrderCreatedEvent",
+        Payload = JsonSerializer.Serialize(order),
+        CreatedAtUtc = DateTime.UtcNow
+    });
+    await _dbContext.SaveChangesAsync();
+    await transaction.CommitAsync();
+} catch (Exception ex) {
+    await transaction.RollbackAsync();
+    throw;
+}</pre>
+
+                    <h3 style="color: var(--teal-light); margin: 1.5rem 0 0.8rem 0;">3. Routing via Reverse Proxy / API Gateway</h3>
+                    <p>
+                        Deploy an API Gateway (Envoy or Azure API Management) directly in front of all consumers. Route 99% of traffic to the legacy monolith, and shadow or slice 1% of specific endpoint traffic to the new .NET 8 microservice cluster. Once telemetry validates latency and consistency, shift the ingress dial to 100%.
+                    </p>
+
+                    <div style="background: rgba(13, 148, 136, 0.15); border-left: 4px solid var(--teal-light); padding: 1rem 1.25rem; border-radius: 0 var(--radius-md) var(--radius-md) 0; margin-top: 1.5rem;">
+                        <strong style="color: #FFFFFF;">Key Architectural Takeaway:</strong> Modernization is not a technology replacement project; it is an organizational risk-reduction strategy. Keep both systems alive in parallel until metrics prove complete domain independence.
+                    </div>
+                `
+            },
+            art2: {
+                title: "FinOps for Cloud Architects: Driving 35% Cloud Optimization on Azure & AWS",
+                meta: "Published September 18, 2025 | 6 min read | by Dipen Shah",
+                badge: "#FinOps",
+                content: `
+                    <p style="font-size: 1.1rem; color: var(--text-primary); font-weight: 500; margin-bottom: 1.5rem;">
+                        Many enterprise technology organizations treat cloud bill management as a finance problem solved by buying 3-year savings plans. In reality, 70% of cloud waste stems from architectural choices made during system design.
+                    </p>
+
+                    <h3 style="color: var(--teal-light); margin: 1.5rem 0 0.8rem 0;">The Inter-AZ and Inter-Region Egress Trap</h3>
+                    <p>
+                        Data egress is one of the highest silent drivers of cloud expenditure. When deploying Kubernetes pods across multiple Availability Zones, cross-zone traffic incurs micro-charges that scale into tens of thousands of dollars per month at high throughput. Utilizing topology-aware routing inside Kubernetes clusters ensures microservices communicate with adjacent pods within the same AZ, eliminating unnecessary egress charges.
+                    </p>
+
+                    <h3 style="color: var(--teal-light); margin: 1.5rem 0 0.8rem 0;">Architectural Right-Sizing vs Mechanical Downsizing</h3>
+                    <p>
+                        Instead of arbitrarily lowering CPU cores on VMs, re-architect workloads into event-driven serverless bursts or Spot instance clusters backed by graceful termination handlers. Ephemeral environments for development should be terminated after business hours via automated IaC triggers.
+                    </p>
+
+                    <div style="background: rgba(13, 148, 136, 0.15); border-left: 4px solid var(--teal-light); padding: 1rem 1.25rem; border-radius: 0 var(--radius-md) var(--radius-md) 0; margin-top: 1.5rem;">
+                        <strong style="color: #FFFFFF;">Key Metric:</strong> Measure your unit cost of goods sold (COGS) per transaction rather than raw monthly spend. An architecture that spends 20% more total but handles 100% more volume is an efficiency triumph.
+                    </div>
+                `
+            },
+            art3: {
+                title: "The Staff+ Architect Roadmap: Transitioning from Senior Developer to Enterprise Leader",
+                meta: "Published August 12, 2025 | 9 min read | by Dipen Shah",
+                badge: "#TechLeadership",
+                content: `
+                    <p style="font-size: 1.1rem; color: var(--text-primary); font-weight: 500; margin-bottom: 1.5rem;">
+                        Becoming a Solution Architect or Staff+ Engineer is fundamentally a shift from writing brilliant algorithms yourself to multiplying the output and safety of entire engineering divisions.
+                    </p>
+
+                    <h3 style="color: var(--teal-light); margin: 1.5rem 0 0.8rem 0;">The Power of Architectural Decision Records (ADRs)</h3>
+                    <p>
+                        The greatest technical leaders do not mandate architectures from ivory towers. They document the context, options considered, tradeoffs, and consequences using lightweight ADRs checked directly into version control alongside the source code.
+                    </p>
+
+                    <h3 style="color: var(--teal-light); margin: 1.5rem 0 0.8rem 0;">Translating Business Language</h3>
+                    <p>
+                        A Senior Developer talks about "zero-copy serialization and GC pressure." A Principal Solution Architect explains to the CFO how sub-20ms latency protects \$4M in annual retail checkout abandonment. Bridging this semantic divide is the single most critical capability of high-impact architects.
+                    </p>
+
+                    <div style="background: rgba(13, 148, 136, 0.15); border-left: 4px solid var(--teal-light); padding: 1rem 1.25rem; border-radius: 0 var(--radius-md) var(--radius-md) 0; margin-top: 1.5rem;">
+                        <strong style="color: #FFFFFF;">Leadership Rule:</strong> Your job is not to have all the answers. Your job is to ensure the team asks the right questions before commiting millions to infrastructure.
+                    </div>
+                `
+            },
+            art4: {
+                title: "Event Sourcing & CQRS in Production: The Hard Lessons You Only Learn at Scale",
+                meta: "Published July 05, 2025 | 10 min read | by Dipen Shah",
+                badge: "#DistributedSystems",
+                content: `
+                    <p style="font-size: 1.1rem; color: var(--text-primary); font-weight: 500; margin-bottom: 1.5rem;">
+                        Command Query Responsibility Segregation (CQRS) and Event Sourcing promise perfect auditing, time-travel debugging, and hyper-scalable read models. But when your event store crosses billions of immutable rows, unique challenges emerge.
+                    </p>
+
+                    <h3 style="color: var(--teal-light); margin: 1.5rem 0 0.8rem 0;">Schema Evolution in Immutable Streams</h3>
+                    <p>
+                        You cannot alter a 3-year-old event record. Applying event versioning, upcasters, and tolerant readers (using Protobuf or schema registries with backward compatibility) is paramount to preventing deserialization crashes as business domain models shift.
+                    </p>
+
+                    <h3 style="color: var(--teal-light); margin: 1.5rem 0 0.8rem 0;">Snapshotting & Compaction Strategies</h3>
+                    <p>
+                        Replaying 100,000 events to reconstruct the state of a single bank account or shopping cart induces intolerable latency. Implementing automated asynchronous snapshot generation ensures aggregate reconstruction remains strictly sub-millisecond.
+                    </p>
+                `
+            },
+            art5: {
+                title: "Zero-Trust Cloud Architecture: Identity-Centric Security Across Azure & AWS",
+                meta: "Published May 29, 2025 | 7 min read | by Dipen Shah",
+                badge: "#ZeroTrust",
+                content: `
+                    <p style="font-size: 1.1rem; color: var(--text-primary); font-weight: 500; margin-bottom: 1.5rem;">
+                        Assuming network perimeters guarantee safety is an obsolete paradigm. In enterprise multi-cloud setups, every workload must authenticate and authorize each request dynamically.
+                    </p>
+                    <p>
+                        By combining short-lived SPIFFE/SPIRE cryptographic identities, service-mesh mTLS, and automated HashiCorp Vault dynamic database credentials, organizations eliminate persistent access vectors and guarantee compliance with modern zero-trust standards.
+                    </p>
+                `
+            },
+            art6: {
+                title: "Running an Architecture Review Board (ARB) That Engineers Actually Respect",
+                meta: "Published April 14, 2025 | 8 min read | by Dipen Shah",
+                badge: "#EngineeringGovernance",
+                content: `
+                    <p style="font-size: 1.1rem; color: var(--text-primary); font-weight: 500; margin-bottom: 1.5rem;">
+                        When ARBs become bottleneck committees that developers dread, engineering teams route around them, leading to shadow IT.
+                    </p>
+                    <p>
+                        Transforming the ARB into an enablement and advisory body involves open RFC discussions, automated policy checks embedded in CI/CD, and asynchronous reviews that turn architectural review into high-trust peer coaching.
+                    </p>
+                `
+            }
+        };
+
+        // Filter Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const blogCards = document.querySelectorAll('.blog-card');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    const filterValue = btn.getAttribute('data-filter');
+
+                    blogCards.forEach(card => {
+                        const category = card.getAttribute('data-category') || '';
+                        if (filterValue === 'all' || category.includes(filterValue)) {
+                            card.style.display = 'flex';
+                            card.style.animation = 'fadeIn 0.3s ease forwards';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Article Reader Modal
+            const modal = document.getElementById('article-reader-modal');
+            const modalBody = document.getElementById('article-content-body');
+            const closeBtn = document.getElementById('article-modal-close-btn');
+
+            document.querySelectorAll('.btn-read-article').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const id = btn.getAttribute('data-article-id');
+                    const article = articleDatabase[id];
+                    if (!article) return;
+
+                    modalBody.innerHTML = `
+                        <div style="margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-hairline); padding-bottom: 1.5rem;">
+                            <span class="badge tag-teal" style="margin-bottom: 0.75rem;">${article.badge}</span>
+                            <h2 style="font-size: 2rem; color: #FFFFFF; line-height: 1.25; margin-bottom: 0.75rem;">${article.title}</h2>
+                            <div class="mono" style="font-size: 0.85rem; color: var(--blue-accent);">${article.meta}</div>
+                        </div>
+                        <div style="font-size: 1rem; color: var(--text-secondary); line-height: 1.75;">
+                            ${article.content}
+                        </div>
+                    `;
+
+                    modal.classList.add('open');
+                    modal.setAttribute('aria-hidden', 'false');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            const closeModal = () => {
+                modal.classList.remove('open');
+                modal.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+            };
+
+            closeBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeModal();
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+            });
+        });
+
+        // Newsletter submission handler
+        function handleSubscribe(event) {
+            event.preventDefault();
+            const emailInput = document.getElementById('subscriber-email');
+            const successBox = document.getElementById('subscription-success');
+            if (emailInput && emailInput.value) {
+                successBox.style.display = 'block';
+                emailInput.value = '';
+                setTimeout(() => {
+                    successBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 100);
+            }
+        }
+    </script>
+
 </body>
-
 </html>

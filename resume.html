@@ -2,720 +2,1241 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dipen Shah | Professional Resume</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Professional Resume for Dipen Shah, a Solution Architect with expertise in .NET Core, Azure, and AWS." />
-    <meta name="author" content="Dipen Shah" />
+        content="Professional Resume: Dipen Shah - Solutions Architect with over 15 years of experience leading large-scale enterprise applications on Azure and AWS.">
+    <meta name="keywords"
+        content="Dipen Shah, Solutions Architect, Resume, Tech Mahindra, Tata Consultancy Services, TCS, Azure Solutions Architect Expert AZ-305, Azure Administrator AZ-104, DP-420, AI-900, Informatica MDM, ServiceNow Agentic AI, Snyk, Databricks, .NET Core, Microservices">
+    <meta name="author" content="Dipen Shah">
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Open+Sans:wght@400;600;700&display=swap"
-        rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <title>Dipen Shah | Solutions Architect Resume</title>
 
-    <!-- Common Components -->
-    <script src="common-nav.js"></script>
+    <!-- Typography: Inter + JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+    <!-- Unified Design System -->
+    <link rel="stylesheet" href="architecture-portfolio.css">
+
+    <!-- Common Navigation and Footer Components -->
+    <script src="common-nav.js" defer></script>
+    <script src="common-footer.js" defer></script>
 
     <style>
-        :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --light-gray: #f4f4f4;
-            --text-color: #333;
-            --sidebar-bg: #2c3e50;
-            --sidebar-text: #ecf0f1;
-            --header-font: 'Open Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-            --body-font: 'Roboto', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+        /* =====================================================================
+           SCREEN VIEW STYLING (Dark Architecture System)
+           ===================================================================== */
+        .skill-card {
+            background: rgba(11, 17, 32, 0.6);
+            border: 1px solid var(--border-hairline);
+            border-radius: var(--radius-md);
+            padding: 1.15rem;
+            transition: var(--transition-fast);
         }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: var(--body-font);
-            line-height: 1.6;
-            background: #e9ecef;
-            color: var(--text-color);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px 10px;
-            padding-top: 20px;
-        }
-
-        /* Add padding only if navigation is visible */
-        body:not(.resume-page) {
-            padding-top: 100px;
-        }
-
-        /* Ensure navigation doesn't interfere with resume content */
-        .navbar-modern {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            height: 70px;
-            display: flex;
-            align-items: center;
-            padding: 0 20px;
-        }
-
-        /* Hide navigation on resume page if needed */
-        .resume-page .navbar-modern {
-            display: none;
-        }
-
-        /* Hide navigation when printing/exporting PDF */
-        @media print {
-
-            .navbar-modern,
-            .toolbar {
-                display: none !important;
-            }
-
-            body {
-                padding-top: 0 !important;
-                background: white !important;
-            }
-
-            .resume-container {
-                box-shadow: none !important;
-                margin: 0 !important;
-            }
-        }
-
-        .toolbar {
-            width: 100%;
-            max-width: 8.5in;
-            background: white;
-            padding: 15px 30px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .toolbar a {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .toolbar a:hover {
-            color: var(--secondary-color);
-        }
-
-        .btn {
-            background: var(--secondary-color);
-            color: white;
-            padding: 12px 25px;
-            border: none;
-            border-radius: 5px;
-            font-weight: 700;
-            font-family: var(--header-font);
-            cursor: pointer;
-            transition: background 0.3s ease, transform 0.2s ease;
-        }
-
-        .btn:hover {
-            background: #2980b9;
+        .skill-card:hover {
+            border-color: var(--teal-border);
             transform: translateY(-2px);
         }
 
-        .btn i {
-            margin-right: 8px;
+        .cert-card {
+            background: rgba(11, 17, 32, 0.7);
+            border: 1px solid var(--border-hairline);
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            break-inside: avoid;
+            page-break-inside: avoid;
         }
 
-        .resume-container {
-            width: 100%;
-            max-width: 8.5in;
-            background: white;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            display: flex;
-            margin-bottom: 40px;
+        .award-card {
+            background: rgba(11, 17, 32, 0.6);
+            border: 1px solid var(--border-hairline);
+            border-radius: var(--radius-md);
+            padding: 1.25rem;
+            break-inside: avoid;
+            page-break-inside: avoid;
         }
 
-        .sidebar {
-            width: 35%;
-            background: var(--sidebar-bg);
-            color: var(--sidebar-text);
-            padding: 30px 20px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .main-content {
-            width: 65%;
-            padding: 30px;
-            background: white;
-            color: #333;
-        }
-
-        .profile-pic {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid var(--secondary-color);
-            margin: 0 auto 20px auto;
-            display: block;
-        }
-
-        .sidebar-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-top: 10px;
-        }
-
-        .sidebar-header h1 {
-            font-family: var(--header-font);
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 8px;
-            letter-spacing: 1px;
-            line-height: 1.2;
-        }
-
-        .sidebar-header p {
-            font-size: 1rem;
-            color: var(--secondary-color);
-            font-weight: 600;
-            margin-bottom: 0;
-        }
-
-        .sidebar-section {
-            margin-bottom: 25px;
-        }
-
-        .sidebar-title {
-            font-family: var(--header-font);
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: white;
-            border-bottom: 2px solid var(--secondary-color);
-            padding-bottom: 8px;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-        }
-
-        .contact-info a,
-        .contact-info span {
+        .hackathon-card {
+            background: rgba(11, 17, 32, 0.6);
+            border: 1px solid var(--border-hairline);
+            border-radius: var(--radius-md);
+            padding: 1rem;
             display: flex;
             align-items: center;
-            margin-bottom: 12px;
-            color: var(--sidebar-text);
-            text-decoration: none;
-            font-size: 0.9rem;
-            word-break: break-all;
+            gap: 0.75rem;
+            break-inside: avoid;
+            page-break-inside: avoid;
         }
 
-        .contact-info a:hover {
-            color: var(--secondary-color);
+        .timeline-item {
+            break-inside: avoid;
+            page-break-inside: avoid;
         }
 
-        .contact-info i {
-            width: 25px;
-            margin-right: 10px;
-            color: var(--secondary-color);
-            text-align: center;
-        }
-
-        .skills-list p {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 4px;
-            padding: 5px 10px;
-            margin-bottom: 8px;
-            font-size: 0.9rem;
-        }
-
-        .cert-item h4 {
-            font-weight: 600;
-            font-size: 0.95rem;
-            margin-bottom: 4px;
-        }
-
-        .cert-item small {
-            font-size: 0.85rem;
-            opacity: 0.8;
-            display: block;
-            margin-bottom: 12px;
-        }
-
-        .main-title {
-            font-family: var(--header-font);
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            border-bottom: 2px solid #e0e0e0;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-        }
-
-        .main-content .summary p {
-            font-size: 1.05rem;
-            text-align: justify;
-            margin-bottom: 25px;
-            line-height: 1.6;
-        }
-
-        .job {
-            margin-bottom: 25px;
-        }
-
-        .job:last-child {
-            margin-bottom: 0;
-        }
-
-        .job-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            flex-wrap: wrap;
-            margin-bottom: 8px;
-        }
-
-        .job-title {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--secondary-color);
-        }
-
-        .job-company {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--primary-color);
-        }
-
-        .job-date {
-            font-style: italic;
-            color: #666;
-            font-size: 0.9rem;
-            margin-top: 4px;
-        }
-
-        .job ul {
-            list-style-position: outside;
-            padding-left: 20px;
-        }
-
-        .job li {
-            margin-bottom: 8px;
-            text-align: justify;
-            line-height: 1.5;
-        }
-
-        .tech-list {
-            list-style: none;
-            padding: 0;
-            margin-top: 10px;
-            font-size: 0.9rem;
-            color: #555;
-        }
-
-        .tech-list li {
-            display: inline-block;
-            background-color: var(--light-gray);
-            padding: 3px 8px;
-            border-radius: 4px;
-            margin: 0 5px 5px 0;
-            font-weight: 500;
-            color: var(--primary-color);
-        }
-
-        @media (max-width: 768px) {
-            .resume-container {
-                flex-direction: column;
-                max-width: 100%;
+        /* =====================================================================
+           HIGH-PRECISION PRINT OPTIMIZATION (A4 Vector PDF / Executive Print)
+           ===================================================================== */
+        @media print {
+            @page {
+                size: A4 portrait;
+                margin: 10mm 12mm 10mm 12mm;
             }
 
-            .sidebar,
-            .main-content {
-                width: 100%;
+            html, body {
+                background: #FFFFFF !important;
+                color: #0F172A !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+                font-size: 9.5pt !important;
+                line-height: 1.4 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
             }
 
-            .main-content {
-                padding: 20px;
+            .navbar-modern,
+            .floating-actions,
+            .footer-modern,
+            .modal-overlay,
+            #contact,
+            #toast-notify,
+            .booking-box {
+                display: none !important;
             }
 
-            .sidebar {
-                padding: 20px 15px;
+            main.container {
+                max-width: 100% !important;
+                width: 100% !important;
+                padding: 0 !important;
+                margin: 0 !important;
             }
 
-            .job-header {
-                flex-direction: column;
-                align-items: flex-start;
+            .resume-wrapper {
+                background: #FFFFFF !important;
+                border: none !important;
+                box-shadow: none !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                color: #0F172A !important;
             }
 
-            .job-date {
-                margin-top: 5px;
+            /* Resume Header */
+            .resume-header {
+                display: flex !important;
+                justify-content: space-between !important;
+                align-items: flex-start !important;
+                border-bottom: 2.5px solid #0284C7 !important;
+                padding-bottom: 8pt !important;
+                margin-bottom: 10pt !important;
+                break-after: avoid !important;
+                page-break-after: avoid !important;
+            }
+
+            .resume-header h1 {
+                font-size: 20pt !important;
+                font-weight: 800 !important;
+                color: #0F172A !important;
+                line-height: 1.1 !important;
+                margin: 0 0 2pt 0 !important;
+                letter-spacing: -0.02em !important;
+            }
+
+            .resume-header .header-role {
+                font-size: 11.5pt !important;
+                font-weight: 700 !important;
+                color: #0284C7 !important;
+                margin: 0 0 4pt 0 !important;
+            }
+
+            .resume-header .header-contact {
+                display: flex !important;
+                flex-wrap: wrap !important;
+                gap: 10pt !important;
+                font-size: 8.5pt !important;
+                color: #334155 !important;
+            }
+
+            .resume-header .header-contact a,
+            .resume-header .header-contact span {
+                color: #334155 !important;
+                text-decoration: none !important;
+            }
+
+            .resume-header .header-contact i {
+                color: #0284C7 !important;
+                margin-right: 2pt !important;
+            }
+
+            .resume-header .tag-teal {
+                background: #E0F2FE !important;
+                color: #0369A1 !important;
+                border: 1px solid #BAE6FD !important;
+                font-size: 8pt !important;
+                font-weight: 700 !important;
+                padding: 2pt 6pt !important;
+            }
+
+            .resume-header .mono {
+                color: #475569 !important;
+                font-size: 7.5pt !important;
+                margin-top: 2pt !important;
+            }
+
+            .status-dot {
+                background: #0284C7 !important;
+                box-shadow: none !important;
+            }
+
+            /* Section Styling */
+            .resume-section {
+                margin-bottom: 11pt !important;
+                break-inside: auto !important;
+            }
+
+            .resume-section-title {
+                font-size: 11pt !important;
+                font-weight: 700 !important;
+                color: #0F172A !important;
+                border-bottom: 1.5px solid #0284C7 !important;
+                padding-bottom: 2pt !important;
+                margin-bottom: 6pt !important;
+                break-after: avoid !important;
+                page-break-after: avoid !important;
+                display: flex !important;
+                align-items: center !important;
+                gap: 4pt !important;
+            }
+
+            .resume-section-title i {
+                color: #0284C7 !important;
+                font-size: 10.5pt !important;
+            }
+
+            .resume-section p {
+                font-size: 9pt !important;
+                line-height: 1.4 !important;
+                color: #334155 !important;
+                margin: 0 !important;
+            }
+
+            .resume-section strong {
+                color: #0F172A !important;
+            }
+
+            /* Layout Overrides for Inline Styles in Print */
+            [style*="gap: 1.25rem"] {
+                gap: 6pt !important;
+            }
+
+            [style*="gap: 1rem"] {
+                gap: 5pt !important;
+            }
+
+            [style*="margin-bottom: 1.75rem"] {
+                margin-bottom: 8pt !important;
+            }
+
+            [style*="line-height: 1.7"] {
+                line-height: 1.35 !important;
+            }
+
+            [style*="line-height: 1.75"] {
+                line-height: 1.35 !important;
+            }
+
+            /* Key Skills Matrix */
+            .skill-card {
+                background: #F8FAFC !important;
+                border: 1px solid #CBD5E1 !important;
+                border-radius: 4px !important;
+                padding: 5pt 7pt !important;
+                margin: 0 !important;
+                break-inside: avoid !important;
+                page-break-inside: avoid !important;
+            }
+
+            .skill-card h3 {
+                font-size: 8.5pt !important;
+                color: #0369A1 !important;
+                font-weight: 700 !important;
+                margin: 0 0 2pt 0 !important;
+                display: flex !important;
+                align-items: center !important;
+                gap: 3pt !important;
+            }
+
+            .skill-card h3 i {
+                color: #0284C7 !important;
+                font-size: 8pt !important;
+            }
+
+            .skill-card p {
+                font-size: 8.5pt !important;
+                color: #1E293B !important;
+                line-height: 1.35 !important;
+                margin: 0 !important;
+            }
+
+            /* Timeline / Experience */
+            .timeline-item {
+                position: relative !important;
+                border-left: 2px solid #CBD5E1 !important;
+                padding-left: 10pt !important;
+                margin-bottom: 10pt !important;
+                break-inside: avoid !important;
+                page-break-inside: avoid !important;
+            }
+
+            .timeline-item::before {
+                content: '' !important;
+                position: absolute !important;
+                left: -5px !important;
+                top: 2pt !important;
+                width: 8px !important;
+                height: 8px !important;
+                border-radius: 50% !important;
+                background: #0284C7 !important;
+                box-shadow: none !important;
+            }
+
+            .role-title {
+                font-size: 10.5pt !important;
+                font-weight: 700 !important;
+                color: #0F172A !important;
+                margin: 0 !important;
+                line-height: 1.25 !important;
+            }
+
+            .role-company {
+                font-size: 9.5pt !important;
+                font-weight: 600 !important;
+                color: #0284C7 !important;
+                margin: 1pt 0 !important;
+            }
+
+            .role-period {
+                font-size: 8pt !important;
+                color: #64748B !important;
+                margin-bottom: 3pt !important;
+            }
+
+            .timeline-item ul {
+                list-style: disc !important;
+                padding-left: 12pt !important;
+                margin: 3pt 0 5pt 0 !important;
+            }
+
+            .timeline-item li {
+                font-size: 8.5pt !important;
+                line-height: 1.35 !important;
+                color: #334155 !important;
+                margin-bottom: 2pt !important;
+            }
+
+            .timeline-item li strong {
+                color: #0F172A !important;
+            }
+
+            .timeline-item .tag {
+                background: #F1F5F9 !important;
+                color: #1E293B !important;
+                border: 1px solid #CBD5E1 !important;
+                font-size: 7.5pt !important;
+                padding: 1pt 4pt !important;
+                border-radius: 3px !important;
+                display: inline-block !important;
+            }
+
+            .timeline-item .tag-blue {
+                background: #EFF6FF !important;
+                color: #1D4ED8 !important;
+                border-color: #BFDBFE !important;
+            }
+
+            .timeline-item .tag-teal {
+                background: #F0FDFA !important;
+                color: #0F766E !important;
+                border-color: #99F6E4 !important;
+            }
+
+            /* Certifications Section */
+            .resume-section h3 {
+                font-size: 9.5pt !important;
+                font-weight: 700 !important;
+                color: #0F172A !important;
+                margin: 7pt 0 4pt 0 !important;
+                break-after: avoid !important;
+                page-break-after: avoid !important;
+                display: flex !important;
+                align-items: center !important;
+                gap: 4pt !important;
+            }
+
+            .resume-section h3 i {
+                color: #0284C7 !important;
+            }
+
+            .cert-card {
+                background: #F8FAFC !important;
+                border: 1px solid #E2E8F0 !important;
+                border-radius: 4px !important;
+                padding: 4pt 6pt !important;
+                margin: 0 !important;
+                break-inside: avoid !important;
+                page-break-inside: avoid !important;
+            }
+
+            .cert-card .mono {
+                font-size: 7pt !important;
+                color: #0369A1 !important;
+                font-weight: 700 !important;
+                font-family: var(--font-mono) !important;
+            }
+
+            .cert-card h4 {
+                font-size: 8.5pt !important;
+                font-weight: 600 !important;
+                color: #0F172A !important;
+                margin: 1.5pt 0 !important;
+                line-height: 1.25 !important;
+            }
+
+            .cert-card .tag {
+                font-size: 7pt !important;
+                padding: 1pt 4pt !important;
+                background: #F1F5F9 !important;
+                color: #334155 !important;
+                border: 1px solid #CBD5E1 !important;
+            }
+
+            /* Awards & Honors */
+            .award-card {
+                background: #F8FAFC !important;
+                border: 1px solid #E2E8F0 !important;
+                border-radius: 4px !important;
+                padding: 5pt 7pt !important;
+                break-inside: avoid !important;
+                page-break-inside: avoid !important;
+            }
+
+            .award-card h3 {
+                font-size: 8.5pt !important;
+                font-weight: 700 !important;
+                color: #0369A1 !important;
+                margin: 0 0 3pt 0 !important;
+            }
+
+            .award-card ul {
+                list-style: none !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+
+            .award-card li {
+                font-size: 7.8pt !important;
+                color: #334155 !important;
+                line-height: 1.35 !important;
+                margin-bottom: 2pt !important;
+            }
+
+            .award-card li i {
+                color: #D97706 !important;
+                font-size: 7pt !important;
+            }
+
+            /* Hackathons */
+            .hackathon-card {
+                background: #F8FAFC !important;
+                border: 1px solid #E2E8F0 !important;
+                border-radius: 4px !important;
+                padding: 4pt 6pt !important;
+                break-inside: avoid !important;
+                page-break-inside: avoid !important;
+                display: flex !important;
+                align-items: center !important;
+                gap: 6pt !important;
+            }
+
+            .hackathon-card i {
+                color: #D97706 !important;
+                font-size: 11pt !important;
+            }
+
+            .hackathon-card strong {
+                font-size: 8.5pt !important;
+                color: #0F172A !important;
+                display: block !important;
+            }
+
+            .hackathon-card span {
+                font-size: 7.5pt !important;
+                color: #64748B !important;
+            }
+
+            /* Education */
+            .resume-section:last-of-type h3 {
+                font-size: 9.5pt !important;
+                font-weight: 700 !important;
+                color: #0F172A !important;
+                margin: 0 0 1pt 0 !important;
+            }
+
+            .resume-section:last-of-type div {
+                font-size: 8.5pt !important;
+                color: #475569 !important;
             }
         }
     </style>
 </head>
 
-<body class="resume-page">
-    <!-- Navigation will be inserted by common-nav.js -->
+<body>
 
-    <div class="toolbar">
-        <div style="text-align:left">
-            <a href="index.html">&larr; Back to About Me</a>
-        </div>
-        <button class="btn" onclick="downloadResume()">
-            <i class="fas fa-file-pdf"></i>Download as PDF
+    <!-- =====================================================================
+         HIGH-VISIBILITY FLOATING ACTION BUTTONS
+         ===================================================================== -->
+    <aside class="floating-actions" aria-label="Resume Action Bar">
+        <button class="floating-btn" id="btn-download-pdf" onclick="exportPDF()" aria-label="Download PDF Resume">
+            <i class="fas fa-file-pdf"></i>
+            <span>Download PDF Resume</span>
         </button>
+        <button class="floating-btn secondary" onclick="printResume()" aria-label="Print / Save as PDF">
+            <i class="fas fa-print"></i>
+            <span>Print / Save as PDF</span>
+        </button>
+        <button class="floating-btn secondary" id="btn-copy-link" onclick="copyResumeLink()" aria-label="Copy Shareable Link">
+            <i class="fas fa-link"></i>
+            <span>Copy Link</span>
+        </button>
+    </aside>
+
+    <!-- Copy Link Notification Toast -->
+    <div id="toast-notify" style="position: fixed; bottom: 6.5rem; right: 2rem; background: var(--teal-primary); color: #FFFFFF; padding: 0.65rem 1.25rem; border-radius: var(--radius-md); font-size: 0.88rem; font-weight: 600; box-shadow: var(--shadow-md); display: none; z-index: 1000;">
+        <i class="fas fa-check-circle"></i> Resume link copied to clipboard!
     </div>
 
-    <div class="resume-container" id="resume-to-export">
-        <aside class="sidebar">
-            <div class="sidebar-header">
-                <img src="images/dipen.jpg" alt="Dipen Shah" class="profile-pic" />
-                <h1>DIPEN SHAH</h1>
-                <p>Solution Architect</p>
+    <!-- =====================================================================
+         INTERACTIVE EMBEDDED RESUME CONTAINER
+         ===================================================================== -->
+    <main class="container" style="padding-top: 3.5rem; padding-bottom: 2rem;">
+
+        <div class="resume-wrapper" id="printable-resume">
+
+            <!-- Resume Header -->
+            <header class="resume-header">
+                <div>
+                    <h1 style="font-size: 2.6rem; font-weight: 800; color: #FFFFFF; line-height: 1.15; margin-bottom: 0.35rem; letter-spacing: -0.02em;">
+                        DIPEN SHAH
+                    </h1>
+                    <div class="header-role" style="font-size: 1.35rem; font-weight: 700; color: var(--teal-light); margin-bottom: 0.85rem;">
+                        Solutions Architect
+                    </div>
+                    <div class="header-contact" style="display: flex; flex-wrap: wrap; gap: 1.25rem; font-size: 0.9rem; color: var(--text-secondary);">
+                        <span><i class="fas fa-envelope" style="color: var(--blue-accent);"></i> erdipenshah23@gmail.com</span>
+                        <span><i class="fas fa-map-marker-alt" style="color: var(--blue-accent);"></i> Ahmedabad, India</span>
+                        <a href="https://www.linkedin.com/in/dipen-shah/" target="_blank" rel="noopener noreferrer" style="color: var(--blue-accent); text-decoration: none;">
+                            <i class="fab fa-linkedin"></i> in/dipen-shah
+                        </a>
+                    </div>
+                </div>
+
+                <div style="text-align: right; min-width: 200px;">
+                    <div class="tag tag-teal" style="font-size: 0.8rem; margin-bottom: 0.5rem;">
+                        <span class="status-dot"></span> 15+ YEARS EXPERIENCE
+                    </div>
+                    <div class="mono" style="font-size: 0.82rem; color: var(--text-muted);">
+                        MICROSOFT &bull; INFORMATICA &bull; SERVICENOW
+                    </div>
+                </div>
+            </header>
+
+            <!-- Professional Summary -->
+            <section class="resume-section">
+                <h2 class="resume-section-title">
+                    <i class="fas fa-user-tie"></i> Professional Summary
+                </h2>
+                <p style="font-size: 0.98rem; color: var(--text-secondary); line-height: 1.75;">
+                    A strategic and highly accomplished <strong>Solution Architect with over 15 years of experience</strong> leading the design and implementation of large-scale, enterprise-level applications. Proven expertise in defining technical vision, roadmaps, and architectural strategy for complex software ecosystems on <strong>Azure and AWS</strong>. Adept at leading and mentoring cross-functional teams of <strong>30+ engineers</strong>, fostering a culture of innovation and high performance. My focus is on delivering secure, scalable, and resilient solutions that align with core business objectives and leverage cloud-native services and modern architectural patterns.
+                </p>
+            </section>
+
+            <!-- Key Skills Matrix -->
+            <section class="resume-section">
+                <h2 class="resume-section-title">
+                    <i class="fas fa-tools"></i> Key Skills Matrix
+                </h2>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem;">
+                    <div class="skill-card">
+                        <h3 style="font-size: 0.88rem; color: var(--teal-light); text-transform: uppercase; font-family: var(--font-mono); margin-bottom: 0.45rem;">
+                            <i class="fas fa-cloud"></i> Cloud Platforms
+                        </h3>
+                        <p style="font-size: 0.9rem; color: var(--text-primary); margin: 0; line-height: 1.6;">
+                            Microsoft Azure, Amazon Web Services (AWS)
+                        </p>
+                    </div>
+
+                    <div class="skill-card">
+                        <h3 style="font-size: 0.88rem; color: var(--blue-accent); text-transform: uppercase; font-family: var(--font-mono); margin-bottom: 0.45rem;">
+                            <i class="fas fa-code"></i> Backend Development
+                        </h3>
+                        <p style="font-size: 0.9rem; color: var(--text-primary); margin: 0; line-height: 1.6;">
+                            ASP.NET Core, .NET 8+, C#, Microservices Architecture
+                        </p>
+                    </div>
+
+                    <div class="skill-card">
+                        <h3 style="font-size: 0.88rem; color: var(--teal-light); text-transform: uppercase; font-family: var(--font-mono); margin-bottom: 0.45rem;">
+                            <i class="fas fa-database"></i> Databases
+                        </h3>
+                        <p style="font-size: 0.9rem; color: var(--text-primary); margin: 0; line-height: 1.6;">
+                            SQL Server, Cosmos DB, MongoDB
+                        </p>
+                    </div>
+
+                    <div class="skill-card">
+                        <h3 style="font-size: 0.88rem; color: var(--blue-accent); text-transform: uppercase; font-family: var(--font-mono); margin-bottom: 0.45rem;">
+                            <i class="fas fa-desktop"></i> Frontend Development
+                        </h3>
+                        <p style="font-size: 0.9rem; color: var(--text-primary); margin: 0; line-height: 1.6;">
+                            Angular, React, TypeScript, JavaScript, jQuery
+                        </p>
+                    </div>
+
+                    <div class="skill-card">
+                        <h3 style="font-size: 0.88rem; color: var(--teal-light); text-transform: uppercase; font-family: var(--font-mono); margin-bottom: 0.45rem;">
+                            <i class="fas fa-boxes"></i> DevOps &amp; Containerization
+                        </h3>
+                        <p style="font-size: 0.9rem; color: var(--text-primary); margin: 0; line-height: 1.6;">
+                            Docker, Kubernetes, CI/CD (Azure DevOps, GitHub Actions, Jenkins)
+                        </p>
+                    </div>
+
+                    <div class="skill-card">
+                        <h3 style="font-size: 0.88rem; color: var(--blue-accent); text-transform: uppercase; font-family: var(--font-mono); margin-bottom: 0.45rem;">
+                            <i class="fas fa-sitemap"></i> Architecture &amp; Design
+                        </h3>
+                        <p style="font-size: 0.9rem; color: var(--text-primary); margin: 0; line-height: 1.6;">
+                            Domain-Driven Design (DDD), Design Patterns, Event-Driven Architecture, Microservices Best Practices
+                        </p>
+                    </div>
+
+                    <div class="skill-card" style="grid-column: span 2;">
+                        <h3 style="font-size: 0.88rem; color: #2DD4BF; text-transform: uppercase; font-family: var(--font-mono); margin-bottom: 0.45rem;">
+                            <i class="fas fa-robot"></i> AI &amp; Cloud Services
+                        </h3>
+                        <p style="font-size: 0.9rem; color: var(--text-primary); margin: 0; line-height: 1.6;">
+                            Microsoft AI (Cognitive Services, Azure OpenAI, ML integration), Agentic AI, Gen AI &amp; LLM on Databricks
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Professional Experience -->
+            <section class="resume-section">
+                <h2 class="resume-section-title">
+                    <i class="fas fa-briefcase"></i> Professional Experience
+                </h2>
+
+                <!-- Experience 1: Tech Mahindra -->
+                <article class="timeline-item">
+                    <h3 class="role-title">Solutions Architect</h3>
+                    <div class="role-company">Tech Mahindra</div>
+                    <div class="role-period">Aug 2026 &ndash; Present | Ahmedabad, India / Hybrid</div>
+                    <ul style="list-style: disc; padding-left: 1.25rem; font-size: 0.93rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem;">
+                        <li>Lead enterprise architecture strategy and technical direction for large-scale multi-cloud digital modernization initiatives across Microsoft Azure and AWS.</li>
+                        <li>Spearhead the design and orchestration of resilient, event-driven microservices architectures leveraging .NET 8+, Docker, and Kubernetes container platforms.</li>
+                        <li>Drive cloud security governance, DevSecOps pipelines, and compliance frameworks while mentoring cross-functional engineering teams in architectural best practices.</li>
+                        <li>Incorporate cutting-edge cloud innovations including Agentic AI, Gen AI on Databricks, and modern data governance (Informatica MDM/CDGC) into enterprise solution roadmaps.</li>
+                    </ul>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
+                        <span class="tag tag-blue">Azure</span>
+                        <span class="tag tag-blue">AWS</span>
+                        <span class="tag tag-blue">.NET 8+</span>
+                        <span class="tag tag-teal">Microservices</span>
+                        <span class="tag tag-teal">Kubernetes</span>
+                        <span class="tag tag-teal">Docker</span>
+                        <span class="tag">Cosmos DB</span>
+                        <span class="tag">Datadog</span>
+                        <span class="tag">Snyk</span>
+                        <span class="tag tag-teal">Agentic AI</span>
+                    </div>
+                </article>
+
+                <!-- Experience 2: TCS -->
+                <article class="timeline-item">
+                    <h3 class="role-title">Solutions Architect</h3>
+                    <div class="role-company">Tata Consultancy Services (TCS)</div>
+                    <div class="role-period">Dec 2022 &ndash; Jul 2026 | Ahmedabad, India / Hybrid</div>
+                    <ul style="list-style: disc; padding-left: 1.25rem; font-size: 0.93rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem;">
+                        <li>Architected and designed cloud-native enterprise solutions on Azure/AWS, improving application scalability and performance by over <strong>30%</strong> by migrating monolithic services to a microservices architecture.</li>
+                        <li>Directed and provided technical leadership to <strong>5-6 cross-functional teams (30+ members)</strong>, guiding them on cloud architecture, security best practices, and secure coding standards.</li>
+                        <li>Pioneered the implementation of a secure, multi-tenant microservices platform using .NET Core and Docker, which reduced deployment times by <strong>40%</strong> and enhanced system resilience.</li>
+                        <li>Actively participated in talent acquisition by conducting internal and external interviews to build high-performing teams.</li>
+                        <li>Enforced code quality and consistency through regular code reviews, static analysis with SonarQube, and code formatting with Lint.</li>
+                        <li>Implemented comprehensive cloud and application monitoring using tools like Datadog and Serilog to ensure system health and proactive issue resolution.</li>
+                        <li>Ensured solutions met strict regulatory requirements by guiding teams to achieve compliance with standards such as <strong>GDPR</strong> and <strong>Section 508</strong>.</li>
+                        <li>Applied deep domain expertise in the <strong>Legal, Communication, and Media</strong> sectors to deliver business-aligned solutions.</li>
+                    </ul>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
+                        <span class="tag tag-blue">Azure</span>
+                        <span class="tag tag-blue">AWS</span>
+                        <span class="tag tag-blue">.NET Core</span>
+                        <span class="tag tag-teal">Microservices</span>
+                        <span class="tag">Angular</span>
+                        <span class="tag">React</span>
+                        <span class="tag tag-teal">Docker</span>
+                        <span class="tag tag-teal">Kubernetes</span>
+                        <span class="tag">SQL Server</span>
+                        <span class="tag">Cosmos DB</span>
+                        <span class="tag">Datadog</span>
+                        <span class="tag">Serilog</span>
+                        <span class="tag">SonarQube</span>
+                        <span class="tag tag-blue">Snyk</span>
+                    </div>
+                </article>
+
+                <!-- Experience 3: Azilen Technologies -->
+                <article class="timeline-item">
+                    <h3 class="role-title">Project Lead</h3>
+                    <div class="role-company">Azilen Technologies Pvt. Ltd.</div>
+                    <div class="role-period">Apr 2021 &ndash; Nov 2022</div>
+                    <ul style="list-style: disc; padding-left: 1.25rem; font-size: 0.93rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem;">
+                        <li>Managed the end-to-end SDLC for key client projects, ensuring on-time delivery of high-quality, scalable solutions that met stringent business requirements.</li>
+                        <li>Led system analysis and architecture design for multiple projects, making critical technology decisions that improved system reliability and reduced long-term maintenance costs by <strong>20%</strong>.</li>
+                        <li>Specialized in seamless API integrations and leveraged No Code/Low Code platforms for efficient solution development and deployment.</li>
+                        <li>Provided technical guidance and mentorship to junior developers, elevating team capabilities and fostering a culture of continuous learning.</li>
+                        <li>Oversaw code reviews and implemented best practices to maintain a high standard of code quality across all projects.</li>
+                    </ul>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
+                        <span class="tag tag-blue">Azure</span>
+                        <span class="tag tag-blue">AWS</span>
+                        <span class="tag tag-blue">.NET Core</span>
+                        <span class="tag tag-teal">Microservices</span>
+                        <span class="tag">.NET Framework</span>
+                        <span class="tag">C#</span>
+                        <span class="tag">Angular</span>
+                        <span class="tag">SQL Server</span>
+                        <span class="tag">TypeScript</span>
+                        <span class="tag">Serilog</span>
+                    </div>
+                </article>
+
+                <!-- Experience 4: Analytix Business Solutions -->
+                <article class="timeline-item">
+                    <h3 class="role-title">Technical Lead / Sr. Engineer</h3>
+                    <div class="role-company">Analytix Business Solutions</div>
+                    <div class="role-period">Jan 2013 &ndash; Mar 2021</div>
+                    <ul style="list-style: disc; padding-left: 1.25rem; font-size: 0.93rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem;">
+                        <li>Led development teams through the project lifecycle, making key architectural decisions for technology, structure, and system configuration.</li>
+                        <li>Engineered and optimized complex SQL Server database schemas, leading to a <strong>25% reduction in data retrieval times</strong> for critical features and a significant improvement in application responsiveness.</li>
+                        <li>Served as the primary technical contact for client escalations, providing expert-level troubleshooting and ensuring rapid issue resolution for high-priority incidents.</li>
+                        <li>Provided leadership in daily stand-ups and sprint planning, helping to unblock technical challenges and ensure project milestones were met.</li>
+                        <li>Proficient in integrating with Payroll Systems (Paychex, Kronos, ADP) and POS Systems (Toast, Square) to streamline business operations and ensure compliance.</li>
+                    </ul>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
+                        <span class="tag tag-blue">Azure</span>
+                        <span class="tag tag-blue">AWS</span>
+                        <span class="tag tag-blue">.NET Core</span>
+                        <span class="tag tag-teal">Microservices</span>
+                        <span class="tag">.NET Framework</span>
+                        <span class="tag">C#</span>
+                        <span class="tag">Angular</span>
+                        <span class="tag">SQL Server</span>
+                        <span class="tag">TypeScript</span>
+                        <span class="tag">Serilog</span>
+                        <span class="tag">jQuery</span>
+                        <span class="tag">T-SQL</span>
+                    </div>
+                </article>
+
+                <!-- Experience 5: Software Engineer -->
+                <article class="timeline-item">
+                    <h3 class="role-title">Software Engineer</h3>
+                    <div class="role-company">Analytix, Pragra Infratech, Cybersurf</div>
+                    <div class="role-period">Jan 2010 &ndash; Dec 2012</div>
+                    <ul style="list-style: disc; padding-left: 1.25rem; font-size: 0.93rem; color: var(--text-secondary); line-height: 1.7;">
+                        <li>Developed code using the .NET Framework and SQL to deliver projects in diverse domains including RFID, e-commerce, and Sports.</li>
+                        <li>Created and maintained reporting solutions using tools like Crystal Reports and RDLC Reporting to provide crucial business insights.</li>
+                    </ul>
+                </article>
+            </section>
+
+            <!-- Active Certifications Section -->
+            <section class="resume-section">
+                <h2 class="resume-section-title">
+                    <i class="fas fa-certificate"></i> Active Professional Certifications
+                </h2>
+
+                <!-- 1. Microsoft Azure -->
+                <div style="margin-bottom: 1.75rem;">
+                    <h3 style="font-size: 1rem; color: #60A5FA; font-weight: 700; text-transform: uppercase; font-family: var(--font-mono); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="fab fa-microsoft"></i> Microsoft Azure Certifications
+                    </h3>
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+                        <div class="cert-card">
+                            <div class="mono" style="font-size: 0.75rem; color: #F59E0B; font-weight: 700;">AZ-305 &bull; EXPERT</div>
+                            <h4 style="font-size: 0.95rem; color: #FFFFFF; margin: 0.25rem 0;">Azure Solutions Architect Expert</h4>
+                            <span class="tag tag-blue" style="font-size: 0.72rem;">Microsoft Certified | AZ-305 Expert</span>
+                        </div>
+
+                        <div class="cert-card">
+                            <div class="mono" style="font-size: 0.75rem; color: #38BDF8; font-weight: 700;">AZ-104 &bull; ASSOCIATE</div>
+                            <h4 style="font-size: 0.95rem; color: #FFFFFF; margin: 0.25rem 0;">Azure Administrator Associate</h4>
+                            <span class="tag tag-blue" style="font-size: 0.72rem;">Microsoft Certified | AZ-104 Associate</span>
+                        </div>
+
+                        <div class="cert-card">
+                            <div class="mono" style="font-size: 0.75rem; color: #2DD4BF; font-weight: 700;">DP-420 &bull; SPECIALTY</div>
+                            <h4 style="font-size: 0.95rem; color: #FFFFFF; margin: 0.25rem 0;">Azure Cosmos DB Developer Specialty</h4>
+                            <span class="tag tag-teal" style="font-size: 0.72rem;">Microsoft Certified | DP-420 Specialty</span>
+                        </div>
+
+                        <div class="cert-card">
+                            <div class="mono" style="font-size: 0.75rem; color: #A78BFA; font-weight: 700;">AI-900 &bull; FUNDAMENTALS</div>
+                            <h4 style="font-size: 0.95rem; color: #FFFFFF; margin: 0.25rem 0;">Azure AI Fundamentals</h4>
+                            <span class="tag" style="font-size: 0.72rem;">Microsoft Certified | AI-900 Fundamentals</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Informatica Certifications -->
+                <div style="margin-bottom: 1.75rem;">
+                    <h3 style="font-size: 1rem; color: #F59E0B; font-weight: 700; text-transform: uppercase; font-family: var(--font-mono); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="fas fa-database"></i> Informatica Certified Credentials
+                    </h3>
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+                        <div class="cert-card">
+                            <div class="mono" style="font-size: 0.75rem; color: var(--teal-light);">MDM SAAS &bull; FOUNDATION</div>
+                            <h4 style="font-size: 0.95rem; color: #FFFFFF; margin: 0.25rem 0;">MDM SaaS Foundation</h4>
+                            <span class="tag tag-teal" style="font-size: 0.72rem;">Informatica Certified | Foundation</span>
+                        </div>
+
+                        <div class="cert-card">
+                            <div class="mono" style="font-size: 0.75rem; color: var(--blue-accent);">MDM ASSOCIATE</div>
+                            <h4 style="font-size: 0.95rem; color: #FFFFFF; margin: 0.25rem 0;">MDM SaaS Associate</h4>
+                            <span class="tag tag-blue" style="font-size: 0.72rem;">Informatica Certified | Associate</span>
+                        </div>
+
+                        <div class="cert-card">
+                            <div class="mono" style="font-size: 0.75rem; color: var(--teal-light);">CDGC &bull; GOVERNANCE</div>
+                            <h4 style="font-size: 0.95rem; color: #FFFFFF; margin: 0.25rem 0;">Cloud Data Governance &amp; Catalog Foundation</h4>
+                            <span class="tag tag-teal" style="font-size: 0.72rem;">Informatica Certified | Foundation</span>
+                        </div>
+
+                        <div class="cert-card">
+                            <div class="mono" style="font-size: 0.75rem; color: var(--blue-accent);">iPaaS &bull; INTEGRATION</div>
+                            <h4 style="font-size: 0.95rem; color: #FFFFFF; margin: 0.25rem 0;">iPaaS Foundation</h4>
+                            <span class="tag tag-blue" style="font-size: 0.72rem;">Informatica Certified | Foundation</span>
+                        </div>
+
+                        <div class="cert-card">
+                            <div class="mono" style="font-size: 0.75rem; color: var(--teal-light);">IDMC &bull; DATABRICKS</div>
+                            <h4 style="font-size: 0.95rem; color: #FFFFFF; margin: 0.25rem 0;">IDMC for Databricks Foundation Series</h4>
+                            <span class="tag" style="font-size: 0.72rem;">Informatica Certified</span>
+                        </div>
+
+                        <div class="cert-card">
+                            <div class="mono" style="font-size: 0.75rem; color: var(--blue-accent);">GPTS-CDGC</div>
+                            <h4 style="font-size: 0.95rem; color: #FFFFFF; margin: 0.25rem 0;">GPTS-CDGC Associate Bootcamp Series</h4>
+                            <span class="tag" style="font-size: 0.72rem;">Informatica Certified</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. ServiceNow, Snyk, MongoDB, Databricks, AI & Cloud Certifications -->
+                <div>
+                    <h3 style="font-size: 1rem; color: #2DD4BF; font-weight: 700; text-transform: uppercase; font-family: var(--font-mono); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="fas fa-brain"></i> AI, Security, Cloud &amp; Ecosystem Certifications
+                    </h3>
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+                        <div class="cert-card">
+                            <div class="mono" style="font-size: 0.75rem; color: #10B981;">SERVICENOW &bull; EXECUTIVE</div>
+                            <h4 style="font-size: 0.95rem; color: #FFFFFF; margin: 0.25rem 0;">Now Assist Executive</h4>
+                            <span class="tag tag-teal" style="font-size: 0.72rem;">ServiceNow Micro-Certification | Executive</span>
+                        </div>
+
+                        <div class="cert-card">
+                            <div class="mono" style="font-size: 0.75rem; color: #10B981;">SERVICENOW &bull; AGENTIC AI</div>
+                            <h4 style="font-size: 0.95rem; color: #FFFFFF; margin: 0.25rem 0;">Agentic AI Executive</h4>
+                            <span class="tag tag-teal" style="font-size: 0.72rem;">ServiceNow Micro-Certification | Executive</span>
+                        </div>
+
+                        <div class="cert-card">
+                            <div class="mono" style="font-size: 0.75rem; color: #A78BFA;">SNYK &bull; OCT 2025</div>
+                            <h4 style="font-size: 0.95rem; color: #FFFFFF; margin: 0.25rem 0;">Snyk Certified Technical Professional</h4>
+                            <span class="tag" style="font-size: 0.72rem;">Snyk | Issued Oct 2025</span>
+                        </div>
+
+                        <div class="cert-card">
+                            <div class="mono" style="font-size: 0.75rem; color: #A78BFA;">SNYK &bull; NOV 2025</div>
+                            <h4 style="font-size: 0.95rem; color: #FFFFFF; margin: 0.25rem 0;">Snyk Implementation Pro</h4>
+                            <span class="tag" style="font-size: 0.72rem;">Snyk | Issued Nov 2025</span>
+                        </div>
+
+                        <div class="cert-card">
+                            <div class="mono" style="font-size: 0.75rem; color: #10B981;">MONGODB &bull; NOV 2025</div>
+                            <h4 style="font-size: 0.95rem; color: #FFFFFF; margin: 0.25rem 0;">MongoDB SI Associate</h4>
+                            <span class="tag tag-teal" style="font-size: 0.72rem;">MongoDB | Issued Nov 2025</span>
+                        </div>
+
+                        <div class="cert-card">
+                            <div class="mono" style="font-size: 0.75rem; color: #F59E0B;">DATABRICKS ACADEMY</div>
+                            <h4 style="font-size: 0.95rem; color: #FFFFFF; margin: 0.25rem 0;">Academy Accreditation - Databricks Fundamentals</h4>
+                            <span class="tag" style="font-size: 0.72rem;">Databricks Academy | Fundamentals</span>
+                        </div>
+
+                        <div class="cert-card">
+                            <div class="mono" style="font-size: 0.75rem; color: #F59E0B;">DATABRICKS ACADEMY &bull; GEN AI</div>
+                            <h4 style="font-size: 0.95rem; color: #FFFFFF; margin: 0.25rem 0;">Partner Training - Gen AI &amp; LLM on Databricks</h4>
+                            <span class="tag tag-teal" style="font-size: 0.72rem;">Databricks Academy | Specialty</span>
+                        </div>
+
+                        <div class="cert-card">
+                            <div class="mono" style="font-size: 0.75rem; color: #EC4899;">PENDO &bull; PRODUCT AI</div>
+                            <h4 style="font-size: 0.95rem; color: #FFFFFF; margin: 0.25rem 0;">AI for Product Management</h4>
+                            <span class="tag" style="font-size: 0.72rem;">Pendo | Specialty</span>
+                        </div>
+
+                        <div class="cert-card">
+                            <div class="mono" style="font-size: 0.75rem; color: #38BDF8;">FOUNDATION</div>
+                            <h4 style="font-size: 0.95rem; color: #FFFFFF; margin: 0.25rem 0;">GitHub Foundation</h4>
+                            <span class="tag tag-blue" style="font-size: 0.72rem;">GitHub Certified | Foundation</span>
+                        </div>
+
+                        <div class="cert-card">
+                            <div class="mono" style="font-size: 0.75rem; color: #F59E0B;">AWS &bull; ASSOCIATE</div>
+                            <h4 style="font-size: 0.95rem; color: #FFFFFF; margin: 0.25rem 0;">AWS Developer Associate</h4>
+                            <span class="tag" style="font-size: 0.72rem;">Amazon Web Services</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Awards & Honors -->
+            <section class="resume-section">
+                <h2 class="resume-section-title">
+                    <i class="fas fa-trophy"></i> Awards &amp; Honors
+                </h2>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;">
+                    <!-- TCS Awards -->
+                    <div class="award-card">
+                        <h3 style="font-size: 0.95rem; color: #60A5FA; font-weight: 700; margin-bottom: 0.5rem;">Tata Consultancy Services</h3>
+                        <ul style="list-style: none; font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
+                            <li><i class="fas fa-medal" style="color: #F59E0B; margin-right: 0.4rem;"></i> On the Spot (Team) Award</li>
+                            <li><i class="fas fa-medal" style="color: #F59E0B; margin-right: 0.4rem;"></i> Special Initiative Award</li>
+                            <li><i class="fas fa-medal" style="color: #F59E0B; margin-right: 0.4rem;"></i> Best Team &amp; Applause Award</li>
+                            <li><i class="fas fa-medal" style="color: #F59E0B; margin-right: 0.4rem;"></i> Learning Achievement Award</li>
+                            <li><i class="fas fa-medal" style="color: #F59E0B; margin-right: 0.4rem;"></i> Star of the Month Award</li>
+                        </ul>
+                    </div>
+
+                    <!-- Azilen Awards -->
+                    <div class="award-card">
+                        <h3 style="font-size: 0.95rem; color: var(--teal-light); font-weight: 700; margin-bottom: 0.5rem;">Azilen Technologies</h3>
+                        <ul style="list-style: none; font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
+                            <li><i class="fas fa-award" style="color: var(--teal-light); margin-right: 0.4rem;"></i> Fuel Innovation: Q4 2021 (Jan 2022)</li>
+                            <li><i class="fas fa-award" style="color: var(--teal-light); margin-right: 0.4rem;"></i> I3C Hackathon Winner: Jan 2022</li>
+                            <li><i class="fas fa-award" style="color: var(--teal-light); margin-right: 0.4rem;"></i> Rising Star: Jul 2021</li>
+                        </ul>
+                    </div>
+
+                    <!-- Analytix Awards -->
+                    <div class="award-card">
+                        <h3 style="font-size: 0.95rem; color: #A78BFA; font-weight: 700; margin-bottom: 0.5rem;">Analytix Business Solutions</h3>
+                        <ul style="list-style: none; font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
+                            <li><i class="fas fa-award" style="color: #A78BFA; margin-right: 0.4rem;"></i> Analytix Impact Maker: Oct 2020</li>
+                            <li><i class="fas fa-award" style="color: #A78BFA; margin-right: 0.4rem;"></i> Hackathon Winner: Dec 2019</li>
+                            <li><i class="fas fa-award" style="color: #A78BFA; margin-right: 0.4rem;"></i> Customer Excellence: Sep 2016</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Hackathon Wins -->
+            <section class="resume-section">
+                <h2 class="resume-section-title">
+                    <i class="fas fa-laptop-code"></i> Hackathon Wins
+                </h2>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+                    <div class="hackathon-card">
+                        <i class="fas fa-trophy" style="font-size: 1.5rem; color: #F59E0B;"></i>
+                        <div>
+                            <strong style="color: #FFFFFF; font-size: 0.92rem; display: block;">CMI Hackathon Winner (Sep 2025)</strong>
+                            <span style="font-size: 0.8rem; color: var(--text-secondary);">Tata Consultancy Services</span>
+                        </div>
+                    </div>
+
+                    <div class="hackathon-card">
+                        <i class="fas fa-trophy" style="font-size: 1.5rem; color: #F59E0B;"></i>
+                        <div>
+                            <strong style="color: #FFFFFF; font-size: 0.92rem; display: block;">13x Weekly Hackathon Winner</strong>
+                            <span style="font-size: 0.8rem; color: var(--text-secondary);">Tata Consultancy Services</span>
+                        </div>
+                    </div>
+
+                    <div class="hackathon-card">
+                        <i class="fas fa-trophy" style="font-size: 1.5rem; color: var(--teal-light);"></i>
+                        <div>
+                            <strong style="color: #FFFFFF; font-size: 0.92rem; display: block;">I3C Hackathon Winner (Jan 2022)</strong>
+                            <span style="font-size: 0.8rem; color: var(--text-secondary);">Azilen Technologies Pvt. Ltd.</span>
+                        </div>
+                    </div>
+
+                    <div class="hackathon-card">
+                        <i class="fas fa-trophy" style="font-size: 1.5rem; color: #38BDF8;"></i>
+                        <div>
+                            <strong style="color: #FFFFFF; font-size: 0.92rem; display: block;">Hackathon Winner (Dec 2019)</strong>
+                            <span style="font-size: 0.8rem; color: var(--text-secondary);">Analytix Business Solutions</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Education -->
+            <section class="resume-section" style="margin-bottom: 0;">
+                <h2 class="resume-section-title">
+                    <i class="fas fa-graduation-cap"></i> Education
+                </h2>
+                <div>
+                    <h3 style="font-size: 1.05rem; color: #FFFFFF; margin-bottom: 0.2rem;">BE, Computer Engineering</h3>
+                    <div style="font-size: 0.88rem; color: var(--text-secondary);">HNGU (2006 &ndash; 2010)</div>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- =====================================================================
+             ENTERPRISE CONTACT SECTION & FORM (Web Screen Only - Excluded from Print/PDF)
+             ===================================================================== -->
+        <section class="booking-box" id="contact" style="max-width: 960px; margin: 0 auto 5rem auto;">
+            <div style="text-align: center; max-width: 650px; margin: 0 auto 2.5rem auto;">
+                <span class="section-eyebrow">
+                    <i class="fas fa-paper-plane"></i> Direct Executive Inquiry
+                </span>
+                <h2 style="font-size: 2.2rem; color: #FFFFFF; font-weight: 800;">Enterprise Contact &amp; Advisory</h2>
+                <p style="color: var(--text-secondary); font-size: 0.98rem; margin-top: 0.5rem;">
+                    Initiate an inquiry regarding Solutions Architecture Leadership roles, Strategic Cloud Advisory, or Technical Consultations.
+                </p>
+                <div style="display: flex; justify-content: center; gap: 1.5rem; margin-top: 1.25rem;">
+                    <a href="https://www.linkedin.com/in/dipen-shah/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+                        <i class="fab fa-linkedin-in"></i> LinkedIn Profile
+                    </a>
+                    <a href="mailto:erdipenshah23@gmail.com" class="btn btn-outline-teal btn-sm">
+                        <i class="fas fa-envelope"></i> erdipenshah23@gmail.com
+                    </a>
+                    <a href="https://topmate.io/dipen_shah" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+                        <i class="fas fa-calendar-check"></i> Book on Topmate
+                    </a>
+                </div>
             </div>
 
-            <section class="sidebar-section skills-list">
-                <h3 class="sidebar-title">Key Skills</h3>
-                <p><strong>Cloud Platforms:</strong> Microsoft Azure, Amazon Web Services (AWS)</p>
-                <p><strong>Backend Development:</strong> ASP.NET, .NET Core, .NET 8+, C#, Microservices Architecture</p>
-                <p><strong>Databases:</strong> SQL Server, Cosmos DB, MongoDB</p>
-                <p><strong>Frontend Development:</strong> Angular, React, TypeScript, JavaScript, jQuery</p>
-                <p><strong>DevOps & Containerization:</strong> Docker, Kubernetes, CI/CD (Azure DevOps, GitHub Actions,
-                    Jenkins)</p>
-                <p><strong>Architecture & Design:</strong> Domain-Driven Design (DDD), Design Patterns, Event-Driven
-                    Architecture, Microservices Best Practices</p>
-                <p><strong>AI & Cloud Services:</strong> Microsoft AI (Cognitive Services, Azure OpenAI, ML integration)
-                </p>
-            </section>
-
-            <section class="sidebar-section contact-info">
-                <h3 class="sidebar-title">Contact</h3>
-                <a href="mailto:erdipenshah23@gmail.com"><i class="fas fa-envelope"></i> erdipenshah23@gmail.com</a>
-                <span><i class="fas fa-map-marker-alt"></i> Ahmedabad, India</span>
-                <a href="https://www.linkedin.com/in/dipen-shah/" target="_blank"><i class="fab fa-linkedin"></i>
-                    /in/dipen-shah</a>
-                <a href="https://github.com/dkshah" target="_blank"><i class="fab fa-github"></i> /dkshah</a>
-            </section>
-
-            <section class="sidebar-section">
-                <h3 class="sidebar-title">Certifications</h3>
-                <div class="cert-item">
-                    <h4>Microsoft Azure</h4>
-                    <small>
-                        <ul style="list-style-type: disc; padding-left: 20px;">
-                            <li>Azure Solutions Architect Expert - AZ-305</li>
-                            <li>Azure Administrator Associate - AZ-104</li>
-                            <li>Azure Cosmos DB Developer Specialty - DP-420</li>
-                            <li>Azure AI Fundamentals - AI-900</li>
-                        </ul>
-                    </small>
-                </div>
-                <div class="cert-item">
-                    <h4>Informatica</h4>
-                    <small>
-                        <ul style="list-style-type: disc; padding-left: 20px;">
-                            <li>MDM SaaS Foundation</li>
-                            <li>MDM SaaS Associate</li>
-                            <li>Cloud Data Governance & Catalog Foundation Series</li>
-                            <li>iPaaS Foundation</li>
-                            <li>IDMC for Databricks Foundation Series</li>
-                            <li>GPTS-CDGC Associate Bootcamp Series-Certification</li>
-                        </ul>
-                    </small>
-                </div>
-                <div class="cert-item">
-                    <h4>Databricks Academy</h4>
-                    <small>
-                        <ul style="list-style-type: disc; padding-left: 20px;">
-                            <li>Academy Accreditation - Databricks Fundamentals</li>
-                            <li>Partner Training - Gen AI & LLM on Databricks</li>
-                        </ul>
-                    </small>
-                </div>
-                <div class="cert-item">
-                    <h4>Other</h4>
-                    <small>
-                        <ul style="list-style-type: disc; padding-left: 20px;">
-                            <li>AWS Developer Associate</li>
-                            <li>GitHub Foundation</li>
-                            <li>AI for Product Management</li>
-                            <li>Snyk Certified Technical Professional</li>
-                            <li>Snyk Implementation Pro</li>
-                            <li>MongoDB SI Associate</li>
-                        </ul>
-                    </small>
-                </div>
-            </section>
-
-            <section class="sidebar-section">
-                <h3 class="sidebar-title">Awards</h3>
-                <div class="cert-item">
-                    <h4>Azilen Technologies</h4>
-                    <small>
-                        <ul style="list-style-type: disc; padding-left: 20px;">
-                            <li>Fuel Innovation: Q4 2021 (Jan 2022)</li>
-                            <li>I3C Hackathon Winner: Jan 2022</li>
-                            <li>Rising Star: Jul 2021</li>
-                        </ul>
-                    </small>
-                </div>
-                <div class="cert-item">
-                    <h4>Analytix Business Solutions</h4>
-                    <small>
-                        <ul style="list-style-type: disc; padding-left: 20px;">
-                            <li>Analytix Impact Maker: Oct 2020</li>
-                            <li>Hackathon Winner: Dec 2019</li>
-                            <li>Customer Excellence: Sep 2016</li>
-                        </ul>
-                    </small>
-                </div>
-                <div class="cert-item">
-                    <h4>TCS</h4>
-                    <small>
-                        <ul style="list-style-type: disc; padding-left: 20px;">
-                            <li>On the Spot (Team) Award</li>
-                            <li>Special Initiative Award</li>
-                            <li>Best Team & Applause Award</li>
-                            <li>Learning Achievement Award</li>
-                            <li>Star of the Month Award</li>
-                        </ul>
-                    </small>
-                </div>
-            </section>
-
-            <section class="sidebar-section">
-                <h3 class="sidebar-title">Hackathon Wins</h3>
-                <div class="cert-item">
-                    <h4>I3C Hackathon Winner</h4>
-                    <small>Azilen Technologies Pvt. Ltd. (Jan 2022)</small>
-                </div>
-                <div class="cert-item">
-                    <h4>Hackathon Winner</h4>
-                    <small>Analytix Business Solutions (Dec 2019)</small>
-                </div>
-                <div class="cert-item">
-                    <h4>CMI Hackathon Winner</h4>
-                    <small>Tata Consultancy Services (Sep 2025)</small>
-                </div>
-                <div class="cert-item">
-                    <h4>13x Weekly Hackathon Winner</h4>
-                    <small>Tata Consultancy Services</small>
-                </div>
-            </section>
-
-            <section class="sidebar-section">
-                <h3 class="sidebar-title">Education</h3>
-                <div class="cert-item">
-                    <h4>BE, Computer Engineering</h4>
-                    <small>HNGU (2006 - 2010)</small>
-                </div>
-            </section>
-        </aside>
-
-        <main class="main-content">
-            <section class="summary">
-                <h2 class="main-title"><i class="fas fa-user-tie"></i> Professional Summary</h2>
-                <p>
-                    A strategic and highly accomplished Solution Architect with over 15 years of experience leading the
-                    design and implementation of large-scale, enterprise-level applications. Proven expertise in
-                    defining technical vision, roadmaps, and architectural strategy for complex software ecosystems on
-                    .NET, Azure, and AWS. Adept at leading and mentoring cross-functional teams of 30+ engineers,
-                    fostering a culture of innovation and high performance. My focus is on delivering secure, scalable,
-                    and resilient solutions that align with core business objectives and leverage cloud-native services
-                    and modern architectural patterns.
-                </p>
-            </section>
-
-            <section>
-                <h2 class="main-title"><i class="fas fa-briefcase"></i> Professional Experience</h2>
-
-                <div class="job">
-                    <div class="job-header">
-                        <div>
-                            <div class="job-title">Solutions Architect</div>
-                            <div class="job-company">Tata Consultancy Services (TCS)</div>
-                        </div>
-                        <div class="job-date">Dec 2022 - Present</div>
+            <form id="enterprise-contact-form" onsubmit="handleContactSubmit(event)" style="max-width: 720px; margin: 0 auto;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+                    <div>
+                        <label style="display: block; font-size: 0.88rem; font-weight: 600; color: #FFFFFF; margin-bottom: 0.5rem;">Full Name *</label>
+                        <input type="text" id="contact-name" class="input-field" placeholder="e.g., Sarah Jenkins" required>
                     </div>
-                    <ul>
-                        <li>Architected and designed cloud-native enterprise solutions on Azure/AWS, improving
-                            application scalability and performance by over 30% by migrating monolithic services to a
-                            microservices architecture.</li>
-                        <li>Directed and provided technical leadership to 5-6 cross-functional teams (30+ members),
-                            guiding them on cloud architecture, security best practices, and secure coding standards.
-                        </li>
-                        <li>Pioneered the implementation of a secure, multi-tenant microservices platform using .NET
-                            Core and Docker, which reduced deployment times by 40% and enhanced system resilience.</li>
-                        <li>Actively participated in talent acquisition by conducting internal and external interviews
-                            to build high-performing teams.</li>
-                        <li>Enforced code quality and consistency through regular code reviews, static analysis with
-                            SonarQube, and code formatting with Lint.</li>
-                        <li>Implemented comprehensive cloud and application monitoring using tools like Datadog and
-                            Serilog to ensure system health and proactive issue resolution.</li>
-                        <li>Ensured solutions met strict regulatory requirements by guiding teams to achieve compliance
-                            with standards such as GDPR and Section 508.</li>
-                        <li>Applied deep domain expertise in the Legal, Communication, and Media sectors to deliver
-                            business-aligned solutions.</li>
-                    </ul>
-                    <ul class="tech-list">
-                        <li>Azure</li>
-                        <li>AWS</li>
-                        <li>.NET Core</li>
-                        <li>Microservices</li>
-                        <li>Angular</li>
-                        <li>React</li>
-                        <li>Docker</li>
-                        <li>Kubernetes</li>
-                        <li>SQL Server</li>
-                        <li>Cosmos DB</li>
-                        <li>Datadog</li>
-                        <li>Serilog</li>
-                        <li>SonarQube</li>
-                        <li>Snyk</li>
-                    </ul>
+                    <div>
+                        <label style="display: block; font-size: 0.88rem; font-weight: 600; color: #FFFFFF; margin-bottom: 0.5rem;">Work Email Address *</label>
+                        <input type="email" id="contact-email" class="input-field" placeholder="e.g., s.jenkins@enterprise.com" required>
+                    </div>
                 </div>
 
-                <div class="job">
-                    <div class="job-header">
-                        <div>
-                            <div class="job-title">Project Lead</div>
-                            <div class="job-company">Azilen Technologies Pvt. Ltd.</div>
-                        </div>
-                        <div class="job-date">Apr 2021 - Nov 2022</div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+                    <div>
+                        <label style="display: block; font-size: 0.88rem; font-weight: 600; color: #FFFFFF; margin-bottom: 0.5rem;">Organization / Company *</label>
+                        <input type="text" id="contact-company" class="input-field" placeholder="e.g., Global Enterprise Corp" required>
                     </div>
-                    <ul>
-                        <li>Managed the end-to-end SDLC for key client projects, ensuring on-time delivery of
-                            high-quality, scalable solutions that met stringent business requirements.</li>
-                        <li>Led system analysis and architecture design for multiple projects, making critical
-                            technology decisions that improved system reliability and reduced long-term maintenance
-                            costs by 20%.</li>
-                        <li>Specialized in seamless API integrations and leveraged No Code/Low Code platforms for
-                            efficient solution development and deployment.</li>
-                        <li>Provided technical guidance and mentorship to junior developers, elevating team capabilities
-                            and fostering a culture of continuous learning.</li>
-                        <li>Oversaw code reviews and implemented best practices to maintain a high standard of code
-                            quality across all projects.</li>
-                    </ul>
-                    <ul class="tech-list">
-                        <li>Azure</li>
-                        <li>AWS</li>
-                        <li>.NET Core</li>
-                        <li>Microservices</li>
-                        <li>.NET Framework</li>
-                        <li>C#</li>
-                        <li>Angular</li>
-                        <li>SQL Server</li>
-                        <li>TypeScript</li>
-                        <li>Serilog</li>
-                    </ul>
+                    <div>
+                        <label style="display: block; font-size: 0.88rem; font-weight: 600; color: #FFFFFF; margin-bottom: 0.5rem;">Engagement Nature *</label>
+                        <select id="contact-nature" class="input-field" style="background-color: #111A2E;" required>
+                            <option value="leadership">Solutions Architect Role (Full-time / Advisory)</option>
+                            <option value="audit">Cloud Architecture Review &amp; Migration</option>
+                            <option value="modernization">Microservices &amp; Multi-Cloud Modernization</option>
+                            <option value="mentorship">Technical Mentorship &amp; ARB Coaching</option>
+                        </select>
+                    </div>
                 </div>
 
-                <div class="job">
-                    <div class="job-header">
-                        <div>
-                            <div class="job-title">Technical Lead / Sr. Engineer</div>
-                            <div class="job-company">Analytix Business Solutions</div>
-                        </div>
-                        <div class="job-date">Jan 2013 - Mar 2021</div>
-                    </div>
-                    <ul>
-                        <li>Led development teams through the project lifecycle, making key architectural decisions for
-                            technology, structure, and system configuration.</li>
-                        <li>Engineered and optimized complex SQL Server database schemas, leading to a 25% reduction in
-                            data retrieval times for critical features and a significant improvement in application
-                            responsiveness.</li>
-                        <li>Served as the primary technical contact for client escalations, providing expert-level
-                            troubleshooting and ensuring rapid issue resolution for high-priority incidents.</li>
-                        <li>Provided leadership in daily stand-ups and sprint planning, helping to unblock technical
-                            challenges and ensure project milestones were met.</li>
-                        <li>Proficient in integrating with Payroll Systems (Paychex, Kronos, ADP) and POS Systems
-                            (Toast, Square) to streamline business operations and ensure compliance.</li>
-                    </ul>
-                    <ul class="tech-list">
-                        <li>Azure</li>
-                        <li>AWS</li>
-                        <li>.NET Core</li>
-                        <li>Microservices</li>
-                        <li>.NET Framework</li>
-                        <li>C#</li>
-                        <li>Angular</li>
-                        <li>SQL Server</li>
-                        <li>TypeScript</li>
-                        <li>Serilog</li>
-                        <li>jQuery</li>
-                        <li>T-SQL</li>
-                    </ul>
+                <div style="margin-bottom: 2rem;">
+                    <label style="display: block; font-size: 0.88rem; font-weight: 600; color: #FFFFFF; margin-bottom: 0.5rem;">Executive Message / Scope *</label>
+                    <textarea id="contact-message" class="input-field" rows="4" placeholder="Detail your organization's architectural context, timeline, or consultation objectives..." required></textarea>
                 </div>
 
-                <div class="job">
-                    <div class="job-header">
-                        <div>
-                            <div class="job-title">Software Engineer</div>
-                            <div class="job-company">Analytix, Pragra Infratech, Cybersurf</div>
-                        </div>
-                        <div class="job-date">Jan 2010 - Dec 2012</div>
+                <button type="submit" id="btn-contact-submit" class="btn btn-primary btn-lg" style="width: 100%;">
+                    <i class="fas fa-paper-plane"></i> Send Executive Inquiry
+                </button>
+
+                <div id="contact-success" style="display: none; margin-top: 1.5rem; background: rgba(16, 185, 129, 0.15); border: 1px solid #10B981; border-radius: var(--radius-md); padding: 1.5rem; text-align: center;">
+                    <i class="fas fa-check-circle" style="font-size: 2rem; color: #10B981; margin-bottom: 0.5rem;"></i>
+                    <h4 id="contact-success-title" style="color: #FFFFFF; font-size: 1.2rem;">Inquiry Sent to erdipenshah23@gmail.com</h4>
+                    <p id="contact-success-desc" style="color: var(--text-secondary); font-size: 0.95rem; margin-top: 0.25rem; line-height: 1.6;">
+                        Thank you for reaching out. Your executive inquiry has been addressed directly to <strong>erdipenshah23@gmail.com</strong>. You will receive an executive response within 24 business hours.
+                    </p>
+                    <div id="contact-mailto-fallback" style="margin-top: 1.25rem;">
+                        <a id="contact-mailto-link" href="mailto:erdipenshah23@gmail.com" class="btn btn-secondary btn-sm" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                            <i class="fas fa-envelope-open-text"></i> Launch Direct Email in Gmail / Mail Client
+                        </a>
                     </div>
-                    <ul>
-                        <li>Developed code using the .NET Framework and SQL to deliver projects in diverse domains
-                            including RFID, e-commerce, and Sports.</li>
-                        <li>Created and maintained reporting solutions using tools like Crystal Reports and RDLC
-                            Reporting to provide crucial business insights.</li>
-                    </ul>
                 </div>
-            </section>
-        </main>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- PDF Guidance Notification Toast -->
+    <div id="pdf-guidance-toast" style="position: fixed; bottom: 6.5rem; right: 2rem; background: #0F172A; border: 1px solid var(--blue-accent); color: #FFFFFF; padding: 0.85rem 1.4rem; border-radius: var(--radius-md); font-size: 0.9rem; font-weight: 500; box-shadow: var(--shadow-lg); display: none; z-index: 1000; max-width: 380px;">
+        <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+            <i class="fas fa-file-pdf" style="color: var(--blue-accent); font-size: 1.3rem; margin-top: 0.15rem;"></i>
+            <div>
+                <strong style="color: #FFFFFF; display: block; margin-bottom: 0.25rem;">Preparing Executive PDF</strong>
+                <span style="color: var(--text-secondary); font-size: 0.82rem; line-height: 1.4;">
+                    In the print window, choose <strong style="color: var(--teal-light);">"Save as PDF"</strong> as the destination to download your crisp, vector-sharp document.
+                </span>
+            </div>
+        </div>
     </div>
 
+    <!-- PDF & Interaction Scripts -->
     <script>
-        function downloadResume() {
-            // Hide navigation and toolbar during PDF generation
-            const navbar = document.querySelector('.navbar-modern');
-            const toolbar = document.querySelector('.toolbar');
+        // High-precision print trigger
+        function printResume() {
+            window.print();
+        }
 
-            // Store original display values
-            const navbarDisplay = navbar ? navbar.style.display : '';
-            const toolbarDisplay = toolbar ? toolbar.style.display : '';
+        // Direct PDF Export using native high-precision vector engine
+        function exportPDF() {
+            const guidance = document.getElementById('pdf-guidance-toast');
+            if (guidance) {
+                guidance.style.display = 'block';
+                setTimeout(() => {
+                    guidance.style.display = 'none';
+                }, 5000);
+            }
 
-            // Hide elements
-            if (navbar) navbar.style.display = 'none';
-            if (toolbar) toolbar.style.display = 'none';
+            // Small delay to allow toast to render before browser opens print modal
+            setTimeout(() => {
+                window.print();
+            }, 350);
+        }
 
-            const element = document.getElementById('resume-to-export');
-            const opt = {
-                margin: 0,
-                filename: 'Dipen-Shah-Solution-Architect-Resume.pdf',
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: {
-                    scale: 2,
-                    useCORS: true,
-                    allowTaint: true,
-                    ignoreElements: function (element) {
-                        return element.classList.contains('navbar-modern') ||
-                            element.classList.contains('toolbar');
-                    }
-                },
-                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+        function copyResumeLink() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                const toast = document.getElementById('toast-notify');
+                toast.style.display = 'block';
+                setTimeout(() => {
+                    toast.style.display = 'none';
+                }, 3000);
+            }).catch(() => {
+                alert('Resume link: ' + window.location.href);
+            });
+        }
+
+        function handleContactSubmit(event) {
+            event.preventDefault();
+            const submitBtn = document.getElementById('btn-contact-submit');
+            const originalBtnHTML = submitBtn.innerHTML;
+
+            const name = document.getElementById('contact-name').value.trim();
+            const email = document.getElementById('contact-email').value.trim();
+            const company = document.getElementById('contact-company').value.trim();
+            const natureSelect = document.getElementById('contact-nature');
+            const natureText = natureSelect.options[natureSelect.selectedIndex].text;
+            const message = document.getElementById('contact-message').value.trim();
+
+            // Set loading state
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Transmitting Inquiry to erdipenshah23@gmail.com...</span>';
+
+            // Prepare pre-formatted mailto fallback URL
+            const mailtoSubject = encodeURIComponent(`Enterprise Architecture Inquiry: ${company} - ${name} (${natureText})`);
+            const mailtoBody = encodeURIComponent(
+                `Full Name: ${name}\n` +
+                `Work Email: ${email}\n` +
+                `Organization / Company: ${company}\n` +
+                `Engagement Nature: ${natureText}\n\n` +
+                `Executive Message / Architectural Scope:\n${message}\n\n` +
+                `---\nInquiry dispatched via Dipen Shah - Executive Architecture Portfolio`
+            );
+            const mailtoUrl = `mailto:erdipenshah23@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`;
+
+            // Configure fallback link in the success message
+            const fallbackLink = document.getElementById('contact-mailto-link');
+            if (fallbackLink) {
+                fallbackLink.href = mailtoUrl;
+            }
+
+            const successBox = document.getElementById('contact-success');
+            const successTitle = document.getElementById('contact-success-title');
+            const successDesc = document.getElementById('contact-success-desc');
+
+            // Dispatch via FormSubmit AJAX endpoint directly to erdipenshah23@gmail.com
+            const payload = {
+                _subject: `Enterprise Inquiry: ${company} - ${name} (${natureText})`,
+                _template: 'table',
+                _captcha: 'false',
+                Name: name,
+                Email: email,
+                Organization: company,
+                'Engagement Nature': natureText,
+                Message: message
             };
 
-            html2pdf().set(opt).from(element).save().then(() => {
-                // Restore original display values after PDF generation
-                if (navbar) navbar.style.display = navbarDisplay;
-                if (toolbar) toolbar.style.display = toolbarDisplay;
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 6000);
+
+            fetch('https://formsubmit.co/ajax/erdipenshah23@gmail.com', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(payload),
+                signal: controller.signal
+            })
+            .then(response => {
+                clearTimeout(timeoutId);
+                return response.json();
+            })
+            .then(data => {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnHTML;
+
+                if (successTitle) successTitle.textContent = 'Inquiry Dispatched to erdipenshah23@gmail.com';
+                if (successDesc) {
+                    successDesc.innerHTML = `Thank you, <strong>${name}</strong>. Your executive inquiry on behalf of <strong>${company}</strong> has been transmitted directly to <strong>erdipenshah23@gmail.com</strong>. You will receive an architectural response within 24 business hours.`;
+                }
+
+                successBox.style.display = 'block';
+                successBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                document.getElementById('enterprise-contact-form').reset();
+            })
+            .catch(error => {
+                clearTimeout(timeoutId);
+                console.warn('Direct HTTP dispatch fallback to native mailto client:', error);
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnHTML;
+
+                if (successTitle) successTitle.textContent = 'Inquiry Prepared for erdipenshah23@gmail.com';
+                if (successDesc) {
+                    successDesc.innerHTML = `Thank you, <strong>${name}</strong>. An email draft addressed to <strong>erdipenshah23@gmail.com</strong> has been prepared with your scope details. Click the button below if your email client did not open automatically:`;
+                }
+
+                successBox.style.display = 'block';
+                successBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+                // Trigger direct mailto open
+                window.location.href = mailtoUrl;
             });
         }
     </script>
-</body>
 
+</body>
 </html>

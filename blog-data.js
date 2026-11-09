@@ -1014,7 +1014,7 @@ app.MapPost("/notify", async (
             <ul>
                 <li><a href="https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-10" target="_blank">What's New in .NET 10</a></li>
                 <li><a href="https://learn.microsoft.com/en-us/dotnet/core/compatibility/" target="_blank">Breaking Changes Documentation</a></li>
-                <li><a href="https://github.com/dotnet/upgrade-assistant" target="_blank">.NET Upgrade Assistant</a></li>
+                <li><a href="https://learn.microsoft.com/en-us/dotnet/core/porting/upgrade-assistant-overview" target="_blank">.NET Upgrade Assistant Tool</a></li>
                 <li><a href="https://learn.microsoft.com/en-us/dotnet/core/deploying/native-aot/" target="_blank">Native AOT Deployment</a></li>
             </ul>
 
